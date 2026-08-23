@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.8.23",
- "updated_at": "2026-08-23T03:29:05.996Z",
- "generated_at": "2026-08-23T03:29:05.996Z",
- "source": "models.dev@cc09fc9a0e33d56a055a35ebb68db62add579a10 litellm@4e191273508e79f18396a1f307ef776af57d6817 overrides@db6aacc6752cc9cce9085f85106e054ce8c5d52b",
+ "version": "v2026.8.23.1",
+ "updated_at": "2026-08-23T06:22:55.926Z",
+ "generated_at": "2026-08-23T06:22:55.926Z",
+ "source": "models.dev@59474c399cd8fad063e6f1cfe32784c1425a65e4 litellm@4e191273508e79f18396a1f307ef776af57d6817 overrides@8abef244b1722eeaf7404fe70582d9f271e0bed3",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-08-23T03:29:05.996Z",
-   "commit": "cc09fc9a0e33d56a055a35ebb68db62add579a10",
-   "etag": "W/\"eb5f767e5f3e48a90c8b4100887bea0f\"",
-   "sha256": "eb5f767e5f3e48a90c8b4100887bea0fbe91d611634ccf6a5e7c5776aee24daa",
+   "fetched_at": "2026-08-23T06:22:55.926Z",
+   "commit": "59474c399cd8fad063e6f1cfe32784c1425a65e4",
+   "etag": "W/\"238818d5579c45974613e35f3c551006\"",
+   "sha256": "238818d5579c45974613e35f3c5510067b42b600c94bcf773e989dc0bc4e7c3d",
    "bytes": 4267565
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-08-23T03:29:05.996Z",
+   "fetched_at": "2026-08-23T06:22:55.926Z",
    "commit": "4e191273508e79f18396a1f307ef776af57d6817",
    "etag": "W/\"015c17b9f7696e6acb200a4596e28396cdcbdcb504769c2acd3474d665b82d6f\"",
    "sha256": "4659fb1673b8b48678f344afe794bd3f5a5f7bf057678163dc49b434ca3b4470",
    "bytes": 1838416
   },
-  "overrides_commit": "db6aacc6752cc9cce9085f85106e054ce8c5d52b",
-  "previous_version": null
+  "overrides_commit": "8abef244b1722eeaf7404fe70582d9f271e0bed3",
+  "previous_version": "v2026.8.23"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -20337,7 +20337,7 @@
      "id": "deepinfra/deepseek-ai/DeepSeek-V4-Pro-0813",
      "name": "DeepSeek V4 Pro 0813",
      "release_date": "2026-08-12",
-     "tool_call": false,
+     "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 384000,
      "input_modalities": [
