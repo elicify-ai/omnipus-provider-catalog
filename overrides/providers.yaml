@@ -1,0 +1,178 @@
+# Provider-level overrides, keyed by models.dev provider id. Applied LAST — wins
+# over models.dev and LiteLLM. Every row needs a `reason`. Format: overrides/README.md.
+#
+# Verification legend used in reasons:
+#   fetch-verified YYYY-MM-DD <url>  — the literal base URL was read from that public page by the assembler author on that date
+#   docs <url> (not fetch-verified)  — the page exists but is JavaScript-rendered / could not be read by a plain fetch; URL taken from the vendor's documentation as known
+#   source <url>                      — not a docs page (e.g. an open-source client's source)
+
+providers:
+  # ----- Popular tier (spec FR-018 / US-8.AC1; ADR-067 §4.2) -----
+  openai:
+    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://platform.openai.com/docs/api-reference (shows https://api.openai.com/v1/models). sign_in: ChatGPT subscription sign-in per ADR-068."
+    api: https://api.openai.com/v1
+    protocol: openai-compatible
+    tier: popular
+    auth_methods: [api_key, sign_in]
+    aliases: [gpt, chatgpt]
+  anthropic:
+    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://docs.anthropic.com/en/api/overview (https://api.anthropic.com; Omnipus appends /v1/messages and /v1/models per spec FR-021)."
+    api: https://api.anthropic.com
+    protocol: anthropic
+    tier: popular
+    aliases: [claude]
+  openrouter:
+    reason: "Popular set (spec FR-018). URL is models.dev's own (https://openrouter.ai/api/v1); OpenRouter's model list is NOT copied here (terms of service) — only models.dev's table of it is used."
+    tier: popular
+  google:
+    reason: "Popular set (spec FR-018). Gemini OpenAI-compatible base fetch-verified 2026-08-23 https://ai.google.dev/gemini-api/docs/openai (https://generativelanguage.googleapis.com/v1beta/openai). Protocol google = HTTP provider at this URL with Bearer auth (spec F-13/FR-012)."
+    api: https://generativelanguage.googleapis.com/v1beta/openai
+    protocol: google
+    tier: popular
+    aliases: [gemini]
+  xai:
+    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://docs.x.ai/docs/overview (https://api.x.ai/v1). sign_in listed per the assembler brief (xAI subscription sign-in, ADR-068)."
+    api: https://api.x.ai/v1
+    protocol: openai-compatible
+    tier: popular
+    auth_methods: [api_key, sign_in]
+    aliases: [grok]
+  groq:
+    reason: "Popular set (spec FR-018). OpenAI-compatible base fetch-verified 2026-08-23 https://console.groq.com/docs/openai (https://api.groq.com/openai/v1)."
+    api: https://api.groq.com/openai/v1
+    protocol: openai-compatible
+    tier: popular
+  mistral:
+    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://docs.mistral.ai/api/ (https://api.mistral.ai/v1)."
+    api: https://api.mistral.ai/v1
+    protocol: openai-compatible
+    tier: popular
+  deepseek:
+    reason: "Popular set (spec FR-018). Primary URL is models.dev's (https://api.deepseek.com). Second protocol: Anthropic-compatible endpoint https://api.deepseek.com/anthropic — docs https://api-docs.deepseek.com/guides/anthropic_api (not fetch-verified; page is JS-rendered)."
+    tier: popular
+    protocols:
+      - { protocol: openai-compatible, api: https://api.deepseek.com }
+      - { protocol: anthropic, api: https://api.deepseek.com/anthropic }
+
+  # ----- Unsupported: cloud-IAM auth (spec US-8.AC2, FR-026) -----
+  amazon-bedrock:
+    reason: "SigV4 auth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    tier: unsupported
+    unsupported_reason: cloud-iam
+    aliases: [bedrock, aws]
+  google-vertex:
+    reason: "GCP OAuth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    tier: unsupported
+    unsupported_reason: cloud-iam
+    aliases: [vertex]
+  google-vertex-anthropic:
+    reason: "GCP OAuth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    tier: unsupported
+    unsupported_reason: cloud-iam
+  watsonx:
+    reason: "IBM IAM; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    tier: unsupported
+    unsupported_reason: cloud-iam
+  sap-ai-core:
+    reason: "SAP service-key auth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    tier: unsupported
+    unsupported_reason: cloud-iam
+
+  # ----- Unsupported: deployment-specific URL (spec F-16) -----
+  azure:
+    reason: "Base URL is per-resource (https://<resource>.openai.azure.com); no fixed public base (spec F-16: deployment-url)."
+    tier: unsupported
+    unsupported_reason: deployment-url
+    aliases: [azure-openai]
+  azure-cognitive-services:
+    reason: "Per-resource endpoint, same as azure (deployment-url)."
+    tier: unsupported
+    unsupported_reason: deployment-url
+
+  # ----- Dedicated-SDK providers models.dev lists without a URL; OpenAI-compatible on the wire (spec US-2.AC3) -----
+  cerebras:
+    reason: "Base URL fetch-verified 2026-08-23 https://inference-docs.cerebras.ai/resources/openai (https://api.cerebras.ai/v1)."
+    api: https://api.cerebras.ai/v1
+    protocol: openai-compatible
+  togetherai:
+    reason: "docs https://docs.together.ai/docs/openai-api-compatibility (not fetch-verified; JS-rendered). Base https://api.together.xyz/v1 as documented there."
+    api: https://api.together.xyz/v1
+    protocol: openai-compatible
+    aliases: [together]
+  deepinfra:
+    reason: "Base URL fetch-verified 2026-08-23 https://deepinfra.com/docs/openai_api (https://api.deepinfra.com/v1/openai)."
+    api: https://api.deepinfra.com/v1/openai
+    protocol: openai-compatible
+  perplexity:
+    reason: "Base URL fetch-verified 2026-08-23 https://docs.perplexity.ai/guides/chat-completions-guide (https://api.perplexity.ai; chat completions at /chat/completions)."
+    api: https://api.perplexity.ai
+    protocol: openai-compatible
+  cohere:
+    reason: "Compatibility API base fetch-verified 2026-08-23 https://docs.cohere.com/docs/compatibility-api (https://api.cohere.ai/compatibility/v1)."
+    api: https://api.cohere.ai/compatibility/v1
+    protocol: openai-compatible
+  venice:
+    reason: "Base URL fetch-verified 2026-08-23 https://docs.venice.ai/overview/getting-started (https://api.venice.ai/api/v1)."
+    api: https://api.venice.ai/api/v1
+    protocol: openai-compatible
+  vercel:
+    reason: "Vercel AI Gateway OpenAI-compatible base fetch-verified 2026-08-23 https://vercel.com/docs/ai-gateway/openai-compat (https://ai-gateway.vercel.sh/v1)."
+    api: https://ai-gateway.vercel.sh/v1
+    protocol: openai-compatible
+    aliases: [ai-gateway]
+  v0:
+    reason: "docs https://v0.app/docs/api/model (not fetch-verified; JS-rendered). Base https://api.v0.dev/v1 as documented there."
+    api: https://api.v0.dev/v1
+    protocol: openai-compatible
+  aihubmix:
+    reason: "Base URL fetch-verified 2026-08-23 on https://aihubmix.com/ (https://aihubmix.com/v1)."
+    api: https://aihubmix.com/v1
+    protocol: openai-compatible
+  # gitlab, cloudflare-ai-gateway, qvac, salad-cloud: no fixed public base URL known —
+  # left to the automatic `unsupported / deployment-url` rule; add a row here once verified.
+
+  # ----- Second protocols (spec overrides README item 4) -----
+  zai:
+    reason: "Second protocol: Anthropic-compatible endpoint https://api.z.ai/api/anthropic — docs https://docs.z.ai/guides/develop/claude (not fetch-verified; JS-rendered). Aliases are search-only."
+    protocols:
+      - { protocol: openai-compatible, api: https://api.z.ai/api/paas/v4 }
+      - { protocol: anthropic, api: https://api.z.ai/api/anthropic }
+    aliases: [z-ai, zhipu, glm]
+  moonshotai:
+    reason: "Second protocol: Anthropic-compatible endpoint https://api.moonshot.ai/anthropic — docs https://platform.moonshot.ai/docs/guide/migrating-from-anthropic-to-kimi (not fetch-verified; JS-rendered)."
+    protocols:
+      - { protocol: openai-compatible, api: https://api.moonshot.ai/v1 }
+      - { protocol: anthropic, api: https://api.moonshot.ai/anthropic }
+    aliases: [moonshot, kimi]
+
+  # ----- Grouping / search-only aliases (spec X-10, A-9) -----
+  zhipuai:
+    reason: "Company grouping with Z.AI (same vendor, China-mainland host). Aliases search-only."
+    company: Z.AI
+    aliases: [zhipu, bigmodel, glm-cn]
+  zai-coding-plan:
+    reason: "Company grouping with Z.AI."
+    company: Z.AI
+    plan: coding-plan
+  zhipuai-coding-plan:
+    reason: "Company grouping with Z.AI."
+    company: Z.AI
+    plan: coding-plan
+  moonshotai-cn:
+    reason: "Company grouping with Moonshot AI; China-mainland host."
+    company: Moonshot AI
+    region: cn
+  minimax-cn:
+    reason: "Company grouping with MiniMax; China-mainland host."
+    company: MiniMax
+    region: cn
+  alibaba-cn:
+    reason: "Aliases search-only (old Omnipus id qwen → alibaba-cn, spec §5 disposition table)."
+    aliases: [qwen, dashscope]
+    region: cn
+  alibaba:
+    reason: "Aliases search-only (old Omnipus ids qwen-intl / dashscope-intl, spec §5 disposition table)."
+    aliases: [qwen-intl, dashscope-intl]
+  novita-ai:
+    reason: "Alias search-only (old Omnipus id novita)."
+    aliases: [novita]

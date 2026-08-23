@@ -1,0 +1,130 @@
+# Providers Omnipus ships that models.dev does not list (spec US-2.AC4), plus
+# rows that exist in models.dev but need local/CLI fields set (lmstudio,
+# github-copilot — these MERGE over the registry row; the others are CREATED).
+# Same shape as registry rows. Every row needs a `reason`. Format: overrides/README.md.
+#
+# Model lists: `models_from: <models.dev id>` copies that provider's models
+# (optionally filtered by `model_ids`); `models:` adds hand-typed rows. Local
+# endpoints (locality local) discover their models live in Omnipus (spec FR-020)
+# and may have an empty list.
+
+providers:
+  ollama:
+    reason: "Local endpoint. Default base fetch-verified 2026-08-23 https://docs.ollama.com/openai (http://localhost:11434/v1). Models are listed live via /api/tags (spec FR-021); none published."
+    name: Ollama
+    api: http://localhost:11434/v1
+    protocol: ollama
+    env: [OLLAMA_HOST]
+    auth_methods: [api_key]
+    aliases: [local]
+  vllm:
+    reason: "Local endpoint. vLLM's OpenAI-compatible server default http://localhost:8000/v1 — docs https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html (not fetch-verified; JS-rendered). Models listed live (spec FR-020)."
+    name: vLLM
+    api: http://localhost:8000/v1
+    protocol: openai-compatible
+    env: [VLLM_API_KEY]
+    auth_methods: [api_key]
+  litellm:
+    reason: "Self-hosted LiteLLM proxy: no fixed public URL (default listen address fetch-verified 2026-08-23 https://docs.litellm.ai/docs/proxy/user_keys is http://0.0.0.0:4000). The spec's local set (FR-039) is ollama / vllm / lmstudio only, so a loopback URL here would make Omnipus reject the whole document (FR-033); published as unsupported / deployment-url with no URL — operators reach their proxy through a custom row (api_base + protocol, spec FR-035)."
+    name: LiteLLM Proxy
+    api: ""
+    protocol: openai-compatible
+    env: [LITELLM_API_KEY]
+    tier: unsupported
+    unsupported_reason: deployment-url
+    auth_methods: [api_key]
+    aliases: [proxy]
+  lmstudio:
+    reason: "Merges over the models.dev row (api http://127.0.0.1:1234/v1, 3 models). Default base fetch-verified 2026-08-23 https://lmstudio.ai/docs/app/api/endpoints/openai (http://localhost:1234/v1). Local endpoint (spec X-16); models listed live."
+    name: LM Studio
+    api: http://127.0.0.1:1234/v1
+    protocol: openai-compatible
+    env: [LMSTUDIO_API_KEY]
+    auth_methods: [api_key]
+    aliases: [lm-studio]
+  codex-cli:
+    reason: "OpenAI Codex CLI subprocess (spec X-14: protocol cli, cli_kind codex). The CLI owns transport; `api` is informational — the backend the signed-in CLI itself calls, https://chatgpt.com/backend-api/codex, per the open-source client source https://github.com/openai/codex (codex-rs) — not a public docs page, not fetch-verified. Models: the Codex family copied from the models.dev openai row."
+    name: Codex CLI
+    company: OpenAI
+    api: https://chatgpt.com/backend-api/codex
+    protocol: cli
+    cli_kind: codex
+    env: []
+    auth_methods: [sign_in]
+    aliases: [codex, codexcli]
+    models_from: openai
+    model_ids: ["re:codex"]
+  openai-chatgpt:
+    reason: "ChatGPT-subscription route (spec X-14/X-41: protocol openai-compatible, token_source codex-auth-json, cloud). Base URL https://chatgpt.com/backend-api/codex is taken from the open-source Codex client, source https://github.com/openai/codex (codex-rs, ChatGPT auth backend) — not a public docs page; not fetch-verified. Models: GPT-5 family copied from the models.dev openai row."
+    name: ChatGPT (subscription)
+    company: OpenAI
+    api: https://chatgpt.com/backend-api/codex
+    protocol: openai-compatible
+    token_source: codex-auth-json
+    env: []
+    auth_methods: [sign_in]
+    aliases: [chatgpt-subscription, codex-auth]
+    models_from: openai
+    model_ids: ["re:^gpt-5"]
+  github-copilot:
+    reason: "Merges over the models.dev row (api https://api.githubcopilot.com, 33 models). Spec X-14/X-41: protocol cli, cli_kind copilot, sign_in only."
+    name: GitHub Copilot
+    company: GitHub
+    api: https://api.githubcopilot.com
+    protocol: cli
+    cli_kind: copilot
+    env: [GITHUB_TOKEN]
+    auth_methods: [sign_in]
+    aliases: [copilot]
+  shengsuanyun:
+    reason: "Base URL https://router.shengsuanyun.com/api/v1 (Omnipus's previous factory default; vendor docs not fetch-verified). Models: dated probe 2026-08-23 GET https://router.shengsuanyun.com/api/v1/models (public, no key) — context_window/max_tokens as returned; modalities not reported by the probe, so text only; tool_call assumed from the model family, not probed."
+    name: ShengSuanYun
+    api: https://router.shengsuanyun.com/api/v1
+    protocol: openai-compatible
+    env: [SHENGSUANYUN_API_KEY]
+    region: cn
+    aliases: [ssy]
+    models:
+      - { id: deepseek/deepseek-v4-pro, name: DeepSeek-V4-Pro, tool_call: true, context_window: 1000000, max_output_tokens: 384000, input_modalities: [text] }
+      - { id: deepseek/deepseek-v4-flash, name: DeepSeek-V4-Flash, tool_call: true, context_window: 1000000, max_output_tokens: 384000, input_modalities: [text] }
+      - { id: bigmodel/glm-5.2, name: GLM-5.2, tool_call: true, context_window: 1000000, max_output_tokens: 128000, input_modalities: [text] }
+      - { id: moonshot/kimi-k2.6, name: Kimi K2.6, tool_call: true, context_window: 256000, max_output_tokens: 32000, input_modalities: [text] }
+      - { id: minimax/minimax-m2.7, name: MiniMax M2.7, tool_call: true, context_window: 200000, max_output_tokens: 131000, input_modalities: [text] }
+      - { id: ali/qwen3.5-plus, name: Qwen3.5-Plus, tool_call: true, context_window: 1000000, max_output_tokens: 64000, input_modalities: [text] }
+  volcengine:
+    reason: "Base URL https://ark.cn-beijing.volces.com/api/v3 — docs https://www.volcengine.com/docs/82379/1330626 (not fetch-verified; JS-rendered; same value as Omnipus's previous factory default). Models copied from LiteLLM (MIT) rows volcengine/* @ commit 4e191273 (LiteLLM source field cites https://www.volcengine.com/docs/82379/1330310): max_input_tokens → context_window, max_output_tokens, supports_vision → image, supports_function_calling → tool_call."
+    name: Volcengine Ark
+    company: ByteDance
+    api: https://ark.cn-beijing.volces.com/api/v3
+    protocol: openai-compatible
+    env: [ARK_API_KEY, VOLCENGINE_API_KEY]
+    region: cn
+    aliases: [ark, doubao, bytedance]
+    models:
+      - { id: doubao-seed-2-0-pro-260215, name: Doubao Seed 2.0 Pro, tool_call: true, context_window: 256000, max_output_tokens: 128000, input_modalities: [text, image] }
+      - { id: doubao-seed-2-0-lite-260215, name: Doubao Seed 2.0 Lite, tool_call: true, context_window: 256000, max_output_tokens: 128000, input_modalities: [text, image] }
+      - { id: doubao-seed-2-0-mini-260215, name: Doubao Seed 2.0 Mini, tool_call: true, context_window: 256000, max_output_tokens: 128000, input_modalities: [text, image] }
+      - { id: doubao-seed-2-0-code-preview-260215, name: Doubao Seed 2.0 Code Preview, tool_call: true, context_window: 256000, max_output_tokens: 128000, input_modalities: [text, image] }
+  avian:
+    reason: "Base URL https://api.avian.io/v1 (Omnipus's previous factory default; vendor docs not fetch-verified). Models: dated probe 2026-08-23 GET https://api.avian.io/v1/models (public, no key) — context_length → context_window, max_output → max_output_tokens; modalities not reported, so text only; tool_call assumed from the model family, not probed."
+    name: Avian
+    api: https://api.avian.io/v1
+    protocol: openai-compatible
+    env: [AVIAN_API_KEY]
+    models:
+      - { id: deepseek/deepseek-v4-flash, name: DeepSeek V4 Flash, tool_call: true, context_window: 1000000, max_output_tokens: 393216, input_modalities: [text] }
+      - { id: deepseek/deepseek-v4-pro, name: DeepSeek V4 Pro, tool_call: true, context_window: 1000000, max_output_tokens: 393216, input_modalities: [text] }
+      - { id: deepseek/deepseek-v3.2, name: DeepSeek V3.2 (Legacy), tool_call: true, context_window: 163840, max_output_tokens: 65536, input_modalities: [text] }
+      - { id: minimax/minimax-m2.5, name: MiniMax M2.5, tool_call: true, context_window: 196608, max_output_tokens: 131072, input_modalities: [text] }
+      - { id: z-ai/glm-5.2, name: GLM-5.2, tool_call: true, context_window: 1048576, max_output_tokens: 131072, input_modalities: [text] }
+      - { id: moonshotai/kimi-k2.6, name: Kimi K2.6, tool_call: true, context_window: 262144, max_output_tokens: 262144, input_modalities: [text] }
+      - { id: xiaomi/mimo-v2.5, name: MiMo-V2.5 Small, tool_call: true, context_window: 1048576, max_output_tokens: 131072, input_modalities: [text] }
+  mimo:
+    reason: "Omnipus id for Xiaomi MiMo (spec US-2.AC4 local-file id). Same endpoint as the models.dev `xiaomi` row (https://api.xiaomimimo.com/v1, which is also Omnipus's previous factory default); models copied from that row. Alias search-only."
+    name: Xiaomi MiMo
+    company: Xiaomi
+    api: https://api.xiaomimimo.com/v1
+    protocol: openai-compatible
+    env: [MIMO_API_KEY]
+    aliases: [mimo-v2]
+    models_from: xiaomi

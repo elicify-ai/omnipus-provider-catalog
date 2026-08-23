@@ -1,0 +1,24 @@
+# Model-level overrides, keyed by provider id → model id. Applied LAST — wins
+# over models.dev and LiteLLM, and resolves any open dispute on the fields it
+# sets (override-sourced values never raise an issue). Every row needs a
+# `reason`: the adjudicating issue number, a documentation link, or a dated
+# probe result. Format: overrides/README.md.
+#
+# Example (commented out — no adjudicated values exist yet):
+#
+# models:
+#   google:
+#     gemini-3-pro:
+#       reason: "Issue #NN: registries disagree on PDF input; the API accepts PDFs in practice (probe 2026-08-23)."
+#       input_modalities: [text, image, audio, video, pdf]
+#   openai:
+#     gpt-4-0314:
+#       reason: "Legacy model retired upstream, still run by users; values from the previous release v2026.8.1."
+#       name: GPT-4 (0314)
+#       tool_call: true
+#       context_window: 8192
+#       max_output_tokens: 8192
+#       input_modalities: [text]
+#       status: retired
+
+models: {}
