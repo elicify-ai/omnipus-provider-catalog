@@ -15,7 +15,7 @@ const md = (over: Partial<NormalisedModel> = {}): NormalisedModel => ({
   ...over,
 });
 
-describe("disagreement tolerance (spec F-04: 5 % or 4,096 tokens, whichever is larger)", () => {
+describe("disagreement tolerance (5 % or 4,096 tokens, whichever is larger)", () => {
   it("equal values agree", () => {
     expect(compareNumeric(128000, 128000)).toEqual({ kind: "agree" });
   });

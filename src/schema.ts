@@ -1,21 +1,17 @@
-// The 2.0.0 catalog document, as the Omnipus spec defines it
-// (docs/internal/specs/adr-067-registry-catalog-spec.md §5 "Integration
-// Boundaries", FR-002, FR-033; ADR-067 §2 / §8b). docs/schema-2.0.0.md in this
-// repo is the prose copy of the same shape.
+// The 2.0.0 catalog document. docs/schema-2.0.0.md is the prose reference for
+// the same shape; this file is the authority.
 //
-// Two top-level fields go beyond the spec's published shape and are emitted
-// because the assembler brief asked for them; both are additive:
+// Two top-level fields are informational companions of others; both are additive:
 //   - `generated_at` mirrors `updated_at`;
-//   - `sources` is the structured manifest that the spec's `source` string
-//     summarises.
-// `locality` is NOT published (spec X-16: Omnipus derives it on load); the
+//   - `sources` is the structured form of the `source` summary string.
+// `locality` is NOT published (consumers derive it on load); the
 // assembler derives it the same way internally (src/finalize.ts) to apply the
 // https/public-host rule.
 import { z } from "zod";
 
 export const SCHEMA_VERSION = "2.0.0" as const;
 
-/** `vYYYY.M.D[.N]` — the leading `v` is required (spec F-01 / FR-002). */
+/** `vYYYY.M.D[.N]` — the leading `v` is required so versions sort numerically. */
 export const VERSION_RE = /^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$/;
 
 export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli"] as const;
@@ -26,7 +22,7 @@ export const CLI_KINDS = ["codex", "copilot"] as const;
 export const MODEL_STATUSES = ["active", "retired"] as const;
 export const MODALITIES = ["text", "image", "audio", "video", "pdf"] as const;
 
-/** The popular set pinned by name (spec FR-018, US-8.AC1). */
+/** The popular set, pinned by name. */
 export const POPULAR_SET = [
   "openai",
   "anthropic",
@@ -38,7 +34,7 @@ export const POPULAR_SET = [
   "deepseek",
 ] as const;
 
-/** Providers Omnipus ships that models.dev does not list (spec US-2.AC4). */
+/** Providers added from overrides/local-providers.yaml that models.dev does not list. */
 export const LOCAL_FILE_PROVIDERS = [
   "ollama",
   "vllm",

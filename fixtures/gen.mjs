@@ -4,7 +4,7 @@
 // mutation of the minimal valid document. Run: `npm run fixtures`.
 //
 // All URLs, names and numbers are illustrative placeholders chosen to satisfy the
-// spec's shape rules; they are NOT verified registry values (no upstream registry
+// validator's shape rules; they are NOT verified registry values (no upstream registry
 // is fetched here — OpenRouter data in particular is never copied).
 
 import { mkdirSync, writeFileSync, rmSync } from "node:fs";
@@ -31,7 +31,7 @@ export function validMinimal() {
     source: "fixture: models.dev@0000000 litellm@0000000 overrides@0000000 (placeholder ids)",
     default_resize_limits: { ...resize },
     providers: [
-      // --- popular (FR-018) ---
+      // --- popular ---
       cloud("openai", "OpenAI", "https://api.openai.com/v1", { tier: "popular", models: [model("gpt-4o", "GPT-4o", 128000, 16384, { input_modalities: ["text", "image", "pdf"], release_date: "2024-05-13" })] }),
       cloud("openrouter", "OpenRouter", "https://openrouter.ai/api/v1", { tier: "popular", models: [model("z-ai/glm-5.2", "GLM-5.2 (via OpenRouter)", 1048576, 131072)] }),
       cloud("anthropic", "Anthropic", "https://api.anthropic.com", { tier: "popular", protocol: "anthropic" }),
@@ -53,14 +53,14 @@ export function validMinimal() {
           model("glm-4", "GLM-4", 0, 0, { status: "retired", tool_call: false }),
         ],
       }),
-      // --- unsupported (US-8.AC2, §5 disposition table) ---
+      // --- unsupported ---
       unsupported("amazon-bedrock", "Amazon Bedrock", "cloud-iam"),
       unsupported("google-vertex", "Google Vertex AI", "cloud-iam"),
       unsupported("google-vertex-anthropic", "Google Vertex AI (Anthropic)", "cloud-iam"),
       unsupported("watsonx", "IBM watsonx", "cloud-iam"),
       unsupported("sap-ai-core", "SAP AI Core", "cloud-iam"),
       unsupported("azure", "Azure OpenAI", "deployment-url"),
-      // --- local-file providers (US-2.AC4) ---
+      // --- local-file providers ---
       cloud("ollama", "Ollama", "http://127.0.0.1:11434", { protocol: "ollama", env: "" }),
       cloud("vllm", "vLLM", "http://127.0.0.1:8000/v1", { env: "" }),
       cloud("lmstudio", "LM Studio", "http://127.0.0.1:1234/v1", { env: "" }),
@@ -83,27 +83,27 @@ export const MUTATIONS = {
   JSON: () => "{ this is not json",
   SIZE: (d) => { d.source = "x".repeat(MAX_DOCUMENT_BYTES + 1); return d; },
   SCHEMA_VERSION: (d) => { d.schema_version = "1.0.0"; return d; },
-  VERSION: (d) => { d.version = "2026.8.23"; return d; }, // DS-1.26: no leading v
+  VERSION: (d) => { d.version = "2026.8.23"; return d; }, // no leading v
   UPDATED_AT: (d) => { d.updated_at = "yesterday"; return d; },
   SOURCE: (d) => { d.source = ""; return d; },
-  DEFAULT_RESIZE: (d) => { d.default_resize_limits.max_bytes = 0; return d; }, // DS-1.15
-  PROVIDERS_MIN: (d) => { d.providers = []; return d; }, // DS-1.11 (also trips set checks; see test)
-  PROVIDER_ID: (d) => { d.providers.push(structuredClone(byID(d, "zai"))); return d; }, // DS-1.5 duplicate zai
+  DEFAULT_RESIZE: (d) => { d.default_resize_limits.max_bytes = 0; return d; },
+  PROVIDERS_MIN: (d) => { d.providers = []; return d; }, // also trips the set checks; see test
+  PROVIDER_ID: (d) => { d.providers.push(structuredClone(byID(d, "zai"))); return d; }, // duplicate zai
   PROVIDER_NAME: (d) => { byID(d, "zai").name = ""; return d; },
   TIER: (d) => { byID(d, "zai").tier = "gold"; return d; },
   UNSUPPORTED_REASON: (d) => { d.providers.push(unsupported("some-vanished-provider", "Vanished", "withdrawn")); delete d.providers.at(-1).unsupported_reason; return d; },
-  PROTOCOL: (d) => { byID(d, "zai").protocol = "grpc"; byID(d, "zai").protocols[0].protocol = "grpc"; return d; }, // DS-1.7
+  PROTOCOL: (d) => { byID(d, "zai").protocol = "grpc"; byID(d, "zai").protocols[0].protocol = "grpc"; return d; },
   API_PRESENCE: (d) => { byID(d, "xai").api = ""; return d; },
-  API_URL: (d) => { byID(d, "xai").api = "http://api.x.ai/v1"; return d; }, // DS-1.18 (scheme)
-  PROTOCOLS_LIST: (d) => { byID(d, "zai").protocols.shift(); return d; }, // DS-1.23 lacks the primary
-  AUTH_METHODS: (d) => { byID(d, "zai").auth_methods = []; return d; }, // DS-1.16
+  API_URL: (d) => { byID(d, "xai").api = "http://api.x.ai/v1"; return d; }, // wrong scheme
+  PROTOCOLS_LIST: (d) => { byID(d, "zai").protocols.shift(); return d; }, // lacks the primary
+  AUTH_METHODS: (d) => { byID(d, "zai").auth_methods = []; return d; },
   CLI_KIND: (d) => { delete byID(d, "codex-cli").cli_kind; return d; },
   RESIZE_LIMITS: (d) => { byID(d, "zai").resize_limits.long_edge_px = 0; return d; },
   NO_CUSTOM: (d) => { byID(d, "litellm").custom = true; return d; },
   NEVER_PUBLISHED: (d) => { byID(d, "ollama").locality = "local"; return d; },
-  MODEL_ID: (d) => { const z = byID(d, "zai"); z.models.push(structuredClone(z.models[0])); return d; }, // DS-1.6
+  MODEL_ID: (d) => { const z = byID(d, "zai"); z.models.push(structuredClone(z.models[0])); return d; },
   MODEL_SHAPE: (d) => { byID(d, "zai").models[0].status = "deprecated"; return d; },
-  MODEL_TEXT: (d) => { byID(d, "zai").models[0].input_modalities = ["image"]; return d; }, // DS-1.8
+  MODEL_TEXT: (d) => { byID(d, "zai").models[0].input_modalities = ["image"]; return d; },
   MODEL_LIMITS: (d) => { byID(d, "zai").models[0].context_window = 0; return d; }, // active model, unknown window
   ALIASES: (d) => { byID(d, "zai").aliases.push("openai"); return d; },
   POPULAR: (d) => { byID(d, "deepseek").tier = "standard"; return d; },

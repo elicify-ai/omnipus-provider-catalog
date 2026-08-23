@@ -1,11 +1,7 @@
 #!/usr/bin/env node
-// Independent validator for providers_catalog.json against the ADR-067 spec.
-//
-// Every rule below cites the Omnipus spec it is read from:
-//   docs/internal/specs/adr-067-registry-catalog-spec.md  (FR-nnn, DS-1 rows, §5
-//   "Integration Boundaries" document shape) and ADR-067 §2 (D1) / §4.2.
-// It is written WITHOUT reference to the assembler's code, so that the two can
-// disagree and the disagreement is visible.
+// Independent validator for providers_catalog.json: the publication rules a
+// consumer relies on, written WITHOUT reference to the assembler's code, so
+// that the two can disagree and the disagreement is visible.
 //
 // Usage:  node validator/validate-spec.mjs <file> [--json] [--quiet]
 // Exit:   0 when every check passes, 1 on any failure, 2 on a usage/parse error.
@@ -14,37 +10,37 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 // ---------------------------------------------------------------------------
-// Constants read from the spec
+// Constants: the published rules
 // ---------------------------------------------------------------------------
 
-export const SCHEMA_VERSION = "2.0.0"; // FR-001
-export const VERSION_RE = /^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$/; // FR-002, F-01
-export const MAX_DOCUMENT_BYTES = 8 * 1024 * 1024; // FR-026 "embedded snapshot MUST be <= 8 MB" (MiB assumed; see README)
-export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli"]; // FR-002, FR-012
-export const TIERS = ["popular", "standard", "unsupported"]; // FR-002, §5
-export const UNSUPPORTED_REASONS = ["cloud-iam", "deployment-url", "withdrawn"]; // §5 document shape
-export const AUTH_METHODS = ["api_key", "sign_in"]; // FR-002
-export const CLI_KINDS = ["codex", "copilot"]; // §5, X-14
-export const MODEL_STATUSES = ["active", "retired"]; // FR-002
-export const POPULAR = ["openai", "openrouter", "anthropic", "google", "xai", "groq", "mistral", "deepseek"]; // FR-018, US-8.AC1
-// US-8.AC2 / ADR-067 §4.1 list exactly these five cloud-IAM providers.
+export const SCHEMA_VERSION = "2.0.0";
+export const VERSION_RE = /^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$/;
+export const MAX_DOCUMENT_BYTES = 8 * 1024 * 1024; // 8 MB cap on the published document (MiB; see README)
+export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli"];
+export const TIERS = ["popular", "standard", "unsupported"];
+export const UNSUPPORTED_REASONS = ["cloud-iam", "deployment-url", "withdrawn"];
+export const AUTH_METHODS = ["api_key", "sign_in"];
+export const CLI_KINDS = ["codex", "copilot"];
+export const MODEL_STATUSES = ["active", "retired"];
+export const POPULAR = ["openai", "openrouter", "anthropic", "google", "xai", "groq", "mistral", "deepseek"]; // the pinned popular set
+// The five providers that need a cloud identity sign-in rather than an API key.
 export const CLOUD_IAM = ["amazon-bedrock", "google-vertex", "google-vertex-anthropic", "watsonx", "sap-ai-core"];
-// §5 factory disposition table / FR-026: azure is unsupported with reason deployment-url.
+// azure has a per-deployment URL, so it is unsupported with reason deployment-url.
 export const DEPLOYMENT_URL = ["azure"];
-// US-2.AC4 enumerates eleven local-file providers (FR-026 says "nine"; the list wins — see README).
+// The eleven providers that come from overrides/local-providers.yaml and must always be present.
 export const LOCAL_FILE_PROVIDERS = [
   "ollama", "vllm", "litellm", "lmstudio", "codex-cli", "openai-chatgpt",
   "github-copilot", "shengsuanyun", "volcengine", "avian", "mimo",
 ];
-// Fields the spec says are never published (§5: locality derived by the consumer; X-11: subscription_policy dropped;
-// FR-026/FR-035: custom rows are never in the document).
+// Fields that are never published: locality is derived by the consumer, and
+// subscription_policy was dropped from the shape.
 export const NEVER_PUBLISHED_PROVIDER_FIELDS = ["locality", "subscription_policy"];
 
 // ---------------------------------------------------------------------------
-// Locality derivation (FR-039, F-03, DS-1 rows 22 and E13 outline)
+// Locality derivation
 // local <=> protocol in {ollama, vllm} OR id in {lmstudio, vllm}.
-// FR-039 names a protocol "vllm" that is not in the protocol enum; F-03 and the
-// E13 outline use the ID vllm. Both spellings are honoured here.
+// "vllm" has been written both as a protocol and as an id; both spellings are
+// honoured here (as a protocol value it is still rejected by the PROTOCOL check).
 // ---------------------------------------------------------------------------
 export function deriveLocality(provider) {
   const p = provider?.protocol;
@@ -54,7 +50,7 @@ export function deriveLocality(provider) {
 }
 
 // ---------------------------------------------------------------------------
-// URL rules (FR-033)
+// URL rules for hosted (cloud) rows
 // ---------------------------------------------------------------------------
 function ipv4Parts(host) {
   const m = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/.exec(host);
@@ -128,35 +124,35 @@ const isNonEmptyStr = (v) => typeof v === "string" && v.length > 0;
 const isObj = (v) => v !== null && typeof v === "object" && !Array.isArray(v);
 
 export const CHECKS = [
-  { id: "JSON", spec: "§5", title: "file is a JSON object" },
-  { id: "SIZE", spec: "FR-026", title: "document <= 8 MB" },
-  { id: "SCHEMA_VERSION", spec: "FR-001", title: "schema_version is exactly 2.0.0" },
-  { id: "VERSION", spec: "FR-002 / F-01", title: "version matches ^v\\d{4}\\.\\d{1,2}\\.\\d{1,2}(\\.\\d+)?$" },
-  { id: "UPDATED_AT", spec: "FR-002 / §5", title: "updated_at is a non-empty RFC 3339 timestamp" },
-  { id: "SOURCE", spec: "FR-002", title: "source is a non-empty string" },
-  { id: "DEFAULT_RESIZE", spec: "FR-002 / DS-1.15", title: "default_resize_limits has positive long_edge_px and max_bytes" },
-  { id: "PROVIDERS_MIN", spec: "FR-002 / DS-1.11", title: "providers is an array with >= 1 entry" },
-  { id: "PROVIDER_ID", spec: "FR-002 / DS-1.5", title: "provider ids are non-empty, unique strings" },
-  { id: "PROVIDER_NAME", spec: "§5 / FR-030", title: "provider name is a non-empty string" },
-  { id: "TIER", spec: "FR-002", title: "tier in {popular, standard, unsupported}" },
-  { id: "UNSUPPORTED_REASON", spec: "§5 / FR-026 / F-35", title: "unsupported_reason present iff tier unsupported, and in the enum" },
-  { id: "PROTOCOL", spec: "FR-002 / F-19", title: "protocol in the 5-value enum; empty only when tier unsupported" },
-  { id: "API_PRESENCE", spec: "§5", title: "api non-empty unless tier unsupported" },
-  { id: "API_URL", spec: "FR-033", title: "api and protocols[].api obey the hosted-URL rules (local rows exempt)" },
-  { id: "PROTOCOLS_LIST", spec: "FR-002 / F-19", title: "protocols[] entries unique, in enum, and include the primary with the same api" },
-  { id: "AUTH_METHODS", spec: "FR-002 / DS-1.16", title: "auth_methods non-empty subset of {api_key, sign_in}" },
-  { id: "CLI_KIND", spec: "§5 / X-14", title: "cli_kind in {codex, copilot} iff protocol cli" },
-  { id: "RESIZE_LIMITS", spec: "§5", title: "resize_limits has positive long_edge_px and max_bytes" },
-  { id: "NO_CUSTOM", spec: "FR-026 / FR-035", title: "no provider row carries custom: true" },
-  { id: "NEVER_PUBLISHED", spec: "§5 / X-11 / X-16", title: "locality and subscription_policy are not published" },
-  { id: "MODEL_ID", spec: "FR-002 / DS-1.6", title: "model ids are non-empty strings, unique within the provider" },
-  { id: "MODEL_SHAPE", spec: "FR-002 / §5", title: "model fields typed: ints >= 0, tool_call bool, status enum, release_date YYYY-MM-DD, disputed bool" },
-  { id: "MODEL_TEXT", spec: "FR-002 / DS-1.8", title: "every model's input_modalities includes text" },
-  { id: "MODEL_LIMITS", spec: "task rule (publication quality)", title: "non-retired models have context_window > 0 and max_output_tokens >= 0" },
-  { id: "ALIASES", spec: "FR-030 / A-9", title: "aliases are strings and never equal any provider id" },
-  { id: "POPULAR", spec: "FR-018 / US-8.AC1", title: "tier popular is exactly the eight pinned ids" },
-  { id: "CLOUD_IAM", spec: "US-8.AC2 / FR-026", title: "the cloud-IAM providers are present, unsupported, reason cloud-iam; azure is deployment-url" },
-  { id: "LOCAL_FILE_PROVIDERS", spec: "US-2.AC4 / FR-026", title: "the local-file providers are present" },
+  { id: "JSON", spec: "document", title: "file is a JSON object" },
+  { id: "SIZE", spec: "document", title: "document <= 8 MB" },
+  { id: "SCHEMA_VERSION", spec: "document", title: "schema_version is exactly 2.0.0" },
+  { id: "VERSION", spec: "document", title: "version matches ^v\\d{4}\\.\\d{1,2}\\.\\d{1,2}(\\.\\d+)?$" },
+  { id: "UPDATED_AT", spec: "document", title: "updated_at is a non-empty RFC 3339 timestamp" },
+  { id: "SOURCE", spec: "document", title: "source is a non-empty string" },
+  { id: "DEFAULT_RESIZE", spec: "document", title: "default_resize_limits has positive long_edge_px and max_bytes" },
+  { id: "PROVIDERS_MIN", spec: "document", title: "providers is an array with >= 1 entry" },
+  { id: "PROVIDER_ID", spec: "provider", title: "provider ids are non-empty, unique strings" },
+  { id: "PROVIDER_NAME", spec: "provider", title: "provider name is a non-empty string" },
+  { id: "TIER", spec: "provider", title: "tier in {popular, standard, unsupported}" },
+  { id: "UNSUPPORTED_REASON", spec: "provider", title: "unsupported_reason present iff tier unsupported, and in the enum" },
+  { id: "PROTOCOL", spec: "provider", title: "protocol in the 5-value enum; empty only when tier unsupported" },
+  { id: "API_PRESENCE", spec: "provider", title: "api non-empty unless tier unsupported" },
+  { id: "API_URL", spec: "url", title: "api and protocols[].api obey the hosted-URL rules (local rows exempt)" },
+  { id: "PROTOCOLS_LIST", spec: "provider", title: "protocols[] entries unique, in enum, and include the primary with the same api" },
+  { id: "AUTH_METHODS", spec: "provider", title: "auth_methods non-empty subset of {api_key, sign_in}" },
+  { id: "CLI_KIND", spec: "provider", title: "cli_kind in {codex, copilot} iff protocol cli" },
+  { id: "RESIZE_LIMITS", spec: "provider", title: "resize_limits has positive long_edge_px and max_bytes" },
+  { id: "NO_CUSTOM", spec: "provider", title: "no provider row carries custom: true" },
+  { id: "NEVER_PUBLISHED", spec: "provider", title: "locality and subscription_policy are not published" },
+  { id: "MODEL_ID", spec: "model", title: "model ids are non-empty strings, unique within the provider" },
+  { id: "MODEL_SHAPE", spec: "model", title: "model fields typed: ints >= 0, tool_call bool, status enum, release_date YYYY-MM-DD, disputed bool" },
+  { id: "MODEL_TEXT", spec: "model", title: "every model's input_modalities includes text" },
+  { id: "MODEL_LIMITS", spec: "model", title: "non-retired models have context_window > 0 and max_output_tokens >= 0" },
+  { id: "ALIASES", spec: "provider", title: "aliases are strings and never equal any provider id" },
+  { id: "POPULAR", spec: "set", title: "tier popular is exactly the eight pinned ids" },
+  { id: "CLOUD_IAM", spec: "set", title: "the cloud-IAM providers are present, unsupported, reason cloud-iam; azure is deployment-url" },
+  { id: "LOCAL_FILE_PROVIDERS", spec: "set", title: "the local-file providers are present" },
 ];
 
 /**
@@ -356,7 +352,7 @@ function renderTable(report, file) {
   lines.push("");
   const idW = Math.max(...CHECKS.map((c) => c.id.length));
   const specW = Math.max(...CHECKS.map((c) => c.spec.length));
-  lines.push(`${"RESULT".padEnd(6)}  ${"CHECK".padEnd(idW)}  ${"SPEC".padEnd(specW)}  VIOL  RULE`);
+  lines.push(`${"RESULT".padEnd(6)}  ${"CHECK".padEnd(idW)}  ${"AREA".padEnd(specW)}  VIOL  RULE`);
   for (const r of results) {
     lines.push(`${(r.ok ? "PASS" : "FAIL").padEnd(6)}  ${r.id.padEnd(idW)}  ${r.spec.padEnd(specW)}  ${String(r.count).padStart(4)}  ${r.title}`);
     for (const ex of r.examples) lines.push(`${"".padEnd(6)}    - ${ex}`);

@@ -7,80 +7,80 @@
 #   source <url>                      — not a docs page (e.g. an open-source client's source)
 
 providers:
-  # ----- Popular tier (spec FR-018 / US-8.AC1; ADR-067 §4.2) -----
+  # ----- Popular tier: the eight providers pinned as tier popular -----
   openai:
-    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://platform.openai.com/docs/api-reference (shows https://api.openai.com/v1/models). sign_in: ChatGPT subscription sign-in per ADR-068."
+    reason: "Pinned popular provider. Base URL fetch-verified 2026-08-23 https://platform.openai.com/docs/api-reference (shows https://api.openai.com/v1/models). sign_in: a ChatGPT subscription sign-in is accepted as well as an API key."
     api: https://api.openai.com/v1
     protocol: openai-compatible
     tier: popular
     auth_methods: [api_key, sign_in]
     aliases: [gpt, chatgpt]
   anthropic:
-    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://docs.anthropic.com/en/api/overview (https://api.anthropic.com; Omnipus appends /v1/messages and /v1/models per spec FR-021)."
+    reason: "Pinned popular provider. Base URL fetch-verified 2026-08-23 https://docs.anthropic.com/en/api/overview (https://api.anthropic.com; clients append /v1/messages and /v1/models themselves)."
     api: https://api.anthropic.com
     protocol: anthropic
     tier: popular
     aliases: [claude]
   openrouter:
-    reason: "Popular set (spec FR-018). URL is models.dev's own (https://openrouter.ai/api/v1); OpenRouter's model list is NOT copied here (terms of service) — only models.dev's table of it is used."
+    reason: "Pinned popular provider. URL is models.dev's own (https://openrouter.ai/api/v1); OpenRouter's model list is NOT copied here (terms of service) — only models.dev's table of it is used."
     tier: popular
   google:
-    reason: "Popular set (spec FR-018). Gemini OpenAI-compatible base fetch-verified 2026-08-23 https://ai.google.dev/gemini-api/docs/openai (https://generativelanguage.googleapis.com/v1beta/openai). Protocol google = HTTP provider at this URL with Bearer auth (spec F-13/FR-012)."
+    reason: "Pinned popular provider. Gemini OpenAI-compatible base fetch-verified 2026-08-23 https://ai.google.dev/gemini-api/docs/openai (https://generativelanguage.googleapis.com/v1beta/openai). Protocol google = plain HTTP at this URL with Bearer-token auth."
     api: https://generativelanguage.googleapis.com/v1beta/openai
     protocol: google
     tier: popular
     aliases: [gemini]
   xai:
-    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://docs.x.ai/docs/overview (https://api.x.ai/v1). sign_in listed per the assembler brief (xAI subscription sign-in, ADR-068)."
+    reason: "Pinned popular provider. Base URL fetch-verified 2026-08-23 https://docs.x.ai/docs/overview (https://api.x.ai/v1). sign_in: an xAI subscription sign-in is accepted as well as an API key."
     api: https://api.x.ai/v1
     protocol: openai-compatible
     tier: popular
     auth_methods: [api_key, sign_in]
     aliases: [grok]
   groq:
-    reason: "Popular set (spec FR-018). OpenAI-compatible base fetch-verified 2026-08-23 https://console.groq.com/docs/openai (https://api.groq.com/openai/v1)."
+    reason: "Pinned popular provider. OpenAI-compatible base fetch-verified 2026-08-23 https://console.groq.com/docs/openai (https://api.groq.com/openai/v1)."
     api: https://api.groq.com/openai/v1
     protocol: openai-compatible
     tier: popular
   mistral:
-    reason: "Popular set (spec FR-018). Base URL fetch-verified 2026-08-23 https://docs.mistral.ai/api/ (https://api.mistral.ai/v1)."
+    reason: "Pinned popular provider. Base URL fetch-verified 2026-08-23 https://docs.mistral.ai/api/ (https://api.mistral.ai/v1)."
     api: https://api.mistral.ai/v1
     protocol: openai-compatible
     tier: popular
   deepseek:
-    reason: "Popular set (spec FR-018). Primary URL is models.dev's (https://api.deepseek.com). Second protocol: Anthropic-compatible endpoint https://api.deepseek.com/anthropic — docs https://api-docs.deepseek.com/guides/anthropic_api (not fetch-verified; page is JS-rendered)."
+    reason: "Pinned popular provider. Primary URL is models.dev's (https://api.deepseek.com). Second protocol: Anthropic-compatible endpoint https://api.deepseek.com/anthropic — docs https://api-docs.deepseek.com/guides/anthropic_api (not fetch-verified; page is JS-rendered)."
     tier: popular
     protocols:
       - { protocol: openai-compatible, api: https://api.deepseek.com }
       - { protocol: anthropic, api: https://api.deepseek.com/anthropic }
 
-  # ----- Unsupported: cloud-IAM auth (spec US-8.AC2, FR-026) -----
+  # ----- Unsupported: these need a cloud identity sign-in, not an API key -----
   amazon-bedrock:
-    reason: "SigV4 auth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    reason: "Needs AWS SigV4 request signing (cloud IAM), which a plain API key cannot provide; published as unsupported / cloud-iam."
     tier: unsupported
     unsupported_reason: cloud-iam
     aliases: [bedrock, aws]
   google-vertex:
-    reason: "GCP OAuth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    reason: "Needs Google Cloud OAuth (cloud IAM), not a plain API key; published as unsupported / cloud-iam."
     tier: unsupported
     unsupported_reason: cloud-iam
     aliases: [vertex]
   google-vertex-anthropic:
-    reason: "GCP OAuth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    reason: "Needs Google Cloud OAuth (cloud IAM), not a plain API key; published as unsupported / cloud-iam."
     tier: unsupported
     unsupported_reason: cloud-iam
   watsonx:
-    reason: "IBM IAM; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    reason: "Needs IBM Cloud IAM sign-in, not a plain API key; published as unsupported / cloud-iam."
     tier: unsupported
     unsupported_reason: cloud-iam
   sap-ai-core:
-    reason: "SAP service-key auth; no cloud-IAM transport in Omnipus (spec US-8.AC2)."
+    reason: "Needs SAP service-key (cloud IAM) authentication, not a plain API key; published as unsupported / cloud-iam."
     tier: unsupported
     unsupported_reason: cloud-iam
 
-  # ----- Unsupported: deployment-specific URL (spec F-16) -----
+  # ----- Unsupported: every deployment has its own URL -----
   azure:
-    reason: "Base URL is per-resource (https://<resource>.openai.azure.com); no fixed public base (spec F-16: deployment-url)."
+    reason: "Base URL is per-resource (https://<resource>.openai.azure.com); no fixed public base, so published as unsupported / deployment-url."
     tier: unsupported
     unsupported_reason: deployment-url
     aliases: [azure-openai]
@@ -89,7 +89,7 @@ providers:
     tier: unsupported
     unsupported_reason: deployment-url
 
-  # ----- Dedicated-SDK providers models.dev lists without a URL; OpenAI-compatible on the wire (spec US-2.AC3) -----
+  # ----- Dedicated-SDK providers models.dev lists without a URL; OpenAI-compatible on the wire -----
   cerebras:
     reason: "Base URL fetch-verified 2026-08-23 https://inference-docs.cerebras.ai/resources/openai (https://api.cerebras.ai/v1)."
     api: https://api.cerebras.ai/v1
@@ -131,7 +131,7 @@ providers:
   # gitlab, cloudflare-ai-gateway, qvac, salad-cloud: no fixed public base URL known —
   # left to the automatic `unsupported / deployment-url` rule; add a row here once verified.
 
-  # ----- Second protocols (spec overrides README item 4) -----
+  # ----- Second protocols (see overrides/README.md, item 4) -----
   zai:
     reason: "Second protocol: Anthropic-compatible endpoint https://api.z.ai/api/anthropic — docs https://docs.z.ai/guides/develop/claude (not fetch-verified; JS-rendered). Aliases are search-only."
     protocols:
@@ -145,7 +145,7 @@ providers:
       - { protocol: anthropic, api: https://api.moonshot.ai/anthropic }
     aliases: [moonshot, kimi]
 
-  # ----- Grouping / search-only aliases (spec X-10, A-9) -----
+  # ----- Grouping / search-only aliases (never used for lookup) -----
   zhipuai:
     reason: "Company grouping with Z.AI (same vendor, China-mainland host). Aliases search-only."
     company: Z.AI
@@ -167,11 +167,11 @@ providers:
     company: MiniMax
     region: cn
   alibaba-cn:
-    reason: "Aliases search-only (old Omnipus id qwen → alibaba-cn, spec §5 disposition table)."
+    reason: "Search-only aliases: qwen was an earlier id for this provider, now alibaba-cn."
     aliases: [qwen, dashscope]
     region: cn
   alibaba:
-    reason: "Aliases search-only (old Omnipus ids qwen-intl / dashscope-intl, spec §5 disposition table)."
+    reason: "Search-only aliases: qwen-intl and dashscope-intl were earlier ids for this provider."
     aliases: [qwen-intl, dashscope-intl]
   novita-ai:
     reason: "Alias search-only (old Omnipus id novita)."

@@ -120,7 +120,7 @@ describe("finalizeProviders", () => {
     expect(by["atomic-chat"]).toMatchObject({ tier: "unsupported", unsupported_reason: "deployment-url", api: "" }); // URL cleared: Omnipus would reject the whole document
     expect(by["copilot-x"]).toMatchObject({ tier: "unsupported", unsupported_reason: "deployment-url" });
     expect(by["codex-cli"]).toMatchObject({ tier: "standard", protocol: "cli" });
-    expect(by["vllm"]).toMatchObject({ tier: "standard", api: "http://localhost:8000/v1" }); // local by the spec rule
+    expect(by["vllm"]).toMatchObject({ tier: "standard", api: "http://localhost:8000/v1" }); // local by id
     expect(report.auto_unsupported.map((a) => a.id)).toEqual(["atomic-chat", "azure", "copilot-x", "databricks"]);
   });
 });
@@ -144,7 +144,7 @@ describe("locality", () => {
     expect(isLocalHost(host)).toBe(expected);
   });
 
-  it("derives local exactly as the spec does (FR-039): ollama protocol or the ids vllm / lmstudio; everything else is cloud", () => {
+  it("derives local exactly as consumers do: ollama protocol or the ids vllm / lmstudio; everything else is cloud", () => {
     expect(deriveLocality({ id: "x", protocol: "ollama" })).toBe("local");
     expect(deriveLocality({ id: "vllm", protocol: "openai-compatible" })).toBe("local");
     expect(deriveLocality({ id: "lmstudio", protocol: "openai-compatible" })).toBe("local");

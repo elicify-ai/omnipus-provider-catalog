@@ -1,18 +1,17 @@
-# Daily assembly + release of providers_catalog.json for Omnipus (ADR-067 D1).
+# Daily assembly + release of providers_catalog.json.
 #
-# Pipeline (spec: docs/internal/specs/adr-067-registry-catalog-spec.md, US-2;
-# ADR-067 §2 and §8b hold the publication rules):
+# Pipeline:
 #   1–6  fetch → merge → adjudicate → overrides → carry forward → validate
 #        = `npm run assemble` (src/assemble.ts) + `npm run validate` +
-#          `npm run validate:spec` (independent spec validator).
+#          `npm run validate:spec` (independent validator).
 #   7    publish: GitHub Release tagged vYYYY.M.D[.N] carrying exactly
-#        providers_catalog.json + providers_catalog.json.sha256 (FR-007, FR-032,
-#        US-2.AC1; checksum only, no signature — ADR-067 §6 item 7), then the
-#        same two files committed to main as the raw-URL fallback (FR-032).
-#        Skipped when the document is byte-identical to the latest release.
+#        providers_catalog.json + providers_catalog.json.sha256 (checksum only,
+#        no signature), then the same two files committed to main as the
+#        raw-URL fallback. Skipped when the document is byte-identical to the
+#        latest release.
 #   4'   disputes above the tolerance open ONE issue per run and never fail
-#        the run (US-2.AC2, ADR-067 §8a MAJ-014).
-#   8    snapshot PR against elicify-ai/omnipus — still manual (FR-006, A-15).
+#        the run.
+#   8    downstream consumers pick up the new release on their own schedule.
 #
 # Versioning: src/version.ts derives vYYYY.M.D from the run date and appends
 # .N when `--previous` (the root providers_catalog.json, i.e. the last release)
@@ -63,7 +62,7 @@ jobs:
             npm run validate -- dist/providers_catalog.json
           fi
 
-      - name: validate (independent spec validator)
+      - name: validate (independent validator)
         run: npm run validate:spec -- dist/providers_catalog.json
 
       - uses: actions/upload-artifact@v4
@@ -118,9 +117,9 @@ jobs:
           gh release create "$VERSION" \
             dist/providers_catalog.json dist/providers_catalog.json.sha256 \
             --title "$VERSION" \
-            --notes "Assembled catalog (models.dev \`$md\` + LiteLLM \`$ll\` + overrides); $providers providers, $models models, $DISPUTES disputed row(s). Checksum-only per ADR-067: sha256 $SHA."
+            --notes "Assembled catalog (models.dev \`$md\` + LiteLLM \`$ll\` + overrides); $providers providers, $models models, $DISPUTES disputed row(s). Checksum: sha256 $SHA."
 
-      - name: commit raw-fallback copy to main (FR-032)
+      - name: commit raw-fallback copy to main
         if: steps.decide.outputs.release == 'true'
         env:
           VERSION: ${{ steps.decide.outputs.version }}

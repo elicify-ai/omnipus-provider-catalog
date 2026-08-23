@@ -45,7 +45,7 @@ const working = (id: string, modelIds: string[]): WorkingProvider => ({
   models: modelIds.map((m) => ({ id: m, name: m, tool_call: true, context_window: 2000, max_output_tokens: 200, input_modalities: ["text"], status: "active" as const })),
 });
 
-describe("carry-forward (ADR-067 §8b: nothing vanishes silently)", () => {
+describe("carry-forward (nothing vanishes silently)", () => {
   it("a model that vanished from a surviving provider is kept as status retired with its last published values", () => {
     const { providers, report } = carryForward([working("alpha", ["a1"])], previous);
     const alpha = providers.find((p) => p.id === "alpha")!;

@@ -89,7 +89,7 @@ describe("validateCatalog", () => {
     const c2 = minimalCatalog();
     const ollama = c2.providers.find((p) => p.id === "ollama")!;
     ollama.models = [];
-    ollama.protocol = "ollama"; // local by the spec rule (FR-039)
+    ollama.protocol = "ollama"; // local by protocol
     ollama.api = "http://localhost:11434/v1";
     expect(validateCatalog(c2)).toEqual([]);
   });
@@ -110,11 +110,11 @@ describe("validateCatalog", () => {
     expect(bad("not a url")[0]).toContain("not an absolute URL");
 
     const c = minimalCatalog();
-    const vllm = c.providers.find((p) => p.id === "vllm")!; // local by id (FR-039)
+    const vllm = c.providers.find((p) => p.id === "vllm")!; // local by id
     vllm.api = "http://localhost:8000/v1";
     expect(validateCatalog(c)).toEqual([]);
     const c2 = minimalCatalog();
-    c2.providers.find((p) => p.id === "litellm")!.api = "http://localhost:4000/v1"; // not in the spec's local set
+    c2.providers.find((p) => p.id === "litellm")!.api = "http://localhost:4000/v1"; // not in the local-machine set
     expect(messages(c2)[0]).toContain("must be https");
   });
 
@@ -137,7 +137,7 @@ describe("validateCatalog", () => {
   it("an alias must never equal a provider id (aliases are search-only)", () => {
     const c = minimalCatalog();
     c.providers.find((p) => p.id === "mimo")!.aliases = ["xiaomi-mimo", "openai"];
-    expect(messages(c)).toEqual(['providers[18](mimo).aliases[1]: alias "openai" collides with a provider id; aliases are search-only (A-9)']);
+    expect(messages(c)).toEqual(['providers[18](mimo).aliases[1]: alias "openai" collides with a provider id; aliases are search-only']);
   });
 
   it("cli rows need cli_kind; non-cli rows must not carry it", () => {
@@ -167,7 +167,7 @@ describe("validateCatalog", () => {
     expect(messages(c)).toEqual(["providers[0](openai).models[0](m1).input_modalities: must include text"]);
     const c2 = minimalCatalog();
     c2.providers[0]!.custom = true;
-    expect(messages(c2)).toEqual(["providers[0](openai): custom rows are never in the document (FR-026/FR-035)"]);
+    expect(messages(c2)).toEqual(["providers[0](openai): custom rows are never in the document"]);
   });
 
   it("the popular set and the local-file providers must be present", () => {

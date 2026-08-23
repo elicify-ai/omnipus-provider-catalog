@@ -54,17 +54,17 @@ export function isLocalHost(host: string): boolean {
 }
 
 /**
- * Locality exactly as the consumer derives it (spec FR-039, for published rows):
+ * Locality exactly as consumers derive it (for published rows):
  * local ⇔ protocol ollama ∨ id ∈ {vllm, lmstudio}. Nothing else counts — a
- * loopback URL on any other row would make Omnipus reject the whole document
- * (FR-033), so such rows are marked unsupported in finalizeProviders instead.
+ * loopback URL on any other row would make a consumer reject the whole document,
+ * so such rows are marked unsupported in finalizeProviders instead.
  */
 export function deriveLocality(p: { id: string; protocol: string }): "local" | "cloud" {
   if (p.protocol === "ollama" || p.id === "vllm" || p.id === "lmstudio") return "local";
   return "cloud";
 }
 
-/** True when `api` is an absolute https URL on a public host (the FR-033 rule for cloud rows). */
+/** True when `api` is an absolute https URL on a public host (the rule for cloud rows). */
 export function isPublicHttps(api: string): boolean {
   let u: URL;
   try {
@@ -101,7 +101,7 @@ export function finalizeProviders(providers: WorkingProvider[], resize: ResizeFi
         });
       } else if (w.api && locality === "cloud" && !isPublicHttps(w.api)) {
         // e.g. models.dev rows for desktop apps with http://127.0.0.1 endpoints: Omnipus would reject
-        // the whole document for one such URL (FR-033), so the row is published without it.
+        // the whole document for one such URL, so the row is published without it.
         tier = "unsupported";
         reason = reason ?? "deployment-url";
         report.auto_unsupported.push({ id: w.id, why: `api ${w.api} is not an https URL on a public host` });

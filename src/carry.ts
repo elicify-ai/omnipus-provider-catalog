@@ -1,5 +1,4 @@
-// Carry-forward: nothing is silently dropped (ADR-067 §8b "Rows that vanish
-// upstream"). A provider in the previous release that is absent now is kept
+// Carry-forward: nothing that vanishes upstream is silently dropped. A provider in the previous release that is absent now is kept
 // with tier unsupported / unsupported_reason withdrawn; a model absent now
 // from a surviving provider is kept with status retired.
 import type { Catalog } from "./schema.js";

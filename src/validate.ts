@@ -1,4 +1,4 @@
-// Output validation — the consumer's rules (spec FR-001/002/026/033, US-1.AC3)
+// Output validation — the rules consumers rely on
 // run here before anything is published, so a bad document never leaves this
 // repo. Every finding names the offending path.
 import type { Catalog } from "./schema.js";
@@ -61,7 +61,7 @@ export function validateCatalog(doc: unknown, opts: ValidateOptions = {}): Findi
     if (ids.has(p.id)) findings.push({ path, message: `duplicate provider id ${JSON.stringify(p.id)}` });
     ids.add(p.id);
     if (p.id !== p.id.trim() || p.id !== p.id.toLowerCase()) findings.push({ path, message: "provider id must be lowercase and trimmed" });
-    if (p.custom === true) findings.push({ path, message: "custom rows are never in the document (FR-026/FR-035)" });
+    if (p.custom === true) findings.push({ path, message: "custom rows are never in the document" });
 
     const unsupported = p.tier === "unsupported";
     if (unsupported && !p.unsupported_reason) findings.push({ path: `${path}.unsupported_reason`, message: "required when tier is unsupported" });
@@ -86,7 +86,7 @@ export function validateCatalog(doc: unknown, opts: ValidateOptions = {}): Findi
       }
     }
 
-    // Local rows list models live (FR-020) and unsupported rows cannot be configured (FR-019), so only a selectable cloud row must carry models.
+    // Local rows list models live and unsupported rows cannot be configured, so only a selectable cloud row must carry models.
     if (p.models.length === 0 && !local && !unsupported) findings.push({ path: `${path}.models`, message: "every selectable cloud provider needs at least one model" });
     const mids = new Set<string>();
     for (const [j, m] of p.models.entries()) {
@@ -100,7 +100,7 @@ export function validateCatalog(doc: unknown, opts: ValidateOptions = {}): Findi
 
   for (const [i, p] of cat.providers.entries()) {
     for (const [j, a] of p.aliases.entries()) {
-      if (ids.has(a)) findings.push({ path: `providers[${i}](${p.id}).aliases[${j}]`, message: `alias ${JSON.stringify(a)} collides with a provider id; aliases are search-only (A-9)` });
+      if (ids.has(a)) findings.push({ path: `providers[${i}](${p.id}).aliases[${j}]`, message: `alias ${JSON.stringify(a)} collides with a provider id; aliases are search-only` });
     }
   }
 
@@ -121,7 +121,7 @@ export function validateCatalog(doc: unknown, opts: ValidateOptions = {}): Findi
 
 /**
  * Serialise; if over the 8 MB cap, drop `status: retired` models first
- * (ADR-067 §8b), then fail if still too large.
+ * (they are the least valuable rows), then fail if still too large.
  */
 export function serialiseWithinCap(cat: Catalog): { json: string; trimmed_retired: number } {
   let json = JSON.stringify(cat, null, 1) + "\n";

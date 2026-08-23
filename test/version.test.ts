@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { compareVersions, nextVersion, parseVersion } from "../src/version.js";
 
-describe("version vYYYY.M.D[.N] (spec F-01 / DS-7)", () => {
+describe("version vYYYY.M.D[.N]", () => {
   it.each([
     ["v2026.8.9", "v2026.8.10"],
     ["v2026.9.30", "v2026.10.1"],

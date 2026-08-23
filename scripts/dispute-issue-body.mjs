@@ -16,7 +16,7 @@ const rows = disputes.slice(0, MAX).map(
 const out = [
   `Assembly run for **${m.version}** (generated ${m.generated_at}) found **${disputes.length}** registry disagreement(s) above the tolerance (> 5 % and > 4,096 tokens, or a boolean/enum difference).`,
   "",
-  "Per ADR-067 §2 step 4 the release was **not** blocked: each row publishes the last-known-good value (models.dev's when there is none) and carries `disputed: true`. Resolve by adding an entry under `overrides/` or by confirming the upstream fix, then close.",
+  "The release was **not** blocked: each row publishes the last-known-good value (models.dev's when there is none) and carries `disputed: true`. Resolve by adding an entry under `overrides/` or by confirming the upstream fix, then close.",
   "",
   `Sources: models.dev \`${m.sources?.models_dev?.commit ?? "?"}\`, LiteLLM \`${m.sources?.litellm?.commit ?? "?"}\`.`,
   "",

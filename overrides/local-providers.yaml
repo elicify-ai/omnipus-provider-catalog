@@ -1,16 +1,16 @@
-# Providers Omnipus ships that models.dev does not list (spec US-2.AC4), plus
+# Providers that models.dev does not list, plus
 # rows that exist in models.dev but need local/CLI fields set (lmstudio,
 # github-copilot — these MERGE over the registry row; the others are CREATED).
 # Same shape as registry rows. Every row needs a `reason`. Format: overrides/README.md.
 #
 # Model lists: `models_from: <models.dev id>` copies that provider's models
 # (optionally filtered by `model_ids`); `models:` adds hand-typed rows. Local
-# endpoints (locality local) discover their models live in Omnipus (spec FR-020)
+# endpoints (locality local) have their models discovered live by consumers
 # and may have an empty list.
 
 providers:
   ollama:
-    reason: "Local endpoint. Default base fetch-verified 2026-08-23 https://docs.ollama.com/openai (http://localhost:11434/v1). Models are listed live via /api/tags (spec FR-021); none published."
+    reason: "Local endpoint. Default base fetch-verified 2026-08-23 https://docs.ollama.com/openai (http://localhost:11434/v1). Models are listed live via /api/tags; none published."
     name: Ollama
     api: http://localhost:11434/v1
     protocol: ollama
@@ -18,14 +18,14 @@ providers:
     auth_methods: [api_key]
     aliases: [local]
   vllm:
-    reason: "Local endpoint. vLLM's OpenAI-compatible server default http://localhost:8000/v1 — docs https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html (not fetch-verified; JS-rendered). Models listed live (spec FR-020)."
+    reason: "Local endpoint. vLLM's OpenAI-compatible server default http://localhost:8000/v1 — docs https://docs.vllm.ai/en/latest/serving/openai_compatible_server.html (not fetch-verified; JS-rendered). Models listed live."
     name: vLLM
     api: http://localhost:8000/v1
     protocol: openai-compatible
     env: [VLLM_API_KEY]
     auth_methods: [api_key]
   litellm:
-    reason: "Self-hosted LiteLLM proxy: no fixed public URL (default listen address fetch-verified 2026-08-23 https://docs.litellm.ai/docs/proxy/user_keys is http://0.0.0.0:4000). The spec's local set (FR-039) is ollama / vllm / lmstudio only, so a loopback URL here would make Omnipus reject the whole document (FR-033); published as unsupported / deployment-url with no URL — operators reach their proxy through a custom row (api_base + protocol, spec FR-035)."
+    reason: "Self-hosted LiteLLM proxy: no fixed public URL (default listen address fetch-verified 2026-08-23 https://docs.litellm.ai/docs/proxy/user_keys is http://0.0.0.0:4000). Only ollama / vllm / lmstudio may carry loopback URLs, and a loopback URL on any other row would make consumers reject the whole document; published as unsupported / deployment-url with no URL — operators point at their own proxy with a custom row (base URL + protocol)."
     name: LiteLLM Proxy
     api: ""
     protocol: openai-compatible
@@ -35,7 +35,7 @@ providers:
     auth_methods: [api_key]
     aliases: [proxy]
   lmstudio:
-    reason: "Merges over the models.dev row (api http://127.0.0.1:1234/v1, 3 models). Default base fetch-verified 2026-08-23 https://lmstudio.ai/docs/app/api/endpoints/openai (http://localhost:1234/v1). Local endpoint (spec X-16); models listed live."
+    reason: "Merges over the models.dev row (api http://127.0.0.1:1234/v1, 3 models). Default base fetch-verified 2026-08-23 https://lmstudio.ai/docs/app/api/endpoints/openai (http://localhost:1234/v1). Local endpoint; models listed live."
     name: LM Studio
     api: http://127.0.0.1:1234/v1
     protocol: openai-compatible
@@ -43,7 +43,7 @@ providers:
     auth_methods: [api_key]
     aliases: [lm-studio]
   codex-cli:
-    reason: "OpenAI Codex CLI subprocess (spec X-14: protocol cli, cli_kind codex). The CLI owns transport; `api` is informational — the backend the signed-in CLI itself calls, https://chatgpt.com/backend-api/codex, per the open-source client source https://github.com/openai/codex (codex-rs) — not a public docs page, not fetch-verified. Models: the Codex family copied from the models.dev openai row."
+    reason: "OpenAI Codex CLI driven as a subprocess (protocol cli, cli_kind codex). The CLI owns transport; `api` is informational — the backend the signed-in CLI itself calls, https://chatgpt.com/backend-api/codex, per the open-source client source https://github.com/openai/codex (codex-rs) — not a public docs page, not fetch-verified. Models: the Codex family copied from the models.dev openai row."
     name: Codex CLI
     company: OpenAI
     api: https://chatgpt.com/backend-api/codex
@@ -55,7 +55,7 @@ providers:
     models_from: openai
     model_ids: ["re:codex"]
   openai-chatgpt:
-    reason: "ChatGPT-subscription route (spec X-14/X-41: protocol openai-compatible, token_source codex-auth-json, cloud). Base URL https://chatgpt.com/backend-api/codex is taken from the open-source Codex client, source https://github.com/openai/codex (codex-rs, ChatGPT auth backend) — not a public docs page; not fetch-verified. Models: GPT-5 family copied from the models.dev openai row."
+    reason: "ChatGPT-subscription route (protocol openai-compatible, token_source codex-auth-json, hosted). Base URL https://chatgpt.com/backend-api/codex is taken from the open-source Codex client, source https://github.com/openai/codex (codex-rs, ChatGPT auth backend) — not a public docs page; not fetch-verified. Models: GPT-5 family copied from the models.dev openai row."
     name: ChatGPT (subscription)
     company: OpenAI
     api: https://chatgpt.com/backend-api/codex
@@ -67,7 +67,7 @@ providers:
     models_from: openai
     model_ids: ["re:^gpt-5"]
   github-copilot:
-    reason: "Merges over the models.dev row (api https://api.githubcopilot.com, 33 models). Spec X-14/X-41: protocol cli, cli_kind copilot, sign_in only."
+    reason: "Merges over the models.dev row (api https://api.githubcopilot.com, 33 models). Driven through the Copilot CLI: protocol cli, cli_kind copilot, sign_in only."
     name: GitHub Copilot
     company: GitHub
     api: https://api.githubcopilot.com
@@ -120,7 +120,7 @@ providers:
       - { id: moonshotai/kimi-k2.6, name: Kimi K2.6, tool_call: true, context_window: 262144, max_output_tokens: 262144, input_modalities: [text] }
       - { id: xiaomi/mimo-v2.5, name: MiMo-V2.5 Small, tool_call: true, context_window: 1048576, max_output_tokens: 131072, input_modalities: [text] }
   mimo:
-    reason: "Omnipus id for Xiaomi MiMo (spec US-2.AC4 local-file id). Same endpoint as the models.dev `xiaomi` row (https://api.xiaomimimo.com/v1, which is also Omnipus's previous factory default); models copied from that row. Alias search-only."
+    reason: "Alternate id for Xiaomi MiMo, kept for consumers that already use it. Same endpoint as the models.dev `xiaomi` row (https://api.xiaomimimo.com/v1); models copied from that row. Alias search-only."
     name: Xiaomi MiMo
     company: Xiaomi
     api: https://api.xiaomimimo.com/v1

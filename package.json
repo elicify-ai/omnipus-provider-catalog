@@ -2,7 +2,7 @@
   "name": "omnipus-provider-catalog",
   "version": "0.1.0",
   "private": true,
-  "description": "Daily assembler for the Omnipus providers_catalog.json (ADR-067 D1, schema 2.0.0)",
+  "description": "Daily assembler and publisher of providers_catalog.json (schema 2.0.0): LLM providers, models and their limits",
   "license": "MIT",
   "type": "module",
   "engines": {

@@ -1,6 +1,6 @@
 // The merge: models.dev is primary; LiteLLM cross-checks context_window,
 // max_output_tokens, tool_call and input modalities with the disagreement rule
-// from ADR-067 §2 / spec US-2.AC2 / F-04:
+// below:
 //   - numeric fields within 5 % or 4,096 tokens (whichever is larger) are not
 //     disputes: publish the LOWER value, record both;
 //   - a larger delta, or any boolean/modality difference, is a dispute: publish
@@ -193,7 +193,7 @@ export function mergeRegistries(
       const r = mergeModel(p.id, md, ll, previousModel(previous, p.id, md.id));
       if (r.model.context_window <= 0) {
         // Unknown in models.dev and not filled by LiteLLM: the consumer would
-        // treat 0 as "unknown" (spec US-1.AC5), but the publication rule is that
+        // treat 0 as "unknown", but the publication rule is that
         // every active row carries a real window, so the row is held back —
         // recorded here, never silently — until a registry learns the limit.
         report.skipped_no_window.push({ provider: p.id, model: md.id, litellm_key: ll?.key ?? null });
