@@ -1,10 +1,23 @@
-# Daily assembly of providers_catalog.json for Omnipus (ADR-067 D1).
+# Daily assembly + release of providers_catalog.json for Omnipus (ADR-067 D1).
 #
-# Steps 1–6 (fetch, merge, adjudicate, overrides, carry forward, validate) are
-# implemented by `npm run assemble` (src/assemble.ts). Steps 7–8 (publish the
-# release + raw copy, snapshot PR) are still TODO. The FR numbers refer to the Omnipus spec
-# docs/internal/specs/adr-067-registry-catalog-spec.md; US-2 is the assembly
-# contract; ADR-067 §2 and §8b hold the publication rules.
+# Pipeline (spec: docs/internal/specs/adr-067-registry-catalog-spec.md, US-2;
+# ADR-067 §2 and §8b hold the publication rules):
+#   1–6  fetch → merge → adjudicate → overrides → carry forward → validate
+#        = `npm run assemble` (src/assemble.ts) + `npm run validate` +
+#          `npm run validate:spec` (independent spec validator).
+#   7    publish: GitHub Release tagged vYYYY.M.D[.N] carrying exactly
+#        providers_catalog.json + providers_catalog.json.sha256 (FR-007, FR-032,
+#        US-2.AC1; checksum only, no signature — ADR-067 §6 item 7), then the
+#        same two files committed to main as the raw-URL fallback (FR-032).
+#        Skipped when the document is byte-identical to the latest release.
+#   4'   disputes above the tolerance open ONE issue per run and never fail
+#        the run (US-2.AC2, ADR-067 §8a MAJ-014).
+#   8    snapshot PR against elicify-ai/omnipus — still manual (FR-006, A-15).
+#
+# Versioning: src/version.ts derives vYYYY.M.D from the run date and appends
+# .N when `--previous` (the root providers_catalog.json, i.e. the last release)
+# already carries today's date. The validator rejects any version that is not
+# strictly greater than the previous one, so the puller never downgrades.
 name: assemble
 
 on:
@@ -13,8 +26,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # publish the release and push the raw-fallback copy to main
-  issues: write     # open one issue per registry disagreement (ADR-067 §2 step 4)
+  contents: write   # create the release; push the raw-fallback copy to main
+  issues: write     # open the disagreement issue
 
 concurrency:
   group: assemble
@@ -25,6 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # version.ts / overrides commit id in the manifest
 
       - uses: actions/setup-node@v4
         with:
@@ -33,15 +48,23 @@ jobs:
 
       - run: npm ci
 
-      # Steps 1–6 below are implemented in src/ and run here. Each is kept as a
-      # comment so the workflow still reads as the spec's step list.
+      # The root providers_catalog.json is the last release (committed in the
+      # "raw fallback" step below); the CLI picks it up as --previous when present.
       - name: assemble (fetch → merge → adjudicate → overrides → carry forward → validate)
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # only for the commits API (upstream commit ids in the manifest)
-        run: npm run assemble -- --previous providers_catalog.json
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # commits API only (upstream commit ids in the manifest)
+        run: npm run assemble
 
-      - name: validate
-        run: npm run validate -- dist/providers_catalog.json --previous providers_catalog.json
+      - name: validate (consumer rules)
+        run: |
+          if [ -f providers_catalog.json ]; then
+            npm run validate -- dist/providers_catalog.json --previous providers_catalog.json
+          else
+            npm run validate -- dist/providers_catalog.json
+          fi
+
+      - name: validate (independent spec validator)
+        run: npm run validate:spec -- dist/providers_catalog.json
 
       - uses: actions/upload-artifact@v4
         with:
@@ -51,56 +74,75 @@ jobs:
             dist/providers_catalog.json.sha256
             dist/manifest.json
 
-      # (step 1 — fetch) — src/fetch.ts: pull models.dev api.json and LiteLLM
-      #   model_prices_and_context_window.json; record both upstream commit ids in a
-      #   manifest (ADR-067 §2 step 1; the ids go into the document's `source`,
-      #   FR-002 requires `source` non-empty). OpenRouter is NOT a source (ADR-067 §6 item 3).
+      - name: decide whether to release
+        id: decide
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          version="$(node -p 'require("./dist/manifest.json").version')"
+          sha="$(cut -d' ' -f1 dist/providers_catalog.json.sha256)"
+          disputes="$(node -p 'Number(require("./dist/manifest.json").counts.disputes_open || 0)')"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "disputes=$disputes" >> "$GITHUB_OUTPUT"
+          latest="$(gh release list --limit 1 --json tagName -q '.[0].tagName' || true)"
+          latest_sha=""
+          if [ -n "$latest" ]; then
+            tmp="$(mktemp -d)"
+            if gh release download "$latest" --pattern providers_catalog.json.sha256 --dir "$tmp" 2>/dev/null; then
+              latest_sha="$(cut -d' ' -f1 "$tmp/providers_catalog.json.sha256")"
+            fi
+          fi
+          if [ -n "$latest_sha" ] && [ "$latest_sha" = "$sha" ]; then
+            echo "document is byte-identical to $latest ($sha); skipping release"
+            echo "release=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "new document $version ($sha); latest was ${latest:-none} (${latest_sha:-n/a})"
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          fi
 
-      # (step 2 — merge) — src/sources.ts, src/merge.ts: build the 2.0.0 document, providers with nested models,
-      #   keyed by (provider, model) so route limits stay the route's (FR-003);
-      #   map models.dev `npm` to protocol ∈ {openai-compatible, anthropic, google,
-      #   ollama, cli} (FR-002, FR-012); append the local-providers file rows
-      #   (US-2.AC4: ollama, vllm, litellm, lmstudio, codex-cli, openai-chatgpt,
-      #   github-copilot, shengsuanyun, volcengine, avian, mimo); never emit a custom row
-      #   (FR-026, FR-035).
+      - name: publish release (step 7)
+        if: steps.decide.outputs.release == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.decide.outputs.version }}
+          SHA: ${{ steps.decide.outputs.sha }}
+          DISPUTES: ${{ steps.decide.outputs.disputes }}
+        run: |
+          set -euo pipefail
+          md="$(node -p 'require("./dist/manifest.json").sources.models_dev.commit')"
+          ll="$(node -p 'require("./dist/manifest.json").sources.litellm.commit')"
+          providers="$(node -p 'require("./dist/manifest.json").counts.providers')"
+          models="$(node -p 'require("./dist/manifest.json").counts.models')"
+          gh release create "$VERSION" \
+            dist/providers_catalog.json dist/providers_catalog.json.sha256 \
+            --title "$VERSION" \
+            --notes "Assembled catalog (models.dev \`$md\` + LiteLLM \`$ll\` + overrides); $providers providers, $models models, $DISPUTES disputed row(s). Checksum-only per ADR-067: sha256 $SHA."
 
-      # (step 3 — adjudicate) — src/merge.ts; disputes land in dist/manifest.json for step 7 to open issues: compare the two registries per numeric field;
-      #   ≤ 5 % or ≤ 4,096 tokens → publish the lower, record both, no issue; larger
-      #   delta or boolean/enum difference → publish last-known-good (models.dev's when
-      #   none), set `disputed: true`, open ONE issue (US-2.AC2, ADR-067 §8a MAJ-014).
-      #   Never block the release on a dispute.
+      - name: commit raw-fallback copy to main (FR-032)
+        if: steps.decide.outputs.release == 'true'
+        env:
+          VERSION: ${{ steps.decide.outputs.version }}
+        run: |
+          set -euo pipefail
+          cp dist/providers_catalog.json dist/providers_catalog.json.sha256 .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add providers_catalog.json providers_catalog.json.sha256
+          git commit -m "chore(release): raw-fallback copy of $VERSION"
+          git push origin HEAD:main
 
-      # (step 4 — overrides) — src/overrides.ts, src/finalize.ts: apply overrides/ (wins over both registries:
-      #   adjudicated values, URL rows for dedicated-SDK providers — US-2.AC3,
-      #   second protocols, tier/unsupported_reason/auth_methods/aliases/company —
-      #   FR-018, FR-030); join resize_limits.json onto every model of each provider
-      #   and emit default_resize_limits (FR-002, FR-004).
-
-      # (step 5 — carry forward) — src/carry.ts: diff against the last published document;
-      #   providers/models that vanished upstream are kept with status: retired or
-      #   tier: unsupported + unsupported_reason: withdrawn (ADR-067 §8b "Rows that
-      #   vanish upstream"). Never silently drop.
-
-      # (step 6 — validate) — src/validate.ts: run the consumer's rules before publishing —
-      #   schema_version "2.0.0" (FR-001); version ^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$
-      #   and strictly greater than the last release (FR-002, F-01; the puller never
-      #   downgrades); every field rule in FR-002; https / no private-host `api` for
-      #   non-local rows (FR-033); popular set and nine local-file providers present,
-      #   every unsupported row has a reason (FR-026); size ≤ 8 MB, trimming
-      #   status: retired models first if exceeded (FR-026, A-2); load the shared
-      #   conformance fixture the same way (FR-027).
-
-      # TODO(step 7 — publish): write providers_catalog.json and
-      #   providers_catalog.json.sha256 (`<64 hex>  providers_catalog.json`); create a
-      #   GitHub Release tagged with the version carrying exactly those two assets —
-      #   the sidecar is mandatory (FR-007, FR-032, US-2.AC1); commit the same two files
-      #   to main for the raw-URL fallback (FR-032: Ref pinned to main). Checksum only,
-      #   no signature (ADR-067 §6 item 7).
-
-      # TODO(step 8 — snapshot PR): on a weekly cadence open a pull request against
-      #   elicify-ai/omnipus replacing pkg/providers/catalog/data/providers_catalog.json
-      #   with the published document (FR-006, A-15; ADR-067 §8a MAJ-005: the Omnipus
-      #   build never fetches).
-
-      - name: publish placeholder
-        run: echo "steps 7–8 (release, raw copy to main, snapshot PR) are not wired yet; see the TODO comments above"
+      - name: open disagreement issue (never fails the run)
+        if: steps.decide.outputs.release == 'true' && steps.decide.outputs.disputes != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.decide.outputs.version }}
+          DISPUTES: ${{ steps.decide.outputs.disputes }}
+        run: |
+          node scripts/dispute-issue-body.mjs dist/manifest.json > /tmp/issue-body.md
+          gh label create registry-dispute --description "models.dev / LiteLLM disagreement above tolerance" --color D93F0B 2>/dev/null || true
+          gh issue create \
+            --title "Registry disagreements in $VERSION ($DISPUTES row(s))" \
+            --label registry-dispute \
+            --body-file /tmp/issue-body.md || echo "::warning::could not open the dispute issue"

@@ -9,11 +9,14 @@ pulls two public registries, merges them into one document keyed by
 GitHub Release. Omnipus fetches that release once a day (plus once at startup)
 and falls back to an embedded snapshot when it cannot.
 
-Status: **assembler implemented, publishing not yet wired.** `npm run assemble`
-fetches both registries, merges, applies `overrides/`, validates and writes
-`dist/providers_catalog.json` + `.sha256`. The workflow in
-`.github/workflows/assemble.yml` runs that; the release / raw-copy / snapshot-PR
-steps (7–8) are still TODO comments — no release is published yet.
+Status: **assembler and publishing wired.** `npm run assemble` fetches both
+registries, merges, applies `overrides/`, validates and writes
+`dist/providers_catalog.json` + `.sha256`. `.github/workflows/assemble.yml` runs
+that daily (06:00 UTC) and on manual dispatch, then publishes a GitHub Release
+tagged `vYYYY.M.D[.N]` with exactly the two assets, commits the same two files
+to `main` as the raw-URL fallback, and opens one `registry-dispute` issue per
+run when any row is disputed. A byte-identical document skips the release. The
+Omnipus snapshot PR (step 8) is still done by hand. First release: `v2026.8.23`.
 
 ## How to run
 
@@ -66,7 +69,7 @@ Per numeric field, with `a` = models.dev and `b` = LiteLLM:
 
 - `a == b`: agree.
 - `|a − b| ≤ max(4096, 5 % × max(a, b))`: **within tolerance** — publish `min(a, b)`, record both in `manifest.json`, no dispute.
-- larger: **dispute** — publish the previous release's value when it exists and is non-zero, else models.dev's; set `disputed: true` on the model; record it in `manifest.disputes[]` with both values and the LiteLLM key. The publish step (TODO) opens the issue; the release is never blocked.
+- larger: **dispute** — publish the previous release's value when it exists and is non-zero, else models.dev's; set `disputed: true` on the model; record it in `manifest.disputes[]` with both values and the LiteLLM key. The publish step opens one `registry-dispute` issue per run listing every disputed row; the release is never blocked.
 - `a == 0` (models.dev does not know) and LiteLLM has a value: **fill** from LiteLLM, recorded, not a dispute.
 - `tool_call` and each modality LiteLLM explicitly states (`supported_modalities`, `supports_vision`, `supports_audio_input`, `supports_pdf_input`): a difference is a dispute with the same last-known-good rule. Modalities LiteLLM is silent on are never disputed.
 - A value set in `overrides/models.yaml` resolves the dispute on that field; `disputed` is cleared when no dispute on the model remains.
