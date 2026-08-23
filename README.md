@@ -76,6 +76,8 @@ README.md                        this file
 LICENSE                          MIT
 docs/schema-2.0.0.md             the document shape, every field and its source
 overrides/README.md              how overrides work and what they may contain
+validator/                       independent spec validator (npm run validate:spec -- <file>)
+fixtures/                        minimal valid document + one invalid document per invariant
 resize_limits.json               per-provider image upload limits
 .github/workflows/assemble.yml   daily assembly job (skeleton)
 ```

@@ -1,0 +1,11 @@
+{
+  "schema_version": "2.0.0",
+  "version": "v2026.8.23",
+  "updated_at": "2026-08-23T06:00:00Z",
+  "source": "fixture: models.dev@0000000 litellm@0000000 overrides@0000000 (placeholder ids)",
+  "default_resize_limits": {
+    "long_edge_px": 7680,
+    "max_bytes": 10485760
+  },
+  "providers": []
+}
