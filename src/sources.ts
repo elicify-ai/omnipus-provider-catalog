@@ -122,6 +122,15 @@ export function normaliseModelsDev(api: ModelsDevApi): {
         skipped.push({ provider: pid, model: mid, reason: "input modalities do not include text" });
         continue;
       }
+      // Image / video / audio generators and other non-text-producing models are
+      // not chat models: they have no context window and cannot be driven by
+      // the agent loop, so they are not catalog rows. (An absent output list is
+      // treated as text: models.dev's schema defaults it.)
+      const outputs = m.modalities?.output;
+      if (Array.isArray(outputs) && !outputs.includes("text")) {
+        skipped.push({ provider: pid, model: mid, reason: `output modalities ${JSON.stringify(outputs)} do not include text` });
+        continue;
+      }
       const nm: NormalisedModel = {
         id: mid,
         name: m.name || mid,

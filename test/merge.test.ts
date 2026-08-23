@@ -158,3 +158,28 @@ describe("mergeRegistries with a LiteLLM index", () => {
     expect(out.find((p) => p.id === "zai")!.models[0]!.context_window).toBe(1_000_000);
   });
 });
+
+describe("models with no context window in either registry are held back (publication rule: every active row has a real window)", () => {
+  const litellm = indexLiteLLM({
+    "known-x": { litellm_provider: "openai", mode: "chat", max_input_tokens: 32000, max_output_tokens: 4096 },
+  });
+  const providers: NormalisedProvider[] = [
+    {
+      id: "openai",
+      name: "OpenAI",
+      npm: "@ai-sdk/openai",
+      api: "",
+      api_is_template: false,
+      protocol: "openai-compatible",
+      env: [],
+      models: [md({ id: "known-x", context_window: 0 }), md({ id: "unknown-y", context_window: 0 }), md({ id: "fine-z", context_window: 8192 })],
+    },
+  ];
+
+  it("fills from LiteLLM when it can, otherwise records the row in skipped_no_window and does not publish it", () => {
+    const { providers: out, report } = mergeRegistries(providers, litellm, null);
+    expect(out[0]!.models.map((m) => m.id)).toEqual(["known-x", "fine-z"]);
+    expect(out[0]!.models[0]!.context_window).toBe(32000);
+    expect(report.skipped_no_window).toEqual([{ provider: "openai", model: "unknown-y", litellm_key: null }]);
+  });
+});

@@ -55,12 +55,15 @@ export type ToleranceRecord = {
   published: number;
 };
 export type FillRecord = { provider: string; model: string; field: NumericField; litellm: number };
+/** A model neither registry knows a context window for; it is not published (publication rule: every active model has a real window). */
+export type NoWindowRecord = { provider: string; model: string; litellm_key: string | null };
 
 export type MergeReport = {
   cross_checked: number;
   disputes: DisputeRecord[];
   within_tolerance: ToleranceRecord[];
   filled_from_litellm: FillRecord[];
+  skipped_no_window: NoWindowRecord[];
 };
 
 export type MergedModel = Model;
@@ -180,7 +183,7 @@ export function mergeRegistries(
   litellm: Map<string, LiteLLMFacts>,
   previous: Catalog | null,
 ): { providers: MergedProvider[]; report: MergeReport } {
-  const report: MergeReport = { cross_checked: 0, disputes: [], within_tolerance: [], filled_from_litellm: [] };
+  const report: MergeReport = { cross_checked: 0, disputes: [], within_tolerance: [], filled_from_litellm: [], skipped_no_window: [] };
   const providers: MergedProvider[] = [];
   for (const p of modelsDev) {
     const models: Model[] = [];
@@ -188,6 +191,14 @@ export function mergeRegistries(
       const ll = lookupLiteLLM(litellm, p.id, md.id);
       if (ll) report.cross_checked++;
       const r = mergeModel(p.id, md, ll, previousModel(previous, p.id, md.id));
+      if (r.model.context_window <= 0) {
+        // Unknown in models.dev and not filled by LiteLLM: the consumer would
+        // treat 0 as "unknown" (spec US-1.AC5), but the publication rule is that
+        // every active row carries a real window, so the row is held back —
+        // recorded here, never silently — until a registry learns the limit.
+        report.skipped_no_window.push({ provider: p.id, model: md.id, litellm_key: ll?.key ?? null });
+        continue;
+      }
       models.push(r.model);
       report.disputes.push(...r.disputes);
       report.within_tolerance.push(...r.tolerance);

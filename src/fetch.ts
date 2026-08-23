@@ -16,7 +16,7 @@ export const LITELLM_URL =
 export const LITELLM_REPO = "BerriAI/litellm";
 export const LITELLM_PATH = "model_prices_and_context_window.json";
 
-export type Fetched = { record: SourceRecord; json: unknown };
+export type Fetched = { record: SourceRecord; json: unknown; /** the exact upstream bytes the record's sha256 covers */ bytes: Uint8Array };
 
 export function sha256Hex(bytes: Uint8Array | string): string {
   return createHash("sha256").update(bytes).digest("hex");
@@ -81,6 +81,7 @@ export async function fetchModelsDev(now = new Date()): Promise<Fetched> {
   return {
     record: record("models.dev", MODELS_DEV_URL, "MIT", bytes, etag, commit, now),
     json: JSON.parse(Buffer.from(bytes).toString("utf8")),
+    bytes,
   };
 }
 
@@ -90,18 +91,22 @@ export async function fetchLiteLLM(now = new Date()): Promise<Fetched> {
   return {
     record: record("litellm", LITELLM_URL, "MIT", bytes, etag, commit, now),
     json: JSON.parse(Buffer.from(bytes).toString("utf8")),
+    bytes,
   };
 }
 
 /** Write the raw upstream bytes and their records into a cache directory so a run is reproducible offline. */
 export async function cacheFetched(dir: string, name: string, f: Fetched): Promise<void> {
   await mkdir(dir, { recursive: true });
-  await writeFile(path.join(dir, `${name}.json`), JSON.stringify(f.json));
+  // The raw bytes, not a re-serialisation: the cached file must hash to record.sha256.
+  await writeFile(path.join(dir, `${name}.json`), f.bytes);
   await writeFile(path.join(dir, `${name}.record.json`), JSON.stringify(f.record, null, 2) + "\n");
 }
 
 export async function readCached(dir: string, name: string): Promise<Fetched> {
-  const json = JSON.parse(await readFile(path.join(dir, `${name}.json`), "utf8")) as unknown;
+  const bytes = new Uint8Array(await readFile(path.join(dir, `${name}.json`)));
   const record = JSON.parse(await readFile(path.join(dir, `${name}.record.json`), "utf8")) as SourceRecord;
-  return { json, record };
+  const actual = sha256Hex(bytes);
+  if (actual !== record.sha256) throw new Error(`cached ${name}.json sha256 ${actual} does not match its record ${record.sha256}`);
+  return { json: JSON.parse(Buffer.from(bytes).toString("utf8")) as unknown, record, bytes };
 }

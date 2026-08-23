@@ -115,6 +115,13 @@ Publication rules (from the ADR and its spec):
   value is published with both recorded and no issue. A release is never blocked by a
   disagreement. A closed issue's adjudicated value is written into `overrides/`,
   which then wins.
+- **Only text-generating models with a known window are published.** models.dev rows
+  whose output modalities exclude `text` (image, video and speech generators) are not
+  chat models and are skipped; a text model for which neither registry carries a
+  context window is held back — both are recorded in `dist/manifest.json`
+  (`models_dev_skipped_models`, `skipped_no_context_window`), and the row appears
+  as soon as a registry learns the limit. Every active model in the document
+  therefore has `context_window > 0` (the validator's MODEL_LIMITS rule).
 - **Nothing is silently dropped.** A provider or model that vanishes upstream is
   carried forward from the last published document as `status: retired` (models) or
   `tier: unsupported`, `unsupported_reason: withdrawn` (providers).
