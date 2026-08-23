@@ -1,0 +1,14 @@
+{
+  "_comment": "Per-provider image upload limits (long edge in pixels, max bytes). Neither models.dev nor LiteLLM carries these; they are a vendor's upload limit, not a model fact. The job joins a provider's row onto every model of that provider. Keys are models.dev canonical provider ids. Seeded 2026-08-23 from Omnipus pkg/providers/capabilities/data/providers_capabilities_seed.json (version 2026-07-28), which used exactly four distinct values across 78 models; providers in that seed that carried no resize_budget (deepseek, and some minimax/moonshot/z-ai rows) fall to default. Old seed ids mapped to canonical ids: z-ai -> zai, moonshot -> moonshotai. Unverified against vendor docs beyond the seed's own 2026-07-28 re-validation; correct by pull request with a documentation link.",
+  "default": { "long_edge_px": 7680, "max_bytes": 10485760 },
+  "providers": {
+    "openai":     { "long_edge_px": 8000, "max_bytes": 20971520 },
+    "google":     { "long_edge_px": 8000, "max_bytes": 20971520 },
+    "xai":        { "long_edge_px": 8000, "max_bytes": 20971520 },
+    "anthropic":  { "long_edge_px": 8000, "max_bytes": 10485760 },
+    "mistral":    { "long_edge_px": 8000, "max_bytes": 10485760 },
+    "minimax":    { "long_edge_px": 8000, "max_bytes": 10485760 },
+    "zai":        { "long_edge_px": 6000, "max_bytes": 5242880 },
+    "moonshotai": { "long_edge_px": 8000, "max_bytes": 104857600 }
+  }
+}

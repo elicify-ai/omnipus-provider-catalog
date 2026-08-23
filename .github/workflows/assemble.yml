@@ -1,0 +1,80 @@
+# Daily assembly of providers_catalog.json for Omnipus (ADR-067 D1).
+#
+# SKELETON — every step is a TODO comment. No fetching, merging or publishing
+# code exists yet. The FR numbers refer to the Omnipus spec
+# docs/internal/specs/adr-067-registry-catalog-spec.md; US-2 is the assembly
+# contract; ADR-067 §2 and §8b hold the publication rules.
+name: assemble
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # daily, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write   # publish the release and push the raw-fallback copy to main
+  issues: write     # open one issue per registry disagreement (ADR-067 §2 step 4)
+
+concurrency:
+  group: assemble
+  cancel-in-progress: false
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # TODO(step 1 — fetch): pull models.dev api.json and LiteLLM
+      #   model_prices_and_context_window.json; record both upstream commit ids in a
+      #   manifest (ADR-067 §2 step 1; the ids go into the document's `source`,
+      #   FR-002 requires `source` non-empty). OpenRouter is NOT a source (ADR-067 §6 item 3).
+
+      # TODO(step 2 — merge): build the 2.0.0 document, providers with nested models,
+      #   keyed by (provider, model) so route limits stay the route's (FR-003);
+      #   map models.dev `npm` to protocol ∈ {openai-compatible, anthropic, google,
+      #   ollama, cli} (FR-002, FR-012); append the local-providers file rows
+      #   (US-2.AC4: ollama, vllm, litellm, lmstudio, codex-cli, openai-chatgpt,
+      #   github-copilot, shengsuanyun, volcengine, avian, mimo); never emit a custom row
+      #   (FR-026, FR-035).
+
+      # TODO(step 3 — adjudicate): compare the two registries per numeric field;
+      #   ≤ 5 % or ≤ 4,096 tokens → publish the lower, record both, no issue; larger
+      #   delta or boolean/enum difference → publish last-known-good (models.dev's when
+      #   none), set `disputed: true`, open ONE issue (US-2.AC2, ADR-067 §8a MAJ-014).
+      #   Never block the release on a dispute.
+
+      # TODO(step 4 — overrides): apply overrides/ (wins over both registries:
+      #   adjudicated values, URL rows for dedicated-SDK providers — US-2.AC3,
+      #   second protocols, tier/unsupported_reason/auth_methods/aliases/company —
+      #   FR-018, FR-030); join resize_limits.json onto every model of each provider
+      #   and emit default_resize_limits (FR-002, FR-004).
+
+      # TODO(step 5 — carry forward): diff against the last published document;
+      #   providers/models that vanished upstream are kept with status: retired or
+      #   tier: unsupported + unsupported_reason: withdrawn (ADR-067 §8b "Rows that
+      #   vanish upstream"). Never silently drop.
+
+      # TODO(step 6 — validate): run the consumer's rules before publishing —
+      #   schema_version "2.0.0" (FR-001); version ^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$
+      #   and strictly greater than the last release (FR-002, F-01; the puller never
+      #   downgrades); every field rule in FR-002; https / no private-host `api` for
+      #   non-local rows (FR-033); popular set and nine local-file providers present,
+      #   every unsupported row has a reason (FR-026); size ≤ 8 MB, trimming
+      #   status: retired models first if exceeded (FR-026, A-2); load the shared
+      #   conformance fixture the same way (FR-027).
+
+      # TODO(step 7 — publish): write providers_catalog.json and
+      #   providers_catalog.json.sha256 (`<64 hex>  providers_catalog.json`); create a
+      #   GitHub Release tagged with the version carrying exactly those two assets —
+      #   the sidecar is mandatory (FR-007, FR-032, US-2.AC1); commit the same two files
+      #   to main for the raw-URL fallback (FR-032: Ref pinned to main). Checksum only,
+      #   no signature (ADR-067 §6 item 7).
+
+      # TODO(step 8 — snapshot PR): on a weekly cadence open a pull request against
+      #   elicify-ai/omnipus replacing pkg/providers/catalog/data/providers_catalog.json
+      #   with the published document (FR-006, A-15; ADR-067 §8a MAJ-005: the Omnipus
+      #   build never fetches).
+
+      - name: placeholder
+        run: echo "assemble.yml is a skeleton; see the TODO steps above"
