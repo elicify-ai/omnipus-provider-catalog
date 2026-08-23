@@ -50,6 +50,17 @@ npm run fixtures      # regenerate fixtures/ from fixtures/gen.mjs
   targeted change to the valid document (`fixtures/gen.mjs` is the source of
   truth). `SIZE.json` is 8 MB plus one byte and is not committed; `npm run
   fixtures` or the self-test regenerates it.
+- `fixtures/providers_catalog_2.0.0_fixture.json` — a byte-for-byte copy of
+  the conformance fixture the Omnipus consumer tests its parser against
+  (`pkg/providers/catalog/testdata/providers_catalog_2.0.0_fixture.json` in
+  the Omnipus repository). It captures the shared 2.0.0 contract from the
+  consumer's side: 3 providers / 6 models, including the same model id under
+  two providers with different windows, a second-protocol entry, a `disputed`
+  row and a retired row. It is deliberately **not** run through this
+  validator's self-test — it is a parser-level contract fixture, not a
+  publication candidate, so it does not carry the required popular /
+  cloud-IAM / local-provider sets. When the schema contract changes, update
+  both copies together.
 
 ## The 29 checks
 
