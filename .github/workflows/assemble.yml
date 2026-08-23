@@ -1,7 +1,8 @@
 # Daily assembly of providers_catalog.json for Omnipus (ADR-067 D1).
 #
-# SKELETON — every step is a TODO comment. No fetching, merging or publishing
-# code exists yet. The FR numbers refer to the Omnipus spec
+# Steps 1–6 (fetch, merge, adjudicate, overrides, carry forward, validate) are
+# implemented by `npm run assemble` (src/assemble.ts). Steps 7–8 (publish the
+# release + raw copy, snapshot PR) are still TODO. The FR numbers refer to the Omnipus spec
 # docs/internal/specs/adr-067-registry-catalog-spec.md; US-2 is the assembly
 # contract; ADR-067 §2 and §8b hold the publication rules.
 name: assemble
@@ -25,12 +26,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # TODO(step 1 — fetch): pull models.dev api.json and LiteLLM
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Steps 1–6 below are implemented in src/ and run here. Each is kept as a
+      # comment so the workflow still reads as the spec's step list.
+      - name: assemble (fetch → merge → adjudicate → overrides → carry forward → validate)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # only for the commits API (upstream commit ids in the manifest)
+        run: npm run assemble -- --previous providers_catalog.json
+
+      - name: validate
+        run: npm run validate -- dist/providers_catalog.json --previous providers_catalog.json
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: providers_catalog
+          path: |
+            dist/providers_catalog.json
+            dist/providers_catalog.json.sha256
+            dist/manifest.json
+
+      # (step 1 — fetch) — src/fetch.ts: pull models.dev api.json and LiteLLM
       #   model_prices_and_context_window.json; record both upstream commit ids in a
       #   manifest (ADR-067 §2 step 1; the ids go into the document's `source`,
       #   FR-002 requires `source` non-empty). OpenRouter is NOT a source (ADR-067 §6 item 3).
 
-      # TODO(step 2 — merge): build the 2.0.0 document, providers with nested models,
+      # (step 2 — merge) — src/sources.ts, src/merge.ts: build the 2.0.0 document, providers with nested models,
       #   keyed by (provider, model) so route limits stay the route's (FR-003);
       #   map models.dev `npm` to protocol ∈ {openai-compatible, anthropic, google,
       #   ollama, cli} (FR-002, FR-012); append the local-providers file rows
@@ -38,24 +64,24 @@ jobs:
       #   github-copilot, shengsuanyun, volcengine, avian, mimo); never emit a custom row
       #   (FR-026, FR-035).
 
-      # TODO(step 3 — adjudicate): compare the two registries per numeric field;
+      # (step 3 — adjudicate) — src/merge.ts; disputes land in dist/manifest.json for step 7 to open issues: compare the two registries per numeric field;
       #   ≤ 5 % or ≤ 4,096 tokens → publish the lower, record both, no issue; larger
       #   delta or boolean/enum difference → publish last-known-good (models.dev's when
       #   none), set `disputed: true`, open ONE issue (US-2.AC2, ADR-067 §8a MAJ-014).
       #   Never block the release on a dispute.
 
-      # TODO(step 4 — overrides): apply overrides/ (wins over both registries:
+      # (step 4 — overrides) — src/overrides.ts, src/finalize.ts: apply overrides/ (wins over both registries:
       #   adjudicated values, URL rows for dedicated-SDK providers — US-2.AC3,
       #   second protocols, tier/unsupported_reason/auth_methods/aliases/company —
       #   FR-018, FR-030); join resize_limits.json onto every model of each provider
       #   and emit default_resize_limits (FR-002, FR-004).
 
-      # TODO(step 5 — carry forward): diff against the last published document;
+      # (step 5 — carry forward) — src/carry.ts: diff against the last published document;
       #   providers/models that vanished upstream are kept with status: retired or
       #   tier: unsupported + unsupported_reason: withdrawn (ADR-067 §8b "Rows that
       #   vanish upstream"). Never silently drop.
 
-      # TODO(step 6 — validate): run the consumer's rules before publishing —
+      # (step 6 — validate) — src/validate.ts: run the consumer's rules before publishing —
       #   schema_version "2.0.0" (FR-001); version ^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$
       #   and strictly greater than the last release (FR-002, F-01; the puller never
       #   downgrades); every field rule in FR-002; https / no private-host `api` for
@@ -76,5 +102,5 @@ jobs:
       #   with the published document (FR-006, A-15; ADR-067 §8a MAJ-005: the Omnipus
       #   build never fetches).
 
-      - name: placeholder
-        run: echo "assemble.yml is a skeleton; see the TODO steps above"
+      - name: publish placeholder
+        run: echo "steps 7–8 (release, raw copy to main, snapshot PR) are not wired yet; see the TODO comments above"

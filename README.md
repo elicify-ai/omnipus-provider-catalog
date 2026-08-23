@@ -9,8 +9,84 @@ pulls two public registries, merges them into one document keyed by
 GitHub Release. Omnipus fetches that release once a day (plus once at startup)
 and falls back to an embedded snapshot when it cannot.
 
-Status: **scaffold**. The workflow in `.github/workflows/assemble.yml` is a
-skeleton of TODO steps; nothing is fetched or published yet.
+Status: **assembler implemented, publishing not yet wired.** `npm run assemble`
+fetches both registries, merges, applies `overrides/`, validates and writes
+`dist/providers_catalog.json` + `.sha256`. The workflow in
+`.github/workflows/assemble.yml` runs that; the release / raw-copy / snapshot-PR
+steps (7–8) are still TODO comments — no release is published yet.
+
+## How to run
+
+Requires Node 22+ (`package.json` `engines`). Everything is TypeScript run with
+`tsx`; there is no build step.
+
+```bash
+npm ci
+npm run fetch       # optional: pull both registries into .cache/ (records sha256, ETag, upstream commit)
+npm run assemble    # fetch (or `-- --offline` to reuse .cache/), merge, override, validate → dist/
+npm run validate    # re-validate dist/providers_catalog.json (or `-- <file>`)
+npm run validate:spec -- dist/providers_catalog.json   # independent spec checker (validator/), written separately from the assembler
+npm test            # vitest: merge rule, tolerance, carry-forward, overrides, validator, version
+npm run typecheck
+```
+
+`npm run assemble` flags (pass after `--`):
+
+| Flag | Meaning |
+|---|---|
+| `--offline` | use `.cache/models.dev.json` and `.cache/litellm.json` from the last `fetch`/`assemble` instead of fetching |
+| `--previous <file>` | the last published document (last known good). Default: `dist/providers_catalog.json` if present, else `providers_catalog.json` at the repo root, else none |
+| `--no-previous` | ignore any previous document (first release, or a deliberate reset) |
+| `--out <dir>` | output directory (default `dist/`) |
+| `--date YYYY-MM-DD` | run date for the version (default: now, UTC) |
+
+Outputs in `dist/` (gitignored — the publish step copies them where they are served):
+
+| File | Content |
+|---|---|
+| `providers_catalog.json` | the 2.0.0 document |
+| `providers_catalog.json.sha256` | `<64 hex>  providers_catalog.json` |
+| `manifest.json` | what the run consumed and decided: source records (sha256, ETag, upstream commit, bytes), counts, every dispute (for the publish step to open issues), every within-tolerance pick, LiteLLM fills, carry-forwards, overrides applied, rows auto-marked unsupported, models.dev rows skipped (no `text` input modality) |
+
+Exit codes: `0` ok · `2` validation findings (each printed as `path: message`) · `1` any other error.
+
+### What a run does, in order
+
+1. **Fetch** models.dev `api.json` and LiteLLM's JSON (`src/fetch.ts`); record sha256, byte count, ETag and the upstream commit id (GitHub API; `null` when unavailable) for each.
+2. **Normalise** models.dev (`src/sources.ts`): map `npm` to an Omnipus protocol, drop `${VAR}` template URLs, keep only models whose input modalities include `text`.
+3. **Merge** (`src/merge.ts`): models.dev is primary; for every model with a LiteLLM row on the same route, cross-check `context_window`, `max_output_tokens`, `tool_call` and modalities with the disagreement rule below.
+4. **Overrides** (`src/overrides.ts`): add local-provider rows, then provider overrides, then model overrides — see `overrides/README.md`.
+5. **Carry forward** (`src/carry.ts`) from the previous document: vanished models → `status: retired`; vanished providers → `tier: unsupported`, `unsupported_reason: withdrawn`.
+6. **Finalise** (`src/finalize.ts`): defaults (`company` = `name`, `tier: standard`, `auth_methods: [api_key]`), join `resize_limits.json`, auto-mark rows with no usable protocol, no URL, or a non-https/private-host URL (outside the spec's local set `ollama` / `vllm` / `lmstudio`) as `unsupported / deployment-url`. `locality` is never published — Omnipus derives it.
+7. **Validate** (`src/validate.ts`) and write; trim `status: retired` models first if over 8 MB.
+
+### Disagreement rule (as implemented)
+
+Per numeric field, with `a` = models.dev and `b` = LiteLLM:
+
+- `a == b`: agree.
+- `|a − b| ≤ max(4096, 5 % × max(a, b))`: **within tolerance** — publish `min(a, b)`, record both in `manifest.json`, no dispute.
+- larger: **dispute** — publish the previous release's value when it exists and is non-zero, else models.dev's; set `disputed: true` on the model; record it in `manifest.disputes[]` with both values and the LiteLLM key. The publish step (TODO) opens the issue; the release is never blocked.
+- `a == 0` (models.dev does not know) and LiteLLM has a value: **fill** from LiteLLM, recorded, not a dispute.
+- `tool_call` and each modality LiteLLM explicitly states (`supported_modalities`, `supports_vision`, `supports_audio_input`, `supports_pdf_input`): a difference is a dispute with the same last-known-good rule. Modalities LiteLLM is silent on are never disputed.
+- A value set in `overrides/models.yaml` resolves the dispute on that field; `disputed` is cleared when no dispute on the model remains.
+
+Only models with a sound route correspondence are cross-checked (`LITELLM_PROVIDER_MAP` in `src/sources.ts`, ~35 providers). A provider absent from the map is simply published as models.dev states it.
+
+## Release rule
+
+- `version` is `vYYYY.M.D` from the run's UTC date; a second run on the same day
+  (or a clock behind the last publisher) bumps `.N`. The validator rejects a
+  version not strictly greater than `--previous`. Omnipus never downgrades.
+- `updated_at` / `generated_at` is the run time; `source` is
+  `models.dev@<commit> litellm@<commit> overrides@<this repo's HEAD>` and the
+  structured `sources` block carries the full records.
+- The document must validate with zero findings (see `src/validate.ts`: schema,
+  unique ids, ≥1 model per selectable cloud provider, https + public host for every cloud
+  `api`, every `unsupported` row has a reason, popular set and the 11 local-file
+  providers present, no `custom` row, ≤ 8 MB).
+- The checksum sidecar is mandatory and is written with the document.
+- A dispute never blocks a release; a vanished row never disappears.
 
 ## What is published
 
@@ -53,7 +129,7 @@ Publication rules (from the ADR and its spec):
 | [LiteLLM](https://github.com/BerriAI/litellm) `model_prices_and_context_window.json` | Cross-check: adjudicates where models.dev and Omnipus's earlier hand-typed seed disagreed; flags disagreements | MIT |
 | `overrides/` (this repo) | Hand-maintained corrections that win over both registries | MIT (this repo) |
 | `resize_limits.json` (this repo) | Per-provider image upload limits, which neither registry carries | MIT (this repo) |
-| Local-providers file (this repo, TODO) | Providers Omnipus ships that are absent from models.dev (`ollama`, `vllm`, `litellm`, `lmstudio`, `codex-cli`, `openai-chatgpt`, `github-copilot`, `shengsuanyun`, `volcengine`, `avian`, `mimo`) | MIT (this repo) |
+| `overrides/local-providers.yaml` (this repo) | Providers Omnipus ships that are absent from models.dev (`ollama`, `vllm`, `litellm`, `lmstudio`, `codex-cli`, `openai-chatgpt`, `github-copilot`, `shengsuanyun`, `volcengine`, `avian`, `mimo`) | MIT (this repo) |
 
 Every run records the upstream commit ids it consumed in the document's `source`
 field and in a manifest.

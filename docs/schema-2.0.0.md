@@ -16,7 +16,9 @@ previously loaded document (or the embedded snapshot) is served. The old
 | `schema_version` | string | exactly `"2.0.0"` | job |
 | `version` | string | monotonic, `vYYYY.M.D[.N]`, must match `^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$` — the leading `v` is required so Omnipus's comparator orders numerically (`v2026.9.30 < v2026.10.1`) | job (run date) |
 | `updated_at` | string | RFC 3339, non-empty; Omnipus marks the catalog `stale` when older than 14 days | job |
-| `source` | string | free text, non-empty; carries the upstream commit ids consumed | job (manifest) |
+| `source` | string | free text, non-empty; carries the upstream commit ids consumed (`models.dev@<commit> litellm@<commit> overrides@<commit>`) | job (manifest) |
+| `generated_at` | string | **beyond the spec** (assembler brief): same value as `updated_at` | job |
+| `sources` | object | **beyond the spec** (assembler brief): the structured manifest — `models_dev` and `litellm` records `{name, url, license, fetched_at, commit, etag, sha256, bytes}`, `overrides_commit`, `previous_version` | job |
 | `default_resize_limits` | object `{long_edge_px, max_bytes}` | both positive integers; used by Omnipus on a lookup miss | `resize_limits.json` (`default`) |
 | `providers` | array of Provider | at least one; ids unique and non-empty | merge |
 
@@ -43,7 +45,12 @@ previously loaded document (or the embedded snapshot) is served. The old
 | `models` | array of Model | ids unique and non-empty within the provider | merge |
 
 Not in the document: `locality` (`local`/`cloud`) is **derived by Omnipus on load**
-and is never published; `subscription_policy` was dropped from the shape (X-11).
+(`protocol: ollama`, or id `vllm` / `lmstudio`) and is never published; the
+assembler derives it the same way internally to apply the URL rule, and marks any
+other row carrying a non-https or private-host URL `unsupported / deployment-url`
+with the URL removed — one such URL would otherwise make Omnipus reject the whole
+document. `subscription_policy` was dropped from the shape (X-11). `custom` rows
+are never in the document (the validator rejects `custom: true`).
 
 ## Model
 
