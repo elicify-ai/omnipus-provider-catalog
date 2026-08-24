@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.8.23.1",
- "updated_at": "2026-08-23T06:22:55.926Z",
- "generated_at": "2026-08-23T06:22:55.926Z",
- "source": "models.dev@59474c399cd8fad063e6f1cfe32784c1425a65e4 litellm@4e191273508e79f18396a1f307ef776af57d6817 overrides@8abef244b1722eeaf7404fe70582d9f271e0bed3",
+ "version": "v2026.8.24",
+ "updated_at": "2026-08-24T06:36:16.997Z",
+ "generated_at": "2026-08-24T06:36:16.997Z",
+ "source": "models.dev@b3d2a5cb26f23bde459e47ad367c041128f51b9c litellm@4e191273508e79f18396a1f307ef776af57d6817 overrides@232d7954f12185b402c9fa284018c2b541e2a8ff",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-08-23T06:22:55.926Z",
-   "commit": "59474c399cd8fad063e6f1cfe32784c1425a65e4",
-   "etag": "W/\"238818d5579c45974613e35f3c551006\"",
-   "sha256": "238818d5579c45974613e35f3c5510067b42b600c94bcf773e989dc0bc4e7c3d",
-   "bytes": 4267565
+   "fetched_at": "2026-08-24T06:36:16.997Z",
+   "commit": "b3d2a5cb26f23bde459e47ad367c041128f51b9c",
+   "etag": "W/\"e8b4b193b2f555c4df5e76e71ae74b09\"",
+   "sha256": "e8b4b193b2f555c4df5e76e71ae74b094d23187f27df77b0bf387441413eb840",
+   "bytes": 4299163
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-08-23T06:22:55.926Z",
+   "fetched_at": "2026-08-24T06:36:16.997Z",
    "commit": "4e191273508e79f18396a1f307ef776af57d6817",
    "etag": "W/\"015c17b9f7696e6acb200a4596e28396cdcbdcb504769c2acd3474d665b82d6f\"",
    "sha256": "4659fb1673b8b48678f344afe794bd3f5a5f7bf057678163dc49b434ca3b4470",
    "bytes": 1838416
   },
-  "overrides_commit": "8abef244b1722eeaf7404fe70582d9f271e0bed3",
-  "previous_version": "v2026.8.23"
+  "overrides_commit": "232d7954f12185b402c9fa284018c2b541e2a8ff",
+  "previous_version": "v2026.8.23.1"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -2778,6 +2778,69 @@
    ]
   },
   {
+   "id": "agentrouter",
+   "name": "AgentRouter",
+   "company": "AgentRouter",
+   "api": "https://agentrouter.org/v1",
+   "protocol": "openai-compatible",
+   "env": [
+    "AGENTROUTER_API_KEY"
+   ],
+   "tier": "standard",
+   "auth_methods": [
+    "api_key"
+   ],
+   "aliases": [],
+   "resize_limits": {
+    "long_edge_px": 7680,
+    "max_bytes": 10485760
+   },
+   "models": [
+    {
+     "id": "claude-opus-4-8",
+     "name": "Claude Opus 4.8",
+     "release_date": "2026-05-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-opus-5",
+     "name": "Claude Opus 5",
+     "release_date": "2026-07-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-5.6-sol",
+     "name": "GPT-5.6 Sol",
+     "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    }
+   ]
+  },
+  {
    "id": "ai-router",
    "name": "AI-ROUTER",
    "company": "AI-ROUTER",
@@ -3987,6 +4050,18 @@
    },
    "models": [
     {
+     "id": "deepseek-v4-flash-0731-284b",
+     "name": "DeepSeek V4 Flash 0731",
+     "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 81920,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemma4-26b",
      "name": "Gemma 4 26B A4B IT",
      "release_date": "2026-04-02",
@@ -4034,7 +4109,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "mistral4-119b",
@@ -4055,6 +4130,19 @@
      "release_date": "2026-04-17",
      "tool_call": true,
      "context_window": 256000,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 262144,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
@@ -34348,8 +34436,8 @@
      "name": "DeepSeek V4 Flash Latest",
      "release_date": "2026-08-01",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 262144,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text"
      ],
@@ -35163,7 +35251,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -36151,7 +36239,7 @@
      "name": "MiniMax-M2.7",
      "release_date": "2026-03-18",
      "tool_call": true,
-     "context_window": 204800,
+     "context_window": 196608,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -38145,7 +38233,7 @@
      "release_date": "2026-02-15",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
@@ -38215,7 +38303,7 @@
      "release_date": "2026-04-22",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 81920,
      "input_modalities": [
       "text",
       "image",
@@ -38716,8 +38804,8 @@
      "name": "TheDrummer: UnslopNemo 12B",
      "release_date": "2024-11-08",
      "tool_call": true,
-     "context_window": 1024000,
-     "max_output_tokens": 1024000,
+     "context_window": 32768,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -38785,7 +38873,7 @@
      "release_date": "2023-07-22",
      "tool_call": false,
      "context_window": 6144,
-     "max_output_tokens": 6144,
+     "max_output_tokens": 4096,
      "input_modalities": [
       "text"
      ],
@@ -52124,7 +52212,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "amazon/nova-pro-v1",
@@ -54250,6 +54338,19 @@
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "Gemma-4-31B-MeroMero-v2",
+     "name": "Gemma 4 31B MeroMero v2",
+     "release_date": "2026-08-23",
+     "tool_call": true,
+     "context_window": 65536,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image"
@@ -56986,6 +57087,19 @@
      "release_date": "2026-08-20",
      "tool_call": true,
      "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "ornith-ai/ornith-1.5-9b",
+     "name": "Ornith 1.5 9B",
+     "release_date": "2026-08-23",
+     "tool_call": true,
+     "context_window": 131072,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
@@ -68411,7 +68525,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text"
      ],
@@ -69232,7 +69346,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -72211,7 +72325,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3.5-9b",
@@ -72275,7 +72390,7 @@
      "release_date": "2026-04-22",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 81920,
      "input_modalities": [
       "text",
       "image",
@@ -72683,7 +72798,7 @@
      "release_date": "2024-11-08",
      "tool_call": true,
      "context_window": 1024000,
-     "max_output_tokens": 1024000,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -73078,6 +73193,587 @@
       "text",
       "image",
       "video"
+     ],
+     "status": "active"
+    }
+   ]
+  },
+  {
+   "id": "opper",
+   "name": "Opper",
+   "company": "Opper",
+   "api": "https://api.opper.ai/v3/compat",
+   "protocol": "openai-compatible",
+   "env": [
+    "OPPER_API_KEY"
+   ],
+   "tier": "standard",
+   "auth_methods": [
+    "api_key"
+   ],
+   "aliases": [],
+   "resize_limits": {
+    "long_edge_px": 7680,
+    "max_bytes": 10485760
+   },
+   "models": [
+    {
+     "id": "anthropic/claude-fable-5",
+     "name": "Claude Fable 5",
+     "release_date": "2026-06-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-haiku-4-5",
+     "name": "Claude Haiku 4.5 (latest)",
+     "release_date": "2025-10-15",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-opus-4-5",
+     "name": "Claude Opus 4.5 (latest)",
+     "release_date": "2025-11-24",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-opus-4-6",
+     "name": "Claude Opus 4.6",
+     "release_date": "2026-02-05",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-opus-4-7",
+     "name": "Claude Opus 4.7",
+     "release_date": "2026-04-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-opus-4-8",
+     "name": "Claude Opus 4.8",
+     "release_date": "2026-05-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-opus-5",
+     "name": "Claude Opus 5",
+     "release_date": "2026-07-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-sonnet-4-5",
+     "name": "Claude Sonnet 4.5 (latest)",
+     "release_date": "2025-09-29",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-sonnet-4-6",
+     "name": "Claude Sonnet 4.6",
+     "release_date": "2026-02-17",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-sonnet-5",
+     "name": "Claude Sonnet 5",
+     "release_date": "2026-06-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gemini/gemini-3-flash-preview",
+     "name": "Gemini 3 Flash Preview",
+     "release_date": "2025-12-17",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gemini/gemini-3.1-pro-preview",
+     "name": "Gemini 3.1 Pro Preview",
+     "release_date": "2026-02-19",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gemini/gemini-3.5-flash",
+     "name": "Gemini 3.5 Flash",
+     "release_date": "2026-05-19",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gemini/gemini-3.5-flash-lite",
+     "name": "Gemini 3.5 Flash Lite",
+     "release_date": "2026-07-21",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "meta/muse-spark-1.2",
+     "name": "Muse Spark 1.2",
+     "release_date": "2026-08-05",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "minimax/m3",
+     "name": "MiniMax-M3",
+     "release_date": "2026-06-01",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "mistral/devstral-2512",
+     "name": "Devstral 2",
+     "release_date": "2025-12-09",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "mistral/mistral-large-2512",
+     "name": "Mistral Large 3",
+     "release_date": "2024-11-01",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "mistral/mistral-small-2603",
+     "name": "Mistral Small 4",
+     "release_date": "2026-03-16",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 256000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "moonshot/kimi-k3",
+     "name": "Kimi K3",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.3-chat-latest",
+     "name": "GPT-5.3 Chat (latest)",
+     "release_date": "2026-03-03",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.3-codex",
+     "name": "GPT-5.3 Codex",
+     "release_date": "2026-02-05",
+     "tool_call": true,
+     "context_window": 400000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.4",
+     "name": "GPT-5.4",
+     "release_date": "2026-03-05",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.4-mini",
+     "name": "GPT-5.4 mini",
+     "release_date": "2026-03-17",
+     "tool_call": true,
+     "context_window": 400000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.4-nano",
+     "name": "GPT-5.4 nano",
+     "release_date": "2026-03-17",
+     "tool_call": true,
+     "context_window": 400000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.4-pro",
+     "name": "GPT-5.4 Pro",
+     "release_date": "2026-03-05",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.5",
+     "name": "GPT-5.5",
+     "release_date": "2026-04-23",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.5-pro",
+     "name": "GPT-5.5 Pro",
+     "release_date": "2026-04-23",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.6-luna",
+     "name": "GPT-5.6 Luna",
+     "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.6-sol",
+     "name": "GPT-5.6 Sol",
+     "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-5.6-terra",
+     "name": "GPT-5.6 Terra",
+     "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "perplexity/sonar",
+     "name": "Sonar",
+     "release_date": "2024-01-01",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "perplexity/sonar-pro",
+     "name": "Sonar Pro",
+     "release_date": "2024-01-01",
+     "tool_call": false,
+     "context_window": 200000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "perplexity/sonar-reasoning-pro",
+     "name": "Sonar Reasoning Pro",
+     "release_date": "2024-01-01",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "vertexai/gemini-3.7-flash",
+     "name": "Gemini 3.7 Flash",
+     "release_date": "2026-08-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "vertexai/gemini-3.7-flash-eu",
+     "name": "Gemini 3.7 Flash (EU)",
+     "release_date": "2026-08-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.3",
+     "name": "Grok 4.3",
+     "release_date": "2026-04-17",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.5",
+     "name": "Grok 4.5",
+     "release_date": "2026-07-08",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.6",
+     "name": "Grok 4.6",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-build-0.1",
+     "name": "Grok Build 0.1",
+     "release_date": "2026-04-16",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 256000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     }
@@ -81495,7 +82191,8 @@
      "context_window": 262144,
      "max_output_tokens": 32768,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     }
