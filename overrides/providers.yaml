@@ -7,7 +7,10 @@
 #   source <url>                      — not a docs page (e.g. an open-source client's source)
 
 providers:
-  # ----- Popular tier: the eight providers pinned as tier popular -----
+  # ----- Popular tier: the twelve providers pinned as tier popular -----
+  # Membership is usage-backed (OpenRouter token share, mid-2026) plus two deliberate
+  # product choices: mistral (European option) and ollama (local inference, on-brand for a
+  # self-hosted, no-telemetry product and the only row needing no account at all).
   openai:
     reason: "Pinned popular provider. Base URL fetch-verified 2026-08-23 https://platform.openai.com/docs/api-reference (shows https://api.openai.com/v1/models). sign_in: a ChatGPT subscription sign-in is accepted as well as an API key."
     api: https://api.openai.com/v1
@@ -38,14 +41,16 @@ providers:
     auth_methods: [api_key, sign_in]
     aliases: [grok]
   groq:
-    reason: "Pinned popular provider. OpenAI-compatible base fetch-verified 2026-08-23 https://console.groq.com/docs/openai (https://api.groq.com/openai/v1)."
+    reason: "OpenAI-compatible base fetch-verified 2026-08-23 https://console.groq.com/docs/openai (https://api.groq.com/openai/v1). Not popular tier: Groq is an inference host that serves other authors' models, so it does not appear in model-author usage rankings; it stays a fully selectable provider."
     api: https://api.groq.com/openai/v1
     protocol: openai-compatible
-    tier: popular
   mistral:
     reason: "Pinned popular provider. Base URL fetch-verified 2026-08-23 https://docs.mistral.ai/api/ (https://api.mistral.ai/v1)."
     api: https://api.mistral.ai/v1
     protocol: openai-compatible
+    tier: popular
+  minimax:
+    reason: "Pinned popular provider (OpenRouter token share ~8.1%, mid-2026). International base; the -cn row is the China endpoint."
     tier: popular
   deepseek:
     reason: "Pinned popular provider. Primary URL is models.dev's (https://api.deepseek.com). Second protocol: Anthropic-compatible endpoint https://api.deepseek.com/anthropic — docs https://api-docs.deepseek.com/guides/anthropic_api (not fetch-verified; page is JS-rendered)."
@@ -134,12 +139,14 @@ providers:
   # ----- Second protocols (see overrides/README.md, item 4) -----
   zai:
     reason: "Second protocol: Anthropic-compatible endpoint https://api.z.ai/api/anthropic — docs https://docs.z.ai/guides/develop/claude (not fetch-verified; JS-rendered). Aliases are search-only."
+    tier: popular
     protocols:
       - { protocol: openai-compatible, api: https://api.z.ai/api/paas/v4 }
       - { protocol: anthropic, api: https://api.z.ai/api/anthropic }
     aliases: [z-ai, zhipu, glm]
   moonshotai:
     reason: "Second protocol: Anthropic-compatible endpoint https://api.moonshot.ai/anthropic — docs https://platform.moonshot.ai/docs/guide/migrating-from-anthropic-to-kimi (not fetch-verified; JS-rendered)."
+    tier: popular
     protocols:
       - { protocol: openai-compatible, api: https://api.moonshot.ai/v1 }
       - { protocol: anthropic, api: https://api.moonshot.ai/anthropic }
@@ -172,6 +179,7 @@ providers:
     region: cn
   alibaba:
     reason: "Search-only aliases: qwen-intl and dashscope-intl were earlier ids for this provider."
+    tier: popular
     aliases: [qwen-intl, dashscope-intl]
   novita-ai:
     reason: "Alias search-only (old Omnipus id novita)."

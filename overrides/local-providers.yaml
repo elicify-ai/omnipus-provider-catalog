@@ -14,6 +14,7 @@ providers:
     name: Ollama
     api: http://localhost:11434/v1
     protocol: ollama
+    tier: popular
     env: [OLLAMA_HOST]
     auth_methods: [api_key]
     aliases: [local]

@@ -22,16 +22,32 @@ export const CLI_KINDS = ["codex", "copilot"] as const;
 export const MODEL_STATUSES = ["active", "retired"] as const;
 export const MODALITIES = ["text", "image", "audio", "video", "pdf"] as const;
 
-/** The popular set, pinned by name. */
+/**
+ * The popular set, pinned by name — the providers a picker shows first.
+ *
+ * Membership is usage-backed (OpenRouter model-author token share, mid-2026)
+ * plus two deliberate product choices. Groq was removed: it is an inference
+ * host serving other authors' models, so it never appears in author usage
+ * rankings; it remains a fully selectable provider, just not a headline one.
+ *
+ * Usage-backed: openai, anthropic, google, deepseek, minimax, alibaba (Qwen),
+ * zai (GLM), moonshotai (Kimi). openrouter is the aggregator front door.
+ * Deliberate: mistral (European option) and ollama (local inference — on brand
+ * for a self-hosted, no-telemetry product, and the only row needing no account).
+ */
 export const POPULAR_SET = [
   "openai",
   "anthropic",
-  "openrouter",
   "google",
-  "xai",
-  "groq",
-  "mistral",
+  "openrouter",
   "deepseek",
+  "zai",
+  "minimax",
+  "moonshotai",
+  "alibaba",
+  "xai",
+  "mistral",
+  "ollama",
 ] as const;
 
 /** Providers added from overrides/local-providers.yaml that models.dev does not list. */

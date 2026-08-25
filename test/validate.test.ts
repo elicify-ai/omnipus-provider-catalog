@@ -22,7 +22,12 @@ function provider(id: string, over: Partial<Provider> = {}): Provider {
 }
 
 function minimalCatalog(): Catalog {
-  const providers = [...POPULAR_SET, ...LOCAL_FILE_PROVIDERS].map((id) => provider(id));
+  // Deduplicated: a provider may legitimately be in both lists — ollama is
+  // popular AND sourced from overrides/local-providers.yaml. A naive concat
+  // would build a duplicate id, which validateCatalog correctly rejects, so
+  // the fixture would fail for a reason that has nothing to do with the case
+  // under test.
+  const providers = [...new Set<string>([...POPULAR_SET, ...LOCAL_FILE_PROVIDERS])].map((id) => provider(id));
   return {
     schema_version: "2.0.0",
     version: "v2026.8.23",
@@ -41,6 +46,13 @@ function minimalCatalog(): Catalog {
 }
 
 const messages = (c: unknown, opts = {}) => validateCatalog(c, opts).map((f) => `${f.path}: ${f.message}`);
+
+// Index of a provider inside minimalCatalog(). Derived, never hardcoded: the
+// fixture is built from POPULAR_SET + LOCAL_FILE_PROVIDERS, so any change to
+// either list shifts positions. Assertions still pin the exact index and id
+// the validator reports — they just compute the expected index the same way
+// the fixture does.
+const idxOf = (c: Catalog, id: string) => c.providers.findIndex((p) => p.id === id);
 
 describe("validateCatalog", () => {
   it("accepts a conforming document", () => {
@@ -77,8 +89,8 @@ describe("validateCatalog", () => {
 
   it("requires every selectable cloud provider to have at least one model; local and unsupported rows may be empty", () => {
     const c = minimalCatalog();
-    c.providers.find((p) => p.id === "groq")!.models = [];
-    expect(messages(c)).toEqual(["providers[5](groq).models: every selectable cloud provider needs at least one model"]);
+    c.providers.find((p) => p.id === "mistral")!.models = [];
+    expect(messages(c)).toEqual([`providers[${idxOf(c, "mistral")}](mistral).models: every selectable cloud provider needs at least one model`]);
     const c1 = minimalCatalog();
     const lite = c1.providers.find((p) => p.id === "litellm")!;
     lite.models = [];
@@ -131,13 +143,13 @@ describe("validateCatalog", () => {
     c3.providers.find((p) => p.id === "codex-cli")!.api = "";
     c3.providers.find((p) => p.id === "codex-cli")!.protocol = "cli";
     c3.providers.find((p) => p.id === "codex-cli")!.cli_kind = "codex";
-    expect(messages(c3)).toEqual(["providers[12](codex-cli).api: may be empty only when tier is unsupported"]);
+    expect(messages(c3)).toEqual([`providers[${idxOf(c3, "codex-cli")}](codex-cli).api: may be empty only when tier is unsupported`]);
   });
 
   it("an alias must never equal a provider id (aliases are search-only)", () => {
     const c = minimalCatalog();
     c.providers.find((p) => p.id === "mimo")!.aliases = ["xiaomi-mimo", "openai"];
-    expect(messages(c)).toEqual(['providers[18](mimo).aliases[1]: alias "openai" collides with a provider id; aliases are search-only']);
+    expect(messages(c)).toEqual([`providers[${idxOf(c, "mimo")}](mimo).aliases[1]: alias "openai" collides with a provider id; aliases are search-only`]);
   });
 
   it("cli rows need cli_kind; non-cli rows must not carry it", () => {
@@ -191,7 +203,7 @@ describe("serialiseWithinCap", () => {
   it("returns the document unchanged when under the cap", () => {
     const { json, trimmed_retired } = serialiseWithinCap(minimalCatalog());
     expect(trimmed_retired).toBe(0);
-    expect(JSON.parse(json).providers).toHaveLength(POPULAR_SET.length + LOCAL_FILE_PROVIDERS.length);
+    expect(JSON.parse(json).providers).toHaveLength(new Set<string>([...POPULAR_SET, ...LOCAL_FILE_PROVIDERS]).size);
   });
 
   it("drops status: retired models first when over the cap", () => {

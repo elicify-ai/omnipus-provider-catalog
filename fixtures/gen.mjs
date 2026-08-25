@@ -37,11 +37,16 @@ export function validMinimal() {
       cloud("anthropic", "Anthropic", "https://api.anthropic.com", { tier: "popular", protocol: "anthropic" }),
       cloud("google", "Google", "https://generativelanguage.googleapis.com/v1beta/openai", { tier: "popular", protocol: "google" }),
       cloud("xai", "xAI", "https://api.x.ai/v1", { tier: "popular" }),
-      cloud("groq", "Groq", "https://api.groq.com/openai/v1", { tier: "popular" }),
       cloud("mistral", "Mistral", "https://api.mistral.ai/v1", { tier: "popular" }),
       cloud("deepseek", "DeepSeek", "https://api.deepseek.com", { tier: "popular" }),
+      cloud("minimax", "MiniMax", "https://api.minimax.io/v1", { tier: "popular" }),
+      cloud("moonshotai", "Moonshot AI", "https://api.moonshot.ai/v1", { tier: "popular" }),
+      cloud("alibaba", "Alibaba", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1", { tier: "popular" }),
+      // groq is deliberately NOT popular: an inference host, not a model author.
+      cloud("groq", "Groq", "https://api.groq.com/openai/v1", {}),
       // --- standard, dual protocol, aliases, retired model ---
       cloud("zai", "Z.ai", "https://api.z.ai/api/paas/v4", {
+        tier: "popular",
         protocols: [
           { protocol: "openai-compatible", api: "https://api.z.ai/api/paas/v4" },
           { protocol: "anthropic", api: "https://api.z.ai/api/anthropic" },
@@ -61,7 +66,7 @@ export function validMinimal() {
       unsupported("sap-ai-core", "SAP AI Core", "cloud-iam"),
       unsupported("azure", "Azure OpenAI", "deployment-url"),
       // --- local-file providers ---
-      cloud("ollama", "Ollama", "http://127.0.0.1:11434", { protocol: "ollama", env: "" }),
+      cloud("ollama", "Ollama", "http://127.0.0.1:11434", { tier: "popular", protocol: "ollama", env: "" }),
       cloud("vllm", "vLLM", "http://127.0.0.1:8000/v1", { env: "" }),
       cloud("lmstudio", "LM Studio", "http://127.0.0.1:1234/v1", { env: "" }),
       cloud("litellm", "LiteLLM proxy", "https://litellm.example.invalid/v1"),
@@ -90,7 +95,9 @@ export const MUTATIONS = {
   PROVIDERS_MIN: (d) => { d.providers = []; return d; }, // also trips the set checks; see test
   PROVIDER_ID: (d) => { d.providers.push(structuredClone(byID(d, "zai"))); return d; }, // duplicate zai
   PROVIDER_NAME: (d) => { byID(d, "zai").name = ""; return d; },
-  TIER: (d) => { byID(d, "zai").tier = "gold"; return d; },
+  // Target a NON-popular provider: mutating a popular row's tier would also
+  // trip the POPULAR check, and each invalid fixture must fail only its own.
+  TIER: (d) => { byID(d, "groq").tier = "gold"; return d; },
   UNSUPPORTED_REASON: (d) => { d.providers.push(unsupported("some-vanished-provider", "Vanished", "withdrawn")); delete d.providers.at(-1).unsupported_reason; return d; },
   PROTOCOL: (d) => { byID(d, "zai").protocol = "grpc"; byID(d, "zai").protocols[0].protocol = "grpc"; return d; },
   API_PRESENCE: (d) => { byID(d, "xai").api = ""; return d; },

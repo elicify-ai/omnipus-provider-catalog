@@ -22,7 +22,7 @@ export const UNSUPPORTED_REASONS = ["cloud-iam", "deployment-url", "withdrawn"];
 export const AUTH_METHODS = ["api_key", "sign_in"];
 export const CLI_KINDS = ["codex", "copilot"];
 export const MODEL_STATUSES = ["active", "retired"];
-export const POPULAR = ["openai", "openrouter", "anthropic", "google", "xai", "groq", "mistral", "deepseek"]; // the pinned popular set
+export const POPULAR = ["openai", "anthropic", "google", "openrouter", "deepseek", "zai", "minimax", "moonshotai", "alibaba", "xai", "mistral", "ollama"]; // the pinned popular set
 // The five providers that need a cloud identity sign-in rather than an API key.
 export const CLOUD_IAM = ["amazon-bedrock", "google-vertex", "google-vertex-anthropic", "watsonx", "sap-ai-core"];
 // azure has a per-deployment URL, so it is unsupported with reason deployment-url.
@@ -150,7 +150,7 @@ export const CHECKS = [
   { id: "MODEL_TEXT", spec: "model", title: "every model's input_modalities includes text" },
   { id: "MODEL_LIMITS", spec: "model", title: "non-retired models have context_window > 0 and max_output_tokens >= 0" },
   { id: "ALIASES", spec: "provider", title: "aliases are strings and never equal any provider id" },
-  { id: "POPULAR", spec: "set", title: "tier popular is exactly the eight pinned ids" },
+  { id: "POPULAR", spec: "set", title: "tier popular is exactly the twelve pinned ids" },
   { id: "CLOUD_IAM", spec: "set", title: "the cloud-IAM providers are present, unsupported, reason cloud-iam; azure is deployment-url" },
   { id: "LOCAL_FILE_PROVIDERS", spec: "set", title: "the local-file providers are present" },
 ];

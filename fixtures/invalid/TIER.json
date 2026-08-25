@@ -121,23 +121,6 @@
       "models": []
     },
     {
-      "id": "groq",
-      "name": "Groq",
-      "api": "https://api.groq.com/openai/v1",
-      "protocol": "openai-compatible",
-      "env": "GROQ_API_KEY",
-      "tier": "popular",
-      "auth_methods": [
-        "api_key"
-      ],
-      "company": "Groq",
-      "resize_limits": {
-        "long_edge_px": 7680,
-        "max_bytes": 10485760
-      },
-      "models": []
-    },
-    {
       "id": "mistral",
       "name": "Mistral",
       "api": "https://api.mistral.ai/v1",
@@ -172,12 +155,80 @@
       "models": []
     },
     {
+      "id": "minimax",
+      "name": "MiniMax",
+      "api": "https://api.minimax.io/v1",
+      "protocol": "openai-compatible",
+      "env": "MINIMAX_API_KEY",
+      "tier": "popular",
+      "auth_methods": [
+        "api_key"
+      ],
+      "company": "MiniMax",
+      "resize_limits": {
+        "long_edge_px": 7680,
+        "max_bytes": 10485760
+      },
+      "models": []
+    },
+    {
+      "id": "moonshotai",
+      "name": "Moonshot AI",
+      "api": "https://api.moonshot.ai/v1",
+      "protocol": "openai-compatible",
+      "env": "MOONSHOTAI_API_KEY",
+      "tier": "popular",
+      "auth_methods": [
+        "api_key"
+      ],
+      "company": "Moonshot AI",
+      "resize_limits": {
+        "long_edge_px": 7680,
+        "max_bytes": 10485760
+      },
+      "models": []
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba",
+      "api": "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+      "protocol": "openai-compatible",
+      "env": "ALIBABA_API_KEY",
+      "tier": "popular",
+      "auth_methods": [
+        "api_key"
+      ],
+      "company": "Alibaba",
+      "resize_limits": {
+        "long_edge_px": 7680,
+        "max_bytes": 10485760
+      },
+      "models": []
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "api": "https://api.groq.com/openai/v1",
+      "protocol": "openai-compatible",
+      "env": "GROQ_API_KEY",
+      "tier": "gold",
+      "auth_methods": [
+        "api_key"
+      ],
+      "company": "Groq",
+      "resize_limits": {
+        "long_edge_px": 7680,
+        "max_bytes": 10485760
+      },
+      "models": []
+    },
+    {
       "id": "zai",
       "name": "Z.ai",
       "api": "https://api.z.ai/api/paas/v4",
       "protocol": "openai-compatible",
       "env": "ZAI_API_KEY",
-      "tier": "gold",
+      "tier": "popular",
       "auth_methods": [
         "api_key"
       ],
@@ -334,7 +385,7 @@
       "api": "http://127.0.0.1:11434",
       "protocol": "ollama",
       "env": "",
-      "tier": "standard",
+      "tier": "popular",
       "auth_methods": [
         "api_key"
       ],
