@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.8.30",
- "updated_at": "2026-08-30T10:53:51.867Z",
- "generated_at": "2026-08-30T10:53:51.867Z",
- "source": "models.dev@5b087ae043b7de0ef823c916ac96595c9bbd1365 litellm@42d8360f297db9057c205ea0281f15a7c2e4f67e overrides@e72e0667db4e93980367915b6565ae2786275cb1",
+ "version": "v2026.8.31",
+ "updated_at": "2026-08-31T12:07:53.914Z",
+ "generated_at": "2026-08-31T12:07:53.914Z",
+ "source": "models.dev@f09af0fa76ac2f08f38aabd4b0f5e5f81b8ba64d litellm@42d8360f297db9057c205ea0281f15a7c2e4f67e overrides@b206523da7c810469b7f84ca30c509b4af5e667e",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-08-30T10:53:51.867Z",
-   "commit": "5b087ae043b7de0ef823c916ac96595c9bbd1365",
-   "etag": "W/\"527e78e688f44537b9ac17c368f9facd\"",
-   "sha256": "527e78e688f44537b9ac17c368f9facde415856b1fa3f30ddf1b0d0e10183ebb",
-   "bytes": 4432167
+   "fetched_at": "2026-08-31T12:07:53.914Z",
+   "commit": "f09af0fa76ac2f08f38aabd4b0f5e5f81b8ba64d",
+   "etag": "W/\"f627d3d845e187e36d05a5dadd0936f2\"",
+   "sha256": "f627d3d845e187e36d05a5dadd0936f215c13758f64c61c3f3405b20ea4ef186",
+   "bytes": 4435751
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-08-30T10:53:51.867Z",
+   "fetched_at": "2026-08-31T12:07:53.914Z",
    "commit": "42d8360f297db9057c205ea0281f15a7c2e4f67e",
    "etag": "W/\"ec1919846f92f45c3a86c24366b5004b75f3ac5b81387fe7db4d016d7afc02bf\"",
    "sha256": "a980fa0e207d0976a3fa78c6a7c3165ec3c1cfd82b0dcfffc2a55795b9f6f451",
    "bytes": 2005767
   },
-  "overrides_commit": "e72e0667db4e93980367915b6565ae2786275cb1",
-  "previous_version": "v2026.8.29"
+  "overrides_commit": "b206523da7c810469b7f84ca30c509b4af5e667e",
+  "previous_version": "v2026.8.30"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -2854,6 +2854,19 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3-flash",
+     "name": "GLM 5.3 Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -12538,6 +12551,32 @@
       "text"
      ],
      "status": "active"
+    },
+    {
+     "id": "zai-org/GLM-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 327680,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "zai-org/GLM-5.3-Flash",
+     "name": "GLM-5.3-Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 327680,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
     }
    ]
   },
@@ -17455,7 +17494,19 @@
      "release_date": "2026-07-06",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/hy4-preview",
+     "name": "Hy4 preview",
+     "release_date": "2026-08-28",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -24218,7 +24269,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "mistral-small-4",
@@ -37449,8 +37500,8 @@
      "name": "Meta: Llama 4 Maverick",
      "release_date": "2025-04-05",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 16384,
+     "context_window": 128000,
+     "max_output_tokens": 115200,
      "input_modalities": [
       "text",
       "image"
@@ -38379,7 +38430,7 @@
      "release_date": "2025-04-14",
      "tool_call": true,
      "context_window": 1047576,
-     "max_output_tokens": 942818,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image",
@@ -54002,7 +54053,7 @@
      "name": "Llama 3.1 70B Dracarys 2",
      "release_date": "2025-08-02",
      "tool_call": false,
-     "context_window": 16384,
+     "context_window": 32768,
      "max_output_tokens": 8192,
      "input_modalities": [
       "text"
@@ -54904,7 +54955,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "claude-opus-4-1-thinking:32768",
@@ -55016,7 +55067,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "claude-opus-4-thinking:32768",
@@ -61080,6 +61131,18 @@
      "status": "active"
     },
     {
+     "id": "TEE/glm-5.3",
+     "name": "GLM 5.3 TEE",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "TEE/glm-5.3-flash",
      "name": "GLM 5.3 Flash TEE",
      "release_date": "2026-08-26",
@@ -64440,6 +64503,18 @@
      "tool_call": true,
      "context_window": 199984,
      "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3",
+     "name": "GLM 5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1048560,
+     "max_output_tokens": 1048560,
      "input_modalities": [
       "text"
      ],
@@ -73412,7 +73487,7 @@
      "release_date": "2025-04-05",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 115200,
      "input_modalities": [
       "text",
       "image"
@@ -74391,8 +74466,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "openai/gpt-4o",
@@ -85006,7 +85080,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "gpt-5.3-codex",
@@ -87700,6 +87774,64 @@
       "text",
       "image",
       "video"
+     ],
+     "status": "active"
+    }
+   ]
+  },
+  {
+   "id": "sensenova",
+   "name": "SenseNova (China)",
+   "company": "SenseNova (China)",
+   "api": "https://token.sensenova.cn/v1",
+   "protocol": "openai-compatible",
+   "env": [
+    "SENSENOVA_API_KEY"
+   ],
+   "tier": "standard",
+   "auth_methods": [
+    "api_key"
+   ],
+   "aliases": [],
+   "resize_limits": {
+    "long_edge_px": 7680,
+    "max_bytes": 10485760
+   },
+   "models": [
+    {
+     "id": "deepseek-v4-flash",
+     "name": "DeepSeek V4 Flash",
+     "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.2",
+     "name": "GLM-5.2",
+     "release_date": "2026-06-13",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "sensenova-6.8-flash-lite",
+     "name": "SenseNova 6.8 Flash Lite",
+     "release_date": "2026-08-11",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     }
@@ -91755,7 +91887,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "cheap",
@@ -91769,7 +91901,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "e2e",
@@ -91783,7 +91915,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "fast",
@@ -91797,7 +91929,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "synth",
@@ -91811,12 +91943,110 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "synth-code",
      "name": "Synth Code",
      "release_date": "2026-06-20",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "retired"
+    },
+    {
+     "id": "trustedrouter/auto",
+     "name": "Auto",
+     "release_date": "2026-05-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "trustedrouter/cheap",
+     "name": "Cheap",
+     "release_date": "2026-05-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "trustedrouter/e2e",
+     "name": "End-to-End Encrypted",
+     "release_date": "2026-06-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "trustedrouter/fast",
+     "name": "Fast",
+     "release_date": "2026-06-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "trustedrouter/synth",
+     "name": "Synth",
+     "release_date": "2026-06-20",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "trustedrouter/synth-code",
+     "name": "Synth Code",
+     "release_date": "2026-06-20",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "trustedrouter/zdr",
+     "name": "Zero Data Retention",
+     "release_date": "2026-06-01",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 131072,
@@ -91839,7 +92069,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     }
    ]
   },
