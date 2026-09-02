@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.1",
- "updated_at": "2026-09-01T10:44:56.483Z",
- "generated_at": "2026-09-01T10:44:56.483Z",
- "source": "models.dev@d6ecf46718cb111abdccf51323df3cae63257395 litellm@42d8360f297db9057c205ea0281f15a7c2e4f67e overrides@a5e7f9a2c7b3c681a5cdbed88145eac91cad588d",
+ "version": "v2026.9.2",
+ "updated_at": "2026-09-02T10:10:05.028Z",
+ "generated_at": "2026-09-02T10:10:05.028Z",
+ "source": "models.dev@b71c16b42e2bf4ed36f2e1ce4e33cc7fcd3adf8e litellm@d568bbe58d5d94929661af951270150a46560df2 overrides@88b2b78719796403b7b720390071c258912b7a34",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-01T10:44:56.483Z",
-   "commit": "d6ecf46718cb111abdccf51323df3cae63257395",
-   "etag": "W/\"25a280d8c3a080cb042e513e080049db\"",
-   "sha256": "25a280d8c3a080cb042e513e080049db10b315cae019367e8941e8ed7085fec7",
-   "bytes": 4427640
+   "fetched_at": "2026-09-02T10:10:05.028Z",
+   "commit": "b71c16b42e2bf4ed36f2e1ce4e33cc7fcd3adf8e",
+   "etag": "W/\"3abd3451b04b9073e1540c9ea4602715\"",
+   "sha256": "3abd3451b04b9073e1540c9ea4602715ab20b77a5718621adc2c6f52125b691e",
+   "bytes": 4443659
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-01T10:44:56.483Z",
-   "commit": "42d8360f297db9057c205ea0281f15a7c2e4f67e",
-   "etag": "W/\"ec1919846f92f45c3a86c24366b5004b75f3ac5b81387fe7db4d016d7afc02bf\"",
-   "sha256": "a980fa0e207d0976a3fa78c6a7c3165ec3c1cfd82b0dcfffc2a55795b9f6f451",
-   "bytes": 2005767
+   "fetched_at": "2026-09-02T10:10:05.028Z",
+   "commit": "d568bbe58d5d94929661af951270150a46560df2",
+   "etag": "W/\"180def74f2ee6e08749c25ac840fa917b059fae9a218141151216198752107f1\"",
+   "sha256": "723753fa1a11e7c2279814112ac56a1e933c6ab2507e3755340e3535ae0fd7f2",
+   "bytes": 2090796
   },
-  "overrides_commit": "a5e7f9a2c7b3c681a5cdbed88145eac91cad588d",
-  "previous_version": "v2026.8.31"
+  "overrides_commit": "88b2b78719796403b7b720390071c258912b7a34",
+  "previous_version": "v2026.9.1"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -7278,6 +7278,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic.claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic.claude-haiku-4-5-20251001-v1:0",
      "name": "Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -7695,6 +7709,20 @@
      "id": "global.anthropic.claude-fable-5",
      "name": "Claude Fable 5 (Global)",
      "release_date": "2026-06-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "global.anthropic.claude-fable-5-1",
+     "name": "Claude Fable 5.1 (Global)",
+     "release_date": "2026-09-01",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -8538,6 +8566,20 @@
      "status": "active"
     },
     {
+     "id": "us.anthropic.claude-fable-5-1",
+     "name": "Claude Fable 5.1 (US)",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
      "name": "Claude Haiku 4.5 (US)",
      "release_date": "2025-10-15",
@@ -9022,6 +9064,20 @@
      "id": "claude-fable-5",
      "name": "Claude Fable 5",
      "release_date": "2026-06-07",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -10184,6 +10240,20 @@
      "status": "active"
     },
     {
+     "id": "claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-haiku-4-5",
      "name": "Claude Haiku 4.5",
      "release_date": "2025-11-18",
@@ -11246,6 +11316,20 @@
      "id": "claude-fable-5",
      "name": "Claude Fable 5",
      "release_date": "2026-06-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -17069,6 +17153,19 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic/claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -19616,6 +19713,19 @@
      "status": "active"
     },
     {
+     "id": "anthropic-claude-fable-5.1",
+     "name": "Anthropic Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic-claude-haiku-4.5",
      "name": "Anthropic Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -20886,9 +20996,23 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic/claude-fable-latest",
-     "name": "Claude Fable 5",
-     "release_date": "2026-06-09",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -21246,6 +21370,30 @@
      "tool_call": true,
      "context_window": 132000,
      "max_output_tokens": 4000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "databricks/databricks-deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731",
+     "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "databricks/databricks-deepseek-v4-pro-0813",
+     "name": "DeepSeek V4 Pro 0813",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -28085,6 +28233,20 @@
    },
    "models": [
     {
+     "id": "claude-fable-5-1@default",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-fable-5@default",
      "name": "Claude Fable 5",
      "release_date": "2026-06-09",
@@ -28691,6 +28853,20 @@
     "max_bytes": 10485760
    },
    "models": [
+    {
+     "id": "claude-fable-5-1@default",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
     {
      "id": "claude-fable-5@default",
      "name": "Claude Fable 5",
@@ -36177,6 +36353,20 @@
      "status": "active"
     },
     {
+     "id": "~z-ai/glm-flash-latest",
+     "name": "Z.ai: GLM Flash Latest",
+     "release_date": "2026-08-27",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "~z-ai/glm-latest",
      "name": "Z.ai: GLM Latest",
      "release_date": "2026-08-19",
@@ -36355,6 +36545,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-fable-5.1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic/claude-haiku-4.5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -36450,7 +36654,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-4.8",
@@ -36478,7 +36682,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-5",
@@ -36506,7 +36710,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-sonnet-4",
@@ -36799,8 +37003,8 @@
      "name": "DeepSeek: DeepSeek V3.1",
      "release_date": "2025-08-21",
      "tool_call": true,
-     "context_window": 161000,
-     "max_output_tokens": 144900,
+     "context_window": 163840,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -36920,8 +37124,8 @@
      "name": "DeepSeek V4 Pro",
      "release_date": "2026-04-24",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "context_window": 1024000,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -36932,7 +37136,7 @@
      "name": "DeepSeek V4 Pro 0813",
      "release_date": "2026-08-12",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1024000,
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
@@ -37431,6 +37635,18 @@
      "tool_call": true,
      "context_window": 128000,
      "max_output_tokens": 50000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inception/mercury-2.5-preview",
+     "name": "Inception: Mercury 2.5 Preview",
+     "release_date": "2026-08-31",
+     "tool_call": true,
+     "context_window": 260000,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -38459,8 +38675,8 @@
      "name": "Nemotron 3 Ultra 550B A55B",
      "release_date": "2026-06-04",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 16384,
+     "context_window": 256000,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -40117,8 +40333,8 @@
      "name": "Qwen3.8 2.4T A95B",
      "release_date": "2026-08-12",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 262144,
+     "context_window": 262144,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -40889,7 +41105,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -41388,6 +41604,20 @@
      "status": "active"
     },
     {
+     "id": "claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -41837,6 +42067,20 @@
       "audio",
       "video",
       "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gemini-3.8-flash",
+     "name": "Gemini 3.8 Flash",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio"
      ],
      "status": "active"
     },
@@ -44232,6 +44476,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-fable-5-1",
+     "name": "Claude Fable 5.1 (Anthropic)",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic/claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (Anthropic)",
      "release_date": "2025-10-15",
@@ -45540,6 +45798,18 @@
      "status": "active"
     },
     {
+     "id": "consensusprotocol/gpt-oss-20b",
+     "name": "GPT OSS 20B (Consensus Protocol)",
+     "release_date": "2025-08-05",
+     "tool_call": true,
+     "context_window": 65536,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepinfra/deepseek-v3.2",
      "name": "DeepSeek V3.2 (DeepInfra)",
      "release_date": "2025-12-01",
@@ -46289,6 +46559,20 @@
       "audio",
       "video",
       "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google-vertex/gemini-3.8-flash",
+     "name": "Gemini 3.8 Flash (Google Vertex AI)",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio"
      ],
      "status": "active"
     },
@@ -48193,7 +48477,10 @@
      "context_window": 1048576,
      "max_output_tokens": 131072,
      "input_modalities": [
-      "text"
+      "text",
+      "image",
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -49919,6 +50206,20 @@
      "id": "anthropic/claude-fable-5",
      "name": "Claude Fable 5",
      "release_date": "2026-06-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -51712,11 +52013,10 @@
      "name": "Qwen3.5 27B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 256000,
-     "max_output_tokens": 64000,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active"
     },
@@ -54470,6 +54770,21 @@
      "status": "active"
     },
     {
+     "id": "alibaba/qwen3.8-max-0902",
+     "name": "Qwen3.8 Max 0902",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 991808,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "amazon/nova-2-lite-v1",
      "name": "Amazon Nova 2 Lite",
      "release_date": "2024-01-01",
@@ -54546,6 +54861,20 @@
      "id": "anthropic/claude-fable-5",
      "name": "Claude Fable 5",
      "release_date": "2026-06-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-fable-5.1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -57744,6 +58073,18 @@
      "status": "active"
     },
     {
+     "id": "inception/mercury-2.5-preview",
+     "name": "Mercury 2.5 Preview",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 260000,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "inclusionai/ling-2.6-1t",
      "name": "Ling 2.6 1T",
      "release_date": "2026-04-23",
@@ -59866,7 +60207,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "ornith-ai/ornith-1.5-9b:thinking",
@@ -59879,7 +60220,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "pamanseau/OpenReasoning-Nemotron-32B",
@@ -60364,7 +60705,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3.6-35b-a3b-uncensored:thinking",
@@ -60377,7 +60718,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/Qwen3.6-35B-A3B:thinking",
@@ -62608,7 +62949,7 @@
      "name": "GLM 5.3 Flash Uncensored",
      "release_date": "2026-07-29",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 524288,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
@@ -70372,6 +70713,20 @@
      "status": "active"
     },
     {
+     "id": "claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-haiku-4-5",
      "name": "Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -72276,6 +72631,20 @@
      "status": "active"
     },
     {
+     "id": "~z-ai/glm-flash-latest",
+     "name": "GLM Flash Latest",
+     "release_date": "2026-08-27",
+     "tool_call": true,
+     "context_window": 1310720,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "~z-ai/glm-latest",
      "name": "GLM Latest",
      "release_date": "2026-08-19",
@@ -72453,6 +72822,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-fable-5.1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic/claude-haiku-4.5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -72550,7 +72933,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-4.8",
@@ -72578,7 +72961,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-5",
@@ -72606,7 +72989,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-sonnet-4",
@@ -73563,6 +73946,18 @@
      "tool_call": true,
      "context_window": 128000,
      "max_output_tokens": 50000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inception/mercury-2.5-preview",
+     "name": "Mercury 2.5 Preview",
+     "release_date": "2026-08-31",
+     "tool_call": true,
+     "context_window": 260000,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -74539,7 +74934,7 @@
      "release_date": "2026-06-04",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -76226,7 +76621,7 @@
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -76908,7 +77303,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -84911,8 +85306,40 @@
      "status": "active"
     },
     {
+     "id": "gemini-2.5-flash-lite@eu",
+     "name": "Gemini 2.5 Flash-Lite (EU)",
+     "release_date": "2025-06-17",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65535,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemini-2.5-flash@eu",
      "name": "Gemini 2.5 Flash (EU)",
+     "release_date": "2025-06-17",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65535,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gemini-2.5-pro@eu",
+     "name": "Gemini 2.5 Pro (EU)",
      "release_date": "2025-06-17",
      "tool_call": true,
      "context_window": 1048576,
@@ -85217,7 +85644,7 @@
      "name": "GLM-5.3-Flash",
      "release_date": "2026-08-26",
      "tool_call": true,
-     "context_window": 131072,
+     "context_window": 1048576,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -93250,6 +93677,19 @@
      "status": "active"
     },
     {
+     "id": "claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-08-29",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-opus-4-5",
      "name": "Claude Opus 4.5",
      "release_date": "2025-12-06",
@@ -95058,6 +95498,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-fable-5.1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic/claude-haiku-4.5",
      "name": "Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -95371,7 +95825,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-v3.1",
@@ -95450,8 +95904,8 @@
      "name": "DeepSeek V4 Flash Vision Exp",
      "release_date": "2026-08-21",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 384000,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text",
       "image"
@@ -100213,7 +100667,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
