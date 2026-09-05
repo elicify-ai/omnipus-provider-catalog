@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.4",
- "updated_at": "2026-09-04T10:13:45.077Z",
- "generated_at": "2026-09-04T10:13:45.077Z",
- "source": "models.dev@2113d98c4fbf25eca1bf678179e5896e69f6aaeb litellm@828d561fcc2704eaf90617be8cdc058fccbd8508 overrides@168e5fc811be6db190ee3df3383ce585afa676fe",
+ "version": "v2026.9.5",
+ "updated_at": "2026-09-05T09:38:05.800Z",
+ "generated_at": "2026-09-05T09:38:05.800Z",
+ "source": "models.dev@7a42caabb2c8397ca145f72d5a1d5c7a4031d593 litellm@828d561fcc2704eaf90617be8cdc058fccbd8508 overrides@82d2817aeeb15e75a3bc9ac07bac2f183051313f",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-04T10:13:45.077Z",
-   "commit": "2113d98c4fbf25eca1bf678179e5896e69f6aaeb",
-   "etag": "W/\"10f13f4f5931c1c0fda3e9c13639b3c8\"",
-   "sha256": "10f13f4f5931c1c0fda3e9c13639b3c8dc273d4cb3dba695d4c4d39f17c21362",
-   "bytes": 4465006
+   "fetched_at": "2026-09-05T09:38:05.800Z",
+   "commit": "7a42caabb2c8397ca145f72d5a1d5c7a4031d593",
+   "etag": "W/\"6a5569d05e3218fa337cf01ff8bbf5af\"",
+   "sha256": "6a5569d05e3218fa337cf01ff8bbf5af556bc1afc1f410b3ee569f438c31f9d0",
+   "bytes": 4490012
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-04T10:13:45.077Z",
+   "fetched_at": "2026-09-05T09:38:05.800Z",
    "commit": "828d561fcc2704eaf90617be8cdc058fccbd8508",
    "etag": "W/\"22b288fdec8ac6168e6c3df55488a12c1a5cf7bd13e45d3eed6231104f06a4b6\"",
    "sha256": "a5ad23f7a2d98249588a2f21a305f8e3741bba450fd6216bde505cb9c4bee98a",
    "bytes": 2133018
   },
-  "overrides_commit": "168e5fc811be6db190ee3df3383ce585afa676fe",
-  "previous_version": "v2026.9.3"
+  "overrides_commit": "82d2817aeeb15e75a3bc9ac07bac2f183051313f",
+  "previous_version": "v2026.9.4"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -13449,6 +13449,21 @@
      "status": "active"
     },
     {
+     "id": "cline-pass/glm-5.3-flash",
+     "name": "cline-pass/glm-5.3-flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "cline-pass/kimi-k2.6",
      "name": "Kimi K2.6",
      "release_date": "2026-04-21",
@@ -18079,12 +18094,49 @@
      "status": "active"
     },
     {
+     "id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+     "name": "Nemotron 3 Nano 30B A3B",
+     "release_date": "2025-12-15",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B",
+     "name": "Nemotron 3 Super 120B A12B",
+     "release_date": "2026-03-11",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/gpt-oss-120b",
      "name": "GPT OSS 120B",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
      "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+     "name": "Qwen3 235B-A22B Instruct 2507",
+     "release_date": "2025-07-21",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -23597,6 +23649,20 @@
      "status": "active"
     },
     {
+     "id": "qwen/qwen3.8-max-0902",
+     "name": "Qwen3.8 Max 0902",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "qwen/qwq-plus",
      "name": "QwQ Plus",
      "release_date": "2025-03-05",
@@ -26210,6 +26276,18 @@
      "status": "active"
     },
     {
+     "id": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
+     "name": "Qwen3.8 2.4T A95B",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "accounts/fireworks/models/qwen3p8-max",
      "name": "Qwen3.8 Max",
      "release_date": "2026-08-03",
@@ -27337,6 +27415,20 @@
      "id": "gpt-5.6-terra",
      "name": "GPT-5.6 Terra",
      "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -36581,7 +36673,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -37953,7 +38045,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "ibm-granite/granite-4.2-8b",
@@ -38017,7 +38109,7 @@
     },
     {
      "id": "inclusionai/ling-3.0-flash",
-     "name": "Ling-3.0-flash",
+     "name": "inclusionAI: Ling 3.0 Flash",
      "release_date": "2026-07-23",
      "tool_call": true,
      "context_window": 262144,
@@ -38029,7 +38121,7 @@
     },
     {
      "id": "inclusionai/ling-3.0-flash-fin",
-     "name": "Ling 3.0 Flash Fin",
+     "name": "inclusionAI: Ling 3.0 Flash Fin",
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 262144,
@@ -38041,8 +38133,20 @@
     },
     {
      "id": "inclusionai/ling-3.0-flash-fin:free",
-     "name": "Ling 3.0 Flash Fin (free)",
+     "name": "inclusionAI: Ling 3.0 Flash Fin (free)",
      "release_date": "2026-08-27",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inclusionai/ling-3.0-flash-sante:free",
+     "name": "inclusionAI: Ling 3.0 Flash Sante (free)",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 32768,
@@ -39752,6 +39856,34 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6-astra-pro",
+     "name": "OpenAI: GPT-6 Astra Pro ($$$$)",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/gpt-audio",
      "name": "OpenAI: GPT Audio",
      "release_date": "2026-01-19",
@@ -40232,7 +40364,7 @@
      "release_date": "2025-07-21",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -40539,7 +40671,7 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image",
@@ -40623,7 +40755,7 @@
      "release_date": "2026-04-22",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image",
@@ -40768,6 +40900,20 @@
      "id": "qwen/qwen3.8-max",
      "name": "Qwen3.8 Max",
      "release_date": "2026-08-03",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "retired"
+    },
+    {
+     "id": "qwen/qwen3.8-max-0902",
+     "name": "Qwen3.8 Max 0902",
+     "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 131072,
@@ -43157,6 +43303,19 @@
      "status": "active"
     },
     {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-03",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 1050000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-oss-120b",
      "name": "GPT OSS 120B",
      "release_date": "2025-08-05",
@@ -43838,6 +43997,19 @@
       "audio",
       "video",
       "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "muse-spark-1.2-contributor",
+     "name": "Muse Spark 1.2 Contributor",
+     "release_date": "2026-08-06",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -45823,6 +45995,20 @@
      "status": "active"
     },
     {
+     "id": "azure/gpt-6-astra",
+     "name": "GPT-6 Astra (Azure)",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "azure/gpt-oss-120b",
      "name": "GPT OSS 120B (Azure)",
      "release_date": "2025-08-05",
@@ -46229,6 +46415,18 @@
      "tool_call": true,
      "context_window": 524288,
      "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "consensusprotocol/glm-5.3-flash",
+     "name": "GLM-5.3 Flash (Consensus Protocol)",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -46838,6 +47036,22 @@
      "status": "active"
     },
     {
+     "id": "google-ai-studio/gemini-3.8-flash",
+     "name": "Gemini 3.8 Flash (Google AI Studio)",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "google-ai-studio/gemini-pro-latest",
      "name": "Gemini Pro Latest (Google AI Studio)",
      "release_date": "2026-02-27",
@@ -47106,6 +47320,19 @@
      "max_output_tokens": 128000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "meta-contributor/muse-spark-1.2-contributor",
+     "name": "Muse Spark 1.2 Contributor (Meta Contributor)",
+     "release_date": "2026-08-06",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -47917,6 +48144,21 @@
      "status": "active"
     },
     {
+     "id": "novita/glm-5.3-flash",
+     "name": "GLM-5.3 Flash (NovitaAI)",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "novita/hy3",
      "name": "Hy3 (NovitaAI)",
      "release_date": "2026-07-06",
@@ -48678,6 +48920,19 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra (OpenAI)",
+     "release_date": "2026-09-03",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/o1",
      "name": "o1 (OpenAI)",
      "release_date": "2024-12-05",
@@ -48903,6 +49158,20 @@
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "runware/kimi-k3",
+     "name": "Kimi K3 (Runware)",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text",
       "image",
@@ -52223,6 +52492,19 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/gpt-oss-120b",
      "name": "GPT-OSS 120B",
      "release_date": "2025-08-05",
@@ -52507,10 +52789,11 @@
      "name": "Qwen3.5 122B A10B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -52519,11 +52802,10 @@
      "name": "Qwen3.5 27B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 256000,
-     "max_output_tokens": 64000,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active"
     },
@@ -52545,11 +52827,10 @@
      "name": "Qwen3.5 397B A17B",
      "release_date": "2026-02-15",
      "tool_call": true,
-     "context_window": 256000,
-     "max_output_tokens": 64000,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active"
     },
@@ -56239,7 +56520,7 @@
      "release_date": "2025-11-01",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 32000,
+     "max_output_tokens": 64000,
      "input_modalities": [
       "text",
       "image",
@@ -56253,7 +56534,7 @@
      "release_date": "2025-11-01",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 32000,
+     "max_output_tokens": 64000,
      "input_modalities": [
       "text",
       "image",
@@ -57279,7 +57560,7 @@
      "name": "Gemini 2.5 Flash",
      "release_date": "2025-06-17",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57293,7 +57574,7 @@
      "name": "Gemini 2.5 Flash Lite",
      "release_date": "2025-06-17",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57307,7 +57588,7 @@
      "name": "Gemini 2.5 Flash Lite Preview",
      "release_date": "2025-06-17",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57321,7 +57602,7 @@
      "name": "Gemini 2.5 Flash Lite Preview (09/2025)",
      "release_date": "2025-09-25",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57336,7 +57617,7 @@
      "name": "Gemini 2.5 Flash Lite Preview (09/2025) – Thinking",
      "release_date": "2025-09-25",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57351,7 +57632,7 @@
      "name": "Gemini 2.5 Flash (No Thinking)",
      "release_date": "2025-06-05",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57366,7 +57647,7 @@
      "name": "Gemini 2.5 Flash Preview",
      "release_date": "2025-04-17",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57380,7 +57661,7 @@
      "name": "Gemini 2.5 Flash Preview Thinking",
      "release_date": "2025-04-17",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57420,7 +57701,7 @@
      "name": "Gemini 2.5 Flash Preview (09/2025)",
      "release_date": "2025-09-25",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57435,7 +57716,7 @@
      "name": "Gemini 2.5 Flash Preview (09/2025) – Thinking",
      "release_date": "2025-09-25",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57450,7 +57731,7 @@
      "name": "Gemini 2.5 Pro",
      "release_date": "2025-06-17",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57464,7 +57745,7 @@
      "name": "Gemini 2.5 Pro Experimental 0325",
      "release_date": "2025-03-25",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57478,7 +57759,7 @@
      "name": "Gemini 2.5 Pro Preview 0325",
      "release_date": "2025-03-25",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57492,7 +57773,7 @@
      "name": "Gemini 2.5 Pro Preview 0506",
      "release_date": "2025-05-06",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57506,7 +57787,7 @@
      "name": "Gemini 2.5 Pro Preview 0605",
      "release_date": "2025-06-05",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -57520,8 +57801,8 @@
      "name": "Gemini 3 Pro Image",
      "release_date": "2025-11-20",
      "tool_call": false,
-     "context_window": 1048756,
-     "max_output_tokens": 65536,
+     "context_window": 65536,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image"
@@ -58087,7 +58368,7 @@
      "name": "Gemini 3 Flash (Preview)",
      "release_date": "2025-12-17",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -58101,7 +58382,7 @@
      "name": "Gemini 3 Flash Thinking",
      "release_date": "2025-12-17",
      "tool_call": false,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -58131,7 +58412,7 @@
      "name": "Gemini 3.1 Pro (Preview)",
      "release_date": "2026-02-19",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -58145,7 +58426,7 @@
      "name": "Gemini 3.1 Pro (Preview Custom Tools)",
      "release_date": "2026-02-19",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -58159,7 +58440,7 @@
      "name": "Gemini 3.1 Pro (Preview High)",
      "release_date": "2026-02-21",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -58173,7 +58454,7 @@
      "name": "Gemini 3.1 Pro (Preview Low)",
      "release_date": "2026-02-21",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -58311,7 +58592,7 @@
      "name": "Gemini Pro Latest",
      "release_date": "2026-03-29",
      "tool_call": true,
-     "context_window": 1048756,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -58724,7 +59005,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "ibm-granite/granite-4.2-8b",
@@ -60622,6 +60903,34 @@
      "id": "openai/gpt-5.6-terra-pro",
      "name": "GPT 5.6 Terra Pro",
      "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT 6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6-astra-pro",
+     "name": "GPT 6 Astra Pro",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -70985,6 +71294,21 @@
      "disputed": true
     },
     {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
      "id": "gpt-realtime-2.1",
      "name": "GPT-Realtime-2.1",
      "release_date": "2026-07-06",
@@ -71692,6 +72016,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4-flash-vision-exp",
+     "name": "DeepSeek V4 Flash Vision Exp",
+     "release_date": "2026-08-21",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepseek-v4-pro",
      "name": "DeepSeek V4 Pro",
      "release_date": "2026-04-24",
@@ -71912,6 +72249,33 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3-flash",
+     "name": "GLM-5.3-Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -72175,6 +72539,20 @@
      "id": "gpt-5.6-terra",
      "name": "GPT-5.6 Terra",
      "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -72589,6 +72967,22 @@
      "id": "muse-spark-1.2-contributor-free",
      "name": "Muse Spark 1.2 Free",
      "release_date": "2026-08-05",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "muse-spark-1.3",
+     "name": "Muse Spark 1.3",
+     "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 131072,
@@ -73384,7 +73778,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -74789,7 +75183,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "ibm-granite/granite-4.2-8b",
@@ -74853,7 +75247,7 @@
     },
     {
      "id": "inclusionai/ling-3.0-flash",
-     "name": "Ling-3.0-flash",
+     "name": "Ling 3.0 Flash",
      "release_date": "2026-07-23",
      "tool_call": true,
      "context_window": 262144,
@@ -74879,6 +75273,18 @@
      "id": "inclusionai/ling-3.0-flash-fin:free",
      "name": "Ling 3.0 Flash Fin (free)",
      "release_date": "2026-08-27",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inclusionai/ling-3.0-flash-sante:free",
+     "name": "Ling 3.0 Flash Sante (free)",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 32768,
@@ -76544,6 +76950,34 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6-astra-pro",
+     "name": "GPT-6 Astra Pro",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/gpt-audio",
      "name": "GPT Audio",
      "release_date": "2026-01-19",
@@ -77436,7 +77870,7 @@
      "release_date": "2026-04-22",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image",
@@ -77581,6 +78015,20 @@
      "id": "qwen/qwen3.8-max",
      "name": "Qwen3.8 Max",
      "release_date": "2026-08-03",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "retired"
+    },
+    {
+     "id": "qwen/qwen3.8-max-0902",
+     "name": "Qwen3.8 Max 0902",
+     "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 131072,
@@ -95680,6 +96128,32 @@
      "status": "active"
     },
     {
+     "id": "openai-gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-05",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai-gpt-6-astra-pro",
+     "name": "GPT-6 Astra Pro",
+     "release_date": "2026-09-05",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai-gpt-oss-120b",
      "name": "OpenAI GPT OSS 120B",
      "release_date": "2025-11-06",
@@ -97444,6 +97918,30 @@
      "status": "active"
     },
     {
+     "id": "inclusionai/ling-3.0-flash-sante",
+     "name": "Ling 3.0 Flash Sante",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inclusionai/ling-3.0-flash-sante-free",
+     "name": "Ling 3.0 Flash Sante (Free)",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "interfaze/interfaze-beta",
      "name": "Interfaze Beta",
      "release_date": "2025-10-07",
@@ -98815,6 +99313,34 @@
      "id": "openai/gpt-5.6-terra-fast",
      "name": "GPT 5.6 Terra (Fast)",
      "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6-astra-fast",
+     "name": "GPT-6 Astra (Fast)",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -101003,7 +101529,7 @@
       "text",
       "image"
      ],
-     "status": "retired"
+     "status": "active"
     }
    ]
   },
