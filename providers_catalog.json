@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.5",
- "updated_at": "2026-09-05T09:38:05.800Z",
- "generated_at": "2026-09-05T09:38:05.800Z",
- "source": "models.dev@7a42caabb2c8397ca145f72d5a1d5c7a4031d593 litellm@828d561fcc2704eaf90617be8cdc058fccbd8508 overrides@82d2817aeeb15e75a3bc9ac07bac2f183051313f",
+ "version": "v2026.9.6",
+ "updated_at": "2026-09-06T09:53:40.366Z",
+ "generated_at": "2026-09-06T09:53:40.366Z",
+ "source": "models.dev@98383f3755693d8b173ec1a2ff8bd0ae851ef207 litellm@842623529048ceb836c746f8b99835260142a229 overrides@45fb072c72c0db665f2cd4071447076f667278d2",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-05T09:38:05.800Z",
-   "commit": "7a42caabb2c8397ca145f72d5a1d5c7a4031d593",
-   "etag": "W/\"6a5569d05e3218fa337cf01ff8bbf5af\"",
-   "sha256": "6a5569d05e3218fa337cf01ff8bbf5af556bc1afc1f410b3ee569f438c31f9d0",
-   "bytes": 4490012
+   "fetched_at": "2026-09-06T09:53:40.366Z",
+   "commit": "98383f3755693d8b173ec1a2ff8bd0ae851ef207",
+   "etag": "W/\"db500d805188e3b487586e3c47633e5f\"",
+   "sha256": "db500d805188e3b487586e3c47633e5fcd90e7230aa64a4aab579e96f5f73d52",
+   "bytes": 4493026
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-05T09:38:05.800Z",
-   "commit": "828d561fcc2704eaf90617be8cdc058fccbd8508",
-   "etag": "W/\"22b288fdec8ac6168e6c3df55488a12c1a5cf7bd13e45d3eed6231104f06a4b6\"",
-   "sha256": "a5ad23f7a2d98249588a2f21a305f8e3741bba450fd6216bde505cb9c4bee98a",
-   "bytes": 2133018
+   "fetched_at": "2026-09-06T09:53:40.366Z",
+   "commit": "842623529048ceb836c746f8b99835260142a229",
+   "etag": "W/\"eb8e9a53f4cc284bb204a711fc3150fcfec4d8c0ba1cd17ae8574702b2eadca5\"",
+   "sha256": "f68d88c12610ea31ab355a1293fde55aeed6fa78a1f4b182c67be47d80b1d202",
+   "bytes": 2311609
   },
-  "overrides_commit": "82d2817aeeb15e75a3bc9ac07bac2f183051313f",
-  "previous_version": "v2026.9.4"
+  "overrides_commit": "45fb072c72c0db665f2cd4071447076f667278d2",
+  "previous_version": "v2026.9.5"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -12624,7 +12624,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "zai-org/GLM-5.3-Fast",
@@ -17723,6 +17724,19 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "qwen/qwen3.6-flash",
      "name": "Qwen3.6 Flash",
      "release_date": "2026-04-27",
@@ -21607,6 +21621,19 @@
      "status": "active"
     },
     {
+     "id": "databricks/databricks-inkling",
+     "name": "Inkling",
+     "release_date": "2026-07-15",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepinfra/ByteDance/Seed-2.0-code",
      "name": "Seed 2.0 Code",
      "release_date": "2026-02-14",
@@ -22379,8 +22406,8 @@
     },
     {
      "id": "google/gemini-flash-latest",
-     "name": "Gemini 3.7 Flash",
-     "release_date": "2026-08-13",
+     "name": "Gemini 3.8 Flash",
+     "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -23175,9 +23202,23 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/gpt-latest",
-     "name": "GPT-5.6 Sol",
-     "release_date": "2026-07-09",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -24221,8 +24262,8 @@
     },
     {
      "id": "vertex/gemini-flash-latest",
-     "name": "Gemini 3.7 Flash",
-     "release_date": "2026-08-13",
+     "name": "Gemini 3.8 Flash",
+     "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -32475,6 +32516,19 @@
      "status": "active"
     },
     {
+     "id": "inkling",
+     "name": "Inkling",
+     "release_date": "2026-08-15",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "kimi-k2-thinking",
      "name": "Kimi K2 Thinking",
      "release_date": "2026-09-02",
@@ -36673,7 +36727,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -37515,7 +37569,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -40670,7 +40724,7 @@
      "name": "Qwen3.5 35B-A3B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 256000,
      "max_output_tokens": 16384,
      "input_modalities": [
       "text",
@@ -41296,8 +41350,8 @@
      "name": "TheDrummer: UnslopNemo 12B",
      "release_date": "2024-11-08",
      "tool_call": true,
-     "context_window": 32768,
-     "max_output_tokens": 26214,
+     "context_window": 1024000,
+     "max_output_tokens": 819200,
      "input_modalities": [
       "text"
      ],
@@ -60322,7 +60376,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
@@ -60684,8 +60738,8 @@
      "name": "GPT-5.1 (2025-11-13)",
      "release_date": "2024-01-01",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 32768,
+     "context_window": 400000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -60778,7 +60832,7 @@
      "name": "GPT 5.4",
      "release_date": "2026-03-05",
      "tool_call": true,
-     "context_window": 922000,
+     "context_window": 1050000,
      "max_output_tokens": 128000,
      "input_modalities": [
       "text",
@@ -60820,7 +60874,7 @@
      "name": "GPT 5.5",
      "release_date": "2026-04-23",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1050000,
      "max_output_tokens": 128000,
      "input_modalities": [
       "text",
@@ -63026,7 +63080,7 @@
      "name": "Anubis 70B v1.1",
      "release_date": "2024-01-01",
      "tool_call": false,
-     "context_window": 131072,
+     "context_window": 32000,
      "max_output_tokens": 16384,
      "input_modalities": [
       "text"
@@ -65014,7 +65068,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "moonshotai/Kimi-K2.5",
@@ -65052,19 +65107,21 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "moonshotai/Kimi-K3",
      "name": "Kimi K3",
      "release_date": "2026-07-16",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1024000,
      "max_output_tokens": 8000,
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "NousResearch/Hermes-4-405B",
@@ -65076,7 +65133,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "NousResearch/Hermes-4-70B",
@@ -65136,7 +65194,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "nvidia/Nemotron-3-Ultra-550b-a55b",
@@ -65172,7 +65231,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-oss-120b-fast",
@@ -65222,7 +65282,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "Qwen/Qwen3-235B-A22B-Thinking-2507-fast",
@@ -65246,7 +65307,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "Qwen/Qwen3-32B",
@@ -65307,7 +65369,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "Qwen/Qwen3.5-397B-A17B-fast",
@@ -67222,7 +67285,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-oss-20b",
@@ -67235,7 +67299,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "paddlepaddle/paddleocr-vl",
@@ -73778,7 +73843,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -74089,8 +74154,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "anthropic/claude-opus-4",
@@ -74132,8 +74196,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "anthropic/claude-opus-4.6",
@@ -74633,7 +74696,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4-flash-vision-exp",
@@ -74699,8 +74763,7 @@
       "video",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "google/gemini-2.5-flash-image",
@@ -74737,7 +74800,7 @@
      "release_date": "2025-06-17",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -74745,8 +74808,7 @@
       "video",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "google/gemini-2.5-pro-preview",
@@ -74930,7 +74992,7 @@
      "release_date": "2026-05-19",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -76481,8 +76543,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "openai/gpt-4o-2024-05-13",
@@ -76653,7 +76714,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-5.1-codex",
@@ -76765,7 +76827,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-5.4",
@@ -76807,7 +76870,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-5.4-nano",
@@ -76821,7 +76885,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-5.4-pro",
@@ -76877,7 +76942,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-5.6-luna-pro",
@@ -76933,7 +76999,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-5.6-terra-pro",
@@ -77108,8 +77175,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "openai/o3-mini-high",
@@ -77122,8 +77188,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "openai/o3-pro",
@@ -78318,7 +78383,7 @@
      "release_date": "2024-11-08",
      "tool_call": true,
      "context_window": 1024000,
-     "max_output_tokens": 26214,
+     "max_output_tokens": 819200,
      "input_modalities": [
       "text"
      ],
@@ -78440,7 +78505,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "x-ai/grok-4.20-multi-agent",
@@ -78454,7 +78520,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "x-ai/grok-4.3",
@@ -78468,7 +78535,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "x-ai/grok-4.5",
@@ -78482,7 +78550,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "x-ai/grok-4.6",
@@ -78496,7 +78565,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "x-ai/grok-build-0.1",
@@ -78510,7 +78580,8 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "xiaomi/mimo-v2.5",
