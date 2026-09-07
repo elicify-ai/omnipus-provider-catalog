@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.6",
- "updated_at": "2026-09-06T09:53:40.366Z",
- "generated_at": "2026-09-06T09:53:40.366Z",
- "source": "models.dev@98383f3755693d8b173ec1a2ff8bd0ae851ef207 litellm@842623529048ceb836c746f8b99835260142a229 overrides@45fb072c72c0db665f2cd4071447076f667278d2",
+ "version": "v2026.9.7",
+ "updated_at": "2026-09-07T11:00:54.991Z",
+ "generated_at": "2026-09-07T11:00:54.991Z",
+ "source": "models.dev@00c8960400a4de02332e04f7c21863e724af8eb3 litellm@842623529048ceb836c746f8b99835260142a229 overrides@50edd15a78c044046bd353ef0a6923775ab674ea",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-06T09:53:40.366Z",
-   "commit": "98383f3755693d8b173ec1a2ff8bd0ae851ef207",
-   "etag": "W/\"db500d805188e3b487586e3c47633e5f\"",
-   "sha256": "db500d805188e3b487586e3c47633e5fcd90e7230aa64a4aab579e96f5f73d52",
-   "bytes": 4493026
+   "fetched_at": "2026-09-07T11:00:54.991Z",
+   "commit": "00c8960400a4de02332e04f7c21863e724af8eb3",
+   "etag": "W/\"dd7de082dccf96d915ed11841e868238\"",
+   "sha256": "dd7de082dccf96d915ed11841e868238b208896fc8fdbe0c303fa3e0f11e6b0a",
+   "bytes": 4493125
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-06T09:53:40.366Z",
+   "fetched_at": "2026-09-07T11:00:54.991Z",
    "commit": "842623529048ceb836c746f8b99835260142a229",
    "etag": "W/\"eb8e9a53f4cc284bb204a711fc3150fcfec4d8c0ba1cd17ae8574702b2eadca5\"",
    "sha256": "f68d88c12610ea31ab355a1293fde55aeed6fa78a1f4b182c67be47d80b1d202",
    "bytes": 2311609
   },
-  "overrides_commit": "45fb072c72c0db665f2cd4071447076f667278d2",
-  "previous_version": "v2026.9.5"
+  "overrides_commit": "50edd15a78c044046bd353ef0a6923775ab674ea",
+  "previous_version": "v2026.9.6"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -1658,7 +1658,7 @@
     },
     {
      "id": "gemini-3-pro-image-preview",
-     "name": "Nano Banana Pro",
+     "name": "Nano Banana Pro Preview",
      "release_date": "2025-11-20",
      "tool_call": false,
      "context_window": 65536,
@@ -1684,7 +1684,7 @@
     },
     {
      "id": "gemini-3.1-flash-image-preview",
-     "name": "Nano Banana 2",
+     "name": "Nano Banana 2 Preview",
      "release_date": "2026-02-26",
      "tool_call": false,
      "context_window": 1048576,
@@ -7902,6 +7902,19 @@
      "status": "active"
     },
     {
+     "id": "global.xai.grok-4.6",
+     "name": "Grok 4.6 (Global)",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "google.gemma-3-12b-it",
      "name": "Google Gemma 3 12B",
      "release_date": "2024-12-01",
@@ -8751,6 +8764,19 @@
      "tool_call": true,
      "context_window": 3500000,
      "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "us.xai.grok-4.6",
+     "name": "Grok 4.6 (US)",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
      "input_modalities": [
       "text",
       "image"
@@ -10963,6 +10989,20 @@
      "status": "active"
     },
     {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-chat-latest",
      "name": "GPT Chat Latest",
      "release_date": "2026-05-05",
@@ -12951,7 +12991,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "gpt-oss-120b",
@@ -12965,6 +13005,19 @@
      ],
      "status": "active",
      "disputed": true
+    },
+    {
+     "id": "qwen-3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 65536,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
     }
    ]
   },
@@ -15610,7 +15663,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek-r1-0528",
@@ -16261,7 +16314,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "llama-3.3-70b-instruct",
@@ -16618,7 +16671,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "pixtral-12b-2409",
@@ -16727,7 +16780,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen3-vl-235b-a22b",
@@ -16934,6 +16987,19 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4-flash-vision-exp",
+     "name": "DeepSeek V4 Flash Vision Exp",
+     "release_date": "2026-08-21",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -21084,7 +21150,7 @@
    "models": [
     {
      "id": "amazon/moonshot.kimi-k2-thinking",
-     "name": "Kimi K2 Thinking",
+     "name": "Kimi K2 Thinking (Amazon Bedrock)",
      "release_date": "2025-11-06",
      "tool_call": false,
      "context_window": 128000,
@@ -21096,7 +21162,7 @@
     },
     {
      "id": "amazon/moonshotai.kimi-k2.5",
-     "name": "Kimi K2.5",
+     "name": "Kimi K2.5 (Amazon Bedrock)",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -21132,7 +21198,7 @@
     },
     {
      "id": "amazon/zai.glm-4.7-flash",
-     "name": "GLM-4.7-Flash",
+     "name": "GLM-4.7-Flash (Amazon Bedrock)",
      "release_date": "2026-01-19",
      "tool_call": true,
      "context_window": 200000,
@@ -21144,7 +21210,7 @@
     },
     {
      "id": "amazon/zai.glm-4.7-flash@us",
-     "name": "GLM-4.7-Flash (US)",
+     "name": "GLM-4.7-Flash (Amazon Bedrock, US)",
      "release_date": "2026-01-19",
      "tool_call": true,
      "context_window": 200000,
@@ -21184,7 +21250,7 @@
     },
     {
      "id": "anthropic/claude-fable-latest",
-     "name": "Claude Fable 5.1",
+     "name": "Claude Fable Latest (Claude Fable 5.1)",
      "release_date": "2026-09-01",
      "tool_call": true,
      "context_window": 1000000,
@@ -21282,7 +21348,7 @@
     },
     {
      "id": "anthropic/claude-opus-latest",
-     "name": "Claude Opus 5",
+     "name": "Claude Opus Latest (Claude Opus 5)",
      "release_date": "2026-07-24",
      "tool_call": true,
      "context_window": 1000000,
@@ -21324,7 +21390,7 @@
     },
     {
      "id": "anthropic/claude-sonnet-latest",
-     "name": "Claude Sonnet 5",
+     "name": "Claude Sonnet Latest (Claude Sonnet 5)",
      "release_date": "2026-06-30",
      "tool_call": true,
      "context_window": 1000000,
@@ -21338,7 +21404,7 @@
     },
     {
      "id": "azure/gpt-5.1-codex",
-     "name": "GPT-5.1 Codex",
+     "name": "GPT-5.1 Codex (Azure)",
      "release_date": "2025-11-13",
      "tool_call": true,
      "context_window": 272000,
@@ -21352,7 +21418,7 @@
     },
     {
      "id": "azure/gpt-5.1-codex-max",
-     "name": "GPT-5.1 Codex Max",
+     "name": "GPT-5.1 Codex Max (Azure)",
      "release_date": "2025-11-13",
      "tool_call": true,
      "context_window": 272000,
@@ -21366,7 +21432,7 @@
     },
     {
      "id": "azure/gpt-5.1-codex-mini",
-     "name": "GPT-5.1 Codex mini",
+     "name": "GPT-5.1 Codex mini (Azure)",
      "release_date": "2025-11-13",
      "tool_call": true,
      "context_window": 272000,
@@ -21380,7 +21446,7 @@
     },
     {
      "id": "azure/gpt-5.2-codex",
-     "name": "GPT-5.2 Codex",
+     "name": "GPT-5.2 Codex (Azure)",
      "release_date": "2025-12-11",
      "tool_call": true,
      "context_window": 272000,
@@ -21394,7 +21460,7 @@
     },
     {
      "id": "cerebras/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Cerebras)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -21406,7 +21472,7 @@
     },
     {
      "id": "cloudflare/@cf/aisingapore/gemma-sea-lion-v4-27b-it",
-     "name": "Gemma-SEA-LION-v4-27B-IT",
+     "name": "Gemma-SEA-LION-v4-27B-IT (Cloudflare)",
      "release_date": "2025-09-23",
      "tool_call": false,
      "context_window": 128000,
@@ -21418,7 +21484,7 @@
     },
     {
      "id": "cloudflare/@cf/deepseek-ai/deepseek-v4-flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Cloudflare)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1310720,
@@ -21430,7 +21496,7 @@
     },
     {
      "id": "cloudflare/@cf/deepseek-ai/deepseek-v4-pro-0813",
-     "name": "DeepSeek V4 Pro 0813",
+     "name": "DeepSeek V4 Pro 0813 (Cloudflare)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
@@ -21442,7 +21508,7 @@
     },
     {
      "id": "cloudflare/@cf/meta/llama-guard-3-8b",
-     "name": "Llama-Guard-3-8B",
+     "name": "Llama-Guard-3-8B (Cloudflare)",
      "release_date": "2024-07-23",
      "tool_call": false,
      "context_window": 131072,
@@ -21454,7 +21520,7 @@
     },
     {
      "id": "cloudflare/@cf/openai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Cloudflare)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 128000,
@@ -21466,7 +21532,7 @@
     },
     {
      "id": "cloudflare/@cf/openai/gpt-oss-20b",
-     "name": "GPT OSS 20B",
+     "name": "GPT OSS 20B (Cloudflare)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 128000,
@@ -21478,7 +21544,7 @@
     },
     {
      "id": "cloudflare/@cf/qwen/qwen2.5-coder-32b-instruct",
-     "name": "Qwen2.5-Coder-32B-Instruct",
+     "name": "Qwen2.5-Coder-32B-Instruct (Cloudflare)",
      "release_date": "2024-11-12",
      "tool_call": false,
      "context_window": 32768,
@@ -21490,7 +21556,7 @@
     },
     {
      "id": "cloudflare/@cf/zai-org/glm-4.7-flash",
-     "name": "GLM-4.7-Flash",
+     "name": "GLM-4.7-Flash (Cloudflare)",
      "release_date": "2026-01-19",
      "tool_call": true,
      "context_window": 131072,
@@ -21550,7 +21616,7 @@
     },
     {
      "id": "databricks/databricks-deepseek-v4-flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Databricks)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1000000,
@@ -21562,7 +21628,7 @@
     },
     {
      "id": "databricks/databricks-deepseek-v4-pro-0813",
-     "name": "DeepSeek V4 Pro 0813",
+     "name": "DeepSeek V4 Pro 0813 (Databricks)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1000000,
@@ -21574,7 +21640,7 @@
     },
     {
      "id": "databricks/databricks-gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Databricks)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -21586,7 +21652,7 @@
     },
     {
      "id": "databricks/databricks-gpt-oss-120b@eu",
-     "name": "GPT OSS 120B (EU)",
+     "name": "GPT OSS 120B (Databricks, EU)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -21598,7 +21664,7 @@
     },
     {
      "id": "databricks/databricks-gpt-oss-20b",
-     "name": "GPT OSS 20B",
+     "name": "GPT OSS 20B (Databricks)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -21610,7 +21676,7 @@
     },
     {
      "id": "databricks/databricks-gpt-oss-20b@eu",
-     "name": "GPT OSS 20B (EU)",
+     "name": "GPT OSS 20B (Databricks, EU)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -21622,7 +21688,7 @@
     },
     {
      "id": "databricks/databricks-inkling",
-     "name": "Inkling",
+     "name": "Inkling (Databricks)",
      "release_date": "2026-07-15",
      "tool_call": true,
      "context_window": 1000000,
@@ -21635,7 +21701,7 @@
     },
     {
      "id": "deepinfra/ByteDance/Seed-2.0-code",
-     "name": "Seed 2.0 Code",
+     "name": "Seed 2.0 Code (Deep Infra)",
      "release_date": "2026-02-14",
      "tool_call": true,
      "context_window": 256000,
@@ -21648,7 +21714,7 @@
     },
     {
      "id": "deepinfra/ByteDance/Seed-2.0-mini",
-     "name": "Seed 2.0 Mini",
+     "name": "Seed 2.0 Mini (Deep Infra)",
      "release_date": "2026-02-14",
      "tool_call": true,
      "context_window": 256000,
@@ -21661,7 +21727,7 @@
     },
     {
      "id": "deepinfra/deepseek-ai/DeepSeek-R1",
-     "name": "DeepSeek-R1",
+     "name": "DeepSeek-R1 (Deep Infra)",
      "release_date": "2025-01-20",
      "tool_call": true,
      "context_window": 163840,
@@ -21673,7 +21739,7 @@
     },
     {
      "id": "deepinfra/deepseek-ai/DeepSeek-V3",
-     "name": "DeepSeek-V3",
+     "name": "DeepSeek-V3 (Deep Infra)",
      "release_date": "2024-12-26",
      "tool_call": true,
      "context_window": 163840,
@@ -21685,7 +21751,7 @@
     },
     {
      "id": "deepinfra/deepseek-ai/DeepSeek-V3-0324",
-     "name": "DeepSeek V3 0324",
+     "name": "DeepSeek V3 0324 (Deep Infra)",
      "release_date": "2025-03-24",
      "tool_call": true,
      "context_window": 163840,
@@ -21697,7 +21763,7 @@
     },
     {
      "id": "deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Deep Infra)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
@@ -21709,7 +21775,7 @@
     },
     {
      "id": "deepinfra/deepseek-ai/DeepSeek-V4-Pro-0813",
-     "name": "DeepSeek V4 Pro 0813",
+     "name": "DeepSeek V4 Pro 0813 (Deep Infra)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
@@ -21721,7 +21787,7 @@
     },
     {
      "id": "deepinfra/meta-llama/Llama-3.2-11B-Vision-Instruct",
-     "name": "Llama-3.2-11B-Vision-Instruct",
+     "name": "Llama-3.2-11B-Vision-Instruct (Deep Infra)",
      "release_date": "2024-09-25",
      "tool_call": false,
      "context_window": 131072,
@@ -21734,7 +21800,7 @@
     },
     {
      "id": "deepinfra/meta-llama/Llama-3.3-70B-Instruct",
-     "name": "Llama-3.3-70B-Instruct",
+     "name": "Llama-3.3-70B-Instruct (Deep Infra)",
      "release_date": "2024-12-06",
      "tool_call": true,
      "context_window": 131072,
@@ -21746,7 +21812,7 @@
     },
     {
      "id": "deepinfra/meta-llama/Llama-Guard-3-8B",
-     "name": "Llama-Guard-3-8B",
+     "name": "Llama-Guard-3-8B (Deep Infra)",
      "release_date": "2024-07-23",
      "tool_call": false,
      "context_window": 131072,
@@ -21758,7 +21824,7 @@
     },
     {
      "id": "deepinfra/meta-models/Muse-Glimmer-30B",
-     "name": "Muse Glimmer 30B",
+     "name": "Muse Glimmer 30B (Deep Infra)",
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
@@ -21771,7 +21837,7 @@
     },
     {
      "id": "deepinfra/moonshotai/Kimi-K2.5",
-     "name": "Kimi K2.5",
+     "name": "Kimi K2.5 (Deep Infra)",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -21783,7 +21849,7 @@
     },
     {
      "id": "deepinfra/nemotron-3-ultra-550b-a55b",
-     "name": "Nemotron 3 Ultra 550B A55B",
+     "name": "Nemotron 3 Ultra 550B A55B (Deep Infra)",
      "release_date": "2026-06-04",
      "tool_call": true,
      "context_window": 262144,
@@ -21795,7 +21861,7 @@
     },
     {
      "id": "deepinfra/nvidia/Llama-3.1-Nemotron-70B-Instruct",
-     "name": "Llama 3.1 Nemotron 70B Instruct",
+     "name": "Llama 3.1 Nemotron 70B Instruct (Deep Infra)",
      "release_date": "2025-04-15",
      "tool_call": true,
      "context_window": 131072,
@@ -21807,7 +21873,7 @@
     },
     {
      "id": "deepinfra/nvidia/Nemotron-3-Nano-30B-A3B",
-     "name": "Nemotron 3 Nano 30B A3B",
+     "name": "Nemotron 3 Nano 30B A3B (Deep Infra)",
      "release_date": "2025-12-15",
      "tool_call": true,
      "context_window": 262144,
@@ -21819,7 +21885,7 @@
     },
     {
      "id": "deepinfra/openai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Deep Infra)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -21831,7 +21897,7 @@
     },
     {
      "id": "deepinfra/openai/gpt-oss-20b",
-     "name": "GPT OSS 20B",
+     "name": "GPT OSS 20B (Deep Infra)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -21843,7 +21909,7 @@
     },
     {
      "id": "deepinfra/stepfun-ai/Step-3.5-Flash",
-     "name": "Step 3.5 Flash",
+     "name": "Step 3.5 Flash (Deep Infra)",
      "release_date": "2026-01-29",
      "tool_call": true,
      "context_window": 262144,
@@ -21855,7 +21921,7 @@
     },
     {
      "id": "deepinfra/stepfun-ai/Step-3.7-Flash",
-     "name": "Step 3.7 Flash",
+     "name": "Step 3.7 Flash (Deep Infra)",
      "release_date": "2026-05-29",
      "tool_call": true,
      "context_window": 262144,
@@ -21869,7 +21935,7 @@
     },
     {
      "id": "deepinfra/tencent/Hy3",
-     "name": "Hy3",
+     "name": "Hy3 (Deep Infra)",
      "release_date": "2026-07-06",
      "tool_call": true,
      "context_window": 262144,
@@ -21881,7 +21947,7 @@
     },
     {
      "id": "deepinfra/thinkingmachines/Inkling",
-     "name": "Inkling",
+     "name": "Inkling (Deep Infra)",
      "release_date": "2026-07-15",
      "tool_call": true,
      "context_window": 524288,
@@ -21895,7 +21961,7 @@
     },
     {
      "id": "deepinfra/thinkingmachines/Inkling-Small",
-     "name": "Inkling Small",
+     "name": "Inkling Small (Deep Infra)",
      "release_date": "2026-07-30",
      "tool_call": true,
      "context_window": 524288,
@@ -21909,7 +21975,7 @@
     },
     {
      "id": "deepinfra/zai-org/GLM-4.7-Flash",
-     "name": "GLM-4.7-Flash",
+     "name": "GLM-4.7-Flash (Deep Infra)",
      "release_date": "2026-01-19",
      "tool_call": true,
      "context_window": 202752,
@@ -21982,7 +22048,7 @@
     },
     {
      "id": "fireworks_ai/accounts/fireworks/models/deepseek-v4-flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Fireworks AI)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
@@ -21994,7 +22060,7 @@
     },
     {
      "id": "fireworks_ai/accounts/fireworks/models/deepseek-v4-pro-0813",
-     "name": "DeepSeek V4 Pro 0813",
+     "name": "DeepSeek V4 Pro 0813 (Fireworks AI)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
@@ -22030,7 +22096,7 @@
     },
     {
      "id": "fireworks_ai/accounts/fireworks/models/inkling",
-     "name": "Inkling",
+     "name": "Inkling (Fireworks AI)",
      "release_date": "2026-07-15",
      "tool_call": true,
      "context_window": 1048576,
@@ -22043,7 +22109,7 @@
     },
     {
      "id": "fireworks_ai/accounts/fireworks/models/muse-glimmer-30b",
-     "name": "Muse Glimmer 30B",
+     "name": "Muse Glimmer 30B (Fireworks AI)",
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
@@ -22056,7 +22122,7 @@
     },
     {
      "id": "fireworks_ai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Fireworks AI)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -22080,7 +22146,7 @@
     },
     {
      "id": "flexai/deepseek-v4-flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (FlexAI)",
      "release_date": "2026-07-31",
      "tool_call": false,
      "context_window": 786432,
@@ -22104,7 +22170,7 @@
     },
     {
      "id": "flexai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (FlexAI)",
      "release_date": "2025-08-05",
      "tool_call": false,
      "context_window": 131072,
@@ -22116,7 +22182,7 @@
     },
     {
      "id": "flexai/gpt-oss-20b",
-     "name": "GPT OSS 20B",
+     "name": "GPT OSS 20B (FlexAI)",
      "release_date": "2025-08-05",
      "tool_call": false,
      "context_window": 131072,
@@ -22128,7 +22194,7 @@
     },
     {
      "id": "flexai/Muse-Glimmer-30B",
-     "name": "Muse Glimmer 30B",
+     "name": "Muse Glimmer 30B (FlexAI)",
      "release_date": "2026-08-10",
      "tool_call": false,
      "context_window": 131072,
@@ -22141,7 +22207,7 @@
     },
     {
      "id": "flexai/Nemotron-3-Super-120B-A12B",
-     "name": "Nemotron 3 Super 120B A12B",
+     "name": "Nemotron 3 Super 120B A12B (FlexAI)",
      "release_date": "2026-03-11",
      "tool_call": false,
      "context_window": 262144,
@@ -22153,7 +22219,7 @@
     },
     {
      "id": "flexai/Step-3.7-Flash",
-     "name": "Step 3.7 Flash",
+     "name": "Step 3.7 Flash (FlexAI)",
      "release_date": "2026-05-29",
      "tool_call": false,
      "context_window": 262144,
@@ -22210,7 +22276,7 @@
     },
     {
      "id": "google/gemini-3-pro-image-preview",
-     "name": "Nano Banana Pro",
+     "name": "Nano Banana Pro Preview",
      "release_date": "2025-11-20",
      "tool_call": false,
      "context_window": 65536,
@@ -22236,7 +22302,7 @@
     },
     {
      "id": "google/gemini-3.1-flash-image-preview",
-     "name": "Nano Banana 2",
+     "name": "Nano Banana 2 Preview",
      "release_date": "2026-02-26",
      "tool_call": false,
      "context_window": 65536,
@@ -22406,7 +22472,7 @@
     },
     {
      "id": "google/gemini-flash-latest",
-     "name": "Gemini 3.8 Flash",
+     "name": "Gemini Flash Latest (Gemini 3.8 Flash)",
      "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
@@ -22422,7 +22488,7 @@
     },
     {
      "id": "google/gemini-pro-latest",
-     "name": "Gemini 3.1 Pro Preview",
+     "name": "Gemini Pro Latest (Gemini 3.1 Pro Preview)",
      "release_date": "2026-02-19",
      "tool_call": true,
      "context_window": 1048576,
@@ -22451,7 +22517,7 @@
     },
     {
      "id": "groq/openai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Groq)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -22463,7 +22529,7 @@
     },
     {
      "id": "groq/openai/gpt-oss-20b",
-     "name": "GPT OSS 20B",
+     "name": "GPT OSS 20B (Groq)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -22475,7 +22541,7 @@
     },
     {
      "id": "ionos/meta-llama/Llama-3.3-70B-Instruct",
-     "name": "Llama-3.3-70B-Instruct",
+     "name": "Llama-3.3-70B-Instruct (IONOS)",
      "release_date": "2024-12-06",
      "tool_call": false,
      "context_window": 128000,
@@ -22487,7 +22553,7 @@
     },
     {
      "id": "ionos/openai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (IONOS)",
      "release_date": "2025-08-05",
      "tool_call": false,
      "context_window": 131072,
@@ -22769,7 +22835,7 @@
     },
     {
      "id": "nebius/deepseek-ai/DeepSeek-V4-Flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Nebius)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1024000,
@@ -22781,7 +22847,7 @@
     },
     {
      "id": "nebius/meta-llama/Llama-3.3-70B-Instruct",
-     "name": "Llama-3.3-70B-Instruct",
+     "name": "Llama-3.3-70B-Instruct (Nebius)",
      "release_date": "2024-12-06",
      "tool_call": true,
      "context_window": 131072,
@@ -22793,7 +22859,7 @@
     },
     {
      "id": "nebius/nvidia/nemotron-3-super-120b-a12b",
-     "name": "Nemotron 3 Super 120B A12B",
+     "name": "Nemotron 3 Super 120B A12B (Nebius)",
      "release_date": "2026-03-11",
      "tool_call": true,
      "context_window": 262144,
@@ -22805,7 +22871,7 @@
     },
     {
      "id": "nebius/nvidia/Nemotron-3-Ultra-550b-a55b",
-     "name": "Nemotron 3 Ultra 550B A55B",
+     "name": "Nemotron 3 Ultra 550B A55B (Nebius)",
      "release_date": "2026-06-04",
      "tool_call": true,
      "context_window": 1048576,
@@ -22817,7 +22883,7 @@
     },
     {
      "id": "nebius/openai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Nebius)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -23217,7 +23283,7 @@
     },
     {
      "id": "openai/gpt-latest",
-     "name": "GPT-6 Astra",
+     "name": "GPT Latest (GPT-6 Astra)",
      "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 1050000,
@@ -23231,7 +23297,7 @@
     },
     {
      "id": "openai/gpt-mini-latest",
-     "name": "GPT-5.4 mini",
+     "name": "GPT Mini Latest (GPT-5.4 mini)",
      "release_date": "2026-03-17",
      "tool_call": true,
      "context_window": 400000,
@@ -23245,7 +23311,7 @@
     },
     {
      "id": "openai/gpt-pro-latest",
-     "name": "GPT-5.5 Pro",
+     "name": "GPT Pro Latest (GPT-5.5 Pro)",
      "release_date": "2026-04-23",
      "tool_call": true,
      "context_window": 1050000,
@@ -23342,7 +23408,7 @@
     },
     {
      "id": "ovhcloud/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (OVHcloud)",
      "release_date": "2025-08-05",
      "tool_call": false,
      "context_window": 131072,
@@ -23354,7 +23420,7 @@
     },
     {
      "id": "ovhcloud/gpt-oss-20b",
-     "name": "GPT OSS 20B",
+     "name": "GPT OSS 20B (OVHcloud)",
      "release_date": "2025-08-05",
      "tool_call": false,
      "context_window": 131072,
@@ -23417,7 +23483,7 @@
     },
     {
      "id": "qwen/deepseek-v4-flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Alibaba)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1000000,
@@ -23429,7 +23495,7 @@
     },
     {
      "id": "qwen/deepseek-v4-pro-0813",
-     "name": "DeepSeek V4 Pro 0813",
+     "name": "DeepSeek V4 Pro 0813 (Alibaba)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1000000,
@@ -23717,7 +23783,7 @@
     },
     {
      "id": "scaleway/deepseek-v4-flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Scaleway)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 256000,
@@ -23729,7 +23795,7 @@
     },
     {
      "id": "scaleway/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Scaleway)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 128000,
@@ -23741,7 +23807,7 @@
     },
     {
      "id": "scaleway/llama-3.3-70b-instruct",
-     "name": "Llama-3.3-70B-Instruct",
+     "name": "Llama-3.3-70B-Instruct (Scaleway)",
      "release_date": "2024-12-06",
      "tool_call": true,
      "context_window": 128000,
@@ -23753,7 +23819,7 @@
     },
     {
      "id": "tensorx/deepseek/deepseek-v4-flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (TensorX)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
@@ -23765,7 +23831,7 @@
     },
     {
      "id": "tensorx/deepseek/deepseek-v4-pro-0813",
-     "name": "DeepSeek V4 Pro 0813",
+     "name": "DeepSeek V4 Pro 0813 (TensorX)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
@@ -23777,7 +23843,7 @@
     },
     {
      "id": "tensorx/moonshotai/kimi-k2.5",
-     "name": "Kimi K2.5",
+     "name": "Kimi K2.5 (TensorX)",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -23789,7 +23855,7 @@
     },
     {
      "id": "together_ai/deepseek-ai/DeepSeek-V4-Flash-0731",
-     "name": "DeepSeek V4 Flash 0731",
+     "name": "DeepSeek V4 Flash 0731 (Together AI)",
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
@@ -23801,7 +23867,7 @@
     },
     {
      "id": "together_ai/deepseek-ai/DeepSeek-V4-Pro-0813",
-     "name": "DeepSeek V4 Pro 0813",
+     "name": "DeepSeek V4 Pro 0813 (Together AI)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
@@ -23813,7 +23879,7 @@
     },
     {
      "id": "together_ai/meta-models/Muse-Glimmer-30B",
-     "name": "Muse Glimmer 30B",
+     "name": "Muse Glimmer 30B (Together AI)",
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
@@ -23838,7 +23904,7 @@
     },
     {
      "id": "together_ai/openai/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Together AI)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -23850,7 +23916,7 @@
     },
     {
      "id": "together_ai/openai/gpt-oss-20b",
-     "name": "GPT OSS 20B",
+     "name": "GPT OSS 20B (Together AI)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -23862,7 +23928,7 @@
     },
     {
      "id": "together_ai/thinkingmachines/Inkling",
-     "name": "Inkling",
+     "name": "Inkling (Together AI)",
      "release_date": "2026-07-15",
      "tool_call": true,
      "context_window": 524288,
@@ -23876,7 +23942,7 @@
     },
     {
      "id": "together_ai/thinkingmachines/Inkling-Small",
-     "name": "Inkling Small",
+     "name": "Inkling Small (Together AI)",
      "release_date": "2026-07-30",
      "tool_call": true,
      "context_window": 524288,
@@ -23890,7 +23956,7 @@
     },
     {
      "id": "vertex/gemini-2.5-flash-image",
-     "name": "Nano Banana",
+     "name": "Nano Banana (Vertex AI)",
      "release_date": "2025-08-26",
      "tool_call": false,
      "context_window": 32768,
@@ -23903,7 +23969,7 @@
     },
     {
      "id": "vertex/gemini-3-flash-preview",
-     "name": "Gemini 3 Flash Preview",
+     "name": "Gemini 3 Flash Preview (Vertex AI)",
      "release_date": "2025-12-17",
      "tool_call": true,
      "context_window": 1048576,
@@ -23919,7 +23985,7 @@
     },
     {
      "id": "vertex/gemini-3-pro-image",
-     "name": "Nano Banana Pro",
+     "name": "Nano Banana Pro (Vertex AI)",
      "release_date": "2026-05-28",
      "tool_call": false,
      "context_window": 65536,
@@ -23932,7 +23998,7 @@
     },
     {
      "id": "vertex/gemini-3.1-flash-image",
-     "name": "Nano Banana 2",
+     "name": "Nano Banana 2 (Vertex AI)",
      "release_date": "2026-05-28",
      "tool_call": false,
      "context_window": 131072,
@@ -23945,7 +24011,7 @@
     },
     {
      "id": "vertex/gemini-3.1-flash-lite",
-     "name": "Gemini 3.1 Flash Lite",
+     "name": "Gemini 3.1 Flash Lite (Vertex AI)",
      "release_date": "2026-05-07",
      "tool_call": true,
      "context_window": 1048576,
@@ -23961,7 +24027,7 @@
     },
     {
      "id": "vertex/gemini-3.1-flash-lite-image",
-     "name": "Nano Banana 2 Lite",
+     "name": "Nano Banana 2 Lite (Vertex AI)",
      "release_date": "2026-06-30",
      "tool_call": false,
      "context_window": 65536,
@@ -23974,7 +24040,7 @@
     },
     {
      "id": "vertex/gemini-3.1-flash-lite@eu",
-     "name": "Gemini 3.1 Flash Lite (EU)",
+     "name": "Gemini 3.1 Flash Lite (Vertex AI, EU)",
      "release_date": "2026-05-07",
      "tool_call": true,
      "context_window": 1048576,
@@ -23990,7 +24056,7 @@
     },
     {
      "id": "vertex/gemini-3.1-flash-lite@us",
-     "name": "Gemini 3.1 Flash Lite (US)",
+     "name": "Gemini 3.1 Flash Lite (Vertex AI, US)",
      "release_date": "2026-05-07",
      "tool_call": true,
      "context_window": 1048576,
@@ -24006,7 +24072,7 @@
     },
     {
      "id": "vertex/gemini-3.1-pro-preview",
-     "name": "Gemini 3.1 Pro Preview",
+     "name": "Gemini 3.1 Pro Preview (Vertex AI)",
      "release_date": "2026-02-19",
      "tool_call": true,
      "context_window": 1048576,
@@ -24022,7 +24088,7 @@
     },
     {
      "id": "vertex/gemini-3.5-flash",
-     "name": "Gemini 3.5 Flash",
+     "name": "Gemini 3.5 Flash (Vertex AI)",
      "release_date": "2026-05-19",
      "tool_call": true,
      "context_window": 1048576,
@@ -24038,7 +24104,7 @@
     },
     {
      "id": "vertex/gemini-3.5-flash-lite",
-     "name": "Gemini 3.5 Flash Lite",
+     "name": "Gemini 3.5 Flash Lite (Vertex AI)",
      "release_date": "2026-07-21",
      "tool_call": true,
      "context_window": 1048576,
@@ -24054,7 +24120,7 @@
     },
     {
      "id": "vertex/gemini-3.5-flash-lite@eu",
-     "name": "Gemini 3.5 Flash Lite (EU)",
+     "name": "Gemini 3.5 Flash Lite (Vertex AI, EU)",
      "release_date": "2026-07-21",
      "tool_call": true,
      "context_window": 1048576,
@@ -24070,7 +24136,7 @@
     },
     {
      "id": "vertex/gemini-3.5-flash-lite@us",
-     "name": "Gemini 3.5 Flash Lite (US)",
+     "name": "Gemini 3.5 Flash Lite (Vertex AI, US)",
      "release_date": "2026-07-21",
      "tool_call": true,
      "context_window": 1048576,
@@ -24086,7 +24152,7 @@
     },
     {
      "id": "vertex/gemini-3.5-flash@eu",
-     "name": "Gemini 3.5 Flash (EU)",
+     "name": "Gemini 3.5 Flash (Vertex AI, EU)",
      "release_date": "2026-05-19",
      "tool_call": true,
      "context_window": 1048576,
@@ -24102,7 +24168,7 @@
     },
     {
      "id": "vertex/gemini-3.5-flash@us",
-     "name": "Gemini 3.5 Flash (US)",
+     "name": "Gemini 3.5 Flash (Vertex AI, US)",
      "release_date": "2026-05-19",
      "tool_call": true,
      "context_window": 1048576,
@@ -24118,7 +24184,7 @@
     },
     {
      "id": "vertex/gemini-3.6-flash",
-     "name": "Gemini 3.6 Flash",
+     "name": "Gemini 3.6 Flash (Vertex AI)",
      "release_date": "2026-07-21",
      "tool_call": true,
      "context_window": 1048576,
@@ -24134,7 +24200,7 @@
     },
     {
      "id": "vertex/gemini-3.6-flash@eu",
-     "name": "Gemini 3.6 Flash (EU)",
+     "name": "Gemini 3.6 Flash (Vertex AI, EU)",
      "release_date": "2026-07-21",
      "tool_call": true,
      "context_window": 1048576,
@@ -24150,7 +24216,7 @@
     },
     {
      "id": "vertex/gemini-3.6-flash@us",
-     "name": "Gemini 3.6 Flash (US)",
+     "name": "Gemini 3.6 Flash (Vertex AI, US)",
      "release_date": "2026-07-21",
      "tool_call": true,
      "context_window": 1048576,
@@ -24166,7 +24232,7 @@
     },
     {
      "id": "vertex/gemini-3.7-flash",
-     "name": "Gemini 3.7 Flash",
+     "name": "Gemini 3.7 Flash (Vertex AI)",
      "release_date": "2026-08-13",
      "tool_call": true,
      "context_window": 1048576,
@@ -24182,7 +24248,7 @@
     },
     {
      "id": "vertex/gemini-3.7-flash@eu",
-     "name": "Gemini 3.7 Flash (EU)",
+     "name": "Gemini 3.7 Flash (Vertex AI, EU)",
      "release_date": "2026-08-13",
      "tool_call": true,
      "context_window": 1048576,
@@ -24198,7 +24264,7 @@
     },
     {
      "id": "vertex/gemini-3.7-flash@us",
-     "name": "Gemini 3.7 Flash (US)",
+     "name": "Gemini 3.7 Flash (Vertex AI, US)",
      "release_date": "2026-08-13",
      "tool_call": true,
      "context_window": 1048576,
@@ -24214,7 +24280,7 @@
     },
     {
      "id": "vertex/gemini-3.8-flash",
-     "name": "Gemini 3.8 Flash",
+     "name": "Gemini 3.8 Flash (Vertex AI)",
      "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
@@ -24230,7 +24296,7 @@
     },
     {
      "id": "vertex/gemini-3.8-flash@eu",
-     "name": "Gemini 3.8 Flash (EU)",
+     "name": "Gemini 3.8 Flash (Vertex AI, EU)",
      "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
@@ -24246,7 +24312,7 @@
     },
     {
      "id": "vertex/gemini-3.8-flash@us",
-     "name": "Gemini 3.8 Flash (US)",
+     "name": "Gemini 3.8 Flash (Vertex AI, US)",
      "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
@@ -24262,7 +24328,7 @@
     },
     {
      "id": "vertex/gemini-flash-latest",
-     "name": "Gemini 3.8 Flash",
+     "name": "Gemini Flash Latest (Gemini 3.8 Flash, Vertex AI)",
      "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
@@ -24278,7 +24344,7 @@
     },
     {
      "id": "vertex/gemini-pro-latest",
-     "name": "Gemini 3.1 Pro Preview",
+     "name": "Gemini Pro Latest (Gemini 3.1 Pro Preview, Vertex AI)",
      "release_date": "2026-02-19",
      "tool_call": true,
      "context_window": 1048576,
@@ -24376,7 +24442,7 @@
     },
     {
      "id": "xai/grok-latest",
-     "name": "Grok 4.6",
+     "name": "Grok Latest (Grok 4.6)",
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 500000,
@@ -25657,7 +25723,7 @@
     },
     {
      "id": "google/gemini-3-pro-image-preview",
-     "name": "Nano Banana Pro",
+     "name": "Nano Banana Pro Preview",
      "release_date": "2025-11-20",
      "tool_call": false,
      "context_window": 65536,
@@ -25670,7 +25736,7 @@
     },
     {
      "id": "google/gemini-3.1-flash-image-preview",
-     "name": "Nano Banana 2",
+     "name": "Nano Banana 2 Preview",
      "release_date": "2026-02-26",
      "tool_call": false,
      "context_window": 65536,
@@ -36727,7 +36793,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -36827,7 +36893,7 @@
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
@@ -36840,8 +36906,8 @@
      "name": "Z.ai: GLM Latest",
      "release_date": "2026-08-19",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 235929,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -37750,7 +37816,7 @@
     },
     {
      "id": "google/gemini-3-pro-image-preview",
-     "name": "Nano Banana Pro",
+     "name": "Nano Banana Pro Preview",
      "release_date": "2025-11-20",
      "tool_call": false,
      "context_window": 65536,
@@ -37778,7 +37844,7 @@
     },
     {
      "id": "google/gemini-3.1-flash-image-preview",
-     "name": "Nano Banana 2",
+     "name": "Nano Banana 2 Preview",
      "release_date": "2026-02-26",
      "tool_call": false,
      "context_window": 65536,
@@ -40593,8 +40659,8 @@
      "id": "qwen/qwen3-next-80b-a3b-thinking",
      "name": "Qwen3-Next 80B-A3B (Thinking)",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
@@ -40739,7 +40805,7 @@
      "release_date": "2026-02-15",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image",
@@ -41614,8 +41680,8 @@
      "name": "GLM-4.6",
      "release_date": "2025-09-30",
      "tool_call": true,
-     "context_window": 204800,
-     "max_output_tokens": 131072,
+     "context_window": 198000,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -41713,7 +41779,7 @@
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -46605,7 +46671,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepinfra/ling-3.0-flash",
@@ -55115,7 +55181,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -55128,7 +55194,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-thinking",
@@ -55140,7 +55206,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-thinking-turbo",
@@ -55152,7 +55218,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-turbo-preview",
@@ -55164,7 +55230,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2.5",
@@ -55177,7 +55243,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2.6",
@@ -55268,7 +55334,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-0905-preview",
@@ -55280,7 +55346,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-thinking",
@@ -55292,7 +55358,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-thinking-turbo",
@@ -55304,7 +55370,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-turbo-preview",
@@ -55316,7 +55382,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2.5",
@@ -55329,7 +55395,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2.6",
@@ -57188,6 +57254,19 @@
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek/deepseek-v4-flash-vision-exp-uncensored",
+     "name": "DeepSeek V4 Flash Vision Exp Uncensored",
+     "release_date": "2026-09-07",
+     "tool_call": true,
+     "context_window": 524288,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image"
@@ -62935,7 +63014,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "TEE/qwen3.5-122b-a10b",
@@ -63084,6 +63163,19 @@
      "max_output_tokens": 16384,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "TheDrummer/Artemis-v1.1",
+     "name": "TheDrummer/Artemis v1.1",
+     "release_date": "2026-09-06",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -65458,6 +65550,20 @@
      "status": "active"
     },
     {
+     "id": "claude-fable-5-1",
+     "name": "Claude Fable 5.1",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -65719,6 +65825,21 @@
      "status": "active"
     },
     {
+     "id": "glm-5-3-flash",
+     "name": "GLM-5.3 Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-5",
      "name": "GPT-5",
      "release_date": "2025-08-07",
@@ -65908,6 +66029,20 @@
      "status": "active"
     },
     {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-oss-120b",
      "name": "GPT OSS 120B",
      "release_date": "2025-08-05",
@@ -65928,6 +66063,19 @@
      "max_output_tokens": 25000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "grok-4-6",
+     "name": "Grok 4.6",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 524288,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -70209,6 +70357,20 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "volcengine/doubao-seed-1-6",
      "name": "Seed 1.6",
      "release_date": "2025-10-15",
@@ -73843,7 +74005,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -73943,7 +74105,7 @@
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
@@ -73957,7 +74119,7 @@
      "release_date": "2026-08-19",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -74872,7 +75034,7 @@
     },
     {
      "id": "google/gemini-3-pro-image-preview",
-     "name": "Nano Banana Pro",
+     "name": "Nano Banana Pro Preview",
      "release_date": "2025-11-20",
      "tool_call": false,
      "context_window": 65536,
@@ -74898,7 +75060,7 @@
     },
     {
      "id": "google/gemini-3.1-flash-image-preview",
-     "name": "Nano Banana 2",
+     "name": "Nano Banana 2 Preview",
      "release_date": "2026-02-26",
      "tool_call": false,
      "context_window": 65536,
@@ -77721,7 +77883,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -77870,8 +78033,7 @@
       "image",
       "video"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "qwen/qwen3.5-9b",
@@ -78658,7 +78820,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "z-ai/glm-4.6v",
@@ -78759,7 +78922,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "z-ai/glm-5.3",
@@ -78771,7 +78934,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "z-ai/glm-5.3-flash",
@@ -90138,6 +90302,18 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4-pro",
+     "name": "DeepSeek V4 Pro",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "glm-5.2",
      "name": "GLM-5.2",
      "release_date": "2026-06-13",
@@ -90146,6 +90322,19 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "kimi-k3",
+     "name": "Kimi K3",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -98303,7 +98492,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "minimax/minimax-m2.7-highspeed",
@@ -98342,7 +98531,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "mistral/codestral",
@@ -100708,6 +100897,20 @@
      "id": "gpt-5.6-terra",
      "name": "GPT 5.6 Terra",
      "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
