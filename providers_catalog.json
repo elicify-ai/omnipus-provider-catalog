@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.10",
- "updated_at": "2026-09-10T10:14:19.258Z",
- "generated_at": "2026-09-10T10:14:19.258Z",
- "source": "models.dev@766e4accbb51d48e35ac6d1d64763f5ca456cd29 litellm@fbc6fb56ae2d8d8e600b0e80f7a46067b796d47f overrides@6fa5547457a9cda515967a0da92b4fa7debb34f5",
+ "version": "v2026.9.11",
+ "updated_at": "2026-09-11T10:11:57.353Z",
+ "generated_at": "2026-09-11T10:11:57.353Z",
+ "source": "models.dev@f6d8ac98dad6e01b8a3c65f3a7f77acc47910742 litellm@033f2e5e2a651fed59faf6478fb18314e487738b overrides@d70e1adf5bda6bec283ea706da9a5d273865f1e1",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-10T10:14:19.258Z",
-   "commit": "766e4accbb51d48e35ac6d1d64763f5ca456cd29",
-   "etag": "W/\"c4fee2156d5f9032bfe0b1815565880a\"",
-   "sha256": "c4fee2156d5f9032bfe0b1815565880a409bf34066e2e26c3ffb6ee2b00f8ba1",
-   "bytes": 4532646
+   "fetched_at": "2026-09-11T10:11:57.353Z",
+   "commit": "f6d8ac98dad6e01b8a3c65f3a7f77acc47910742",
+   "etag": "W/\"ceb991539ad741a003a24064f92cfa51\"",
+   "sha256": "ceb991539ad741a003a24064f92cfa512b02d6db8430be14e4d531aa135ae1c9",
+   "bytes": 4584626
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-10T10:14:19.258Z",
-   "commit": "fbc6fb56ae2d8d8e600b0e80f7a46067b796d47f",
-   "etag": "W/\"332746bd1181bcb32dd51022157b524d3bdbe40ceff1192a886451d08c4c20c6\"",
-   "sha256": "3df965920d0ccecdf36f477aea971eed52ac1b30a611b68c4776b88a06f9d367",
-   "bytes": 2363322
+   "fetched_at": "2026-09-11T10:11:57.353Z",
+   "commit": "033f2e5e2a651fed59faf6478fb18314e487738b",
+   "etag": "W/\"cbf34f449ddcfb919a539d29a3dc523f9b8529094526d3c9def34ea78702bfcc\"",
+   "sha256": "86ee577ca0e1b0643295c57be6e27e8bc2178f3ee30c7ee27d3aac4b9e85bc08",
+   "bytes": 2367128
   },
-  "overrides_commit": "6fa5547457a9cda515967a0da92b4fa7debb34f5",
-  "previous_version": "v2026.9.9"
+  "overrides_commit": "d70e1adf5bda6bec283ea706da9a5d273865f1e1",
+  "previous_version": "v2026.9.10"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -3584,7 +3584,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen3.8-max",
@@ -7892,14 +7892,15 @@
     {
      "id": "amazon.nova-2-lite-v1:0",
      "name": "Nova 2 Lite",
-     "release_date": "2024-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
-     "context_window": 128000,
-     "max_output_tokens": 4096,
+     "context_window": 1000000,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -7909,11 +7910,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -7923,7 +7925,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text"
      ],
@@ -7935,11 +7937,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -8117,11 +8120,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -8131,7 +8135,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text"
      ],
@@ -8143,11 +8147,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -8269,11 +8274,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -8316,10 +8322,10 @@
     {
      "id": "eu.amazon.nova-2-lite-v1:0",
      "name": "Nova 2 Lite (EU)",
-     "release_date": "2025-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -8334,11 +8340,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -8348,7 +8355,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text"
      ],
@@ -8360,11 +8367,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -8524,10 +8532,10 @@
     {
      "id": "global.amazon.nova-2-lite-v1:0",
      "name": "Nova 2 Lite (Global)",
-     "release_date": "2025-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -8761,8 +8769,8 @@
     },
     {
      "id": "google.gemma-3-12b-it",
-     "name": "Google Gemma 3 12B",
-     "release_date": "2024-12-01",
+     "name": "Gemma 3 12B IT",
+     "release_date": "2025-03-12",
      "tool_call": false,
      "context_window": 131072,
      "max_output_tokens": 8192,
@@ -8774,9 +8782,9 @@
     },
     {
      "id": "google.gemma-3-27b-it",
-     "name": "Google Gemma 3 27B Instruct",
-     "release_date": "2025-07-27",
-     "tool_call": true,
+     "name": "Gemma 3 27B IT",
+     "release_date": "2025-03-12",
+     "tool_call": false,
      "context_window": 202752,
      "max_output_tokens": 8192,
      "input_modalities": [
@@ -8788,9 +8796,9 @@
     {
      "id": "google.gemma-3-4b-it",
      "name": "Gemma 3 4B IT",
-     "release_date": "2024-12-01",
-     "tool_call": true,
-     "context_window": 128000,
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 131072,
      "max_output_tokens": 4096,
      "input_modalities": [
       "text",
@@ -8799,12 +8807,83 @@
      "status": "active"
     },
     {
+     "id": "google.gemma-4-26b-a4b",
+     "name": "Gemma 4 26B A4B IT",
+     "release_date": "2026-04-02",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google.gemma-4-31b",
+     "name": "Gemma 4 31B IT",
+     "release_date": "2026-04-02",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google.gemma-4-e2b",
+     "name": "Gemma 4 E2B IT",
+     "release_date": "2026-04-02",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "in.openai.gpt-5.6-luna",
+     "name": "GPT-5.6 Luna (India)",
+     "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "in.openai.gpt-5.6-terra",
+     "name": "GPT-5.6 Terra (India)",
+     "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "jp.amazon.nova-2-lite-v1:0",
      "name": "Nova 2 Lite (JP)",
-     "release_date": "2025-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -9439,12 +9518,36 @@
      "status": "active"
     },
     {
+     "id": "us-gov.openai.gpt-oss-120b-1:0",
+     "name": "gpt-oss-120b (GovCloud)",
+     "release_date": "2025-08-05",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "us-gov.openai.gpt-oss-20b-1:0",
+     "name": "gpt-oss-20b (GovCloud)",
+     "release_date": "2025-08-05",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "us.amazon.nova-2-lite-v1:0",
      "name": "Nova 2 Lite (US)",
-     "release_date": "2025-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -9459,11 +9562,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -9473,9 +9577,24 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "us.amazon.nova-premier-v1:0",
+     "name": "Nova Premier (US)",
+     "release_date": "2025-04-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 10000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -9485,11 +9604,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -13720,10 +13840,10 @@
      "context_window": 1048576,
      "max_output_tokens": 262144,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "zai-org/GLM-5.3-Fast",
@@ -13993,6 +14113,30 @@
    },
    "models": [
     {
+     "id": "deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731",
+     "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4-pro-0813",
+     "name": "DeepSeek V4 Pro 0813",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemma-4-31b-it:free",
      "name": "Gemma 4 31B IT (free)",
      "release_date": "2026-04-02",
@@ -14002,6 +14146,47 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3-flash",
+     "name": "GLM-5.3-Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-5.6-luna",
+     "name": "GPT-5.6 Luna",
+     "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -17670,7 +17855,7 @@
     {
      "id": "nova-2-lite",
      "name": "Nova 2 Lite",
-     "release_date": "2025-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 65535,
@@ -20107,6 +20292,58 @@
      "status": "active"
     },
     {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-12b-it",
+     "name": "Gemma 3 12B IT",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-27b-it",
+     "name": "Gemma 3 27B IT",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-4b-it",
+     "name": "Gemma 3 4B IT",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "google/gemma-4-26B-A4B-it",
      "name": "Gemma 4 26B A4B IT",
      "release_date": "2026-04-02",
@@ -20815,6 +21052,19 @@
      "disputed": true
     },
     {
+     "id": "deepseek-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepseek-reasoner",
      "name": "DeepSeek Reasoner",
      "release_date": "2025-12-01",
@@ -20830,19 +21080,20 @@
     {
      "id": "deepseek-v4-flash",
      "name": "DeepSeek V4 Flash",
-     "release_date": "2026-07-31",
+     "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek-v4-flash-vision-exp",
      "name": "DeepSeek V4 Flash Vision Exp",
-     "release_date": "2026-08-21",
+     "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 384000,
@@ -22253,7 +22504,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
@@ -22267,7 +22518,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
@@ -22281,7 +22532,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text"
      ],
@@ -22293,7 +22544,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text"
      ],
@@ -22305,7 +22556,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
@@ -22319,7 +22570,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
@@ -22985,6 +23236,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepinfra/deepseek-ai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash (Deep Infra)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -25903,6 +26167,19 @@
      "status": "active"
     },
     {
+     "id": "gemma-3-27b",
+     "name": "Gemma 3 27B",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemma-4-26b-a4b",
      "name": "Gemma 4 26B-A4B",
      "release_date": "2026-04-02",
@@ -27401,6 +27678,19 @@
      "disputed": true
     },
     {
+     "id": "accounts/fireworks/models/deepseek-v4p1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "accounts/fireworks/models/glm-5p2",
      "name": "GLM 5.2",
      "release_date": "2026-06-16",
@@ -27542,6 +27832,19 @@
       "text",
       "image",
       "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/models/mistral-large-3-fp8",
+     "name": "Mistral Large 3 675B Instruct 2512",
+     "release_date": "2024-11-01",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 256000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -30544,6 +30847,84 @@
      "status": "active"
     },
     {
+     "id": "xai/grok-4.1-fast-non-reasoning",
+     "name": "Grok 4.1 Fast",
+     "release_date": "2025-11-19",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.1-fast-reasoning",
+     "name": "Grok 4.1 Fast (Reasoning)",
+     "release_date": "2025-11-19",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.20-non-reasoning",
+     "name": "Grok 4.20 (Non-Reasoning)",
+     "release_date": "2026-03-09",
+     "tool_call": true,
+     "context_window": 2000000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.20-reasoning",
+     "name": "Grok 4.20 (Reasoning)",
+     "release_date": "2026-03-09",
+     "tool_call": true,
+     "context_window": 2000000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.3",
+     "name": "Grok 4.3",
+     "release_date": "2026-04-17",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.6",
+     "name": "Grok 4.6",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 524288,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "zai-org/glm-4.7-maas",
      "name": "GLM-4.7",
      "release_date": "2026-01-06",
@@ -32927,6 +33308,58 @@
      "status": "active"
     },
     {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-12b-it",
+     "name": "Gemma 3 12B IT",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-27b-it",
+     "name": "Gemma 3 27B IT",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-4b-it",
+     "name": "Gemma 3 4B IT",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "google/gemma-4-26B-A4B-it",
      "name": "Gemma 4 26B A4B IT",
      "release_date": "2026-04-02",
@@ -33763,6 +34196,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 26214,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemma-4-26b-a4b-it",
      "name": "Gemma 4 26B A4B IT",
      "release_date": "2026-04-30",
@@ -33818,7 +34264,8 @@
      "context_window": 1048576,
      "max_output_tokens": 262144,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -35388,6 +35835,18 @@
      "tool_call": true,
      "context_window": 128000,
      "max_output_tokens": 50000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "mercury-2.5",
+     "name": "Mercury 2.5",
+     "release_date": "2026-09-08",
+     "tool_call": true,
+     "context_window": 260000,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -38172,8 +38631,8 @@
      "name": "Z.ai: GLM Latest",
      "release_date": "2026-08-19",
      "tool_call": true,
-     "context_window": 1024000,
-     "max_output_tokens": 128000,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -38937,8 +39396,8 @@
      "name": "DeepSeek V4 Pro 0813",
      "release_date": "2026-08-12",
      "tool_call": true,
-     "context_window": 1024000,
-     "max_output_tokens": 384000,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -39307,8 +39766,8 @@
     },
     {
      "id": "google/gemma-3-12b-it",
-     "name": "Google: Gemma 3 12B",
-     "release_date": "2025-03-13",
+     "name": "Gemma 3 12B IT",
+     "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
      "max_output_tokens": 16384,
@@ -39320,7 +39779,7 @@
     },
     {
      "id": "google/gemma-3-27b-it",
-     "name": "Google: Gemma 3 27B",
+     "name": "Gemma 3 27B IT",
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
@@ -39333,8 +39792,8 @@
     },
     {
      "id": "google/gemma-3-4b-it",
-     "name": "Google: Gemma 3 4B",
-     "release_date": "2025-03-13",
+     "name": "Gemma 3 4B IT",
+     "release_date": "2025-03-12",
      "tool_call": false,
      "context_window": 131072,
      "max_output_tokens": 16384,
@@ -39361,8 +39820,8 @@
      "name": "Gemma 4 26B A4B IT",
      "release_date": "2026-04-02",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 16384,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image",
@@ -39567,6 +40026,20 @@
      "status": "active"
     },
     {
+     "id": "inclusionai/ling-3.0-flash-vl:free",
+     "name": "inclusionAI: Ling 3.0 Flash VL (free)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "inclusionai/ring-2.6-1t",
      "name": "inclusionAI: Ring-2.6-1T (retires Aug 24)",
      "release_date": "2026-05-08",
@@ -39733,7 +40206,7 @@
      "release_date": "2024-07-23",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text"
      ],
@@ -41388,7 +41861,7 @@
     },
     {
      "id": "openai/gpt-oss-safeguard-20b",
-     "name": "OpenAI: gpt-oss-safeguard-20b",
+     "name": "GPT OSS Safeguard 20B",
      "release_date": "2025-10-29",
      "tool_call": true,
      "context_window": 131072,
@@ -42412,6 +42885,20 @@
      "status": "active"
     },
     {
+     "id": "sakana/fugu-max",
+     "name": "Sakana: Fugu Max",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "sakana/fugu-ultra",
      "name": "Fugu Ultra",
      "release_date": "2026-06-15",
@@ -42421,6 +42908,20 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "sakana/fugu-ultra-v2",
+     "name": "Sakana: Fugu Ultra v2",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -46717,6 +47218,20 @@
      "status": "active"
     },
     {
+     "id": "aws-bedrock/claude-fable-5-1",
+     "name": "Claude Fable 5.1 (AWS Bedrock)",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "aws-bedrock/claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (AWS Bedrock)",
      "release_date": "2025-10-15",
@@ -47863,8 +48378,20 @@
      "name": "DeepSeek V4 Flash (Consensus Protocol)",
      "release_date": "2026-04-24",
      "tool_call": true,
-     "context_window": 524288,
+     "context_window": 1000000,
      "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "consensusprotocol/gemma-4-31b-it",
+     "name": "Gemma 4 31B IT (Consensus Protocol)",
+     "release_date": "2026-04-02",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -51153,6 +51680,30 @@
      "status": "active"
     },
     {
+     "id": "vichar-ai/glm-5.3",
+     "name": "GLM-5.3 (vichar-ai)",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1048000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "vichar-ai/glm-5.3-flash",
+     "name": "GLM-5.3 Flash (vichar-ai)",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1048000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "xai/grok-4",
      "name": "Grok 4 (xAI)",
      "release_date": "2025-07-09",
@@ -52785,8 +53336,20 @@
      "name": "DeepSeek V4 Flash",
      "release_date": "2026-04-24",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1048576,
      "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek/deepseek-v4-flash-0423",
+     "name": "DeepSeek V4 Flash 0423",
+     "release_date": "2026-04-23",
+     "tool_call": false,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -52849,6 +53412,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -53160,6 +53736,44 @@
       "audio",
       "video",
       "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-12b-it",
+     "name": "Gemma 3 12B",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-27b-it",
+     "name": "Gemma 3 27B IT",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemma-3-4b-it",
+     "name": "Gemma 3 4B",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -54020,6 +54634,18 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-oss-safeguard-20b",
+     "name": "GPT OSS Safeguard 20B",
+     "release_date": "2025-10-29",
+     "tool_call": false,
+     "context_window": 4096,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/o1",
      "name": "o1",
      "release_date": "2024-12-05",
@@ -54268,11 +54894,10 @@
      "name": "Qwen3.5 122B A10B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 256000,
-     "max_output_tokens": 64000,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active"
     },
@@ -58645,7 +59270,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-v4-flash:thinking",
@@ -60797,7 +61422,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kimi-k2-instruct-fast",
@@ -60871,6 +61496,19 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "lightonai/LightOnOCR-2-1B",
+     "name": "LightOnOCR 2",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 32768,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
     },
     {
      "id": "liquid/lfm-2.5-2.6b",
@@ -61005,10 +61643,22 @@
      "status": "active"
     },
     {
+     "id": "meta-llama/llama-3.1-405b-instruct",
+     "name": "Llama 3.1 405B",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "meta-llama/llama-3.1-8b-instruct",
      "name": "Llama 3.1 8b Instruct",
      "release_date": "2024-07-23",
-     "tool_call": false,
+     "tool_call": true,
      "context_window": 131072,
      "max_output_tokens": 16384,
      "input_modalities": [
@@ -61537,6 +62187,18 @@
      "tool_call": false,
      "context_window": 32768,
      "max_output_tokens": 26214,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "mistralai/mistral-small-24b-instruct-2501",
+     "name": "Mistral Small 24B",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 32768,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text"
      ],
@@ -62598,7 +63260,7 @@
     {
      "id": "openai/gpt-oss-safeguard-20b",
      "name": "GPT OSS Safeguard 20B",
-     "release_date": "2026-02-23",
+     "release_date": "2025-10-29",
      "tool_call": false,
      "context_window": 128000,
      "max_output_tokens": 16384,
@@ -63873,6 +64535,20 @@
      "max_output_tokens": 32768,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "sakana/fugu-max",
+     "name": "Fugu Max",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -71165,6 +71841,18 @@
      "status": "active"
     },
     {
+     "id": "deepseek/deepseek-v4-flash-0423",
+     "name": "DeepSeek V4 Flash 0423",
+     "release_date": "2026-04-23",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepseek/deepseek-v4-flash-0731",
      "name": "DeepSeek V4 Flash 0731",
      "release_date": "2026-07-31",
@@ -71222,6 +71910,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -71381,6 +72082,21 @@
       "image",
       "audio",
       "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "google/gemini-3.8-flash",
+     "name": "Gemini 3.8 Flash",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
       "pdf"
      ],
      "status": "active"
@@ -71858,6 +72574,334 @@
      "input_modalities": [
       "text",
       "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen-flash",
+     "name": "Qwen Flash",
+     "release_date": "2025-07-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen-max",
+     "name": "Qwen Max",
+     "release_date": "2024-04-03",
+     "tool_call": true,
+     "context_window": 32000,
+     "max_output_tokens": 8000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen-plus",
+     "name": "Qwen Plus",
+     "release_date": "2024-01-25",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen-turbo",
+     "name": "Qwen Turbo",
+     "release_date": "2024-11-01",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen-vl-max",
+     "name": "Qwen-VL Max",
+     "release_date": "2024-04-08",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 8000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3-coder-flash",
+     "name": "Qwen3 Coder Flash",
+     "release_date": "2025-07-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3-coder-next",
+     "name": "Qwen3 Coder Next",
+     "release_date": "2026-02-03",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3-coder-plus",
+     "name": "Qwen3 Coder Plus",
+     "release_date": "2025-07-23",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3-max",
+     "name": "Qwen3 Max",
+     "release_date": "2025-09-23",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.5-122b-a10b",
+     "name": "Qwen3.5 122B-A10B",
+     "release_date": "2026-02-23",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.5-27b",
+     "name": "Qwen3.5 27B",
+     "release_date": "2026-02-23",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.5-35b-a3b",
+     "name": "Qwen3.5 35B-A3B",
+     "release_date": "2026-02-23",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.5-397b-a17b",
+     "name": "Qwen3.5 397B-A17B",
+     "release_date": "2026-02-15",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.5-flash",
+     "name": "Qwen3.5 Flash",
+     "release_date": "2026-02-23",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.5-plus",
+     "name": "Qwen3.5 Plus",
+     "release_date": "2026-02-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.6-27b",
+     "name": "Qwen3.6 27B",
+     "release_date": "2026-04-22",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.6-flash",
+     "name": "Qwen3.6 Flash",
+     "release_date": "2026-04-27",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.6-max-preview",
+     "name": "Qwen3.6 Max Preview",
+     "release_date": "2026-04-20",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.6-plus",
+     "name": "Qwen3.6 Plus",
+     "release_date": "2026-04-02",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.7-max",
+     "name": "Qwen3.7 Max",
+     "release_date": "2026-05-21",
+     "tool_call": true,
+     "context_window": 1064000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.7-plus",
+     "name": "Qwen3.7 Plus",
+     "release_date": "2026-06-02",
+     "tool_call": true,
+     "context_window": 1064000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-flash",
+     "name": "Qwen3.8 Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-max",
+     "name": "Qwen3.8 Max",
+     "release_date": "2026-08-03",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-max-0902",
+     "name": "Qwen3.8 Max 0902",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
       "pdf"
      ],
      "status": "active"
@@ -74902,7 +75946,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek-v4-flash",
@@ -74938,6 +75982,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -75624,7 +76681,7 @@
      "release_date": "2026-08-19",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 128000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -76401,7 +77458,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4.1-flash",
@@ -76760,8 +77818,8 @@
     },
     {
      "id": "google/gemma-3-12b-it",
-     "name": "Gemma 3 12B",
-     "release_date": "2025-03-13",
+     "name": "Gemma 3 12B IT",
+     "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
      "max_output_tokens": 16384,
@@ -76773,7 +77831,7 @@
     },
     {
      "id": "google/gemma-3-27b-it",
-     "name": "Gemma 3 27B",
+     "name": "Gemma 3 27B IT",
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
@@ -76786,8 +77844,8 @@
     },
     {
      "id": "google/gemma-3-4b-it",
-     "name": "Gemma 3 4B",
-     "release_date": "2025-03-13",
+     "name": "Gemma 3 4B IT",
+     "release_date": "2025-03-12",
      "tool_call": false,
      "context_window": 131072,
      "max_output_tokens": 16384,
@@ -76821,7 +77879,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "google/gemma-4-26b-a4b-it:free",
@@ -77048,6 +78107,20 @@
      "status": "active"
     },
     {
+     "id": "inclusionai/ling-3.0-flash-vl:free",
+     "name": "Ling 3.0 Flash VL (free)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "inclusionai/ring-2.6-1t",
      "name": "Ring-2.6-1T",
      "release_date": "2026-05-08",
@@ -77141,7 +78214,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "meta-llama/llama-3.1-8b-instruct",
@@ -78831,7 +79905,7 @@
     },
     {
      "id": "openai/gpt-oss-safeguard-20b",
-     "name": "gpt-oss-safeguard-20b",
+     "name": "GPT OSS Safeguard 20B",
      "release_date": "2025-10-29",
      "tool_call": true,
      "context_window": 131072,
@@ -79878,6 +80952,20 @@
      "status": "active"
     },
     {
+     "id": "sakana/fugu-max",
+     "name": "Fugu Max",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "sakana/fugu-ultra",
      "name": "Fugu Ultra",
      "release_date": "2026-06-15",
@@ -79887,6 +80975,20 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "sakana/fugu-ultra-v2",
+     "name": "Fugu Ultra v2",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -84404,6 +85506,19 @@
      "status": "active"
     },
     {
+     "id": "mistral-medium",
+     "name": "Mistral Medium 3",
+     "release_date": "2025-05-07",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "mistral-medium-3.5",
      "name": "Mistral Medium 3.5",
      "release_date": "2026-04-29",
@@ -84893,6 +86008,18 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1040000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "zai-org/GLM-5.2-Fast",
+     "name": "GLM-5.2",
+     "release_date": "2026-06-13",
+     "tool_call": true,
+     "context_window": 1000000,
      "max_output_tokens": 128000,
      "input_modalities": [
       "text"
@@ -88526,6 +89653,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "devstral-latest",
      "name": "devstral-latest",
      "release_date": "2026-05-27",
@@ -90986,6 +92126,22 @@
      "status": "active"
     },
     {
+     "id": "gemini-3.5-flash-lite",
+     "name": "Gemini 3.5 Flash Lite",
+     "release_date": "2026-07-21",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemini-embedding",
      "name": "Gemini Embedding 001",
      "release_date": "2025-05-20",
@@ -91572,7 +92728,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "DeepSeek-V4-Flash",
@@ -91744,7 +92900,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "MiniMax-M2.5",
@@ -97271,6 +98427,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4-1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepseek-v4-flash",
      "name": "DeepSeek V4 Flash 0423",
      "release_date": "2026-04-24",
@@ -98944,11 +100113,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -98958,7 +100128,7 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text"
      ],
@@ -98970,11 +100140,12 @@
      "release_date": "2024-12-03",
      "tool_call": true,
      "context_window": 300000,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 10000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -99457,6 +100628,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepseek/deepseek-v4.1-flash-beta",
      "name": "DeepSeek V4.1 Flash Beta",
      "release_date": "2026-09-08",
@@ -99467,7 +100651,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "google/gemini-2.5-flash",
