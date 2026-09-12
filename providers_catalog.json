@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.11",
- "updated_at": "2026-09-11T10:11:57.353Z",
- "generated_at": "2026-09-11T10:11:57.353Z",
- "source": "models.dev@f6d8ac98dad6e01b8a3c65f3a7f77acc47910742 litellm@033f2e5e2a651fed59faf6478fb18314e487738b overrides@d70e1adf5bda6bec283ea706da9a5d273865f1e1",
+ "version": "v2026.9.12",
+ "updated_at": "2026-09-12T09:46:08.670Z",
+ "generated_at": "2026-09-12T09:46:08.670Z",
+ "source": "models.dev@35d26af2a0df90146c1535a6b51caa8dc291543b litellm@033f2e5e2a651fed59faf6478fb18314e487738b overrides@597abcfbc19de7d3d7b948a3ab87e6b7f05238fd",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-11T10:11:57.353Z",
-   "commit": "f6d8ac98dad6e01b8a3c65f3a7f77acc47910742",
-   "etag": "W/\"ceb991539ad741a003a24064f92cfa51\"",
-   "sha256": "ceb991539ad741a003a24064f92cfa512b02d6db8430be14e4d531aa135ae1c9",
-   "bytes": 4584626
+   "fetched_at": "2026-09-12T09:46:08.670Z",
+   "commit": "35d26af2a0df90146c1535a6b51caa8dc291543b",
+   "etag": "W/\"2d33771631c0d3876b370d559399455c\"",
+   "sha256": "2d33771631c0d3876b370d559399455cc8597db26a9f8283f77f72c204f63234",
+   "bytes": 4619527
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-11T10:11:57.353Z",
+   "fetched_at": "2026-09-12T09:46:08.670Z",
    "commit": "033f2e5e2a651fed59faf6478fb18314e487738b",
    "etag": "W/\"cbf34f449ddcfb919a539d29a3dc523f9b8529094526d3c9def34ea78702bfcc\"",
    "sha256": "86ee577ca0e1b0643295c57be6e27e8bc2178f3ee30c7ee27d3aac4b9e85bc08",
    "bytes": 2367128
   },
-  "overrides_commit": "d70e1adf5bda6bec283ea706da9a5d273865f1e1",
-  "previous_version": "v2026.9.10"
+  "overrides_commit": "597abcfbc19de7d3d7b948a3ab87e6b7f05238fd",
+  "previous_version": "v2026.9.11"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -3491,12 +3491,13 @@
     {
      "id": "deepseek-v4-flash",
      "name": "DeepSeek V4 Flash",
-     "release_date": "2026-07-31",
+     "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 384000,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -4316,6 +4317,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -8287,7 +8301,7 @@
      "id": "deepseek.r1-v1:0",
      "name": "DeepSeek-R1",
      "release_date": "2025-01-20",
-     "tool_call": true,
+     "tool_call": false,
      "context_window": 128000,
      "max_output_tokens": 32768,
      "input_modalities": [
@@ -8298,7 +8312,7 @@
     {
      "id": "deepseek.v3-v1:0",
      "name": "DeepSeek-V3.1",
-     "release_date": "2025-09-18",
+     "release_date": "2025-08-21",
      "tool_call": true,
      "context_window": 163840,
      "max_output_tokens": 81920,
@@ -8309,8 +8323,8 @@
     },
     {
      "id": "deepseek.v3.2",
-     "name": "DeepSeek-V3.2",
-     "release_date": "2026-02-06",
+     "name": "DeepSeek V3.2",
+     "release_date": "2025-12-01",
      "tool_call": true,
      "context_window": 163840,
      "max_output_tokens": 81920,
@@ -9032,7 +9046,7 @@
      "release_date": "2025-04-05",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text",
       "image"
@@ -9044,8 +9058,8 @@
      "name": "Llama 4 Scout 17B Instruct",
      "release_date": "2025-04-05",
      "tool_call": true,
-     "context_window": 3500000,
-     "max_output_tokens": 16384,
+     "context_window": 10000000,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text",
       "image"
@@ -9054,7 +9068,7 @@
     },
     {
      "id": "minimax.minimax-m2",
-     "name": "MiniMax M2",
+     "name": "MiniMax-M2",
      "release_date": "2025-10-27",
      "tool_call": true,
      "context_window": 204608,
@@ -9066,7 +9080,7 @@
     },
     {
      "id": "minimax.minimax-m2.1",
-     "name": "MiniMax M2.1",
+     "name": "MiniMax-M2.1",
      "release_date": "2025-12-23",
      "tool_call": true,
      "context_window": 204800,
@@ -9078,8 +9092,8 @@
     },
     {
      "id": "minimax.minimax-m2.5",
-     "name": "MiniMax M2.5",
-     "release_date": "2026-03-18",
+     "name": "MiniMax-M2.5",
+     "release_date": "2026-02-12",
      "tool_call": true,
      "context_window": 196608,
      "max_output_tokens": 98304,
@@ -9091,7 +9105,7 @@
     {
      "id": "mistral.devstral-2-123b",
      "name": "Devstral 2 123B",
-     "release_date": "2026-02-17",
+     "release_date": "2025-12-09",
      "tool_call": true,
      "context_window": 256000,
      "max_output_tokens": 8192,
@@ -9103,7 +9117,7 @@
     {
      "id": "mistral.magistral-small-2509",
      "name": "Magistral Small 1.2",
-     "release_date": "2025-12-02",
+     "release_date": "2025-09-18",
      "tool_call": true,
      "context_window": 128000,
      "max_output_tokens": 40000,
@@ -9116,12 +9130,13 @@
     {
      "id": "mistral.ministral-3-14b-instruct",
      "name": "Ministral 14B 3.0",
-     "release_date": "2024-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 128000,
      "max_output_tokens": 4096,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -9141,12 +9156,13 @@
     {
      "id": "mistral.ministral-3-8b-instruct",
      "name": "Ministral 3 8B",
-     "release_date": "2024-12-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 128000,
      "max_output_tokens": 4096,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -9179,9 +9195,9 @@
     {
      "id": "mistral.voxtral-mini-3b-2507",
      "name": "Voxtral Mini 3B 2507",
-     "release_date": "2024-12-01",
+     "release_date": "2025-07-15",
      "tool_call": true,
-     "context_window": 128000,
+     "context_window": 32768,
      "max_output_tokens": 4096,
      "input_modalities": [
       "text",
@@ -9192,9 +9208,9 @@
     {
      "id": "mistral.voxtral-small-24b-2507",
      "name": "Voxtral Small 24B 2507",
-     "release_date": "2025-07-01",
+     "release_date": "2025-07-15",
      "tool_call": true,
-     "context_window": 32000,
+     "context_window": 32768,
      "max_output_tokens": 8192,
      "input_modalities": [
       "text",
@@ -9205,7 +9221,7 @@
     {
      "id": "moonshot.kimi-k2-thinking",
      "name": "Kimi K2 Thinking",
-     "release_date": "2025-12-02",
+     "release_date": "2025-11-06",
      "tool_call": true,
      "context_window": 262143,
      "max_output_tokens": 16000,
@@ -9217,10 +9233,10 @@
     {
      "id": "moonshotai.kimi-k2.5",
      "name": "Kimi K2.5",
-     "release_date": "2026-02-06",
+     "release_date": "2026-01-27",
      "tool_call": true,
      "context_window": 262143,
-     "max_output_tokens": 16000,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -9230,10 +9246,10 @@
     {
      "id": "nvidia.nemotron-nano-12b-v2",
      "name": "NVIDIA Nemotron Nano 12B v2 VL BF16",
-     "release_date": "2024-12-01",
+     "release_date": "2025-10-28",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 4096,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text",
       "image"
@@ -9243,10 +9259,10 @@
     {
      "id": "nvidia.nemotron-nano-3-30b",
      "name": "NVIDIA Nemotron Nano 3 30B",
-     "release_date": "2025-12-23",
+     "release_date": "2025-12-15",
      "tool_call": true,
-     "context_window": 128000,
-     "max_output_tokens": 4096,
+     "context_window": 262144,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text"
      ],
@@ -9255,10 +9271,10 @@
     {
      "id": "nvidia.nemotron-nano-9b-v2",
      "name": "NVIDIA Nemotron Nano 9B v2",
-     "release_date": "2024-12-01",
+     "release_date": "2025-08-18",
      "tool_call": true,
-     "context_window": 128000,
-     "max_output_tokens": 4096,
+     "context_window": 131072,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text"
      ],
@@ -9434,8 +9450,8 @@
     },
     {
      "id": "qwen.qwen3-235b-a22b-2507-v1:0",
-     "name": "Qwen3 235B A22B 2507",
-     "release_date": "2025-09-18",
+     "name": "Qwen3 235B-A22B Instruct 2507",
+     "release_date": "2025-07-21",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 131072,
@@ -9446,10 +9462,9 @@
     },
     {
      "id": "qwen.qwen3-32b-v1:0",
-     "name": "Qwen3 32B (dense)",
-     "release_date": "2025-09-18",
+     "name": "Qwen3 32B",
      "tool_call": true,
-     "context_window": 16384,
+     "context_window": 32768,
      "max_output_tokens": 16384,
      "input_modalities": [
       "text"
@@ -9458,8 +9473,8 @@
     },
     {
      "id": "qwen.qwen3-coder-30b-a3b-v1:0",
-     "name": "Qwen3 Coder 30B A3B Instruct",
-     "release_date": "2025-09-18",
+     "name": "Qwen3-Coder 30B-A3B Instruct",
+     "release_date": "2025-07-31",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 131072,
@@ -9470,8 +9485,8 @@
     },
     {
      "id": "qwen.qwen3-coder-480b-a35b-v1:0",
-     "name": "Qwen3 Coder 480B A35B Instruct",
-     "release_date": "2025-09-18",
+     "name": "Qwen3-Coder 480B-A35B Instruct",
+     "release_date": "2025-07-23",
      "tool_call": true,
      "context_window": 131072,
      "max_output_tokens": 65536,
@@ -9483,9 +9498,9 @@
     {
      "id": "qwen.qwen3-coder-next",
      "name": "Qwen3 Coder Next",
-     "release_date": "2026-02-06",
+     "release_date": "2026-02-03",
      "tool_call": true,
-     "context_window": 131072,
+     "context_window": 262144,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text"
@@ -9494,10 +9509,10 @@
     },
     {
      "id": "qwen.qwen3-next-80b-a3b",
-     "name": "Qwen/Qwen3-Next-80B-A3B-Instruct",
-     "release_date": "2025-09-18",
+     "name": "Qwen3-Next 80B-A3B Instruct",
+     "release_date": "2025-09-11",
      "tool_call": true,
-     "context_window": 262000,
+     "context_window": 262144,
      "max_output_tokens": 262000,
      "input_modalities": [
       "text"
@@ -9506,10 +9521,10 @@
     },
     {
      "id": "qwen.qwen3-vl-235b-a22b",
-     "name": "Qwen/Qwen3-VL-235B-A22B-Instruct",
-     "release_date": "2025-10-04",
+     "name": "Qwen3 VL 235B A22B Instruct",
+     "release_date": "2025-09-23",
      "tool_call": true,
-     "context_window": 262000,
+     "context_window": 262144,
      "max_output_tokens": 262000,
      "input_modalities": [
       "text",
@@ -9785,7 +9800,7 @@
      "id": "us.deepseek.r1-v1:0",
      "name": "DeepSeek-R1 (US)",
      "release_date": "2025-01-20",
-     "tool_call": true,
+     "tool_call": false,
      "context_window": 128000,
      "max_output_tokens": 32768,
      "input_modalities": [
@@ -9835,7 +9850,7 @@
      "release_date": "2025-04-05",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text",
       "image"
@@ -9847,8 +9862,8 @@
      "name": "Llama 4 Scout 17B Instruct (US)",
      "release_date": "2025-04-05",
      "tool_call": true,
-     "context_window": 3500000,
-     "max_output_tokens": 16384,
+     "context_window": 10000000,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text",
       "image"
@@ -9927,7 +9942,7 @@
     {
      "id": "us.writer.palmyra-x4-v1:0",
      "name": "Palmyra X4 (US)",
-     "release_date": "2025-04-28",
+     "release_date": "2024-10-09",
      "tool_call": true,
      "context_window": 122880,
      "max_output_tokens": 8192,
@@ -9964,7 +9979,7 @@
     {
      "id": "writer.palmyra-x4-v1:0",
      "name": "Palmyra X4",
-     "release_date": "2025-04-28",
+     "release_date": "2024-10-09",
      "tool_call": true,
      "context_window": 122880,
      "max_output_tokens": 8192,
@@ -10038,10 +10053,10 @@
     {
      "id": "zai.glm-5",
      "name": "GLM-5",
-     "release_date": "2026-03-18",
+     "release_date": "2026-02-12",
      "tool_call": true,
      "context_window": 202752,
-     "max_output_tokens": 101376,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -10734,7 +10749,7 @@
     {
      "id": "mistralai/mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -13645,6 +13660,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "MiniMaxAI/MiniMax-M2.5",
      "name": "MiniMax-M2.5",
      "release_date": "2026-02-12",
@@ -14191,6 +14219,22 @@
      "status": "active"
     },
     {
+     "id": "muse-spark-1.3-contributor",
+     "name": "Muse Spark 1.3 Contributor",
+     "release_date": "2026-09-02",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "nemotron-3-ultra-550b-a55b:free",
      "name": "Nemotron 3 Ultra (free)",
      "release_date": "2026-06-04",
@@ -14718,6 +14762,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "cline-pass/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -17099,7 +17156,7 @@
     },
     {
      "id": "gemma-3-27b-it",
-     "name": "gemma-3-27b-it",
+     "name": "Gemma 3 27B IT",
      "release_date": "2025-03-12",
      "tool_call": false,
      "context_window": 131000,
@@ -17739,7 +17796,7 @@
     {
      "id": "mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 256000,
      "max_output_tokens": 256000,
@@ -22579,6 +22636,84 @@
      "status": "active"
     },
     {
+     "id": "amazon/google.gemma-3-12b-it",
+     "name": "Gemma 3 12B IT (Amazon Bedrock)",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/google.gemma-3-12b-it@us",
+     "name": "Gemma 3 12B IT (Amazon Bedrock, US)",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/google.gemma-3-27b-it",
+     "name": "Gemma 3 27B IT (Amazon Bedrock)",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/google.gemma-3-27b-it@us",
+     "name": "Gemma 3 27B IT (Amazon Bedrock, US)",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/google.gemma-3-4b-it",
+     "name": "Gemma 3 4B IT (Amazon Bedrock)",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/google.gemma-3-4b-it@us",
+     "name": "Gemma 3 4B IT (Amazon Bedrock, US)",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "amazon/mistral.pixtral-large-2502-v1:0",
      "name": "Pixtral Large (25.02) (Amazon Bedrock)",
      "release_date": "2025-04-08",
@@ -22599,6 +22734,58 @@
      "max_output_tokens": 8192,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/mistral.voxtral-mini-3b-2507",
+     "name": "Voxtral Mini 3B 2507 (Amazon Bedrock)",
+     "release_date": "2025-07-15",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "audio"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/mistral.voxtral-mini-3b-2507@us",
+     "name": "Voxtral Mini 3B 2507 (Amazon Bedrock, US)",
+     "release_date": "2025-07-15",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "audio"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/mistral.voxtral-small-24b-2507",
+     "name": "Voxtral Small 24B 2507 (Amazon Bedrock)",
+     "release_date": "2025-07-15",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "audio"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/mistral.voxtral-small-24b-2507@us",
+     "name": "Voxtral Small 24B 2507 (Amazon Bedrock, US)",
+     "release_date": "2025-07-15",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "audio"
      ],
      "status": "active"
     },
@@ -22649,6 +22836,30 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "amazon/openai.gpt-oss-safeguard-20b",
+     "name": "GPT OSS Safeguard 20B (Amazon Bedrock)",
+     "release_date": "2025-10-29",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "amazon/openai.gpt-oss-safeguard-20b@us",
+     "name": "GPT OSS Safeguard 20B (Amazon Bedrock, US)",
+     "release_date": "2025-10-29",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "amazon/zai.glm-4.7-flash",
@@ -23246,6 +23457,45 @@
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepinfra/google/gemma-3-12b-it",
+     "name": "Gemma 3 12B IT (Deep Infra)",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepinfra/google/gemma-3-27b-it",
+     "name": "Gemma 3 27B IT (Deep Infra)",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepinfra/google/gemma-3-4b-it",
+     "name": "Gemma 3 4B IT (Deep Infra)",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image"
@@ -24007,6 +24257,30 @@
      "status": "active"
     },
     {
+     "id": "groq/openai/gpt-oss-safeguard-20b",
+     "name": "GPT OSS Safeguard 20B (Groq)",
+     "release_date": "2025-10-29",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "infomaniak/mistralai/Ministral-3-14B-Instruct-2512",
+     "name": "Ministral 3 14B (Infomaniak)",
+     "release_date": "2025-12-02",
+     "tool_call": false,
+     "context_window": 100000,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "ionos/meta-llama/Llama-3.3-70B-Instruct",
      "name": "Llama-3.3-70B-Instruct (IONOS)",
      "release_date": "2024-12-06",
@@ -24145,7 +24419,7 @@
     {
      "id": "mistral/mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -24321,6 +24595,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "nebius/google/gemma-3-27b-it",
+     "name": "Gemma 3 27B IT (Nebius)",
+     "release_date": "2025-03-12",
+     "tool_call": true,
+     "context_window": 110000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -25273,6 +25560,19 @@
      "status": "active"
     },
     {
+     "id": "scaleway/gemma-3-27b-it",
+     "name": "Gemma 3 27B IT (Scaleway)",
+     "release_date": "2025-03-12",
+     "tool_call": false,
+     "context_window": 40000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "scaleway/gpt-oss-120b",
      "name": "GPT OSS 120B (Scaleway)",
      "release_date": "2025-08-05",
@@ -26156,6 +26456,19 @@
     {
      "id": "fugu-ultra-v1-1",
      "name": "Fugu Ultra v1.1",
+     "release_date": "2026-06-15",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "fugu-ultra-v2-0",
+     "name": "Fugu Ultra v2.0",
      "release_date": "2026-06-15",
      "tool_call": true,
      "context_window": 1000000,
@@ -27838,7 +28151,7 @@
     {
      "id": "accounts/fireworks/models/mistral-large-3-fp8",
      "name": "Mistral Large 3 675B Instruct 2512",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 256000,
      "max_output_tokens": 256000,
@@ -31199,6 +31512,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -38472,7 +38798,7 @@
     },
     {
      "id": "~anthropic/claude-haiku-latest",
-     "name": "Anthropic Claude Haiku Latest",
+     "name": "Anthropic: Claude Haiku Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 200000,
@@ -38500,7 +38826,7 @@
     },
     {
      "id": "~anthropic/claude-sonnet-latest",
-     "name": "Anthropic Claude Sonnet Latest",
+     "name": "Anthropic: Claude Sonnet Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1000000,
@@ -38514,7 +38840,7 @@
     },
     {
      "id": "~deepseek/deepseek-v4-flash-latest",
-     "name": "DeepSeek V4 Flash Latest",
+     "name": "DeepSeek: DeepSeek V4 Flash Latest",
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1048576,
@@ -38526,7 +38852,7 @@
     },
     {
      "id": "~google/gemini-flash-latest",
-     "name": "Google Gemini Flash Latest",
+     "name": "Google: Gemini Flash Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1048576,
@@ -38542,7 +38868,7 @@
     },
     {
      "id": "~google/gemini-pro-latest",
-     "name": "Google Gemini Pro Latest",
+     "name": "Google: Gemini Pro Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1048576,
@@ -38558,7 +38884,7 @@
     },
     {
      "id": "~moonshotai/kimi-latest",
-     "name": "MoonshotAI Kimi Latest",
+     "name": "MoonshotAI: Kimi Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1048576,
@@ -38567,6 +38893,20 @@
       "text",
       "image",
       "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "~openai/gpt-astra-latest",
+     "name": "OpenAI: GPT Astra Latest ($$$$)",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -38582,14 +38922,56 @@
       "image",
       "pdf"
      ],
+     "status": "retired"
+    },
+    {
+     "id": "~openai/gpt-luna-latest",
+     "name": "OpenAI: GPT Luna Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
      "status": "active"
     },
     {
      "id": "~openai/gpt-mini-latest",
-     "name": "OpenAI GPT Mini Latest",
+     "name": "OpenAI: GPT Mini Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 400000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "~openai/gpt-sol-latest",
+     "name": "OpenAI: GPT Sol Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "~openai/gpt-terra-latest",
+     "name": "OpenAI: GPT Terra Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
      "max_output_tokens": 128000,
      "input_modalities": [
       "text",
@@ -39397,7 +39779,7 @@
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -40026,6 +40408,20 @@
      "status": "active"
     },
     {
+     "id": "inclusionai/ling-3.0-flash-vl",
+     "name": "inclusionAI: Ling 3.0 Flash VL",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "inclusionai/ling-3.0-flash-vl:free",
      "name": "inclusionAI: Ling 3.0 Flash VL (free)",
      "release_date": "2026-09-10",
@@ -40050,6 +40446,30 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "inference-net/schematron-v2-small",
+     "name": "Inference.net: Schematron V2 Small",
+     "release_date": "2026-09-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inference-net/schematron-v2-turbo",
+     "name": "Inference.net: Schematron V2 Turbo",
+     "release_date": "2026-09-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "kilo-auto/balanced",
@@ -40648,7 +41068,7 @@
     {
      "id": "mistralai/mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 209715,
@@ -40792,8 +41212,8 @@
     },
     {
      "id": "mistralai/voxtral-small-24b-2507",
-     "name": "Mistral: Voxtral Small 24B 2507",
-     "release_date": "2025-10-30",
+     "name": "Voxtral Small 24B 2507",
+     "release_date": "2025-07-15",
      "tool_call": true,
      "context_window": 32768,
      "max_output_tokens": 26214,
@@ -40834,7 +41254,7 @@
      "release_date": "2025-11-06",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 100352,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
@@ -42274,7 +42694,7 @@
      "release_date": "2025-07-21",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
@@ -42783,7 +43203,7 @@
      "name": "Qwen3.8 27B",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 262144,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -43246,8 +43666,8 @@
      "name": "Inkling",
      "release_date": "2026-07-15",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 32768,
+     "context_window": 524288,
+     "max_output_tokens": 471859,
      "input_modalities": [
       "text",
       "image",
@@ -43295,7 +43715,7 @@
       "image",
       "audio"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "undi95/remm-slerp-l2-13b",
@@ -43584,8 +44004,8 @@
      "name": "GLM-5.2",
      "release_date": "2026-06-13",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 131072,
+     "context_window": 202752,
+     "max_output_tokens": 182476,
      "input_modalities": [
       "text"
      ],
@@ -44391,9 +44811,35 @@
      "status": "active"
     },
     {
+     "id": "fugu-max",
+     "name": "Fugu Max",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "fugu-ultra",
      "name": "Fugu Ultra",
      "release_date": "2026-06-22",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "fugu-ultra-v2.0",
+     "name": "Fugu Ultra v2.0",
+     "release_date": "2026-09-11",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 1000000,
@@ -45884,7 +46330,7 @@
     {
      "id": "mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -48378,7 +48824,7 @@
      "name": "DeepSeek V4 Flash (Consensus Protocol)",
      "release_date": "2026-04-24",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1050000,
      "max_output_tokens": 393216,
      "input_modalities": [
       "text"
@@ -49566,7 +50012,7 @@
     {
      "id": "mistral/mistral-large-2512",
      "name": "Mistral Large 3 (Mistral AI)",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": false,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -51174,9 +51620,35 @@
      "status": "active"
     },
     {
+     "id": "sakana/fugu-max",
+     "name": "Fugu Max (Sakana AI)",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "sakana/fugu-ultra",
      "name": "Fugu Ultra (Sakana AI)",
      "release_date": "2026-06-15",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "sakana/fugu-ultra-v2.0",
+     "name": "Fugu Ultra v2.0 (Sakana AI)",
+     "release_date": "2026-09-11",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 1000000,
@@ -53360,7 +53832,7 @@
      "name": "DeepSeek V4 Flash 0731",
      "release_date": "2026-07-31",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1048576,
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
@@ -54035,7 +54507,7 @@
     {
      "id": "mistral/mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 256000,
      "max_output_tokens": 256000,
@@ -54894,28 +55366,17 @@
      "name": "Qwen3.5 122B A10B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
     {
      "id": "qwen/qwen3.5-27b",
      "name": "Qwen3.5 27B",
-     "release_date": "2026-02-23",
-     "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
-     "input_modalities": [
-      "text"
-     ],
-     "status": "active"
-    },
-    {
-     "id": "qwen/qwen3.5-35b-a3b",
-     "name": "Qwen3.5 35B A3B",
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 256000,
@@ -54927,14 +55388,27 @@
      "status": "active"
     },
     {
-     "id": "qwen/qwen3.5-397b-a17b",
-     "name": "Qwen3.5 397B A17B",
-     "release_date": "2026-02-15",
+     "id": "qwen/qwen3.5-35b-a3b",
+     "name": "Qwen3.5 35B A3B",
+     "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 131072,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.5-397b-a17b",
+     "name": "Qwen3.5 397B A17B",
+     "release_date": "2026-02-15",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -55091,7 +55565,7 @@
      "release_date": "2026-06-15",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 250000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image"
@@ -57517,13 +57991,14 @@
    "models": [
     {
      "id": "deepseek-v4-flash",
-     "name": "DeepSeek V4 Flash",
-     "release_date": "2026-04-24",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 384000,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -57546,6 +58021,18 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 500000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "retired"
+    },
+    {
+     "id": "glm5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1000000,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -63206,6 +63693,20 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-astra-latest",
+     "name": "GPT Astra Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/gpt-chat-latest",
      "name": "GPT Chat Latest",
      "release_date": "2026-05-03",
@@ -63223,6 +63724,20 @@
      "id": "openai/gpt-latest",
      "name": "GPT Latest",
      "release_date": "2026-03-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-luna-latest",
+     "name": "GPT Luna Latest",
+     "release_date": "2026-09-11",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -63266,6 +63781,34 @@
      "max_output_tokens": 16384,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-sol-latest",
+     "name": "GPT Sol Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-terra-latest",
+     "name": "GPT Terra Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -65149,6 +65692,18 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "TEE/nemotron-3.5-lightning",
+     "name": "Nvidia Nemotron 3.5 Lightning TEE",
+     "release_date": "2026-08-11",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
      ],
      "status": "active"
     },
@@ -73342,6 +73897,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemma4:31b",
      "name": "gemma4:31b",
      "release_date": "2026-04-02",
@@ -76521,7 +77089,7 @@
     },
     {
      "id": "~anthropic/claude-haiku-latest",
-     "name": "Anthropic Claude Haiku Latest",
+     "name": "Claude Haiku Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 200000,
@@ -76549,7 +77117,7 @@
     },
     {
      "id": "~anthropic/claude-sonnet-latest",
-     "name": "Anthropic Claude Sonnet Latest",
+     "name": "Claude Sonnet Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1000000,
@@ -76575,7 +77143,7 @@
     },
     {
      "id": "~google/gemini-flash-latest",
-     "name": "Google Gemini Flash Latest",
+     "name": "Gemini Flash Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1048576,
@@ -76591,7 +77159,7 @@
     },
     {
      "id": "~google/gemini-pro-latest",
-     "name": "Google Gemini Pro Latest",
+     "name": "Gemini Pro Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1048576,
@@ -76607,7 +77175,7 @@
     },
     {
      "id": "~moonshotai/kimi-latest",
-     "name": "MoonshotAI Kimi Latest",
+     "name": "Kimi Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 1048576,
@@ -76616,6 +77184,20 @@
       "text",
       "image",
       "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "~openai/gpt-astra-latest",
+     "name": "GPT Astra Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -76631,14 +77213,56 @@
       "image",
       "pdf"
      ],
+     "status": "retired"
+    },
+    {
+     "id": "~openai/gpt-luna-latest",
+     "name": "GPT Luna Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
      "status": "active"
     },
     {
      "id": "~openai/gpt-mini-latest",
-     "name": "OpenAI GPT Mini Latest",
+     "name": "GPT Mini Latest",
      "release_date": "2026-04-27",
      "tool_call": true,
      "context_window": 400000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "~openai/gpt-sol-latest",
+     "name": "GPT Sol Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "~openai/gpt-terra-latest",
+     "name": "GPT Terra Latest",
+     "release_date": "2026-09-11",
+     "tool_call": true,
+     "context_window": 1050000,
      "max_output_tokens": 128000,
      "input_modalities": [
       "text",
@@ -77458,8 +78082,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "deepseek/deepseek-v4.1-flash",
@@ -78107,6 +78730,20 @@
      "status": "active"
     },
     {
+     "id": "inclusionai/ling-3.0-flash-vl",
+     "name": "Ling 3.0 Flash VL",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "inclusionai/ling-3.0-flash-vl:free",
      "name": "Ling 3.0 Flash VL (free)",
      "release_date": "2026-09-10",
@@ -78131,6 +78768,30 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "inference-net/schematron-v2-small",
+     "name": "Schematron V2 Small",
+     "release_date": "2026-09-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inference-net/schematron-v2-turbo",
+     "name": "Schematron V2 Turbo",
+     "release_date": "2026-09-12",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "kwaipilot/kat-coder-air-v2.5",
@@ -78660,7 +79321,7 @@
     {
      "id": "mistralai/mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -78809,7 +79470,7 @@
     {
      "id": "mistralai/voxtral-small-24b-2507",
      "name": "Voxtral Small 24B 2507",
-     "release_date": "2025-10-30",
+     "release_date": "2025-07-15",
      "tool_call": true,
      "context_window": 32768,
      "max_output_tokens": 26214,
@@ -78854,7 +79515,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "moonshotai/kimi-k2.5",
@@ -81220,7 +81882,7 @@
      "release_date": "2026-07-15",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 471859,
      "input_modalities": [
       "text",
       "image",
@@ -81573,7 +82235,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "z-ai/glm-5.2:free",
@@ -81898,7 +82561,7 @@
     {
      "id": "mistral/mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -84778,6 +85441,20 @@
      "status": "active"
     },
     {
+     "id": "claude-opus-5-fast",
+     "name": "Claude Opus 5",
+     "release_date": "2026-07-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-sonnet-4-5",
      "name": "Claude Sonnet 4.5 (latest)",
      "release_date": "2025-09-29",
@@ -84876,6 +85553,19 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "devstral-small-2",
+     "name": "Devstral Small 2",
+     "release_date": "2025-12-09",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -85380,6 +86070,18 @@
      "status": "active"
     },
     {
+     "id": "magistral-medium",
+     "name": "Magistral Medium (latest)",
+     "release_date": "2025-03-17",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "meta-llama/Llama-3.1-8B-Instruct",
      "name": "Llama 3.1 8B Instruct",
      "release_date": "2024-06-30",
@@ -85493,9 +86195,34 @@
      "status": "active"
     },
     {
+     "id": "ministral-14b",
+     "name": "Ministral 14B",
+     "release_date": "2025-12-02",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "ministral-3b",
+     "name": "Ministral 3B",
+     "release_date": "2024-10-16",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 4000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "mistral-large-3",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 256000,
      "max_output_tokens": 131072,
@@ -85647,6 +86374,20 @@
     },
     {
      "id": "moonshotai/Kimi-K3",
+     "name": "Kimi K3",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "moonshotai/Kimi-K3-Fast",
      "name": "Kimi K3",
      "release_date": "2026-07-16",
      "tool_call": true,
@@ -85960,6 +86701,20 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "thinkingmachines/inkling-small",
+     "name": "Inkling Small",
+     "release_date": "2026-07-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio"
      ],
      "status": "active"
     },
@@ -98935,7 +99690,8 @@
      "context_window": 256000,
      "max_output_tokens": 16384,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -100498,7 +101254,7 @@
      "id": "deepseek/deepseek-r1",
      "name": "DeepSeek-R1",
      "release_date": "2025-01-20",
-     "tool_call": true,
+     "tool_call": false,
      "context_window": 128000,
      "max_output_tokens": 32768,
      "input_modalities": [
@@ -104035,12 +104791,41 @@
      "status": "active"
     },
     {
+     "id": "glm-5.3-flash",
+     "name": "GLM-5.3-Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "kimi-k2.7-code",
      "name": "Kimi K2.7 Code",
      "release_date": "2026-06-12",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "kimi-k3",
+     "name": "Kimi K3",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
