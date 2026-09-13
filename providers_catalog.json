@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.12",
- "updated_at": "2026-09-12T09:46:08.670Z",
- "generated_at": "2026-09-12T09:46:08.670Z",
- "source": "models.dev@35d26af2a0df90146c1535a6b51caa8dc291543b litellm@033f2e5e2a651fed59faf6478fb18314e487738b overrides@597abcfbc19de7d3d7b948a3ab87e6b7f05238fd",
+ "version": "v2026.9.13",
+ "updated_at": "2026-09-13T10:47:14.090Z",
+ "generated_at": "2026-09-13T10:47:14.090Z",
+ "source": "models.dev@7b8e68f94959e93d27f92ca0e8709344d3013e1d litellm@b1a61f510c90ce7e4533e89247c941fa201ada4f overrides@cd4768e3251287a7d583f90ee7e10a633275f259",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-12T09:46:08.670Z",
-   "commit": "35d26af2a0df90146c1535a6b51caa8dc291543b",
-   "etag": "W/\"2d33771631c0d3876b370d559399455c\"",
-   "sha256": "2d33771631c0d3876b370d559399455cc8597db26a9f8283f77f72c204f63234",
-   "bytes": 4619527
+   "fetched_at": "2026-09-13T10:47:14.090Z",
+   "commit": "7b8e68f94959e93d27f92ca0e8709344d3013e1d",
+   "etag": "W/\"ef414e8f67c250b6b7f414f5ffcb0140\"",
+   "sha256": "ef414e8f67c250b6b7f414f5ffcb01405c9e09ee93808d9ca7d960e02fc5355d",
+   "bytes": 4640280
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-12T09:46:08.670Z",
-   "commit": "033f2e5e2a651fed59faf6478fb18314e487738b",
-   "etag": "W/\"cbf34f449ddcfb919a539d29a3dc523f9b8529094526d3c9def34ea78702bfcc\"",
-   "sha256": "86ee577ca0e1b0643295c57be6e27e8bc2178f3ee30c7ee27d3aac4b9e85bc08",
-   "bytes": 2367128
+   "fetched_at": "2026-09-13T10:47:14.090Z",
+   "commit": "b1a61f510c90ce7e4533e89247c941fa201ada4f",
+   "etag": "W/\"62a293d486ec5349f908b01751f7b246aa380b9734a7e418ae3811cfda4729a2\"",
+   "sha256": "51282f775bc43cd0e1e116e335574eae7a022be31610724ed3d889161be22eb5",
+   "bytes": 2395003
   },
-  "overrides_commit": "597abcfbc19de7d3d7b948a3ab87e6b7f05238fd",
-  "previous_version": "v2026.9.11"
+  "overrides_commit": "cd4768e3251287a7d583f90ee7e10a633275f259",
+  "previous_version": "v2026.9.12"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -3646,6 +3646,30 @@
       "text",
       "image",
       "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4-flash",
+     "name": "DeepSeek V4 Flash",
+     "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
      ],
      "status": "active"
     },
@@ -21142,10 +21166,10 @@
      "context_window": 1000000,
      "max_output_tokens": 384000,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "deepseek-v4-flash-vision-exp",
@@ -21652,7 +21676,7 @@
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 1048576,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -25653,6 +25677,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "together_ai/deepseek-ai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash (Together AI)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -38844,7 +38881,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -39013,8 +39050,8 @@
      "name": "Z.ai: GLM Latest",
      "release_date": "2026-08-19",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
@@ -39766,8 +39803,8 @@
      "name": "DeepSeek V4 Pro",
      "release_date": "2026-04-24",
      "tool_call": true,
-     "context_window": 1024000,
-     "max_output_tokens": 384000,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -40202,8 +40239,8 @@
      "name": "Gemma 4 26B A4B IT",
      "release_date": "2026-04-02",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text",
       "image",
@@ -40626,7 +40663,7 @@
      "release_date": "2024-07-23",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 8192,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -40903,8 +40940,8 @@
      "name": "MiniMax-M2.5",
      "release_date": "2026-02-12",
      "tool_call": true,
-     "context_window": 204800,
-     "max_output_tokens": 131072,
+     "context_window": 200000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -41230,7 +41267,7 @@
      "release_date": "2025-07-11",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 100352,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
@@ -41242,7 +41279,7 @@
      "release_date": "2025-09-04",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 100352,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
@@ -41254,7 +41291,7 @@
      "release_date": "2025-11-06",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
@@ -42729,8 +42766,8 @@
      "name": "Qwen: Qwen3 30B A3B Instruct 2507",
      "release_date": "2025-07-29",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 235929,
+     "context_window": 128000,
+     "max_output_tokens": 32000,
      "input_modalities": [
       "text"
      ],
@@ -44017,7 +44054,7 @@
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -45237,6 +45274,18 @@
      "status": "active"
     },
     {
+     "id": "glm-5-turbo",
+     "name": "GLM-5-Turbo",
+     "release_date": "2026-03-16",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "glm-5.1",
      "name": "GLM-5.1",
      "release_date": "2026-04-07",
@@ -45290,6 +45339,21 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5v-turbo",
+     "name": "GLM-5V-Turbo",
+     "release_date": "2026-04-01",
+     "tool_call": true,
+     "context_window": 200000,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -45910,12 +45974,36 @@
      "status": "retired"
     },
     {
+     "id": "hy-mt2-plus",
+     "name": "Hy-MT2 Plus",
+     "release_date": "2026-05-21",
+     "tool_call": true,
+     "context_window": 8192,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "hy3",
      "name": "Hy3",
      "release_date": "2026-07-06",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "hy4-preview",
+     "name": "Hy4 preview",
+     "release_date": "2026-08-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 64000,
      "input_modalities": [
       "text"
      ],
@@ -47194,6 +47282,20 @@
      "status": "active"
     },
     {
+     "id": "alibaba/kimi-k3",
+     "name": "Kimi K3 (Alibaba Cloud)",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "alibaba/qwen-coder-plus",
      "name": "Qwen Coder Plus (Alibaba Cloud)",
      "release_date": "2024-09-18",
@@ -47943,6 +48045,20 @@
      "release_date": "2026-07-09",
      "tool_call": true,
      "context_window": 278528,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "aws-mantle/gpt-6-astra",
+     "name": "GPT-6 Astra (AWS Mantle)",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
      "max_output_tokens": 128000,
      "input_modalities": [
       "text",
@@ -48920,6 +49036,19 @@
      "status": "active"
     },
     {
+     "id": "deepinfra/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (DeepInfra)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepinfra/gemma-4-26b-a4b-it",
      "name": "Gemma 4 26B A4B IT (DeepInfra)",
      "release_date": "2026-04-02",
@@ -49248,6 +49377,19 @@
      "max_output_tokens": 393216,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "fireworks/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (Fireworks AI)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -50447,6 +50589,19 @@
      "status": "active"
     },
     {
+     "id": "novita/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (NovitaAI)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "novita/ernie-4.5-vl-424b-a47b",
      "name": "ERNIE 4.5 VL 424B A47B (NovitaAI)",
      "release_date": "2025-06-30",
@@ -51504,6 +51659,20 @@
      "status": "active"
     },
     {
+     "id": "runpod/kimi-k3",
+     "name": "Kimi K3 (Runpod)",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "runware/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (Runware)",
      "release_date": "2026-04-24",
@@ -51812,6 +51981,223 @@
      "status": "active"
     },
     {
+     "id": "tencent/deepseek-v4-flash",
+     "name": "DeepSeek V4 Flash (Tencent Cloud)",
+     "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/deepseek-v4-pro",
+     "name": "DeepSeek V4 Pro (Tencent Cloud)",
+     "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/glm-5",
+     "name": "GLM-5 (Tencent Cloud)",
+     "release_date": "2026-02-12",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/glm-5-turbo",
+     "name": "GLM-5 Turbo (Tencent Cloud)",
+     "release_date": "2026-03-16",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/glm-5.1",
+     "name": "GLM-5.1 (Tencent Cloud)",
+     "release_date": "2026-04-07",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/glm-5.2",
+     "name": "GLM-5.2 (Tencent Cloud)",
+     "release_date": "2026-06-13",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/glm-5v-turbo",
+     "name": "GLM-5V Turbo (Tencent Cloud)",
+     "release_date": "2026-04-01",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/hy-mt2-plus",
+     "name": "Hy-MT2 Plus (Tencent Cloud)",
+     "release_date": "2026-05-21",
+     "tool_call": false,
+     "context_window": 8192,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/hy3",
+     "name": "Hy3 (Tencent Cloud)",
+     "release_date": "2026-07-06",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/hy4-preview",
+     "name": "Hy4 Preview (Tencent Cloud)",
+     "release_date": "2026-08-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/kimi-k2.6",
+     "name": "Kimi K2.6 (Tencent Cloud)",
+     "release_date": "2026-04-21",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/kimi-k2.7-code",
+     "name": "Kimi K2.7 Code (Tencent Cloud)",
+     "release_date": "2026-06-12",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/kimi-k2.7-code-highspeed",
+     "name": "Kimi K2.7 Code Highspeed (Tencent Cloud)",
+     "release_date": "2026-06-12",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/kimi-k3",
+     "name": "Kimi K3 (Tencent Cloud)",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/mimo-v2.5-pro",
+     "name": "MiMo V2.5 Pro (Tencent Cloud)",
+     "release_date": "2026-04-22",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/minimax-m2.7",
+     "name": "MiniMax M2.7 (Tencent Cloud)",
+     "release_date": "2026-03-18",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/minimax-m3",
+     "name": "MiniMax M3 (Tencent Cloud)",
+     "release_date": "2026-06-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "together-ai/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (Together AI)",
      "release_date": "2026-04-24",
@@ -51832,6 +52218,19 @@
      "max_output_tokens": 163840,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "together-ai/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (Together AI)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -71877,6 +72276,21 @@
       "text"
      ],
      "status": "active"
+    },
+    {
+     "id": "z-ai/glm-5.3-flash",
+     "name": "GLM-5.3-Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
     }
    ]
   },
@@ -73888,6 +74302,18 @@
      "id": "deepseek-v4-pro",
      "name": "deepseek-v4-pro",
      "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4-pro:0813",
+     "name": "DeepSeek V4 Pro 0813",
+     "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 1048576,
@@ -77135,7 +77561,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -77305,7 +77731,7 @@
      "release_date": "2026-08-19",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
@@ -78002,12 +78428,11 @@
      "release_date": "2025-12-01",
      "tool_call": true,
      "context_window": 163840,
-     "max_output_tokens": 163840,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "deepseek/deepseek-v3.2-exp",
@@ -78875,8 +79300,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "meta-llama/llama-3.1-8b-instruct",
@@ -79487,7 +79911,7 @@
      "release_date": "2025-07-11",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 100352,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
@@ -79499,7 +79923,7 @@
      "release_date": "2025-09-04",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 100352,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
@@ -79511,12 +79935,11 @@
      "release_date": "2025-11-06",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 100352,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "moonshotai/kimi-k2.5",
@@ -81036,8 +81459,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -90421,6 +90843,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4.1-flash@eu",
+     "name": "DeepSeek V4.1 Flash (EU)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "devstral-latest",
      "name": "devstral-latest",
      "release_date": "2026-05-27",
@@ -92066,7 +92501,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "thinkingcap-qwen3.6-27b@eu",
@@ -92078,7 +92513,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     }
    ]
   },
@@ -97301,6 +97736,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "essentialai/Rnj-1-Instruct",
      "name": "Rnj-1 Instruct",
      "release_date": "2025-12-05",
@@ -97390,7 +97838,7 @@
      "name": "MiniMax-M2.7",
      "release_date": "2026-03-18",
      "tool_call": true,
-     "context_window": 202752,
+     "context_window": 196608,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
