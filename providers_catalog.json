@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.13",
- "updated_at": "2026-09-13T10:47:14.090Z",
- "generated_at": "2026-09-13T10:47:14.090Z",
- "source": "models.dev@7b8e68f94959e93d27f92ca0e8709344d3013e1d litellm@b1a61f510c90ce7e4533e89247c941fa201ada4f overrides@cd4768e3251287a7d583f90ee7e10a633275f259",
+ "version": "v2026.9.14",
+ "updated_at": "2026-09-14T11:13:19.804Z",
+ "generated_at": "2026-09-14T11:13:19.804Z",
+ "source": "models.dev@e60b55c081b3352bad7b84a229cfa388f7af98af litellm@b1a61f510c90ce7e4533e89247c941fa201ada4f overrides@cebce8746706a33d525a9f517874481293b04af8",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-13T10:47:14.090Z",
-   "commit": "7b8e68f94959e93d27f92ca0e8709344d3013e1d",
-   "etag": "W/\"ef414e8f67c250b6b7f414f5ffcb0140\"",
-   "sha256": "ef414e8f67c250b6b7f414f5ffcb01405c9e09ee93808d9ca7d960e02fc5355d",
-   "bytes": 4640280
+   "fetched_at": "2026-09-14T11:13:19.804Z",
+   "commit": "e60b55c081b3352bad7b84a229cfa388f7af98af",
+   "etag": "W/\"f18a8b4960dc9d69c9bf1aa9c8ec6c18\"",
+   "sha256": "f18a8b4960dc9d69c9bf1aa9c8ec6c18e199622a050efaa344f8b65f23575db2",
+   "bytes": 4643757
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-13T10:47:14.090Z",
+   "fetched_at": "2026-09-14T11:13:19.804Z",
    "commit": "b1a61f510c90ce7e4533e89247c941fa201ada4f",
    "etag": "W/\"62a293d486ec5349f908b01751f7b246aa380b9734a7e418ae3811cfda4729a2\"",
    "sha256": "51282f775bc43cd0e1e116e335574eae7a022be31610724ed3d889161be22eb5",
    "bytes": 2395003
   },
-  "overrides_commit": "cd4768e3251287a7d583f90ee7e10a633275f259",
-  "previous_version": "v2026.9.12"
+  "overrides_commit": "cebce8746706a33d525a9f517874481293b04af8",
+  "previous_version": "v2026.9.13"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -20892,6 +20892,20 @@
      "status": "active"
     },
     {
+     "id": "Qwen/Qwen3.8-Flash",
+     "name": "Qwen3.8 Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "Qwen/Qwen3.8-Max",
      "name": "Qwen3.8 Max",
      "release_date": "2026-08-03",
@@ -25296,6 +25310,19 @@
      "status": "active"
     },
     {
+     "id": "qwen/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (Alibaba)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "qwen/qwen-max",
      "name": "Qwen Max",
      "release_date": "2024-04-03",
@@ -25641,6 +25668,19 @@
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tensorx/deepseek/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (TensorX)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -39050,8 +39090,8 @@
      "name": "Z.ai: GLM Latest",
      "release_date": "2026-08-19",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 235929,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -39815,8 +39855,8 @@
      "name": "DeepSeek V4 Pro 0813",
      "release_date": "2026-08-12",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "context_window": 1024000,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -41529,8 +41569,8 @@
      "name": "Nemotron 3 Ultra 550B A55B",
      "release_date": "2026-06-04",
      "tool_call": true,
-     "context_window": 256000,
-     "max_output_tokens": 32768,
+     "context_window": 202800,
+     "max_output_tokens": 182520,
      "input_modalities": [
       "text"
      ],
@@ -42707,8 +42747,8 @@
      "name": "Qwen: Qwen3 14B",
      "release_date": "2025-04-28",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 8192,
+     "context_window": 40960,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -44041,8 +44081,8 @@
      "name": "GLM-5.2",
      "release_date": "2026-06-13",
      "tool_call": true,
-     "context_window": 202752,
-     "max_output_tokens": 182476,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -44053,8 +44093,8 @@
      "name": "GLM-5.3",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "context_window": 1048575,
+     "max_output_tokens": 943717,
      "input_modalities": [
       "text"
      ],
@@ -47245,6 +47285,19 @@
      "status": "active"
     },
     {
+     "id": "alibaba/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (Alibaba Cloud)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "alibaba/glm-5",
      "name": "GLM-5 (Alibaba Cloud)",
      "release_date": "2026-02-12",
@@ -48942,6 +48995,18 @@
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "consensusprotocol/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (Consensus Protocol)",
+     "release_date": "2026-09-10",
+     "tool_call": false,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -77731,7 +77796,7 @@
      "release_date": "2026-08-19",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -80192,7 +80257,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -81397,8 +81463,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "qwen/qwen3-235b-a22b",
@@ -82657,8 +82722,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "z-ai/glm-5.2:free",
