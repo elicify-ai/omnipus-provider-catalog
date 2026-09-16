@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.15",
- "updated_at": "2026-09-15T10:40:39.799Z",
- "generated_at": "2026-09-15T10:40:39.799Z",
- "source": "models.dev@177e19ebd2e9751f871630417eecde42e4bffec1 litellm@ce83fac3515c36c927ed133fe48abd7dc1a3ee74 overrides@32876c642f1df4c0f728c094cbcfa4de08a3a25b",
+ "version": "v2026.9.16",
+ "updated_at": "2026-09-16T10:28:25.184Z",
+ "generated_at": "2026-09-16T10:28:25.184Z",
+ "source": "models.dev@4f77a59abbacdcfa41cc2f4d06b3ed0323ab64c4 litellm@daa98cd6fff9e4f7bd804dd6368bffefd8393157 overrides@7598106a53b29ba7257c842f6655e541ac80d9f3",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-15T10:40:39.799Z",
-   "commit": "177e19ebd2e9751f871630417eecde42e4bffec1",
-   "etag": "W/\"e20890016f7019c4a8f5dc20fe4d94a9\"",
-   "sha256": "e20890016f7019c4a8f5dc20fe4d94a9e2cb6d50a459cc6e6e6a64e7c645d807",
-   "bytes": 4662239
+   "fetched_at": "2026-09-16T10:28:25.184Z",
+   "commit": "4f77a59abbacdcfa41cc2f4d06b3ed0323ab64c4",
+   "etag": "W/\"83a1822ebe9cc4a6d949d5ca585bedb1\"",
+   "sha256": "83a1822ebe9cc4a6d949d5ca585bedb133fb68f5f311eb12b917e887d8cd0e61",
+   "bytes": 4676057
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-15T10:40:39.799Z",
-   "commit": "ce83fac3515c36c927ed133fe48abd7dc1a3ee74",
-   "etag": "W/\"674d90076f1250f40d6f78971a5ae9d8cdafcbcf77eedbfdfdc1d2a27cdae1ae\"",
-   "sha256": "68d287ec565357907d2059f9e3aa26182275cc0ef426905cc36f79f815acedb5",
-   "bytes": 2432218
+   "fetched_at": "2026-09-16T10:28:25.184Z",
+   "commit": "daa98cd6fff9e4f7bd804dd6368bffefd8393157",
+   "etag": "W/\"d5c8bcb1e7351c553a63307d9d093b02df877de8f5de239dc43e573a808aaf8c\"",
+   "sha256": "d78981a8262984ff515e8bc0f92711a97a186963d526f44a893fcb4ccc19ae80",
+   "bytes": 2475907
   },
-  "overrides_commit": "32876c642f1df4c0f728c094cbcfa4de08a3a25b",
-  "previous_version": "v2026.9.14"
+  "overrides_commit": "7598106a53b29ba7257c842f6655e541ac80d9f3",
+  "previous_version": "v2026.9.15"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -6178,6 +6178,18 @@
      "status": "active"
     },
     {
+     "id": "glm-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "kimi-k2-thinking",
      "name": "Moonshot Kimi K2 Thinking",
      "release_date": "2025-11-06",
@@ -7472,6 +7484,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "glm-5",
      "name": "GLM-5",
      "release_date": "2026-02-12",
@@ -8081,7 +8106,7 @@
     {
      "id": "anthropic.claude-opus-4-5-20251101-v1:0",
      "name": "Claude Opus 4.5",
-     "release_date": "2025-11-24",
+     "release_date": "2025-11-01",
      "tool_call": true,
      "context_window": 200000,
      "max_output_tokens": 64000,
@@ -8168,7 +8193,7 @@
      "release_date": "2026-02-17",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -8228,6 +8253,20 @@
       "text",
       "image",
       "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "apac.anthropic.claude-sonnet-4-20250514-v1:0",
+     "name": "Claude Sonnet 4 (APAC)",
+     "release_date": "2025-05-22",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
       "pdf"
      ],
      "status": "active"
@@ -8483,7 +8522,7 @@
     {
      "id": "eu.anthropic.claude-opus-4-5-20251101-v1:0",
      "name": "Claude Opus 4.5 (EU)",
-     "release_date": "2025-11-24",
+     "release_date": "2025-11-01",
      "tool_call": true,
      "context_window": 200000,
      "max_output_tokens": 64000,
@@ -8551,6 +8590,20 @@
      "status": "active"
     },
     {
+     "id": "eu.anthropic.claude-sonnet-4-20250514-v1:0",
+     "name": "Claude Sonnet 4 (EU)",
+     "release_date": "2025-05-22",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "eu.anthropic.claude-sonnet-4-5-20250929-v1:0",
      "name": "Claude Sonnet 4.5 (EU)",
      "release_date": "2025-09-29",
@@ -8570,7 +8623,7 @@
      "release_date": "2026-02-17",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -8665,7 +8718,7 @@
     {
      "id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
      "name": "Claude Opus 4.5 (Global)",
-     "release_date": "2025-11-24",
+     "release_date": "2025-11-01",
      "tool_call": true,
      "context_window": 200000,
      "max_output_tokens": 64000,
@@ -8733,6 +8786,20 @@
      "status": "active"
     },
     {
+     "id": "global.anthropic.claude-sonnet-4-20250514-v1:0",
+     "name": "Claude Sonnet 4 (Global)",
+     "release_date": "2025-05-22",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "global.anthropic.claude-sonnet-4-5-20250929-v1:0",
      "name": "Claude Sonnet 4.5 (Global)",
      "release_date": "2025-09-29",
@@ -8752,7 +8819,7 @@
      "release_date": "2026-02-17",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -9040,7 +9107,7 @@
      "release_date": "2026-02-17",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -9745,7 +9812,7 @@
     {
      "id": "us.anthropic.claude-opus-4-5-20251101-v1:0",
      "name": "Claude Opus 4.5 (US)",
-     "release_date": "2025-11-24",
+     "release_date": "2025-11-01",
      "tool_call": true,
      "context_window": 200000,
      "max_output_tokens": 64000,
@@ -9813,6 +9880,20 @@
      "status": "active"
     },
     {
+     "id": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+     "name": "Claude Sonnet 4 (US)",
+     "release_date": "2025-05-22",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
      "name": "Claude Sonnet 4.5 (US)",
      "release_date": "2025-09-29",
@@ -9832,7 +9913,7 @@
      "release_date": "2026-02-17",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -28173,7 +28254,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "accounts/fireworks/models/deepseek-v4-pro-0813",
@@ -28321,14 +28402,15 @@
     {
      "id": "accounts/fireworks/models/minimax-m2p7",
      "name": "MiniMax-M2.7",
-     "release_date": "2026-04-12",
+     "release_date": "2026-03-18",
      "tool_call": true,
      "context_window": 196608,
      "max_output_tokens": 196608,
      "input_modalities": [
       "text"
      ],
-     "status": "retired"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "accounts/fireworks/models/minimax-m3",
@@ -28436,6 +28518,31 @@
      "status": "active"
     },
     {
+     "id": "accounts/fireworks/routers/deepseek-flash-latest",
+     "name": "DeepSeek Flash Latest",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/deepseek-pro-latest",
+     "name": "DeepSeek Pro Latest",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "accounts/fireworks/routers/glm-5p2-fast",
      "name": "GLM 5.2 Fast",
      "release_date": "2026-06-26",
@@ -28456,6 +28563,56 @@
      "max_output_tokens": 262144,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/glm-fast-latest",
+     "name": "GLM 5.3 Fast (Latest)",
+     "release_date": "2026-08-28",
+     "tool_call": true,
+     "context_window": 1048572,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/glm-flash-latest",
+     "name": "GLM Flash Latest (GLM 5.3 Flash)",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1048573,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/glm-latest",
+     "name": "GLM Latest",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1048573,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/kimi-fast-latest",
+     "name": "Kimi Fast Latest",
+     "release_date": "2026-07-27",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -28506,6 +28663,44 @@
      "release_date": "2026-07-27",
      "tool_call": true,
      "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/kimi-latest",
+     "name": "Kimi Latest",
+     "release_date": "2026-07-27",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/minimax-latest",
+     "name": "MiniMax Latest",
+     "release_date": "2026-06-12",
+     "tool_call": true,
+     "context_window": 512000,
+     "max_output_tokens": 512000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "accounts/fireworks/routers/qwen-max-latest",
+     "name": "Qwen Max Latest (Qwen3.8 Max)",
+     "release_date": "2026-08-03",
+     "tool_call": true,
+     "context_window": 262144,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -34737,7 +34932,7 @@
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 13107,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image"
@@ -34798,10 +34993,9 @@
      "release_date": "2026-08-28",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 128000,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active"
     },
@@ -39116,7 +39310,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -41473,7 +41667,7 @@
      "name": "Mistral: Mistral Small 3.2 24B",
      "release_date": "2025-06-20",
      "tool_call": true,
-     "context_window": 128000,
+     "context_window": 256000,
      "max_output_tokens": 16384,
      "input_modalities": [
       "text",
@@ -41776,8 +41970,8 @@
      "name": "Nemotron 3 Ultra 550B A55B",
      "release_date": "2026-06-04",
      "tool_call": true,
-     "context_window": 202800,
-     "max_output_tokens": 182520,
+     "context_window": 256000,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -44296,6 +44490,18 @@
      "status": "active"
     },
     {
+     "id": "z-ai/glm-5.2:free",
+     "name": "Z.ai: GLM 5.2 (free)",
+     "release_date": "2026-06-13",
+     "tool_call": false,
+     "context_window": 32768,
+     "max_output_tokens": 29491,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "z-ai/glm-5.3",
      "name": "GLM-5.3",
      "release_date": "2026-08-14",
@@ -45028,6 +45234,18 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4-1-flash",
+     "name": "DeepSeek-V4.1-Flash",
+     "release_date": "2026-09-15",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text"
      ],
      "status": "active"
     },
@@ -47534,6 +47752,18 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "alibaba/glm-5.3",
+     "name": "GLM-5.3 (Alibaba Cloud)",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1048576,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -51969,6 +52199,18 @@
      "status": "active"
     },
     {
+     "id": "runware/deepseek-v4-1-flash",
+     "name": "DeepSeek-V4.1-Flash (Runware)",
+     "release_date": "2026-09-15",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "runware/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (Runware)",
      "release_date": "2026-04-24",
@@ -56310,11 +56552,10 @@
      "name": "Qwen3.5 397B A17B",
      "release_date": "2026-02-15",
      "tool_call": true,
-     "context_window": 256000,
-     "max_output_tokens": 64000,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active"
     },
@@ -60664,7 +60905,7 @@
       "text",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepcogito/cogito-v1-preview-qwen-32B",
@@ -61691,7 +61932,7 @@
      "name": "Gemma 4 12B Instruct",
      "release_date": "2026-08-01",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 131072,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
@@ -62065,7 +62306,7 @@
       "audio",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "gemma-4-e4b-it",
@@ -62080,7 +62321,7 @@
       "audio",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "glm-4",
@@ -65919,7 +66160,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3.5-122b-a10b",
@@ -65984,7 +66225,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3.5-35b-a3b",
@@ -66067,7 +66308,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3.5-9b",
@@ -81783,8 +82024,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -84258,7 +84498,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "z-ai/glm-5.3",
@@ -92399,7 +92640,7 @@
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 1048576,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -98656,6 +98897,19 @@
      "status": "active"
     },
     {
+     "id": "deepseek/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "minimax/minimax-m2.5",
      "name": "MiniMax-M2.5",
      "release_date": "2026-02-12",
@@ -99124,7 +99378,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "gemma4-31b",
@@ -100895,7 +101149,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek-v4-flash",
@@ -100933,6 +101187,19 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
     },
     {
      "id": "glm-5.3",
@@ -101842,7 +102109,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "openai-gpt-53-codex",
@@ -103908,6 +104175,30 @@
      "status": "active"
     },
     {
+     "id": "inference-net/schematron-v2-small",
+     "name": "Schematron V2 Small",
+     "release_date": "2026-04-16",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inference-net/schematron-v2-turbo",
+     "name": "Schematron V2 Turbo",
+     "release_date": "2026-04-16",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "interfaze/interfaze-beta",
      "name": "Interfaze Beta",
      "release_date": "2025-10-07",
@@ -104273,7 +104564,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "mistral/devstral-small-2",
@@ -104286,7 +104577,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "mistral/magistral-medium",
@@ -104317,7 +104608,7 @@
      "name": "Ministral 14B",
      "release_date": "2025-12-02",
      "tool_call": false,
-     "context_window": 256000,
+     "context_window": 262144,
      "max_output_tokens": 256000,
      "input_modalities": [
       "text",
@@ -104367,7 +104658,7 @@
      "name": "Mistral Large 3",
      "release_date": "2025-12-02",
      "tool_call": false,
-     "context_window": 256000,
+     "context_window": 262144,
      "max_output_tokens": 256000,
      "input_modalities": [
       "text",
@@ -104386,14 +104677,14 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "mistral/mistral-medium-3.5",
      "name": "Mistral Medium Latest",
      "release_date": "2026-04-29",
      "tool_call": true,
-     "context_window": 256000,
+     "context_window": 262144,
      "max_output_tokens": 256000,
      "input_modalities": [
       "text",
@@ -104406,11 +104697,10 @@
      "name": "Mistral Nemo",
      "release_date": "2024-07-18",
      "tool_call": true,
-     "context_window": 128000,
-     "max_output_tokens": 128000,
+     "context_window": 60288,
+     "max_output_tokens": 16000,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active"
     },
@@ -104419,7 +104709,7 @@
      "name": "Mistral Small (latest)",
      "release_date": "2024-09-17",
      "tool_call": true,
-     "context_window": 32000,
+     "context_window": 262144,
      "max_output_tokens": 4000,
      "input_modalities": [
       "text",
@@ -104438,7 +104728,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "moonshotai/kimi-k2",
