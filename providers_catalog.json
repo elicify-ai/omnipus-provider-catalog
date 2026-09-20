@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.19",
- "updated_at": "2026-09-19T09:56:02.478Z",
- "generated_at": "2026-09-19T09:56:02.478Z",
- "source": "models.dev@b507a904ffd5408f3f207e9c073d9bc0e1f6c8a5 litellm@2303379c2080aaeca398a7a3d3b8f5ac2019cc60 overrides@b51e5dd0141077b93e38299eff3f4fa7a181f647",
+ "version": "v2026.9.20",
+ "updated_at": "2026-09-20T10:17:23.983Z",
+ "generated_at": "2026-09-20T10:17:23.983Z",
+ "source": "models.dev@5e6d15218298092d8310dff46544c2e72f3641c5 litellm@3619142a529ed1a0bf36d21c739be76cb3589081 overrides@b9bdf6efdac296fc8bf4adea5684a918a13ef576",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-19T09:56:02.478Z",
-   "commit": "b507a904ffd5408f3f207e9c073d9bc0e1f6c8a5",
-   "etag": "W/\"570c5df2f80ed1e3396ff1051b6a37cc\"",
-   "sha256": "570c5df2f80ed1e3396ff1051b6a37cc8ca234d6753fc933fa48ff060841d6ef",
-   "bytes": 4702801
+   "fetched_at": "2026-09-20T10:17:23.983Z",
+   "commit": "5e6d15218298092d8310dff46544c2e72f3641c5",
+   "etag": "W/\"54f285601fbf7660565408bf03f19501\"",
+   "sha256": "54f285601fbf7660565408bf03f195011a3b29d91587b7c261bac8a995e4e35f",
+   "bytes": 4710538
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-19T09:56:02.478Z",
-   "commit": "2303379c2080aaeca398a7a3d3b8f5ac2019cc60",
-   "etag": "W/\"0e2e33cf6a9d5f166cb3aa65bf40197a91fba835cf042e0ebc93773758e7fdaf\"",
-   "sha256": "7e0f61b3a260855c8d7c20fb77207d51b1bc6b0b634b5b3decb4c361b5ccf015",
-   "bytes": 2807236
+   "fetched_at": "2026-09-20T10:17:23.983Z",
+   "commit": "3619142a529ed1a0bf36d21c739be76cb3589081",
+   "etag": "W/\"b7e4c940af9cefb59ad0102eafd76ddccad3dd1d7bb91c7b6bcbe2f50a95de2e\"",
+   "sha256": "9634205cf0082bf968a3d12bc7c8f52f9ccc30f80d44e0c9c598d7993a3e710e",
+   "bytes": 2817203
   },
-  "overrides_commit": "b51e5dd0141077b93e38299eff3f4fa7a181f647",
-  "previous_version": "v2026.9.18"
+  "overrides_commit": "b9bdf6efdac296fc8bf4adea5684a918a13ef576",
+  "previous_version": "v2026.9.19"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -39983,7 +39983,7 @@
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image",
@@ -40419,7 +40419,7 @@
     },
     {
      "id": "baidu/ernie-4.5-vl-424b-a47b",
-     "name": "Baidu: ERNIE 4.5 VL 424B A47B ",
+     "name": "Baidu: ERNIE 4.5 VL 424B A47B  (retires Oct 8)",
      "release_date": "2025-06-30",
      "tool_call": false,
      "context_window": 123000,
@@ -40661,7 +40661,7 @@
     },
     {
      "id": "deepseek/deepseek-r1-distill-llama-70b",
-     "name": "DeepSeek: R1 Distill Llama 70B",
+     "name": "DeepSeek: R1 Distill Llama 70B (retires Sep 28)",
      "release_date": "2025-01-23",
      "tool_call": false,
      "context_window": 8192,
@@ -40673,7 +40673,7 @@
     },
     {
      "id": "deepseek/deepseek-v3.1-terminus",
-     "name": "DeepSeek: DeepSeek V3.1 Terminus",
+     "name": "DeepSeek: DeepSeek V3.1 Terminus (retires Sep 28)",
      "release_date": "2025-09-22",
      "tool_call": true,
      "context_window": 131072,
@@ -40697,7 +40697,7 @@
     },
     {
      "id": "deepseek/deepseek-v3.2-exp",
-     "name": "DeepSeek: DeepSeek V3.2 Exp",
+     "name": "DeepSeek: DeepSeek V3.2 Exp (retires Sep 28)",
      "release_date": "2025-09-29",
      "tool_call": true,
      "context_window": 163840,
@@ -40741,7 +40741,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-v4-flash-vision-exp",
@@ -40774,7 +40774,7 @@
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -41720,7 +41720,7 @@
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image",
@@ -42170,7 +42170,7 @@
      "id": "mistralai/mistral-small-3.1-24b-instruct",
      "name": "Mistral: Mistral Small 3.1 24B",
      "release_date": "2025-03-17",
-     "tool_call": false,
+     "tool_call": true,
      "context_window": 128000,
      "max_output_tokens": 102400,
      "input_modalities": [
@@ -44008,8 +44008,8 @@
      "name": "Qwen3.5 35B-A3B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 65536,
+     "context_window": 256000,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image",
@@ -44036,8 +44036,8 @@
      "name": "Qwen3.5 9B",
      "release_date": "2026-02-23",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 235929,
+     "context_window": 256000,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image",
@@ -44211,7 +44211,7 @@
      "name": "Qwen3.8 27B",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 1000000,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -53849,7 +53849,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "vichar-ai/glm-5.3-flash",
@@ -53861,7 +53861,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "xai/grok-4",
@@ -58075,9 +58075,9 @@
   },
   {
    "id": "minimax-cn",
-   "name": "MiniMax (minimaxi.com)",
+   "name": "MiniMax (minimax.cn)",
    "company": "MiniMax",
-   "api": "https://api.minimaxi.com/anthropic/v1",
+   "api": "https://api.minimax.cn/anthropic/v1",
    "protocol": "anthropic",
    "env": [
     "MINIMAX_API_KEY"
@@ -58183,9 +58183,9 @@
   },
   {
    "id": "minimax-cn-coding-plan",
-   "name": "MiniMax Token Plan (minimaxi.com)",
-   "company": "MiniMax Token Plan (minimaxi.com)",
-   "api": "https://api.minimaxi.com/anthropic/v1",
+   "name": "MiniMax Token Plan (minimax.cn)",
+   "company": "MiniMax Token Plan (minimax.cn)",
+   "api": "https://api.minimax.cn/anthropic/v1",
    "protocol": "anthropic",
    "env": [
     "MINIMAX_API_KEY"
@@ -63258,6 +63258,18 @@
      "status": "retired"
     },
     {
+     "id": "google/diffusiongemma",
+     "name": "DiffusionGemma",
+     "release_date": "2026-09-19",
+     "tool_call": false,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "google/gemini-3-flash-preview",
      "name": "Gemini 3 Flash (Preview)",
      "release_date": "2025-12-17",
@@ -63529,6 +63541,19 @@
       "image"
      ],
      "status": "retired"
+    },
+    {
+     "id": "google/gemma-4-26b-a4b-it-cybersecurity",
+     "name": "Gemma 4 26B A4B Cybersecurity",
+     "release_date": "2026-09-19",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
     },
     {
      "id": "google/gemma-4-26b-a4b-it-darksoul",
@@ -65516,6 +65541,18 @@
      "status": "active"
     },
     {
+     "id": "nvidia/nemotron-3.5-content-safety",
+     "name": "Nemotron 3.5 Content Safety",
+     "release_date": "2026-06-04",
+     "tool_call": false,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "nvidia/nemotron-3.5-lightning",
      "name": "Nvidia Nemotron 3.5 Lightning",
      "release_date": "2026-08-11",
@@ -67473,6 +67510,19 @@
      "status": "active"
     },
     {
+     "id": "qwen/qwen3.8-27b-cybersecurity",
+     "name": "Qwen 3.8 27B Cybersecurity",
+     "release_date": "2026-09-19",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "qwen/qwen3.8-27b-fable",
      "name": "Qwen 3.8 27B Fable",
      "release_date": "2026-07-29",
@@ -68466,7 +68516,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "TEE/deepseek-v4.1-flash",
@@ -69865,6 +69915,19 @@
      "status": "active"
     },
     {
+     "id": "z-ai/glm-5.3-flash-cybersecurity",
+     "name": "GLM 5.3 Flash Cybersecurity",
+     "release_date": "2026-09-19",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "z-ai/glm-5.3-flash-uncensored",
      "name": "GLM 5.3 Flash Uncensored",
      "release_date": "2026-07-29",
@@ -70857,6 +70920,31 @@
      "status": "active"
     },
     {
+     "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+     "name": "DeepSeek V4 Pro 0813",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 979000,
+     "max_output_tokens": 979000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048000,
+     "max_output_tokens": 1048000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "google/gemma-3-27b-it",
      "name": "Gemma-3-27b-it",
      "release_date": "2026-01-20",
@@ -71252,6 +71340,18 @@
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "zai-org/GLM-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 1024000,
      "input_modalities": [
       "text"
      ],
@@ -80451,8 +80551,7 @@
       "text",
       "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "~deepseek/deepseek-pro-latest",
@@ -80460,7 +80559,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -80472,12 +80571,11 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "~google/gemini-flash-latest",
@@ -80635,7 +80733,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "~z-ai/glm-latest",
@@ -80643,12 +80742,11 @@
      "release_date": "2026-08-19",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "aion-labs/aion-2.0",
@@ -81387,7 +81485,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-v4-flash-vision-exp",
@@ -81395,13 +81493,12 @@
      "release_date": "2026-08-21",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "deepseek/deepseek-v4-pro",
@@ -81421,7 +81518,7 @@
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -82317,7 +82414,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "meta/muse-spark-1.1",
@@ -82769,7 +82867,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "mistralai/mistral-small-3.2-24b-instruct",
@@ -83092,12 +83191,11 @@
      "release_date": "2026-06-04",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 182520,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -83143,12 +83241,11 @@
      "release_date": "2026-08-11",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "nvidia/nemotron-3.5-lightning:free",
@@ -83861,12 +83958,11 @@
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "openai/gpt-oss-20b",
@@ -84627,7 +84723,7 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image",
@@ -84655,7 +84751,7 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image",
@@ -85601,12 +85697,11 @@
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 943717,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "z-ai/glm-5.3-flash",
@@ -99993,7 +100088,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-r1-0528",
@@ -100029,7 +100124,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-v4-flash-0731",
@@ -100050,6 +100145,18 @@
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek/deepseek-v4-pro-0813",
+     "name": "DeepSeek V4 Pro 0813",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 64000,
      "input_modalities": [
       "text"
      ],
@@ -100159,7 +100266,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "openai/gpt-oss-120b",
@@ -100171,7 +100278,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3-235b-a22b-2507",
@@ -100194,7 +100301,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -100207,7 +100314,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3.5-122b-a10b",
@@ -100239,6 +100346,46 @@
      "status": "active"
     },
     {
+     "id": "qwen/qwen3.8-2.4t-a95b",
+     "name": "Qwen3.8 2.4T A95B",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-flash-next",
+     "name": "Qwen3.8 Flash Next",
+     "release_date": "2026-08-27",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "z-ai/glm-4.7",
      "name": "GLM-4.7",
      "release_date": "2025-12-22",
@@ -100249,7 +100396,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "z-ai/glm-5",
@@ -100296,6 +100443,33 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "z-ai/glm-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "z-ai/glm-5.3-flash",
+     "name": "GLM-5.3-Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
@@ -105945,6 +106119,18 @@
      "status": "retired"
     },
     {
+     "id": "mixedbread/toast-1",
+     "name": "Toast 1",
+     "release_date": "2026-08-13",
+     "tool_call": true,
+     "context_window": 131000,
+     "max_output_tokens": 4000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "moonshotai/kimi-k2",
      "name": "Kimi K2 Instruct",
      "release_date": "2025-07-11",
@@ -107115,6 +107301,32 @@
      "status": "active"
     },
     {
+     "id": "quiverai/arrow-2",
+     "name": "Arrow 2",
+     "release_date": "2026-09-16",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "quiverai/arrow-2-telos",
+     "name": "Arrow 2 Telos",
+     "release_date": "2026-09-16",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "sakana/fugu-max",
      "name": "Fugu Max",
      "release_date": "2026-09-10",
@@ -107360,6 +107572,19 @@
      "status": "active"
     },
     {
+     "id": "stepfun/step-5-preview",
+     "name": "Step 5 Preview",
+     "release_date": "2026-09-20",
+     "tool_call": false,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "tencent/hy-mt2-lite",
      "name": "Tencent Hy-MT2-Lite",
      "release_date": "2026-06-12",
@@ -107452,7 +107677,7 @@
      "name": "Jev",
      "release_date": "2026-09-15",
      "tool_call": false,
-     "context_window": 64000,
+     "context_window": 32000,
      "max_output_tokens": 0,
      "input_modalities": [
       "text"
@@ -111637,7 +111862,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "x-ai/grok-4-fast",
@@ -111650,7 +111875,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "x-ai/grok-4.1-fast",
@@ -111663,7 +111888,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "x-ai/grok-4.1-fast-non-reasoning",
@@ -111676,33 +111901,31 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "x-ai/grok-4.2-fast",
      "name": "Grok 4.2 Fast",
-     "release_date": "2026-03-20",
+     "release_date": "2026-03-09",
      "tool_call": true,
      "context_window": 2000000,
      "max_output_tokens": 30000,
      "input_modalities": [
       "text",
-      "image",
-      "video"
+      "image"
      ],
      "status": "active"
     },
     {
      "id": "x-ai/grok-4.2-fast-non-reasoning",
      "name": "Grok 4.2 Fast Non Reasoning",
-     "release_date": "2026-03-20",
+     "release_date": "2026-03-09",
      "tool_call": true,
      "context_window": 2000000,
      "max_output_tokens": 30000,
      "input_modalities": [
       "text",
-      "image",
-      "video"
+      "image"
      ],
      "status": "active"
     },
@@ -111735,6 +111958,19 @@
      "status": "active"
     },
     {
+     "id": "x-ai/grok-4.6",
+     "name": "Grok 4.6",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "x-ai/grok-build-0.1",
      "name": "Grok Build 0.1",
      "release_date": "2026-04-16",
@@ -111743,8 +111979,7 @@
      "max_output_tokens": 256000,
      "input_modalities": [
       "text",
-      "image",
-      "pdf"
+      "image"
      ],
      "status": "active"
     },
@@ -111758,7 +111993,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "xiaomi/mimo-v2-flash",
@@ -111830,10 +112065,10 @@
     {
      "id": "z-ai/glm-4.5",
      "name": "GLM 4.5",
-     "release_date": "2025-07-25",
+     "release_date": "2025-07-28",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 96000,
      "input_modalities": [
       "text"
      ],
@@ -111842,10 +112077,10 @@
     {
      "id": "z-ai/glm-4.5-air",
      "name": "GLM 4.5 Air",
-     "release_date": "2025-07-25",
+     "release_date": "2025-07-28",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 96000,
      "input_modalities": [
       "text"
      ],
@@ -111857,7 +112092,7 @@
      "release_date": "2025-09-30",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -111869,7 +112104,7 @@
      "release_date": "2025-12-08",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -111883,7 +112118,7 @@
      "release_date": "2025-12-08",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -111897,21 +112132,22 @@
      "release_date": "2025-12-08",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
-      "video"
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
     {
      "id": "z-ai/glm-4.7",
      "name": "GLM 4.7",
-     "release_date": "2025-12-23",
+     "release_date": "2025-12-22",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -111923,7 +112159,7 @@
      "release_date": "2026-01-19",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -111935,7 +112171,7 @@
      "release_date": "2026-01-19",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -111956,7 +112192,7 @@
     {
      "id": "z-ai/glm-5-turbo",
      "name": "GLM 5 Turbo",
-     "release_date": "2026-03-20",
+     "release_date": "2026-03-16",
      "tool_call": true,
      "context_window": 200000,
      "max_output_tokens": 128000,
@@ -111967,11 +112203,11 @@
     },
     {
      "id": "z-ai/glm-5.1",
-     "name": "GLM-5.1",
-     "release_date": "2026-04-03",
+     "name": "GLM 5.1",
+     "release_date": "2026-04-07",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -111983,7 +112219,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -111998,6 +112234,48 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "retired"
+    },
+    {
+     "id": "z-ai/glm-5.3",
+     "name": "GLM 5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "z-ai/glm-5.3-flash",
+     "name": "GLM 5.3 Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "z-ai/glm-5.3-flashx",
+     "name": "GLM 5.3 FlashX",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
      ],
      "status": "active"
     },
