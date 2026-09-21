@@ -59,12 +59,58 @@ providers:
       - { protocol: openai-compatible, api: https://api.deepseek.com }
       - { protocol: anthropic, api: https://api.deepseek.com/anthropic }
 
-  # ----- Unsupported: these need a cloud identity sign-in, not an API key -----
+  # ----- Amazon Bedrock: re-enabled (issue elicify-ai/omnipus#800) -----
+  # AWS now issues Amazon Bedrock API keys used as a plain bearer token
+  # (`Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK`) against the
+  # bedrock-runtime HTTPS endpoint — no AWS SigV4 request signing needed, so
+  # the previous cloud-iam classification is stale and is corrected here.
+  # Sources (fetch-verified 2026-09-21):
+  #   auth (no SigV4): https://docs.aws.amazon.com/bedrock/latest/userguide/api-keys-use.html
+  #   region/endpoint list: https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bedrock_region
+  #     (Amazon Bedrock runtime APIs table — the 22 regions with a bedrock-runtime.<region>.amazonaws.com endpoint)
+  #   cross-region inference geography groups (us/eu/apac/jp/au/global; GovCloud
+  #   has its own separate "US_GOV" profile, not one of these):
+  #     https://docs.aws.amazon.com/cdk/api/v2/docs/@aws-cdk_aws-bedrock-alpha.CrossRegionInferenceProfileRegion.html
+  #     https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html
+  #   Region-to-group assignment: a region is assigned the most specific geography
+  #   it is a member of (jp/au before the broader apac) — mirrors the worked
+  #   example in bedrock-region/CONTRACT.md, which maps ap-northeast-1 (Tokyo) to
+  #   "jp" rather than "apac". ca-central-1 and sa-east-1 have a bedrock-runtime
+  #   endpoint but AWS documents no cross-region inference geography containing
+  #   them, so they are published with group "" (on-demand only in that region).
   amazon-bedrock:
-    reason: "Needs AWS SigV4 request signing (cloud IAM), which a plain API key cannot provide; published as unsupported / cloud-iam."
-    tier: unsupported
-    unsupported_reason: cloud-iam
+    reason: "Issue elicify-ai/omnipus#800: AWS Bedrock API keys (Authorization: Bearer) exist, so a plain API key needs no SigV4 signing; region list and cross-region geography groups fetch-verified 2026-09-21 against the AWS sources cited above the block."
+    tier: standard
+    protocol: bedrock
+    api: https://bedrock-runtime.us-east-1.amazonaws.com
+    region: us-east-1
+    auth_methods: [api_key]
     aliases: [bedrock, aws]
+    regions:
+      - { id: us-east-1, group: us }
+      - { id: us-east-2, group: us }
+      - { id: us-west-2, group: us }
+      - { id: ap-south-1, group: apac }
+      - { id: ap-south-2, group: apac }
+      - { id: ap-northeast-1, group: jp }
+      - { id: ap-northeast-2, group: apac }
+      - { id: ap-northeast-3, group: jp }
+      - { id: ap-southeast-1, group: apac }
+      - { id: ap-southeast-2, group: au }
+      - { id: ca-central-1, group: "" }
+      - { id: eu-central-1, group: eu }
+      - { id: eu-central-2, group: eu }
+      - { id: eu-north-1, group: eu }
+      - { id: eu-south-1, group: eu }
+      - { id: eu-south-2, group: eu }
+      - { id: eu-west-1, group: eu }
+      - { id: eu-west-2, group: eu }
+      - { id: eu-west-3, group: eu }
+      - { id: sa-east-1, group: "" }
+      - { id: us-gov-east-1, group: "" }
+      - { id: us-gov-west-1, group: "" }
+
+  # ----- Unsupported: these need a cloud identity sign-in, not an API key -----
   google-vertex:
     reason: "Needs Google Cloud OAuth (cloud IAM), not a plain API key; published as unsupported / cloud-iam."
     tier: unsupported

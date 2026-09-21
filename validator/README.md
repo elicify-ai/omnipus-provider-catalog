@@ -85,7 +85,7 @@ npm run fixtures      # regenerate fixtures/ from fixtures/gen.mjs
 | PROVIDER_NAME | `name` is non-empty. |
 | TIER | `tier` is `popular`, `standard` or `unsupported`. |
 | UNSUPPORTED_REASON | `unsupported_reason` is present exactly when `tier` is `unsupported`, and is `cloud-iam`, `deployment-url` or `withdrawn`. |
-| PROTOCOL | `protocol` is one of the five known values; empty only when the provider is unsupported. |
+| PROTOCOL | `protocol` is one of the six known values; empty only when the provider is unsupported. |
 | API_PRESENCE | `api` is non-empty unless the provider is unsupported. |
 | API_URL | `api` and every `protocols[].api` is an absolute `https` URL with a host, no credentials, query or fragment, and not a loopback, link-local (including `169.254.169.254`), private-range, unique-local or unspecified IP address. Local-machine providers (see below) may use `http` and any host. |
 | PROTOCOLS_LIST | `protocols` entries are unique and valid, and include the primary `protocol` with the same `api`. |
@@ -110,7 +110,7 @@ npm run fixtures      # regenerate fixtures/ from fixtures/gen.mjs
 | Check | What it requires |
 |---|---|
 | POPULAR | The providers with `tier: popular` are exactly `openai`, `openrouter`, `anthropic`, `google`, `xai`, `groq`, `mistral`, `deepseek`. |
-| CLOUD_IAM | `amazon-bedrock`, `google-vertex`, `google-vertex-anthropic`, `watsonx` and `sap-ai-core` are present as `unsupported` / `cloud-iam`; `azure` is present as `unsupported` / `deployment-url`. |
+| CLOUD_IAM | `google-vertex`, `google-vertex-anthropic`, `watsonx` and `sap-ai-core` are present as `unsupported` / `cloud-iam`; `azure` is present as `unsupported` / `deployment-url`. `amazon-bedrock` is no longer in this set (issue elicify-ai/omnipus#800): AWS Bedrock API keys are a plain bearer token, so it is published as `standard` / protocol `bedrock` instead. |
 | LOCAL_FILE_PROVIDERS | The 11 providers defined in `overrides/local-providers.yaml` are all present. |
 
 A provider counts as **local-machine** when its `protocol` is `ollama` or

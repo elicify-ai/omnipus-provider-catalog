@@ -86,6 +86,18 @@ export function validateCatalog(doc: unknown, opts: ValidateOptions = {}): Findi
       }
     }
 
+    if (p.regions) {
+      const seenRegions = new Set<string>();
+      for (const [j, r] of p.regions.entries()) {
+        const rp = `${path}.regions[${j}]`;
+        if (seenRegions.has(r.id)) findings.push({ path: rp, message: `duplicate region id ${JSON.stringify(r.id)}` });
+        seenRegions.add(r.id);
+      }
+      if (p.region && !p.regions.some((r) => r.id === p.region)) {
+        findings.push({ path: `${path}.region`, message: `default region ${JSON.stringify(p.region)} is not present in regions` });
+      }
+    }
+
     // Local rows list models live and unsupported rows cannot be configured, so only a selectable cloud row must carry models.
     if (p.models.length === 0 && !local && !unsupported) findings.push({ path: `${path}.models`, message: "every selectable cloud provider needs at least one model" });
     const mids = new Set<string>();

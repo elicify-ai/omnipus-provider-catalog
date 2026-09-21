@@ -147,14 +147,15 @@ comes from, is in [`docs/schema-2.0.0.md`](docs/schema-2.0.0.md). In short:
 |---|---|
 | `id`, `name`, `company` | Stable id, display name, and the company it belongs to (for grouping). |
 | `api` | The base URL you send requests to. |
-| `protocol` | The wire protocol to speak: `openai-compatible`, `anthropic`, `google`, `ollama` or `cli`. |
+| `protocol` | The wire protocol to speak: `openai-compatible`, `anthropic`, `google`, `ollama`, `cli` or `bedrock`. |
 | `protocols` | Optional list of every protocol and URL pair the provider serves, when there is more than one. |
 | `env` | The environment variable names the provider's own tooling conventionally uses for its API key — a hint for UI labels, nothing more. |
 | `tier` | `popular`, `standard` or `unsupported`. |
 | `unsupported_reason` | Why an `unsupported` provider cannot be called directly: needs cloud IAM sign-in, needs a per-deployment URL, or was withdrawn upstream. |
 | `auth_methods` | How you authenticate: `api_key`, `sign_in`, or both. |
 | `aliases` | Extra search strings (for example `claude` for `anthropic`). |
-| `region`, `plan` | Optional hints such as `cn` or `coding-plan`. |
+| `region`, `plan` | Optional hints such as `cn` or `coding-plan`. `region` is the default region for a provider with a `regions` picker (currently only `amazon-bedrock`). |
+| `regions` | Optional: the regions offered in a region picker, each with its cross-region inference group (`us`, `eu`, `apac`, `jp`, `au` or `""`). Currently only `amazon-bedrock` carries this. |
 | `cli_kind`, `token_source` | Only for providers driven through a command-line tool rather than HTTP. |
 | `resize_limits` | The largest image the provider accepts: long edge in pixels and size in bytes. |
 | `models` | The provider's models. |
@@ -171,6 +172,7 @@ comes from, is in [`docs/schema-2.0.0.md`](docs/schema-2.0.0.md). In short:
 | `tool_call` | Whether the model supports tool calling (function calling). |
 | `status` | `active`, or `retired` when the model has disappeared from the upstream sources. |
 | `disputed` | Present and `true` while the sources disagree about this model (see below). |
+| `inference_profiles` | Optional (currently only `amazon-bedrock`): the cross-region groups (`us`, `eu`, `apac`, `jp`, `au`, `global`) for which AWS Bedrock publishes a cross-region inference profile of this model. |
 
 Only text-generating models are included. Image, video and speech generators
 are left out, as is any model for which no source knows the context window.

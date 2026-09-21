@@ -188,6 +188,46 @@ describe("validateCatalog", () => {
     expect(messages(c)).toEqual(["providers: popular provider xai is missing", "providers: local-file provider vllm is missing"]);
   });
 
+  it("accepts the optional regions field, rejects duplicate region ids, and requires the default region to be offered when regions is set", () => {
+    const c = minimalCatalog();
+    const p = c.providers[0]!;
+    p.regions = [
+      { id: "us-east-1", group: "us" },
+      { id: "eu-central-1", group: "eu" },
+      { id: "us-gov-west-1", group: "" },
+    ];
+    p.region = "us-east-1";
+    expect(validateCatalog(c)).toEqual([]);
+
+    const dup = minimalCatalog();
+    dup.providers[0]!.regions = [
+      { id: "us-east-1", group: "us" },
+      { id: "us-east-1", group: "us" },
+    ];
+    expect(messages(dup)).toEqual([`providers[0](openai).regions[1]: duplicate region id "us-east-1"`]);
+
+    const mismatch = minimalCatalog();
+    mismatch.providers[0]!.region = "us-gov-west-1";
+    mismatch.providers[0]!.regions = [{ id: "us-east-1", group: "us" }];
+    expect(messages(mismatch)).toEqual([`providers[0](openai).region: default region "us-gov-west-1" is not present in regions`]);
+  });
+
+  it("rejects an invalid regions[].group value and an invalid model inference_profiles value via schema", () => {
+    const c = minimalCatalog() as unknown as { providers: Array<Record<string, unknown>> };
+    c.providers[0]!.regions = [{ id: "us-east-1", group: "us-gov" }];
+    expect(messages(c)[0]).toMatch(/regions/);
+
+    const c2 = minimalCatalog();
+    (c2.providers[0]!.models[0] as unknown as Record<string, unknown>).inference_profiles = ["us-gov"];
+    expect(messages(c2)[0]).toMatch(/inference_profiles/);
+  });
+
+  it("accepts a model's inference_profiles as a non-empty subset of the cross-region groups", () => {
+    const c = minimalCatalog();
+    c.providers[0]!.models[0]!.inference_profiles = ["us", "eu", "global"];
+    expect(validateCatalog(c)).toEqual([]);
+  });
+
   it("rejects unknown fields, unknown enum values and a document over 8 MB", () => {
     const c = minimalCatalog() as unknown as Record<string, unknown>;
     c.extra = 1;

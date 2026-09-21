@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { carryForward } from "../src/carry.js";
+import { foldInferenceProfiles } from "../src/inference-profiles.js";
 import type { WorkingProvider } from "../src/overrides.js";
 import type { Catalog, Provider } from "../src/schema.js";
 
@@ -76,5 +77,35 @@ describe("carry-forward (nothing vanishes silently)", () => {
     const { providers, report } = carryForward([working("alpha", ["a1"])], null);
     expect(providers).toHaveLength(1);
     expect(report).toEqual({ providers_withdrawn: [], models_retired: [] });
+  });
+
+  // Transition-day regression: the previous release published amazon-bedrock's
+  // region-prefixed inference-profile variants as literal, separate model ids
+  // (the fold did not exist yet). Once the fold ships, today's merged list only
+  // has the folded base id — if carryForward compared against the RAW previous
+  // release, every prefixed variant would look "vanished" and be carried
+  // forward as a phantom status: retired row, even though the model is still
+  // very much offered upstream (bedrock-region/CONTRACT.md). The fix is to
+  // fold the previous release's amazon-bedrock models the same way before
+  // carryForward ever sees them (src/assemble.ts).
+  it("folding the previous release's amazon-bedrock models before carry-forward avoids phantom retired rows for prefixed variants that were only ever renamed, not dropped", () => {
+    const rawPreviousBedrock = prevProvider("amazon-bedrock", ["anthropic.claude-sonnet-4-6", "eu.anthropic.claude-sonnet-4-6", "apac.anthropic.claude-sonnet-4-6"]);
+    const previousWithBedrock: Catalog = { ...previous, providers: [...previous.providers, rawPreviousBedrock] };
+    const currentFolded = working("amazon-bedrock", ["anthropic.claude-sonnet-4-6"]); // fold already collapsed the three raw ids into one base id
+
+    // Without folding the previous side first: the two prefixed ids look vanished.
+    const naive = carryForward([currentFolded], previousWithBedrock);
+    const naiveBedrock = naive.providers.find((p) => p.id === "amazon-bedrock")!;
+    expect(naiveBedrock.models.filter((m) => m.status === "retired").map((m) => m.id).sort()).toEqual(["apac.anthropic.claude-sonnet-4-6", "eu.anthropic.claude-sonnet-4-6"]);
+
+    // Folding the previous release's amazon-bedrock models first (the actual fix): no phantom retirements.
+    const previousFolded: Catalog = {
+      ...previousWithBedrock,
+      providers: previousWithBedrock.providers.map((p) => (p.id === "amazon-bedrock" ? { ...p, models: foldInferenceProfiles(p.models) } : p)),
+    };
+    const fixed = carryForward([working("amazon-bedrock", ["anthropic.claude-sonnet-4-6"])], previousFolded);
+    const fixedBedrock = fixed.providers.find((p) => p.id === "amazon-bedrock")!;
+    expect(fixedBedrock.models.every((m) => m.status === "active")).toBe(true);
+    expect(fixed.report.models_retired.filter((r) => r.provider === "amazon-bedrock")).toEqual([]);
   });
 });

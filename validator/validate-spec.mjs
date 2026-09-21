@@ -16,15 +16,18 @@ import { resolve } from "node:path";
 export const SCHEMA_VERSION = "2.0.0";
 export const VERSION_RE = /^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$/;
 export const MAX_DOCUMENT_BYTES = 8 * 1024 * 1024; // 8 MB cap on the published document (MiB; see README)
-export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli"];
+export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli", "bedrock"];
 export const TIERS = ["popular", "standard", "unsupported"];
 export const UNSUPPORTED_REASONS = ["cloud-iam", "deployment-url", "withdrawn"];
 export const AUTH_METHODS = ["api_key", "sign_in"];
 export const CLI_KINDS = ["codex", "copilot"];
 export const MODEL_STATUSES = ["active", "retired"];
 export const POPULAR = ["openai", "anthropic", "google", "openrouter", "deepseek", "zai", "minimax", "moonshotai", "alibaba", "xai", "mistral", "ollama"]; // the pinned popular set
-// The five providers that need a cloud identity sign-in rather than an API key.
-export const CLOUD_IAM = ["amazon-bedrock", "google-vertex", "google-vertex-anthropic", "watsonx", "sap-ai-core"];
+// The four remaining providers that need a cloud identity sign-in rather than an API key.
+// amazon-bedrock was removed from this set (issue elicify-ai/omnipus#800): AWS
+// Bedrock API keys are a plain bearer token, so it is published as tier
+// standard / protocol bedrock instead — see overrides/providers.yaml.
+export const CLOUD_IAM = ["google-vertex", "google-vertex-anthropic", "watsonx", "sap-ai-core"];
 // azure has a per-deployment URL, so it is unsupported with reason deployment-url.
 export const DEPLOYMENT_URL = ["azure"];
 // The eleven providers that come from overrides/local-providers.yaml and must always be present.
@@ -136,7 +139,7 @@ export const CHECKS = [
   { id: "PROVIDER_NAME", spec: "provider", title: "provider name is a non-empty string" },
   { id: "TIER", spec: "provider", title: "tier in {popular, standard, unsupported}" },
   { id: "UNSUPPORTED_REASON", spec: "provider", title: "unsupported_reason present iff tier unsupported, and in the enum" },
-  { id: "PROTOCOL", spec: "provider", title: "protocol in the 5-value enum; empty only when tier unsupported" },
+  { id: "PROTOCOL", spec: "provider", title: "protocol in the 6-value enum; empty only when tier unsupported" },
   { id: "API_PRESENCE", spec: "provider", title: "api non-empty unless tier unsupported" },
   { id: "API_URL", spec: "url", title: "api and protocols[].api obey the hosted-URL rules (local rows exempt)" },
   { id: "PROTOCOLS_LIST", spec: "provider", title: "protocols[] entries unique, in enum, and include the primary with the same api" },

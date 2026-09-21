@@ -114,7 +114,10 @@ export const MUTATIONS = {
   MODEL_LIMITS: (d) => { byID(d, "zai").models[0].context_window = 0; return d; }, // active model, unknown window
   ALIASES: (d) => { byID(d, "zai").aliases.push("openai"); return d; },
   POPULAR: (d) => { byID(d, "deepseek").tier = "standard"; return d; },
-  CLOUD_IAM: (d) => { const p = byID(d, "amazon-bedrock"); p.tier = "standard"; delete p.unsupported_reason; p.protocol = "openai-compatible"; p.api = "https://bedrock.example.invalid/v1"; return d; },
+  // amazon-bedrock is no longer in CLOUD_IAM (issue elicify-ai/omnipus#800: it
+  // is now tier standard / protocol bedrock); target a provider still required
+  // to be unsupported/cloud-iam instead.
+  CLOUD_IAM: (d) => { const p = byID(d, "google-vertex"); p.tier = "standard"; delete p.unsupported_reason; p.protocol = "openai-compatible"; p.api = "https://vertex.example.invalid/v1"; return d; },
   LOCAL_FILE_PROVIDERS: (d) => { d.providers = d.providers.filter((p) => p.id !== "mimo"); return d; },
 };
 
