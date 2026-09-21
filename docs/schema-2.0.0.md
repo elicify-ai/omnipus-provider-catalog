@@ -64,11 +64,12 @@ The `sources` object records exactly what the run consumed.
 | `name` | string | Display name. | models.dev / overrides |
 | `company` | string | The company behind the provider, used to group providers that belong together. Defaults to `name`. | overrides (default: `name`) |
 | `api` | string | Base URL to send requests to. Empty only when `tier` is `unsupported`. Otherwise an absolute `https` URL with a public host — no credentials, query or fragment, and no private, loopback or link-local IP address. Local-machine providers (`ollama`, `vllm`, `lmstudio`) are the exception and may use `http://localhost…`. | models.dev; overrides for providers models.dev lists without a URL |
-| `protocol` | string | The wire protocol to speak to `api`: `openai-compatible`, `anthropic`, `google`, `ollama` or `cli`. Empty string only when `tier` is `unsupported`. | models.dev (mapped from its SDK package name) / overrides |
+| `protocol` | string | The wire protocol to speak to `api`: `openai-compatible`, `anthropic`, `google`, `ollama`, `cli` or `bedrock`. Empty string only when `tier` is `unsupported`. | models.dev (mapped from its SDK package name) / overrides |
 | `protocols` | array of [ProtocolEntry](#protocolentry), *optional* | Every protocol-and-URL pair the provider serves, when it serves more than one (for example an OpenAI-compatible and an Anthropic-compatible endpoint side by side). When present it includes the primary `protocol` with the same `api`; entries are unique. | overrides |
 | `env` | array of string | Environment variable names conventionally used for this provider's key (`["OPENAI_API_KEY"]`). A hint for labels only; may be empty. | models.dev / overrides |
-| `region` | string, *optional* | Region hint such as `us` or `cn`. | models.dev / overrides |
+| `region` | string, *optional* | Region hint such as `us` or `cn`. For a provider with a `regions` picker (currently only `amazon-bedrock`) this is the default region id, e.g. `us-east-1`. | models.dev / overrides |
 | `plan` | string, *optional* | Plan hint such as `coding-plan`. | models.dev / overrides |
+| `regions` | array of [ProviderRegion](#providerregion), *optional* | The regions offered in a region picker (currently only `amazon-bedrock`). When present, `region` above names the default and must be one of these ids. | overrides |
 | `tier` | string | `popular`, `standard` or `unsupported`. The popular set is fixed: `openai`, `anthropic`, `openrouter`, `google`, `xai`, `groq`, `mistral`, `deepseek`. Defaults to `standard`. | overrides / job |
 | `unsupported_reason` | string, *optional* | Present exactly when `tier` is `unsupported`. `cloud-iam` — the provider needs a cloud identity sign-in (AWS, GCP, IBM, SAP) rather than an API key; `deployment-url` — every deployment has its own URL, so there is no single endpoint to publish; `withdrawn` — the provider vanished from the sources and is carried forward from the previous release. | overrides / job |
 | `auth_methods` | array of string | How you authenticate: any non-empty subset of `api_key`, `sign_in`. Defaults to `["api_key"]`. | overrides (default: `api_key`) |
@@ -83,8 +84,15 @@ The `sources` object records exactly what the run consumed.
 
 | Field | Type | Meaning and allowed values | Source |
 |---|---|---|---|
-| `protocol` | string | One of `openai-compatible`, `anthropic`, `google`, `ollama`, `cli`. | overrides |
+| `protocol` | string | One of `openai-compatible`, `anthropic`, `google`, `ollama`, `cli`, `bedrock`. | overrides |
 | `api` | string | The base URL for that protocol. Same URL rules as the provider's `api`. | overrides |
+
+### ProviderRegion
+
+| Field | Type | Meaning and allowed values | Source |
+|---|---|---|---|
+| `id` | string | An AWS region id, e.g. `us-east-1`. | overrides |
+| `group` | string | The region's AWS Bedrock cross-region inference geography: `us`, `eu`, `apac`, `jp`, `au`, or `""` when AWS publishes no cross-region inference profile group for that region (on-demand only in that region). | overrides |
 
 ### Resize limits
 
@@ -108,6 +116,7 @@ Used for both `default_resize_limits` and a provider's `resize_limits`.
 | `input_modalities` | array of string | What the model accepts as input. Always includes `text`; may add `image`, `audio`, `video`, `pdf`. No other values. | models.dev, LiteLLM cross-check, overrides win |
 | `status` | string | `active`, or `retired` when the model has vanished from the sources and is carried forward from the previous release. | models.dev / job |
 | `disputed` | boolean, *optional* | Present and `true` while the two registries disagree about this model beyond tolerance and the previous release's value is being published. Absent otherwise. | job |
+| `inference_profiles` | array of string, *optional* | Currently only `amazon-bedrock`: the cross-region geographies (`us`, `eu`, `apac`, `jp`, `au`, `global`) for which AWS Bedrock publishes a cross-region inference profile of this base model. models.dev lists each region-prefixed variant (e.g. `eu.anthropic.claude-sonnet-4-6`) as its own model; the assembler folds them into this field on the base model id and drops the prefixed duplicates. | job (folded from models.dev) |
 
 Active models always have `context_window` greater than `0`; a model for which
 no source knows the window is held back until one does.

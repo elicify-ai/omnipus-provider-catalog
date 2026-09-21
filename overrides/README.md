@@ -54,6 +54,9 @@ providers:
     plan: coding-plan                        # optional
     cli_kind: codex                          # codex | copilot (only with protocol: cli)
     token_source: codex-auth-json            # optional
+    regions:                                 # optional; currently only amazon-bedrock
+      - { id: us-east-1, group: us }         # group: us | eu | apac | jp | au | "" (no cross-region profile)
+      - { id: us-gov-west-1, group: "" }
 ```
 
 Every field except `reason` is optional; set only what you are correcting.

@@ -280,9 +280,10 @@
     {
       "id": "amazon-bedrock",
       "name": "Amazon Bedrock",
-      "api": "https://bedrock.example.invalid/v1",
-      "protocol": "openai-compatible",
-      "tier": "standard",
+      "api": "",
+      "protocol": "",
+      "tier": "unsupported",
+      "unsupported_reason": "cloud-iam",
       "auth_methods": [
         "api_key"
       ],
@@ -296,10 +297,9 @@
     {
       "id": "google-vertex",
       "name": "Google Vertex AI",
-      "api": "",
-      "protocol": "",
-      "tier": "unsupported",
-      "unsupported_reason": "cloud-iam",
+      "api": "https://vertex.example.invalid/v1",
+      "protocol": "openai-compatible",
+      "tier": "standard",
       "auth_methods": [
         "api_key"
       ],

@@ -28,6 +28,40 @@ describe("applyOverrides", () => {
     expect(report.providers_applied).toEqual(["groq"]);
   });
 
+  it("a provider override can set the new regions field (amazon-bedrock's region picker)", () => {
+    const reg = [registryProvider("amazon-bedrock", "", ["anthropic.claude-x"])];
+    const { providers } = applyOverrides(
+      reg as WorkingProvider[],
+      {
+        ...none,
+        providers: {
+          "amazon-bedrock": {
+            reason: "AWS Bedrock API keys (Authorization: Bearer) exist; no SigV4 signing needed for api_key auth.",
+            tier: "standard",
+            protocol: "bedrock",
+            api: "https://bedrock-runtime.us-east-1.amazonaws.com",
+            region: "us-east-1",
+            regions: [
+              { id: "us-east-1", group: "us" },
+              { id: "us-gov-west-1", group: "" },
+            ],
+          },
+        },
+      },
+      [],
+      reg,
+    );
+    expect(providers[0]).toMatchObject({
+      tier: "standard",
+      protocol: "bedrock",
+      region: "us-east-1",
+      regions: [
+        { id: "us-east-1", group: "us" },
+        { id: "us-gov-west-1", group: "" },
+      ],
+    });
+  });
+
   it("refuses an override for a provider that is not in the merged document", () => {
     expect(() => applyOverrides([], { ...none, providers: { nope: { reason: "r", tier: "popular" } } }, [], [])).toThrow(/not a provider/);
   });
@@ -102,6 +136,15 @@ describe("finalizeProviders", () => {
     expect(providers[1]).toMatchObject({ company: "ZAI", tier: "standard", auth_methods: ["api_key"], aliases: [], resize_limits: resize.default });
     expect(providers[1]!.models.map((m) => m.id)).toEqual(["a", "b"]);
     expect("locality" in providers[1]!).toBe(false);
+  });
+
+  it("passes the optional regions field through unchanged", () => {
+    const w: WorkingProvider = { ...registryProvider("amazon-bedrock", "https://bedrock-runtime.us-east-1.amazonaws.com", ["m"]), protocol: "bedrock", regions: [{ id: "us-east-1", group: "us" }, { id: "us-gov-west-1", group: "" }] };
+    const { providers } = finalizeProviders([w], resize);
+    expect(providers[0]!.regions).toEqual([{ id: "us-east-1", group: "us" }, { id: "us-gov-west-1", group: "" }]);
+    const noRegions: WorkingProvider = registryProvider("openai", "https://api.openai.com/v1", ["m"]);
+    const { providers: p2 } = finalizeProviders([noRegions], resize);
+    expect("regions" in p2[0]!).toBe(false);
   });
 
   it("a row with no protocol, no URL, or a non-https/private URL becomes unsupported / deployment-url unless already unsupported", () => {

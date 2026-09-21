@@ -14,13 +14,32 @@ export const SCHEMA_VERSION = "2.0.0" as const;
 /** `vYYYY.M.D[.N]` — the leading `v` is required so versions sort numerically. */
 export const VERSION_RE = /^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$/;
 
-export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli"] as const;
+export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli", "bedrock"] as const;
 export const TIERS = ["popular", "standard", "unsupported"] as const;
 export const UNSUPPORTED_REASONS = ["cloud-iam", "deployment-url", "withdrawn"] as const;
 export const AUTH_METHODS = ["api_key", "sign_in"] as const;
 export const CLI_KINDS = ["codex", "copilot"] as const;
 export const MODEL_STATUSES = ["active", "retired"] as const;
 export const MODALITIES = ["text", "image", "audio", "video", "pdf"] as const;
+
+/**
+ * AWS Bedrock cross-Region inference profile geographies, confirmed against
+ * AWS's own `CrossRegionInferenceProfileRegion` enum (the `@aws-cdk/aws-bedrock-alpha`
+ * module) and the Bedrock user guide's geographic cross-Region inference pages:
+ * https://docs.aws.amazon.com/cdk/api/v2/docs/@aws-cdk_aws-bedrock-alpha.CrossRegionInferenceProfileRegion.html
+ * https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html
+ * AWS GovCloud has its own separate "US_GOV" cross-Region profile, which is
+ * deliberately NOT one of these — see overrides/providers.yaml.
+ * Used both as `Model.inference_profiles` values and (minus "global", which
+ * is never a region's home geography) as `ProviderRegion.group` values.
+ * Extend only when AWS documents another geography.
+ */
+export const CROSS_REGION_GROUPS = ["us", "eu", "apac", "jp", "au", "global"] as const;
+export type CrossRegionGroup = (typeof CROSS_REGION_GROUPS)[number];
+
+/** `ProviderRegion.group` values: every CROSS_REGION_GROUPS entry except "global" — a region is never *itself* the global geography, only a source/destination for a global-routed request. */
+export const REGION_GROUPS = ["us", "eu", "apac", "jp", "au"] as const;
+export type RegionGroup = (typeof REGION_GROUPS)[number];
 
 /**
  * The popular set, pinned by name — the providers a picker shows first.
@@ -81,6 +100,16 @@ export const ProtocolEntry = z
   .strict();
 export type ProtocolEntry = z.infer<typeof ProtocolEntry>;
 
+/** One region offered in a provider's region picker (currently only amazon-bedrock). */
+export const ProviderRegion = z
+  .object({
+    id: z.string().min(1),
+    /** The region's cross-Region inference geography, or "" when AWS has published none for it (on-demand only). */
+    group: z.union([z.enum(REGION_GROUPS), z.literal("")]),
+  })
+  .strict();
+export type ProviderRegion = z.infer<typeof ProviderRegion>;
+
 export const Model = z
   .object({
     id: z.string().min(1),
@@ -92,6 +121,8 @@ export const Model = z
     input_modalities: z.array(z.enum(MODALITIES)).min(1),
     status: z.enum(MODEL_STATUSES),
     disputed: z.boolean().optional(),
+    /** Cross-Region inference geographies for which AWS Bedrock publishes a cross-Region inference profile of this base model (see bedrock-region/CONTRACT.md). */
+    inference_profiles: z.array(z.enum(CROSS_REGION_GROUPS)).min(1).optional(),
   })
   .strict();
 export type Model = z.infer<typeof Model>;
@@ -115,6 +146,8 @@ export const Provider = z
     custom: z.boolean().optional(),
     cli_kind: z.enum(CLI_KINDS).optional(),
     token_source: z.string().optional(),
+    /** The regions offered in a region picker (currently only amazon-bedrock); `region` above is the default. */
+    regions: z.array(ProviderRegion).optional(),
     resize_limits: ResizeLimits,
     models: z.array(Model),
   })

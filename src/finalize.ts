@@ -120,6 +120,7 @@ export function finalizeProviders(providers: WorkingProvider[], resize: ResizeFi
       env: w.env ?? [],
       ...(w.region ? { region: w.region } : {}),
       ...(w.plan ? { plan: w.plan } : {}),
+      ...(w.regions ? { regions: w.regions } : {}),
       tier,
       ...(tier === "unsupported" ? { unsupported_reason: reason } : {}),
       auth_methods: w.auth_methods ?? ["api_key"],

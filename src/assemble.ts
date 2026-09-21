@@ -8,6 +8,7 @@ import { promisify } from "node:util";
 import { carryForward } from "./carry.js";
 import { cacheFetched, fetchLiteLLM, fetchModelsDev, readCached, sha256Hex, type Fetched } from "./fetch.js";
 import { finalizeProviders, loadResizeLimits } from "./finalize.js";
+import { foldInferenceProfiles } from "./inference-profiles.js";
 import { mergeRegistries } from "./merge.js";
 import { applyOverrides, loadOverrides, type WorkingProvider } from "./overrides.js";
 import { Catalog as CatalogSchema, SCHEMA_VERSION, type Catalog } from "./schema.js";
@@ -72,6 +73,15 @@ export async function assemble(opts: AssembleOptions): Promise<{ catalog: Catalo
   }
 
   const previous = await loadPrevious(opts.previous);
+  // Transition-day fix-up: if the previous release still has amazon-bedrock's
+  // region-prefixed ids as literal separate rows (published before this fold
+  // existed), fold them the same way here so carryForward compares folded
+  // ids against folded ids and never mistakes a renamed model for a vanished
+  // one. A no-op once the previous release was itself produced by this code.
+  if (previous) {
+    const prevBedrock = previous.providers.find((p) => p.id === "amazon-bedrock");
+    if (prevBedrock) prevBedrock.models = foldInferenceProfiles(prevBedrock.models);
+  }
   const overrides = await loadOverrides(path.join(repoRoot, "overrides"));
   const resize = await loadResizeLimits(path.join(repoRoot, "resize_limits.json"));
   const overridesCommit = await gitHead(repoRoot);
@@ -79,6 +89,12 @@ export async function assemble(opts: AssembleOptions): Promise<{ catalog: Catalo
   const normalised = normaliseModelsDev(md.json as ModelsDevApi);
   const litellmIndex = indexLiteLLM(ll.json as LiteLLMJson);
   const merged = mergeRegistries(normalised.providers, litellmIndex, previous);
+  // Fold amazon-bedrock's region-prefixed inference-profile variants into
+  // their base model before anything keys off model id (overrides,
+  // carry-forward): bedrock-region/CONTRACT.md.
+  for (const p of merged.providers) {
+    if (p.id === "amazon-bedrock") p.models = foldInferenceProfiles(p.models);
+  }
   // Overrides first (local rows are created here), then carry-forward, so a
   // local-file provider is never mistaken for one that vanished upstream.
   const overridden = applyOverrides(merged.providers as WorkingProvider[], overrides, merged.report.disputes, merged.providers);
