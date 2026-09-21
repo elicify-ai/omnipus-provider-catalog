@@ -16,6 +16,23 @@ import { CROSS_REGION_GROUPS, type CrossRegionGroup } from "./schema.js";
 
 const GROUP_RANK = new Map<CrossRegionGroup, number>(CROSS_REGION_GROUPS.map((g, i) => [g, i]));
 
+/**
+ * The trailing regional marker models.dev appends to a Bedrock variant's
+ * display name (observed: "Nova Premier (US)", "Claude Sonnet 4 (APAC)").
+ * Only meaningful for the SAME group as the id prefix that was stripped —
+ * a variant's own marker always matches its own prefix, so no guessing is
+ * involved: this is a straight, keyed lookup, never a heuristic strip of
+ * "any parenthetical".
+ */
+const GROUP_NAME_MARKER: Record<CrossRegionGroup, string> = {
+  us: " (US)",
+  eu: " (EU)",
+  apac: " (APAC)",
+  jp: " (JP)",
+  au: " (AU)",
+  global: " (Global)",
+};
+
 /** The known group prefix `id` starts with (`"eu."` etc.), or null when it has none. `arn:`-style ids never match. */
 function matchGroup(id: string): CrossRegionGroup | null {
   if (id.startsWith("arn:")) return null;
@@ -29,6 +46,12 @@ function sortGroups(groups: Iterable<CrossRegionGroup>): CrossRegionGroup[] {
   return [...groups].sort((a, b) => GROUP_RANK.get(a)! - GROUP_RANK.get(b)!);
 }
 
+/** Strip the regional name marker for `group` from the end of `name`, if present. A base model must never carry one variant's regional label. */
+function stripRegionalMarker(name: string, group: CrossRegionGroup): string {
+  const marker = GROUP_NAME_MARKER[group];
+  return name.endsWith(marker) ? name.slice(0, -marker.length) : name;
+}
+
 /**
  * Fold region-prefixed inference-profile variants into their base model.
  *
@@ -37,13 +60,16 @@ function sortGroups(groups: Iterable<CrossRegionGroup>): CrossRegionGroup[] {
  * - When a bare (unprefixed) id exists upstream, that row becomes the base
  *   and keeps its own fields — only `inference_profiles` is added.
  * - When only prefixed variants exist for a base id, the base entry is
- *   synthesised from the first variant encountered (stable input order).
+ *   synthesised from the first variant encountered (stable input order),
+ *   with that variant's own trailing regional name marker (e.g. " (US)")
+ *   stripped — a base model must never carry the label of whichever single
+ *   region happened to be picked.
  * - `arn:`-style ids and ids with no known group prefix pass through
  *   unchanged, never treated as a variant.
  */
 export function foldInferenceProfiles(models: Model[]): Model[] {
   const groupsByBaseId = new Map<string, Set<CrossRegionGroup>>();
-  const firstVariantByBaseId = new Map<string, Model>();
+  const firstVariantByBaseId = new Map<string, { model: Model; group: CrossRegionGroup }>();
   const standalone: Model[] = [];
 
   for (const m of models) {
@@ -59,7 +85,7 @@ export function foldInferenceProfiles(models: Model[]): Model[] {
       groupsByBaseId.set(baseId, groups);
     }
     groups.add(group);
-    if (!firstVariantByBaseId.has(baseId)) firstVariantByBaseId.set(baseId, m);
+    if (!firstVariantByBaseId.has(baseId)) firstVariantByBaseId.set(baseId, { model: m, group });
   }
 
   const consumedBaseIds = new Set<string>();
@@ -72,8 +98,8 @@ export function foldInferenceProfiles(models: Model[]): Model[] {
 
   for (const [baseId, groups] of groupsByBaseId) {
     if (consumedBaseIds.has(baseId)) continue;
-    const variant = firstVariantByBaseId.get(baseId)!;
-    out.push({ ...variant, id: baseId, inference_profiles: sortGroups(groups) });
+    const { model: variant, group } = firstVariantByBaseId.get(baseId)!;
+    out.push({ ...variant, id: baseId, name: stripRegionalMarker(variant.name, group), inference_profiles: sortGroups(groups) });
   }
 
   return out;

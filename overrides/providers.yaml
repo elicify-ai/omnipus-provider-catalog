@@ -78,6 +78,18 @@ providers:
   #   "jp" rather than "apac". ca-central-1 and sa-east-1 have a bedrock-runtime
   #   endpoint but AWS documents no cross-region inference geography containing
   #   them, so they are published with group "" (on-demand only in that region).
+  #   Completeness check (fetch-verified 2026-09-21): AWS's "Supported Regions
+  #   and models for application inference profiles" page lists 35 regions,
+  #   10 more than this list — af-south-1, ap-east-2, ap-southeast-3, ap-southeast-5,
+  #   ap-southeast-6, ap-southeast-7, ca-west-1, il-central-1, me-central-1,
+  #   me-south-1, mx-central-1, us-west-1 — https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html
+  #   Each of those 10 has a Bedrock CONTROL-PLANE endpoint (bedrock.<region>.amazonaws.com,
+  #   for managing inference-profile resources) in the endpoints/quotas table above,
+  #   but NO bedrock-RUNTIME endpoint (bedrock-runtime.<region>.amazonaws.com,
+  #   needed to actually invoke a model with InvokeModel/Converse) — confirmed by
+  #   re-fetching https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bedrock_region
+  #   and checking each of the 10 against its "Amazon Bedrock runtime APIs" table.
+  #   Excluded here: Omnipus calls bedrock-runtime, not the control plane.
   amazon-bedrock:
     reason: "Issue elicify-ai/omnipus#800: AWS Bedrock API keys (Authorization: Bearer) exist, so a plain API key needs no SigV4 signing; region list and cross-region geography groups fetch-verified 2026-09-21 against the AWS sources cited above the block."
     tier: standard

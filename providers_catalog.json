@@ -1,9 +1,9 @@
 {
  "schema_version": "2.0.0",
  "version": "v2026.9.21.1",
- "updated_at": "2026-09-21T12:50:18.855Z",
- "generated_at": "2026-09-21T12:50:18.855Z",
- "source": "models.dev@1c56caef93a8e78727d6e859a1ee115cf133e3c8 litellm@d5921713a8105804917134614a28457bc7fc552c overrides@d37432f9b370746efd01575a759f28995a3fd450",
+ "updated_at": "2026-09-21T12:58:47.486Z",
+ "generated_at": "2026-09-21T12:58:47.486Z",
+ "source": "models.dev@1c56caef93a8e78727d6e859a1ee115cf133e3c8 litellm@d5921713a8105804917134614a28457bc7fc552c overrides@c6b74190e4567b56e549c7cfe8a05daa4616abe9",
  "sources": {
   "models_dev": {
    "name": "models.dev",
@@ -25,7 +25,7 @@
    "sha256": "9bfe26e20176e81ca025082dc0e86bebc48a6085f924f682e32370152e75bd45",
    "bytes": 2822542
   },
-  "overrides_commit": "d37432f9b370746efd01575a759f28995a3fd450",
+  "overrides_commit": "c6b74190e4567b56e549c7cfe8a05daa4616abe9",
   "previous_version": "v2026.9.21"
  },
  "default_resize_limits": {
@@ -8338,7 +8338,7 @@
     },
     {
      "id": "amazon.nova-premier-v1:0",
-     "name": "Nova Premier (US)",
+     "name": "Nova Premier",
      "release_date": "2025-04-30",
      "tool_call": true,
      "context_window": 1000000,
@@ -8553,7 +8553,7 @@
     },
     {
      "id": "anthropic.claude-sonnet-4-20250514-v1:0",
-     "name": "Claude Sonnet 4 (APAC)",
+     "name": "Claude Sonnet 4",
      "release_date": "2025-05-22",
      "tool_call": true,
      "context_window": 200000,

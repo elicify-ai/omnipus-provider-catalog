@@ -63,6 +63,52 @@ describe("foldInferenceProfiles", () => {
     expect(out[0]!.inference_profiles).toEqual(["us", "jp", "au", "global"]);
   });
 
+  it("strips the regional name marker that corresponds to the stripped prefix when synthesising a base entry (real observed case: Nova Premier (US))", () => {
+    const out = foldInferenceProfiles([m({ id: "us.amazon.nova-premier-v1:0", name: "Nova Premier (US)" })]);
+    expect(out).toHaveLength(1);
+    expect(out[0]).toMatchObject({ id: "amazon.nova-premier-v1:0", name: "Nova Premier", inference_profiles: ["us"] });
+  });
+
+  it("strips the regional name marker that corresponds to the stripped prefix (real observed case: Claude Sonnet 4 (APAC))", () => {
+    const out = foldInferenceProfiles([m({ id: "apac.anthropic.claude-sonnet-4-20250514-v1:0", name: "Claude Sonnet 4 (APAC)" })]);
+    expect(out).toHaveLength(1);
+    expect(out[0]).toMatchObject({ id: "anthropic.claude-sonnet-4-20250514-v1:0", name: "Claude Sonnet 4", inference_profiles: ["apac"] });
+  });
+
+  it("strips every documented regional marker (US, EU, APAC, JP, AU, Global) when synthesising, matching only the group of the prefix that was actually stripped", () => {
+    const cases: Array<[string, string, string]> = [
+      ["us.foo.a", "Foo A (US)", "Foo A"],
+      ["eu.foo.b", "Foo B (EU)", "Foo B"],
+      ["apac.foo.c", "Foo C (APAC)", "Foo C"],
+      ["jp.foo.d", "Foo D (JP)", "Foo D"],
+      ["au.foo.e", "Foo E (AU)", "Foo E"],
+      ["global.foo.f", "Foo F (Global)", "Foo F"],
+    ];
+    for (const [id, name, expected] of cases) {
+      const out = foldInferenceProfiles([m({ id, name })]);
+      expect(out[0]!.name).toBe(expected);
+    }
+  });
+
+  it("does not strip a marker that does not match the stripped prefix's own group (picks the first variant honestly, never mislabels)", () => {
+    // The id was stripped of "eu.", but the name happens to carry an unrelated "(APAC)" marker — only the
+    // eu marker would ever legitimately appear on a eu.-prefixed variant's name, so this is left alone.
+    const out = foldInferenceProfiles([m({ id: "eu.foo.g", name: "Foo G (APAC)" })]);
+    expect(out[0]!.name).toBe("Foo G (APAC)");
+  });
+
+  it("leaves a synthesised name unchanged when it carries no regional marker at all", () => {
+    const out = foldInferenceProfiles([m({ id: "us.foo.bar", name: "Bar" })]);
+    expect(out[0]!.name).toBe("Bar");
+  });
+
+  it("never touches the name of a model that was NOT synthesised (a bare id existed upstream), even if that bare name happens to end in a parenthetical", () => {
+    const models = [m({ id: "anthropic.claude-x", name: "Claude X (Preview)" }), m({ id: "us.anthropic.claude-x", name: "Claude X (US)" })];
+    const out = foldInferenceProfiles(models);
+    expect(out).toHaveLength(1);
+    expect(out[0]!.name).toBe("Claude X (Preview)"); // the bare entry's own name, never overwritten by the variant's
+  });
+
   it("does not cross-contaminate base ids that only share a prefix textually", () => {
     const models = [m({ id: "us.anthropic.claude-a" }), m({ id: "us.anthropic.claude-b" }), m({ id: "anthropic.claude-a" })];
     const out = foldInferenceProfiles(models);
