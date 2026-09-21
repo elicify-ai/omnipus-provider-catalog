@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.21.1",
- "updated_at": "2026-09-21T12:58:47.486Z",
- "generated_at": "2026-09-21T12:58:47.486Z",
- "source": "models.dev@1c56caef93a8e78727d6e859a1ee115cf133e3c8 litellm@d5921713a8105804917134614a28457bc7fc552c overrides@c6b74190e4567b56e549c7cfe8a05daa4616abe9",
+ "version": "v2026.9.21.2",
+ "updated_at": "2026-09-21T13:36:08.861Z",
+ "generated_at": "2026-09-21T13:36:08.861Z",
+ "source": "models.dev@cfcc2393f3eebc260859697f7a5addc3f2f07e56 litellm@85e72a2e2fac84e9be99cbac4ede9d4991b834af overrides@7aa9a37aab92c23fe79c674dfb72901083b0719d",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-21T12:47:33.124Z",
-   "commit": "1c56caef93a8e78727d6e859a1ee115cf133e3c8",
-   "etag": "W/\"0b8f08a9c83d301f8e28fc901d63f87f\"",
-   "sha256": "0b8f08a9c83d301f8e28fc901d63f87f18824065187096b801274e72fb7ba3db",
-   "bytes": 4709967
+   "fetched_at": "2026-09-21T13:36:08.861Z",
+   "commit": "cfcc2393f3eebc260859697f7a5addc3f2f07e56",
+   "etag": "W/\"a2c8d0e4aaffbdb6414b2bf1a48326b8\"",
+   "sha256": "a2c8d0e4aaffbdb6414b2bf1a48326b8605cb99d7839d34e0daa39b7302476a7",
+   "bytes": 4709985
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-21T12:47:33.124Z",
-   "commit": "d5921713a8105804917134614a28457bc7fc552c",
-   "etag": "W/\"81a184936af22502be87e183b2f301f07e87beb2ec8398822604ef3fd6eba697\"",
-   "sha256": "9bfe26e20176e81ca025082dc0e86bebc48a6085f924f682e32370152e75bd45",
-   "bytes": 2822542
+   "fetched_at": "2026-09-21T13:36:08.861Z",
+   "commit": "85e72a2e2fac84e9be99cbac4ede9d4991b834af",
+   "etag": "W/\"22cf787fb8cacae710682573bcd13ef27dfbd49ecc5999ce0966261b42479be6\"",
+   "sha256": "1a49325f45b31b6fe91d9b71610cb08deb744a647c0cde64af97e481018cedee",
+   "bytes": 2822541
   },
-  "overrides_commit": "c6b74190e4567b56e549c7cfe8a05daa4616abe9",
-  "previous_version": "v2026.9.21"
+  "overrides_commit": "7aa9a37aab92c23fe79c674dfb72901083b0719d",
+  "previous_version": "v2026.9.21.1"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -38915,7 +38915,7 @@
      "name": "DeepSeek: DeepSeek Pro Latest",
      "release_date": "2026-09-14",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1024000,
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
