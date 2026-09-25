@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.24",
- "updated_at": "2026-09-24T10:43:50.119Z",
- "generated_at": "2026-09-24T10:43:50.119Z",
- "source": "models.dev@cff85c0109a078d09c509cd1c4ea20d69eae08f1 litellm@8bbe7edb711ee894deb5ad7e3cc10391a9837de9 overrides@c494a0bd55c30fb1281147e424a7cd340627a72f",
+ "version": "v2026.9.25",
+ "updated_at": "2026-09-25T10:48:24.609Z",
+ "generated_at": "2026-09-25T10:48:24.609Z",
+ "source": "models.dev@15ec14e0bd8e831885942c4cf733643875427102 litellm@e106dbd8ba9b22317cac4d7d3fb6036777a70cd7 overrides@45267237982f3fa33911d83d5f09fd362e5151d2",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-24T10:43:50.119Z",
-   "commit": "cff85c0109a078d09c509cd1c4ea20d69eae08f1",
-   "etag": "W/\"b1a60cad2b273b41c9fae00f76f04b9c\"",
-   "sha256": "b1a60cad2b273b41c9fae00f76f04b9c696ac031fd3ba752bea555cf363c33fa",
-   "bytes": 4924700
+   "fetched_at": "2026-09-25T10:48:24.609Z",
+   "commit": "15ec14e0bd8e831885942c4cf733643875427102",
+   "etag": "W/\"3b72e150cf08fcb7c4c37189c1d251de\"",
+   "sha256": "3b72e150cf08fcb7c4c37189c1d251def6c5c0a117ead3cc3bb72328de2979fd",
+   "bytes": 4927909
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-24T10:43:50.119Z",
-   "commit": "8bbe7edb711ee894deb5ad7e3cc10391a9837de9",
-   "etag": "W/\"9dc94bf3a0f07aeec1fc77b3094d3b030f25db7032d7284c9d1c7eae68a34657\"",
-   "sha256": "a3ca5d4ad9b2958adb6c45844f1f2a7a23f952dd3ac51f97fd25cc75410d9208",
-   "bytes": 2884191
+   "fetched_at": "2026-09-25T10:48:24.609Z",
+   "commit": "e106dbd8ba9b22317cac4d7d3fb6036777a70cd7",
+   "etag": "W/\"17cbd1b08794882013b769c2568c2d37ad79d20410886eab1da000bace9c35f0\"",
+   "sha256": "e1ed31bbf608a61c1929f19f0f41395959785bc4fde07fbc2f8284df4396d669",
+   "bytes": 2919147
   },
-  "overrides_commit": "c494a0bd55c30fb1281147e424a7cd340627a72f",
-  "previous_version": "v2026.9.23"
+  "overrides_commit": "45267237982f3fa33911d83d5f09fd362e5151d2",
+  "previous_version": "v2026.9.24"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -14293,7 +14293,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     }
    ]
   },
@@ -17201,7 +17202,7 @@
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -17368,7 +17369,7 @@
      "name": "Gemma 4 31B IT",
      "release_date": "2026-04-02",
      "tool_call": true,
-     "context_window": 262000,
+     "context_window": 262144,
      "max_output_tokens": 262000,
      "input_modalities": [
       "text",
@@ -18401,8 +18402,8 @@
      "name": "Qwen3.8 27B",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 262144,
+     "context_window": 1000000,
+     "max_output_tokens": 500000,
      "input_modalities": [
       "text",
       "image"
@@ -31707,7 +31708,7 @@
      "release_date": "2025-06-17",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -41086,7 +41087,7 @@
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -42294,7 +42295,7 @@
       "text",
       "pdf"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "mistralai/ministral-14b-2512",
@@ -42385,7 +42386,7 @@
       "image",
       "pdf"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "mistralai/mistral-medium-3",
@@ -44310,8 +44311,8 @@
      "name": "Qwen: Qwen3 VL 30B A3B Instruct",
      "release_date": "2025-10-06",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 262144,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -45549,8 +45550,8 @@
      "name": "GLM-5.1",
      "release_date": "2026-04-07",
      "tool_call": true,
-     "context_window": 200000,
-     "max_output_tokens": 128000,
+     "context_window": 202752,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -45585,8 +45586,8 @@
      "name": "GLM-5.3",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "context_window": 1048575,
+     "max_output_tokens": 943717,
      "input_modalities": [
       "text"
      ],
@@ -45598,7 +45599,7 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -70835,6 +70836,18 @@
      "status": "active"
     },
     {
+     "id": "xiaomi/mimo-v2.6-flash-uncensored",
+     "name": "MiMo V2.6 Flash Uncensored",
+     "release_date": "2026-09-25",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "xiaomi/mimo-v2.6-pro",
      "name": "MiMo V2.6 Pro",
      "release_date": "2026-09-22",
@@ -74598,7 +74611,7 @@
      "release_date": "2026-02-12",
      "tool_call": true,
      "context_window": 204800,
-     "max_output_tokens": 131100,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -74610,7 +74623,7 @@
      "release_date": "2026-02-12",
      "tool_call": true,
      "context_window": 204800,
-     "max_output_tokens": 131100,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -74670,12 +74683,11 @@
      "release_date": "2025-09-05",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "moonshotai/kimi-k2-instruct",
@@ -74696,12 +74708,11 @@
      "release_date": "2025-11-07",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "moonshotai/kimi-k2.5",
@@ -83317,13 +83328,12 @@
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "dots-studio/dots-3-note-preview:free",
@@ -84333,7 +84343,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "minimax/minimax-m1",
@@ -84472,7 +84483,7 @@
       "text",
       "pdf"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "mistralai/ministral-14b-2512",
@@ -84557,14 +84568,13 @@
      "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 209715,
      "input_modalities": [
       "text",
       "image",
       "pdf"
      ],
-     "status": "retired",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "mistralai/mistral-medium-3",
@@ -86521,7 +86531,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3-vl-30b-a3b-thinking",
@@ -87698,7 +87709,7 @@
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 1310720,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943717,
      "input_modalities": [
       "text"
      ],
@@ -87716,7 +87727,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "z-ai/glm-5.3-flashx",
@@ -108157,7 +108169,7 @@
      "release_date": "2026-04-22",
      "tool_call": true,
      "context_window": 256000,
-     "max_output_tokens": 256000,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image",
@@ -108332,7 +108344,7 @@
      "release_date": "2025-12-02",
      "tool_call": false,
      "context_window": 1000000,
-     "max_output_tokens": 1000000,
+     "max_output_tokens": 65535,
      "input_modalities": [
       "text",
       "image",
@@ -108688,7 +108700,7 @@
      "release_date": "2025-09-01",
      "tool_call": true,
      "context_window": 256000,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image"
@@ -108810,7 +108822,7 @@
      "release_date": "2025-09-22",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -109234,7 +109246,7 @@
      "release_date": "2026-02-24",
      "tool_call": true,
      "context_window": 128000,
-     "max_output_tokens": 128000,
+     "max_output_tokens": 50000,
      "input_modalities": [
       "text"
      ],
@@ -109589,7 +109601,7 @@
      "release_date": "2025-10-27",
      "tool_call": true,
      "context_window": 205000,
-     "max_output_tokens": 205000,
+     "max_output_tokens": 196608,
      "input_modalities": [
       "text"
      ],
@@ -111150,7 +111162,7 @@
      "release_date": "2026-09-16",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image"
@@ -111163,7 +111175,7 @@
      "release_date": "2026-09-16",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image"
@@ -111864,7 +111876,7 @@
      "release_date": "2026-03-16",
      "tool_call": true,
      "context_window": 202800,
-     "max_output_tokens": 131100,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
