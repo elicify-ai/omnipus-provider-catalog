@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.26",
- "updated_at": "2026-09-26T10:29:46.106Z",
- "generated_at": "2026-09-26T10:29:46.106Z",
- "source": "models.dev@93b330cf8f17e807734cc73907d2c80de330fc1b litellm@4d7aa89fa3b975eb729b5fc6fcfdca36c97cb64d overrides@268c359c3b00e559e442c041aac0372b529984cf",
+ "version": "v2026.9.26.1",
+ "updated_at": "2026-09-26T17:39:15.587Z",
+ "generated_at": "2026-09-26T17:39:15.587Z",
+ "source": "models.dev@473c291c9993c0200505f7287bd37836712f4eaf litellm@31678a1dbcfaf9fa832984089273d6c7109f28bc overrides@1bc9bfc92451177eb7e08fd75ae691525dd6a3c0",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-26T10:29:46.106Z",
-   "commit": "93b330cf8f17e807734cc73907d2c80de330fc1b",
-   "etag": "W/\"5cadfee57128f09365110c1f7b849b81\"",
-   "sha256": "5cadfee57128f09365110c1f7b849b8143109fda04d4d8bac70bfb4c48370e8d",
-   "bytes": 4930673
+   "fetched_at": "2026-09-26T17:39:15.587Z",
+   "commit": "473c291c9993c0200505f7287bd37836712f4eaf",
+   "etag": "W/\"ece292ab2b12c17a63a1ab7b4b5cad08\"",
+   "sha256": "ece292ab2b12c17a63a1ab7b4b5cad0836233d55ed6ab48c094d9ccd378a3646",
+   "bytes": 4924027
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-26T10:29:46.106Z",
-   "commit": "4d7aa89fa3b975eb729b5fc6fcfdca36c97cb64d",
-   "etag": "W/\"fe40c51aafd42a3eb3565ce2d89a503a8e6abb026c13fbfbf20e877e206a0d23\"",
-   "sha256": "db9b9a64e3dc9bf75e6095781a19eb71c2b43c693abe2c088a3364b7d4f38ff9",
-   "bytes": 2941127
+   "fetched_at": "2026-09-26T17:39:15.587Z",
+   "commit": "31678a1dbcfaf9fa832984089273d6c7109f28bc",
+   "etag": "W/\"ee2f9fa57d7c47a05301f78e77e261cd8d52825f5cebf3e30ebbe683848167b8\"",
+   "sha256": "51638525811d7c4660eb0cf048944db1db02bf8d23afcbef3623703dd513be38",
+   "bytes": 2943129
   },
-  "overrides_commit": "268c359c3b00e559e442c041aac0372b529984cf",
-  "previous_version": "v2026.9.25"
+  "overrides_commit": "1bc9bfc92451177eb7e08fd75ae691525dd6a3c0",
+  "previous_version": "v2026.9.26"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -28614,7 +28614,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -28628,7 +28628,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "accounts/fireworks/models/deepseek-v4-pro",
@@ -28640,7 +28640,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -28653,7 +28653,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -28692,7 +28692,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "accounts/fireworks/models/glm-5p3",
@@ -28769,7 +28769,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -28783,7 +28783,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -28809,7 +28809,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -28848,7 +28848,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "disputed": true
     },
     {
@@ -28888,7 +28888,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
@@ -28950,7 +28950,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "accounts/fireworks/routers/glm-5p3-fast",
@@ -71424,6 +71424,18 @@
      "status": "active"
     },
     {
+     "id": "z-ai/glm-5.3-uncensored",
+     "name": "GLM 5.3 Uncensored",
+     "release_date": "2026-09-26",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "z-ai/glm-5.3:thinking",
      "name": "GLM 5.3 Thinking",
      "release_date": "2026-08-14",
@@ -79786,6 +79798,157 @@
    },
    "models": [
     {
+     "id": "gpt-3.5-turbo",
+     "name": "GPT-3.5-turbo",
+     "release_date": "2023-03-01",
+     "tool_call": false,
+     "context_window": 16385,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-4",
+     "name": "GPT-4",
+     "release_date": "2023-11-06",
+     "tool_call": true,
+     "context_window": 8192,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-4-turbo",
+     "name": "GPT-4 Turbo",
+     "release_date": "2023-11-06",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-4.1",
+     "name": "GPT-4.1",
+     "release_date": "2025-04-14",
+     "tool_call": true,
+     "context_window": 1047576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-4.1-mini",
+     "name": "GPT-4.1 mini",
+     "release_date": "2025-04-14",
+     "tool_call": true,
+     "context_window": 1047576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-4.1-nano",
+     "name": "GPT-4.1 nano",
+     "release_date": "2025-04-14",
+     "tool_call": true,
+     "context_window": 1047576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-4o",
+     "name": "GPT-4o",
+     "release_date": "2024-05-13",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-4o-2024-05-13",
+     "name": "GPT-4o (2024-05-13)",
+     "release_date": "2024-05-13",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-4o-2024-08-06",
+     "name": "GPT-4o (2024-08-06)",
+     "release_date": "2024-08-06",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-4o-2024-11-20",
+     "name": "GPT-4o (2024-11-20)",
+     "release_date": "2024-11-20",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-4o-mini",
+     "name": "GPT-4o mini",
+     "release_date": "2024-07-18",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-5",
      "name": "GPT-5",
      "release_date": "2025-08-07",
@@ -80083,6 +80246,183 @@
      ],
      "status": "active",
      "disputed": true
+    },
+    {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-6-luna",
+     "name": "GPT-6 Luna",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-6-sol",
+     "name": "GPT-6 Sol",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-realtime-2.1",
+     "name": "GPT-Realtime-2.1",
+     "release_date": "2026-07-06",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "o1",
+     "name": "o1",
+     "release_date": "2024-12-05",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 100000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "o1-pro",
+     "name": "o1-pro",
+     "release_date": "2025-03-19",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 100000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "o3",
+     "name": "o3",
+     "release_date": "2025-04-16",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 100000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "o3-mini",
+     "name": "o3-mini",
+     "release_date": "2024-12-20",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 100000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "o3-pro",
+     "name": "o3-pro",
+     "release_date": "2025-06-10",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 100000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "o4-mini",
+     "name": "o4-mini",
+     "release_date": "2025-04-16",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 100000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "text-embedding-3-large",
+     "name": "text-embedding-3-large",
+     "release_date": "2024-01-25",
+     "tool_call": false,
+     "context_window": 8191,
+     "max_output_tokens": 3072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "text-embedding-3-small",
+     "name": "text-embedding-3-small",
+     "release_date": "2024-01-25",
+     "tool_call": false,
+     "context_window": 8191,
+     "max_output_tokens": 1536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "text-embedding-ada-002",
+     "name": "text-embedding-ada-002",
+     "release_date": "2022-12-15",
+     "tool_call": false,
+     "context_window": 8192,
+     "max_output_tokens": 1536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     }
    ]
   },
@@ -81233,6 +81573,19 @@
      "status": "active"
     },
     {
+     "id": "longcat-2.5-preview-free",
+     "name": "LongCat 2.5 Preview Free",
+     "release_date": "2026-09-25",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "mimo-v2-flash-free",
      "name": "MiMo V2 Flash Free",
      "release_date": "2025-12-16",
@@ -81951,6 +82304,19 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "longcat-2.5-preview-free",
+     "name": "LongCat 2.5 Preview Free",
+     "release_date": "2026-09-25",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
