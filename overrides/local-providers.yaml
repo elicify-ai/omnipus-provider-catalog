@@ -56,7 +56,7 @@ providers:
     models_from: openai
     model_ids: ["re:codex"]
   openai-chatgpt:
-    reason: "ChatGPT-subscription route (protocol openai-compatible, token_source codex-auth-json, hosted). Base URL https://chatgpt.com/backend-api/codex is taken from the open-source Codex client, source https://github.com/openai/codex (codex-rs, ChatGPT auth backend) — not a public docs page; not fetch-verified. Models: GPT-5 family copied from the models.dev openai row."
+    reason: "ChatGPT-subscription route (protocol openai-compatible, token_source codex-auth-json, hosted). Base URL https://chatgpt.com/backend-api/codex is taken from the open-source Codex client, source https://github.com/openai/codex (codex-rs, ChatGPT auth backend) — not a public docs page; not fetch-verified. Models: the models.dev openai row copied 1:1 (no name filter — see the comment below)."
     name: ChatGPT (subscription)
     company: OpenAI
     api: https://chatgpt.com/backend-api/codex
@@ -65,8 +65,14 @@ providers:
     env: []
     auth_methods: [sign_in]
     aliases: [chatgpt-subscription, codex-auth]
+    # models_from with NO model_ids copies the source row 1:1 (src/overrides.ts:
+    # `!model_ids || matchId(...)`). A name-pattern filter here silently dropped
+    # the entire gpt-6 generation the day OpenAI shipped it — `re:^gpt-5` cannot
+    # match gpt-6-astra/luna/sol — and a subscription user saw a stale model list
+    # with no error anywhere (elicify-ai/omnipus#905). Entitlement is not derivable
+    # from a model name; per-account truth belongs to the entitlement check, not a
+    # regex. Founder decision 2026-09-27: replicate the models.dev openai row 1:1.
     models_from: openai
-    model_ids: ["re:^gpt-5"]
   github-copilot:
     reason: "Merges over the models.dev row (api https://api.githubcopilot.com, 33 models). Driven through the Copilot CLI: protocol cli, cli_kind copilot, sign_in only."
     name: GitHub Copilot
