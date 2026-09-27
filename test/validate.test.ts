@@ -228,6 +228,33 @@ describe("validateCatalog", () => {
     expect(validateCatalog(c)).toEqual([]);
   });
 
+  it("accepts a model's reasoning fields: named effort levels, controlled-but-unnamed, or both absent", () => {
+    const levels = minimalCatalog();
+    (levels.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = true;
+    (levels.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning_options = ["low", "medium", "high"];
+    expect(validateCatalog(levels)).toEqual([]);
+
+    const unnamed = minimalCatalog();
+    (unnamed.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = true;
+    expect(validateCatalog(unnamed)).toEqual([]);
+
+    expect(validateCatalog(minimalCatalog())).toEqual([]); // no reasoning support: both absent
+  });
+
+  it("rejects non-boolean reasoning and non-string or empty reasoning_options entries via schema", () => {
+    const bad = minimalCatalog();
+    (bad.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = "yes";
+    expect(messages(bad)[0]).toMatch(/reasoning/);
+
+    const empty = minimalCatalog();
+    (empty.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning_options = ["low", ""];
+    expect(messages(empty)[0]).toMatch(/reasoning_options/);
+
+    const numeric = minimalCatalog();
+    (numeric.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning_options = ["low", 42];
+    expect(messages(numeric)[0]).toMatch(/reasoning_options/);
+  });
+
   it("rejects unknown fields, unknown enum values and a document over 8 MB", () => {
     const c = minimalCatalog() as unknown as Record<string, unknown>;
     c.extra = 1;

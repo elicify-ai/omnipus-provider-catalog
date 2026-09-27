@@ -32,7 +32,7 @@ export function validMinimal() {
     default_resize_limits: { ...resize },
     providers: [
       // --- popular ---
-      cloud("openai", "OpenAI", "https://api.openai.com/v1", { tier: "popular", models: [model("gpt-4o", "GPT-4o", 128000, 16384, { input_modalities: ["text", "image", "pdf"], release_date: "2024-05-13" })] }),
+      cloud("openai", "OpenAI", "https://api.openai.com/v1", { tier: "popular", models: [model("gpt-4o", "GPT-4o", 128000, 16384, { input_modalities: ["text", "image", "pdf"], release_date: "2024-05-13", reasoning: true })] }),
       cloud("openrouter", "OpenRouter", "https://openrouter.ai/api/v1", { tier: "popular", models: [model("z-ai/glm-5.2", "GLM-5.2 (via OpenRouter)", 1048576, 131072)] }),
       cloud("anthropic", "Anthropic", "https://api.anthropic.com", { tier: "popular", protocol: "anthropic" }),
       cloud("google", "Google", "https://generativelanguage.googleapis.com/v1beta/openai", { tier: "popular", protocol: "google" }),
@@ -54,7 +54,7 @@ export function validMinimal() {
         aliases: ["z-ai", "zhipu"],
         resize_limits: { long_edge_px: 6000, max_bytes: 5242880 },
         models: [
-          model("glm-5.2", "GLM-5.2", 1000000, 131072, { input_modalities: ["text", "image"] }),
+          model("glm-5.2", "GLM-5.2", 1000000, 131072, { input_modalities: ["text", "image"], reasoning: true, reasoning_options: ["high", "max"] }),
           model("glm-4", "GLM-4", 0, 0, { status: "retired", tool_call: false }),
         ],
       }),

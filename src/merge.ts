@@ -98,6 +98,12 @@ export function mergeModel(
     max_output_tokens: md.max_output_tokens,
     input_modalities: sortedModalities(md.input_modalities),
     status: "active",
+    // Reasoning support passes through from models.dev untouched: named levels
+    // only (the transform drops budget/toggle shapes), ascending order as
+    // published, and both fields absent when there is nothing to say. LiteLLM
+    // carries no comparable facts, so these two are never disputed.
+    ...(md.reasoning === true ? { reasoning: true } : {}),
+    ...(md.reasoning_options ? { reasoning_options: md.reasoning_options } : {}),
   };
   const disputes: DisputeRecord[] = [];
   const tolerance: ToleranceRecord[] = [];

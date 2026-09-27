@@ -6,6 +6,16 @@ import { MODALITIES } from "./schema.js";
 
 // ---------- models.dev ----------
 
+/**
+ * One entry of models.dev's `reasoning_options`: a typed descriptor, not a plain
+ * string. Observed shapes: `{"type":"effort","values":[…]}` (named levels),
+ * `{"type":"budget_tokens","min"…,"max"…}` (a token range) and `{"type":"toggle"}`
+ * (on/off); an entry may also carry only some of these keys. Only the effort
+ * shape carries level names Omnipus can send, so reasoningOptionsFrom() re-checks
+ * everything at runtime and maps just that shape.
+ */
+export type ModelsDevReasoningOption = { type?: string; values?: unknown[]; min?: number; max?: number };
+
 /** The subset of models.dev's api.json shape we read (packages/core/src/schema.ts in sst/models.dev). */
 export type ModelsDevModel = {
   id: string;
@@ -15,6 +25,10 @@ export type ModelsDevModel = {
   modalities?: { input?: string[]; output?: string[] };
   limit?: { context?: number; input?: number; output?: number };
   status?: string;
+  /** Whether the model supports a reasoning/thinking request at all. */
+  reasoning?: boolean;
+  /** Typed effort/budget/toggle descriptors — see ModelsDevReasoningOption. */
+  reasoning_options?: ModelsDevReasoningOption[];
 };
 export type ModelsDevProvider = {
   id: string;
@@ -76,6 +90,10 @@ export type NormalisedModel = {
   context_window: number;
   max_output_tokens: number;
   input_modalities: Modality[];
+  /** True when the model supports a reasoning/thinking request at all; absent means no or unknown. */
+  reasoning?: boolean;
+  /** Named reasoning-effort levels in ascending order, when the model exposes them (see reasoningOptionsFrom). */
+  reasoning_options?: string[];
 };
 export type NormalisedProvider = {
   id: string;
@@ -98,6 +116,33 @@ function toModalities(input: string[] | undefined): Modality[] | null {
     if ((MODALITIES as readonly string[]).includes(m) && !out.includes(m as Modality)) out.push(m as Modality);
   }
   return out;
+}
+
+/**
+ * models.dev's `reasoning_options` → the named reasoning-effort levels Omnipus's
+ * effort control can send, in ascending effort order.
+ *
+ * Upstream entries are typed descriptors; only `{"type":"effort","values":[…]}`
+ * carries level names, so that is the only shape mapped and `values` passes
+ * through verbatim — no reordering, no invented names. `budget_tokens` (a token
+ * range) and `toggle` (on/off) are deliberately dropped: synthesising level names
+ * for them would invent data, and Omnipus cannot send a named level to a model
+ * that only takes a budget or a switch. Non-string entries inside `values` (null
+ * is live in sarvam/sarvam-30b) are dropped the same way. Returns undefined when
+ * nothing usable remains, so the published field stays absent rather than empty.
+ */
+export function reasoningOptionsFrom(raw: ModelsDevReasoningOption[] | undefined): string[] | undefined {
+  if (!Array.isArray(raw)) return undefined;
+  const out: string[] = [];
+  for (const entry of raw) {
+    if (!entry || typeof entry !== "object" || entry.type !== "effort") continue;
+    if (!Array.isArray(entry.values)) continue;
+    for (const v of entry.values) {
+      if (typeof v !== "string" || v.length === 0) continue;
+      if (!out.includes(v)) out.push(v);
+    }
+  }
+  return out.length > 0 ? out : undefined;
 }
 
 export function normaliseModelsDev(api: ModelsDevApi): {
@@ -140,6 +185,9 @@ export function normaliseModelsDev(api: ModelsDevApi): {
         input_modalities: mods,
       };
       if (m.release_date && /^\d{4}-\d{2}-\d{2}$/.test(m.release_date)) nm.release_date = m.release_date;
+      if (m.reasoning === true) nm.reasoning = true;
+      const reasoningOptions = reasoningOptionsFrom(m.reasoning_options);
+      if (reasoningOptions) nm.reasoning_options = reasoningOptions;
       models.push(nm);
     }
     providers.push({

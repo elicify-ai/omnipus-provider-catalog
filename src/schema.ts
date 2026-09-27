@@ -120,6 +120,10 @@ export const Model = z
     max_output_tokens: z.number().int().nonnegative(),
     input_modalities: z.array(z.enum(MODALITIES)).min(1),
     status: z.enum(MODEL_STATUSES),
+    /** True when the model supports a reasoning/thinking request at all; absent means no or unknown. */
+    reasoning: z.boolean().optional(),
+    /** Named reasoning-effort levels the model accepts (e.g. ["low","medium","high"]), in ascending effort order exactly as models.dev publishes them. Absent when the model exposes no named levels — a token budget or a bare on/off toggle is not a named level. */
+    reasoning_options: z.array(z.string().min(1)).optional(),
     disputed: z.boolean().optional(),
     /** Cross-Region inference geographies for which AWS Bedrock publishes a cross-Region inference profile of this base model (see bedrock-region/CONTRACT.md). */
     inference_profiles: z.array(z.enum(CROSS_REGION_GROUPS)).min(1).optional(),
