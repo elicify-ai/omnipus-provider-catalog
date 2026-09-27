@@ -149,7 +149,7 @@ export const CHECKS = [
   { id: "NO_CUSTOM", spec: "provider", title: "no provider row carries custom: true" },
   { id: "NEVER_PUBLISHED", spec: "provider", title: "locality and subscription_policy are not published" },
   { id: "MODEL_ID", spec: "model", title: "model ids are non-empty strings, unique within the provider" },
-  { id: "MODEL_SHAPE", spec: "model", title: "model fields typed: ints >= 0, tool_call bool, status enum, release_date YYYY-MM-DD, disputed bool" },
+  { id: "MODEL_SHAPE", spec: "model", title: "model fields typed: ints >= 0, tool_call bool, status enum, release_date YYYY-MM-DD, disputed bool, reasoning bool, reasoning_options non-empty strings" },
   { id: "MODEL_TEXT", spec: "model", title: "every model's input_modalities includes text" },
   { id: "MODEL_LIMITS", spec: "model", title: "non-retired models have context_window > 0 and max_output_tokens >= 0" },
   { id: "ALIASES", spec: "provider", title: "aliases are strings and never equal any provider id" },
@@ -304,6 +304,9 @@ export function validateDocument(bytes) {
         if (m.release_date !== undefined && (!isStr(m.release_date) || !/^\d{4}-\d{2}-\d{2}$/.test(m.release_date) || Number.isNaN(Date.parse(m.release_date))))
           add("MODEL_SHAPE", `${M}.release_date`, `got ${JSON.stringify(m.release_date)}`);
         if (m.disputed !== undefined && typeof m.disputed !== "boolean") add("MODEL_SHAPE", `${M}.disputed`, `got ${JSON.stringify(m.disputed)}`);
+        if (m.reasoning !== undefined && typeof m.reasoning !== "boolean") add("MODEL_SHAPE", `${M}.reasoning`, `got ${JSON.stringify(m.reasoning)}`);
+        if (m.reasoning_options !== undefined && (!Array.isArray(m.reasoning_options) || m.reasoning_options.some((v) => !isNonEmptyStr(v))))
+          add("MODEL_SHAPE", `${M}.reasoning_options`, `got ${JSON.stringify(m.reasoning_options)}`);
 
         if (!Array.isArray(m.input_modalities) || !m.input_modalities.includes("text")) add("MODEL_TEXT", `${M}.input_modalities`, `got ${JSON.stringify(m.input_modalities)}`);
 

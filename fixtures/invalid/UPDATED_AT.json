@@ -36,7 +36,8 @@
           ],
           "tool_call": true,
           "status": "active",
-          "release_date": "2024-05-13"
+          "release_date": "2024-05-13",
+          "reasoning": true
         }
       ]
     },
@@ -248,7 +249,12 @@
             "image"
           ],
           "tool_call": true,
-          "status": "active"
+          "status": "active",
+          "reasoning": true,
+          "reasoning_options": [
+            "high",
+            "max"
+          ]
         },
         {
           "id": "glm-4",

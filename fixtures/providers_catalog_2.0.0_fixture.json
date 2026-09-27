@@ -30,7 +30,9 @@
           "context_window": 1000000,
           "max_output_tokens": 131072,
           "input_modalities": ["text"],
-          "status": "active"
+          "status": "active",
+          "reasoning": true,
+          "reasoning_options": ["high", "max"]
         },
         {
           "id": "glm-5.2-flash",
@@ -90,7 +92,8 @@
           "context_window": 204800,
           "max_output_tokens": 131072,
           "input_modalities": ["text", "image", "pdf"],
-          "status": "active"
+          "status": "active",
+          "reasoning": true
         }
       ]
     },
