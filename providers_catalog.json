@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.28",
- "updated_at": "2026-09-28T12:21:51.941Z",
- "generated_at": "2026-09-28T12:21:51.941Z",
- "source": "models.dev@c015170a3c46ee078ea68f8a88befe002afe6afa litellm@b79fc9f1b0249cb533391dd7c941082f0cd6ddb1 overrides@a9f76dba1c68996a79ea3b9a4a4f51abf53a1a9f",
+ "version": "v2026.9.29",
+ "updated_at": "2026-09-29T11:47:35.544Z",
+ "generated_at": "2026-09-29T11:47:35.544Z",
+ "source": "models.dev@5125e86711b8430a6be4f00b47ab4240308d33e3 litellm@7b2cbf6e7f6c22d8d057858187e88c73e5025883 overrides@5a494b137e802be58ecf645ba1708ae605386e64",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-28T12:21:51.941Z",
-   "commit": "c015170a3c46ee078ea68f8a88befe002afe6afa",
-   "etag": "W/\"1b47973eb9abe1290f3dac1f0099d3ed\"",
-   "sha256": "1b47973eb9abe1290f3dac1f0099d3ed650c6192ee8749e88a3327946b48e4d9",
-   "bytes": 5215801
+   "fetched_at": "2026-09-29T11:47:35.544Z",
+   "commit": "5125e86711b8430a6be4f00b47ab4240308d33e3",
+   "etag": "W/\"ae3435874ca1da9ece20cae950917203\"",
+   "sha256": "ae3435874ca1da9ece20cae9509172037de8f7fe22f48687689084eb1c3ae8ae",
+   "bytes": 5230398
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-28T12:21:51.941Z",
-   "commit": "b79fc9f1b0249cb533391dd7c941082f0cd6ddb1",
-   "etag": "W/\"2cbf291dc56b322780039dc6858d7909520c7b5ae3b0ac6396ece2e48f8a8475\"",
-   "sha256": "7af475fd7dd2f2a25494cb6cdf0e223db91cdabd9bf87dc3a68ecc5236d9683a",
-   "bytes": 2955571
+   "fetched_at": "2026-09-29T11:47:35.544Z",
+   "commit": "7b2cbf6e7f6c22d8d057858187e88c73e5025883",
+   "etag": "W/\"dfe0860fdb56d6fd092a0aea5e33ba3b6d4bf6a36233b22d680b0c4bc1a67fe6\"",
+   "sha256": "9f7b337871edc2be40f9154a102f9777547618e2cc689d315ddc2d1a6ba52f21",
+   "bytes": 2991796
   },
-  "overrides_commit": "a9f76dba1c68996a79ea3b9a4a4f51abf53a1a9f",
-  "previous_version": "v2026.9.27"
+  "overrides_commit": "5a494b137e802be58ecf645ba1708ae605386e64",
+  "previous_version": "v2026.9.28"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -9546,6 +9546,23 @@
      ]
     },
     {
+     "id": "anthropic.claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "inference_profiles": [
+      "global"
+     ]
+    },
+    {
      "id": "ca.amazon.nova-lite-v1:0",
      "name": "Nova Lite (CA)",
      "release_date": "2024-12-03",
@@ -10960,6 +10977,20 @@
       "pdf"
      ],
      "status": "active"
+    },
+    {
+     "id": "claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
     }
    ]
   },
@@ -12114,6 +12145,20 @@
      "id": "claude-sonnet-5",
      "name": "Claude Sonnet 5",
      "release_date": "2026-06-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -13281,6 +13326,20 @@
      "status": "active"
     },
     {
+     "id": "claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "codestral-2501",
      "name": "Codestral 25.01",
      "release_date": "2025-01-01",
@@ -13610,6 +13669,19 @@
      "status": "active"
     },
     {
+     "id": "gpt-5.1-codex-max",
+     "name": "GPT-5.1 Codex Max",
+     "release_date": "2025-11-13",
+     "tool_call": true,
+     "context_window": 400000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-5.1-codex-mini",
      "name": "GPT-5.1 Codex Mini",
      "release_date": "2025-11-14",
@@ -13762,6 +13834,34 @@
      "id": "gpt-5.6-terra",
      "name": "GPT-5.6 Terra",
      "release_date": "2026-07-09",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6-astra",
+     "name": "GPT-6 Astra",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6-luna",
+     "name": "GPT-6 Luna",
+     "release_date": "2026-09-22",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -14081,7 +14181,7 @@
    "id": "bailing",
    "name": "Bailing",
    "company": "Bailing",
-   "api": "https://api.tbox.cn/api/llm/v1/chat/completions",
+   "api": "https://api.tbox.cn/api/llm/v1",
    "protocol": "openai-compatible",
    "env": [
     "BAILING_API_TOKEN"
@@ -15923,7 +16023,7 @@
      "name": "Claude Sonnet 4.5 (latest)",
      "release_date": "2025-09-29",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 200000,
      "max_output_tokens": 64000,
      "input_modalities": [
       "text",
@@ -16923,7 +17023,7 @@
      "name": "DeepSeek V4 Flash 0731",
      "release_date": "2026-07-31",
      "tool_call": true,
-     "context_window": 1310720,
+     "context_window": 1048576,
      "max_output_tokens": 1048576,
      "input_modalities": [
       "text"
@@ -17205,7 +17305,7 @@
      "name": "Glm 5.3",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1310720,
+     "context_window": 1048576,
      "max_output_tokens": 1048576,
      "input_modalities": [
       "text"
@@ -17217,7 +17317,7 @@
      "name": "Glm 5.3 Flash",
      "release_date": "2026-08-26",
      "tool_call": true,
-     "context_window": 1310720,
+     "context_window": 1048576,
      "max_output_tokens": 1048576,
      "input_modalities": [
       "text",
@@ -22487,6 +22587,19 @@
      "status": "active"
     },
     {
+     "id": "anthropic-claude-sonnet-5.5",
+     "name": "Anthropic Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "arcee-trinity-large-thinking",
      "name": "Arcee Trinity Large Thinking (Public Preview)",
      "release_date": "2026-04-01",
@@ -24129,6 +24242,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "anthropic/claude-sonnet-latest",
      "name": "Claude Sonnet Latest (Claude Sonnet 5)",
      "release_date": "2026-06-30",
@@ -24753,7 +24880,7 @@
      "id": "deepinfra/tencent/Hy4-preview",
      "name": "Hy4 preview (Deep Infra)",
      "release_date": "2026-08-28",
-     "tool_call": false,
+     "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 64000,
      "input_modalities": [
@@ -24977,6 +25104,18 @@
      "id": "flexai/DeepSeek-V4-Flash-0731",
      "name": "DeepSeek V4 Flash 0731 (FlexAI)",
      "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "flexai/DeepSeek-V4.1-Flash",
+     "name": "DeepSeek V4.1 Flash (FlexAI)",
+     "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 384000,
@@ -25728,7 +25867,7 @@
      "id": "nebius/deepseek-ai/DeepSeek-V4.1-Flash",
      "name": "DeepSeek V4.1 Flash (Nebius)",
      "release_date": "2026-09-10",
-     "tool_call": false,
+     "tool_call": true,
      "context_window": 1048000,
      "max_output_tokens": 384000,
      "input_modalities": [
@@ -30612,6 +30751,20 @@
      "status": "active"
     },
     {
+     "id": "claude-sonnet-5.5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gemini-3.1-pro-preview",
      "name": "Gemini 3.1 Pro Preview",
      "release_date": "2026-02-19",
@@ -32328,6 +32481,20 @@
      "status": "active"
     },
     {
+     "id": "claude-sonnet-5-5@default",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-sonnet-5@default",
      "name": "Claude Sonnet 5",
      "release_date": "2026-06-30",
@@ -33061,6 +33228,20 @@
      "tool_call": true,
      "context_window": 200000,
      "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-sonnet-5-5@default",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -40745,8 +40926,8 @@
      "name": "DeepSeek: DeepSeek Flash Latest",
      "release_date": "2026-09-14",
      "tool_call": true,
-     "context_window": 1040000,
-     "max_output_tokens": 384000,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
@@ -40927,7 +41108,7 @@
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 128000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image",
@@ -40941,7 +41122,7 @@
      "release_date": "2026-08-19",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -41376,6 +41557,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-sonnet-5.5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "arcee-ai/trinity-large-thinking",
      "name": "Trinity Large Thinking",
      "release_date": "2026-04-01",
@@ -41664,15 +41859,15 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-v3.1-terminus",
-     "name": "DeepSeek: DeepSeek V3.1 Terminus (retires Sep 28)",
+     "name": "DeepSeek: DeepSeek V3.1 Terminus",
      "release_date": "2025-09-22",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -41692,11 +41887,11 @@
     },
     {
      "id": "deepseek/deepseek-v3.2-exp",
-     "name": "DeepSeek: DeepSeek V3.2 Exp (retires Sep 28)",
+     "name": "DeepSeek: DeepSeek V3.2 Exp",
      "release_date": "2025-09-29",
      "tool_call": true,
      "context_window": 163840,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 147456,
      "input_modalities": [
       "text"
      ],
@@ -41743,8 +41938,8 @@
      "name": "DeepSeek V4 Flash Vision Exp",
      "release_date": "2026-08-21",
      "tool_call": true,
-     "context_window": 1048575,
-     "max_output_tokens": 943717,
+     "context_window": 1048576,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image"
@@ -41780,8 +41975,8 @@
      "name": "DeepSeek V4.1 Flash",
      "release_date": "2026-09-10",
      "tool_call": true,
-     "context_window": 1040000,
-     "max_output_tokens": 384000,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
@@ -42396,7 +42591,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "inclusionai/ling-3.0-flash-sante:free",
@@ -42913,8 +43108,8 @@
      "name": "MiniMax-M2.7",
      "release_date": "2026-03-18",
      "tool_call": true,
-     "context_window": 204800,
-     "max_output_tokens": 131072,
+     "context_window": 196608,
+     "max_output_tokens": 176947,
      "input_modalities": [
       "text"
      ],
@@ -43371,7 +43566,7 @@
       "text",
       "image"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "nex-agi/nex-n2.5-mini:free",
@@ -43397,7 +43592,7 @@
       "text",
       "image"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "nex-agi/nex-n2.5-pro:free",
@@ -43567,7 +43762,7 @@
      "release_date": "2026-08-11",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -44341,7 +44536,7 @@
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 117964,
      "input_modalities": [
       "text"
      ],
@@ -44837,8 +45032,8 @@
      "name": "Qwen: Qwen3 30B A3B Instruct 2507",
      "release_date": "2025-07-29",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 235929,
+     "context_window": 128000,
+     "max_output_tokens": 32000,
      "input_modalities": [
       "text"
      ],
@@ -45311,8 +45506,8 @@
      "name": "Qwen3.8 27B",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 131072,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text",
       "image",
@@ -46267,7 +46462,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -47160,6 +47355,20 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -50588,6 +50797,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5 (Anthropic)",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "atria/atria-dawn-preview",
      "name": "Atria Dawn Preview (Atria)",
      "release_date": "2026-09-12",
@@ -52153,7 +52376,7 @@
       "audio",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepinfra/mimo-v2.5-pro",
@@ -52165,7 +52388,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepinfra/mimo-v2.6-flash",
@@ -57717,6 +57940,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "bytedance/dola-seed-2.0-code",
      "name": "Seed 2.0 Code",
      "release_date": "2026-02-14",
@@ -60815,7 +61052,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "ministral-3b-latest",
@@ -62710,7 +62947,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-4:thinking",
@@ -62724,7 +62961,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-4:thinking:1024",
@@ -62738,7 +62975,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-4:thinking:32768",
@@ -62752,7 +62989,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-4:thinking:8192",
@@ -62766,7 +63003,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "anthropic/claude-opus-4.1",
@@ -63192,6 +63429,34 @@
      "id": "anthropic/claude-sonnet-5:thinking",
      "name": "Claude Sonnet 5 Thinking",
      "release_date": "2026-06-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-sonnet-5.5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-sonnet-5.5:thinking",
+     "name": "Claude Sonnet 5.5 Thinking",
+     "release_date": "2026-09-28",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -66657,8 +66922,8 @@
      "name": "LongCat 2.0",
      "release_date": "2026-06-30",
      "tool_call": true,
-     "context_window": 1048756,
-     "max_output_tokens": 262144,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -66669,8 +66934,8 @@
      "name": "LongCat 2.0 Thinking",
      "release_date": "2026-06-30",
      "tool_call": true,
-     "context_window": 1048756,
-     "max_output_tokens": 262144,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -73590,7 +73855,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "google/gemma-3-27b-it",
@@ -73968,6 +74234,18 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "Qwen/Qwen3.8-27B",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "zai-org/GLM-5",
@@ -77197,7 +77475,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "moonshotai/kimi-k2.6",
@@ -77595,7 +77873,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "openai/gpt-oss-20b",
@@ -79917,6 +80195,21 @@
      "status": "active"
     },
     {
+     "id": "z-ai/glm-5.3-flashx",
+     "name": "GLM-5.3-FlashX",
+     "release_date": "2026-09-18",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "z-ai/glm-5v-turbo",
      "name": "GLM-5V-Turbo",
      "release_date": "2026-04-01",
@@ -81879,6 +82172,20 @@
      "status": "active"
     },
     {
+     "id": "claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "deepseek-v4-flash",
      "name": "DeepSeek V4 Flash",
      "release_date": "2026-07-31",
@@ -82519,7 +82826,7 @@
     },
     {
      "id": "grok-4.7",
-     "name": "Grok 4.7 (30% Off)",
+     "name": "Grok 4.7",
      "release_date": "2026-09-21",
      "tool_call": true,
      "context_window": 500000,
@@ -83967,8 +84274,7 @@
       "text",
       "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "~deepseek/deepseek-pro-latest",
@@ -84151,8 +84457,7 @@
       "image",
       "video"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "~z-ai/glm-latest",
@@ -84164,8 +84469,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "aion-labs/aion-2.0",
@@ -84595,6 +84899,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-sonnet-5.5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "arcee-ai/trinity-large-thinking",
      "name": "Trinity Large Thinking",
      "release_date": "2026-04-01",
@@ -84883,7 +85201,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek/deepseek-v3.1-terminus",
@@ -84895,7 +85213,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v3.2",
@@ -84919,7 +85238,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4-flash",
@@ -84969,7 +85289,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4-pro",
@@ -85006,7 +85327,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "dots-studio/dots-3-note-preview:free",
@@ -85638,7 +85960,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "inclusionai/ling-3.0-flash-sante:free",
@@ -86095,8 +86417,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "minimax/minimax-m2.7:free",
@@ -86549,7 +86870,7 @@
       "text",
       "image"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "nex-agi/nex-n2.5-mini:free",
@@ -86575,7 +86896,7 @@
       "text",
       "image"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "nex-agi/nex-n2.5-pro:free",
@@ -87535,7 +87856,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "openai/gpt-oss-20b",
@@ -88045,7 +88367,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -88522,7 +88845,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3.8-27b:free",
@@ -89384,7 +89708,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "z-ai/glm-5.2:free",
@@ -93273,7 +93598,7 @@
    "id": "pioneer",
    "name": "Pioneer",
    "company": "Pioneer",
-   "api": "https://api.pioneer.ai/v1",
+   "api": "https://api.fastino.ai/v1",
    "protocol": "openai-compatible",
    "env": [
     "PIONEER_API_KEY"
@@ -93568,6 +93893,18 @@
      "status": "active"
     },
     {
+     "id": "fastino/GLiNER-2.5-Decide",
+     "name": "GLiNER-2.5-Decide",
+     "release_date": "2026-09-24",
+     "tool_call": true,
+     "context_window": 8192,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "fastino/gliner2-base-v1",
      "name": "GLiNER2 Base",
      "release_date": "2025-06-30",
@@ -93622,6 +93959,18 @@
      "tool_call": true,
      "context_window": 8192,
      "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "fastino/gliner2.5-base-v1",
+     "name": "GLiNER 2.5 Base",
+     "release_date": "2026-08-24",
+     "tool_call": true,
+     "context_window": 4096,
+     "max_output_tokens": 4096,
      "input_modalities": [
       "text"
      ],
@@ -106745,7 +107094,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "moonshotai/Kimi-K2.6",
@@ -106759,7 +107108,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "moonshotai/Kimi-K2.7-Code",
@@ -106771,7 +107120,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "moonshotai/Kimi-K3",
@@ -108559,6 +108908,19 @@
      "status": "active"
     },
     {
+     "id": "claude-opus-5-5-fast",
+     "name": "Claude Opus 5.5 Fast",
+     "release_date": "2026-09-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-opus-5-fast",
      "name": "Claude Opus 5 Fast",
      "release_date": "2026-07-23",
@@ -108604,6 +108966,19 @@
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-26",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image"
@@ -109751,6 +110126,21 @@
      "status": "active"
     },
     {
+     "id": "xiaomi-mimo-v2-6-flash",
+     "name": "MiMo-V2.6-Flash",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "z-ai-glm-5-3",
      "name": "GLM 5.3",
      "release_date": "2026-08-18",
@@ -110664,6 +111054,20 @@
      "id": "anthropic/claude-sonnet-5",
      "name": "Claude Sonnet 5",
      "release_date": "2026-06-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-sonnet-5.5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -113160,7 +113564,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "perplexity/sonar-reasoning-pro",
@@ -113173,7 +113577,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "poolside/laguna-s-2.1",
