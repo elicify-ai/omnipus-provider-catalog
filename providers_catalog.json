@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.9.29",
- "updated_at": "2026-09-29T11:47:35.544Z",
- "generated_at": "2026-09-29T11:47:35.544Z",
- "source": "models.dev@5125e86711b8430a6be4f00b47ab4240308d33e3 litellm@7b2cbf6e7f6c22d8d057858187e88c73e5025883 overrides@5a494b137e802be58ecf645ba1708ae605386e64",
+ "version": "v2026.9.30",
+ "updated_at": "2026-09-30T11:33:47.702Z",
+ "generated_at": "2026-09-30T11:33:47.702Z",
+ "source": "models.dev@1a54bed6f00935e2d15ef08952bd911fcb98c262 litellm@cd0ac30881d3b28187525164fb1406533d2c2a0b overrides@c542d084d305308d2b08a9915b08b9720e5a2eec",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-09-29T11:47:35.544Z",
-   "commit": "5125e86711b8430a6be4f00b47ab4240308d33e3",
-   "etag": "W/\"ae3435874ca1da9ece20cae950917203\"",
-   "sha256": "ae3435874ca1da9ece20cae9509172037de8f7fe22f48687689084eb1c3ae8ae",
-   "bytes": 5230398
+   "fetched_at": "2026-09-30T11:33:47.702Z",
+   "commit": "1a54bed6f00935e2d15ef08952bd911fcb98c262",
+   "etag": "W/\"2600f80042b331f939e7ce56fc433362\"",
+   "sha256": "2600f80042b331f939e7ce56fc4333620cae208098a9d987db343242f862c74e",
+   "bytes": 5264592
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-09-29T11:47:35.544Z",
-   "commit": "7b2cbf6e7f6c22d8d057858187e88c73e5025883",
-   "etag": "W/\"dfe0860fdb56d6fd092a0aea5e33ba3b6d4bf6a36233b22d680b0c4bc1a67fe6\"",
-   "sha256": "9f7b337871edc2be40f9154a102f9777547618e2cc689d315ddc2d1a6ba52f21",
-   "bytes": 2991796
+   "fetched_at": "2026-09-30T11:33:47.702Z",
+   "commit": "cd0ac30881d3b28187525164fb1406533d2c2a0b",
+   "etag": "W/\"f3b5bce6e50828be7faa8e7fb2a1eaddd73a94d779ba435c43214170c94a8b11\"",
+   "sha256": "d04d76d67fcc623404e4b3e77af4db9e451e97f1782879b5ac1af70c66bfc936",
+   "bytes": 3015280
   },
-  "overrides_commit": "5a494b137e802be58ecf645ba1708ae605386e64",
-  "previous_version": "v2026.9.28"
+  "overrides_commit": "c542d084d305308d2b08a9915b08b9720e5a2eec",
+  "previous_version": "v2026.9.29"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -10427,6 +10427,24 @@
      ]
     },
     {
+     "id": "xai.grok-4.7",
+     "name": "Grok 4.7",
+     "release_date": "2026-09-21",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "inference_profiles": [
+      "us",
+      "global"
+     ]
+    },
+    {
      "id": "zai.glm-4.7",
      "name": "GLM-4.7",
      "release_date": "2025-12-22",
@@ -12741,6 +12759,20 @@
      "status": "active"
     },
     {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-chat-latest",
      "name": "GPT Chat Latest",
      "release_date": "2026-05-05",
@@ -13887,6 +13919,20 @@
      "status": "active"
     },
     {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-chat-latest",
      "name": "GPT Chat Latest",
      "release_date": "2026-05-05",
@@ -14290,6 +14336,19 @@
     {
      "id": "deepseek-ai/DeepSeek-V4.1-Flash",
      "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash-Fast",
+     "name": "deepseek-ai/DeepSeek-V4.1-Flash-Fast",
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
@@ -18438,6 +18497,20 @@
      "status": "active"
     },
     {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-oss-120b",
      "name": "GPT OSS 120B",
      "release_date": "2025-08-05",
@@ -19678,6 +19751,19 @@
      "id": "anthropic/claude-sonnet-5",
      "name": "Claude Sonnet 5",
      "release_date": "2026-06-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "anthropic/claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -24354,7 +24440,7 @@
      "name": "DeepSeek V4 Flash 0731 (Cloudflare)",
      "release_date": "2026-07-31",
      "tool_call": true,
-     "context_window": 1310720,
+     "context_window": 1048576,
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
@@ -25016,7 +25102,7 @@
     },
     {
      "id": "fireworks_ai/accounts/fireworks/models/gpt-oss-120b",
-     "name": "GPT OSS 120B",
+     "name": "GPT OSS 120B (Fireworks AI)",
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
@@ -25024,7 +25110,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "fireworks_ai/accounts/fireworks/models/gpt-oss-20b",
@@ -25122,7 +25208,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "flexai/gpt-oss-120b",
@@ -26343,6 +26429,20 @@
      "id": "openai/gpt-6-sol",
      "name": "GPT-6 Sol",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -31035,6 +31135,20 @@
      "id": "gpt-6-sol",
      "name": "GPT-6 Sol",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -40940,7 +41054,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -41964,7 +42078,7 @@
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -42923,7 +43037,7 @@
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 117964,
      "input_modalities": [
       "text",
       "image",
@@ -44489,6 +44603,34 @@
      "status": "active"
     },
     {
+     "id": "openai/gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol-pro",
+     "name": "OpenAI: GPT-6.1 Sol Pro",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai/gpt-audio",
      "name": "OpenAI: GPT Audio",
      "release_date": "2026-01-19",
@@ -45020,8 +45162,8 @@
      "name": "Qwen3 30B A3B",
      "release_date": "2025-04-28",
      "tool_call": true,
-     "context_window": 40960,
-     "max_output_tokens": 16384,
+     "context_window": 131072,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text"
      ],
@@ -45276,7 +45418,7 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image",
@@ -48468,6 +48610,20 @@
      "status": "active"
     },
     {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "gpt-oss-120b",
      "name": "GPT OSS 120B",
      "release_date": "2025-08-05",
@@ -51270,7 +51426,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "azure/gpt-4",
@@ -51282,7 +51438,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "azure/gpt-4-turbo",
@@ -51295,7 +51451,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "azure/gpt-4.1",
@@ -51467,7 +51623,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "azure/gpt-5.3-codex",
@@ -51658,7 +51814,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "azure/o3",
@@ -51672,7 +51828,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "azure/o3-mini",
@@ -51684,7 +51840,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "azure/o4-mini",
@@ -51697,7 +51853,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "baidu/deepseek-v4-flash",
@@ -55027,6 +55183,20 @@
      "id": "openai/gpt-6-sol",
      "name": "GPT-6 Sol (OpenAI)",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol",
+     "name": "GPT-6.1 Sol (OpenAI)",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -59393,6 +59563,19 @@
      "id": "openai/gpt-6-sol",
      "name": "GPT-6 Sol",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -68759,6 +68942,34 @@
      "id": "openai/gpt-6-sol-pro",
      "name": "GPT 6 Sol Pro",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol",
+     "name": "GPT 6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol-pro",
+     "name": "GPT 6.1 Sol Pro",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -78390,6 +78601,20 @@
      "status": "active"
     },
     {
+     "id": "anthropic/claude-sonnet-5.5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "bailian/qwen-flash",
      "name": "Qwen Flash",
      "release_date": "2025-07-28",
@@ -81089,6 +81314,21 @@
      "disputed": true
     },
     {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
      "id": "gpt-daybreak-blue-latest",
      "name": "Daybreak Blue",
      "release_date": "2026-08-07",
@@ -81756,6 +81996,21 @@
      "id": "gpt-6-sol",
      "name": "GPT-6 Sol",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "disputed": true
+    },
+    {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -82788,6 +83043,20 @@
      "id": "gpt-6-sol",
      "name": "GPT-6 Sol",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -84286,8 +84555,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "~deepseek/deepseek-v4-flash-latest",
@@ -84299,7 +84567,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "~google/gemini-flash-latest",
@@ -84457,7 +84726,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "~z-ai/glm-latest",
@@ -84469,7 +84739,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "aion-labs/aion-2.0",
@@ -85234,12 +85505,11 @@
      "release_date": "2025-09-29",
      "tool_call": true,
      "context_window": 163840,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 147456,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "deepseek/deepseek-v4-flash",
@@ -85264,7 +85534,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4-flash-0731:free",
@@ -85284,13 +85555,12 @@
      "release_date": "2026-08-21",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943717,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "deepseek/deepseek-v4-pro",
@@ -85314,7 +85584,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4.1-flash",
@@ -85322,13 +85593,12 @@
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "dots-studio/dots-3-note-preview:free",
@@ -85979,15 +86249,14 @@
      "name": "Ling 3.0 Flash VL",
      "release_date": "2026-09-10",
      "tool_call": true,
-     "context_window": 131072,
+     "context_window": 262144,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image",
       "video"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "inclusionai/ling-3.0-flash-vl:free",
@@ -86221,7 +86490,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "meta/muse-spark-1.1",
@@ -86364,12 +86634,11 @@
      "release_date": "2025-10-27",
      "tool_call": true,
      "context_window": 204800,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 176947,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "minimax/minimax-m2-her",
@@ -87078,12 +87347,11 @@
      "release_date": "2026-08-11",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "nvidia/nemotron-3.5-lightning:free",
@@ -87796,6 +88064,34 @@
      "id": "openai/gpt-6-sol-pro",
      "name": "GPT-6 Sol Pro",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol-pro",
+     "name": "GPT-6.1 Sol Pro",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -88613,7 +88909,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3.5-27b",
@@ -89279,30 +89576,28 @@
      "name": "Inkling",
      "release_date": "2026-07-15",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 524288,
      "max_output_tokens": 471859,
      "input_modalities": [
       "text",
       "image",
       "audio"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "thinkingmachines/inkling-small",
      "name": "Inkling Small",
      "release_date": "2026-07-30",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 524288,
      "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
       "audio"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "thinkingmachines/inkling-small:free",
@@ -89733,7 +90028,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "z-ai/glm-5.3-flash",
@@ -98711,6 +99007,34 @@
      "status": "active"
     },
     {
+     "id": "claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "claude-sonnet-5-5@eu",
+     "name": "Claude Sonnet 5.5 (EU)",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "claude-sonnet-5@eu",
      "name": "Claude Sonnet 5 (EU)",
      "release_date": "2026-06-30",
@@ -99666,6 +99990,34 @@
      "id": "gpt-6-sol@eu",
      "name": "GPT-6 Sol (EU)",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "gpt-6.1-sol@eu",
+     "name": "GPT-6.1 Sol (EU)",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -101795,12 +102147,11 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 256000,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "gemma-4-26b-a4b-it",
@@ -101949,6 +102300,20 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
      ],
      "status": "active"
     }
@@ -105065,8 +105430,8 @@
   },
   {
    "id": "tempr",
-   "name": "Tempr",
-   "company": "Tempr",
+   "name": "Tempr Gateway",
+   "company": "Tempr Gateway",
    "api": "https://api.temprhq.io/v1",
    "protocol": "openai-compatible",
    "env": [
@@ -105275,6 +105640,56 @@
       "text",
       "image",
       "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "cerebras/gpt-oss-120b",
+     "name": "GPT OSS 120B",
+     "release_date": "2025-08-05",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 40960,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "cerebras/qwen-3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 40960,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek/deepseek-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek/deepseek-v4-pro",
+     "name": "DeepSeek V4 Pro",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
      ],
      "status": "active"
     },
@@ -105505,6 +105920,93 @@
      "status": "active"
     },
     {
+     "id": "groq/allam-2-7b",
+     "name": "ALLaM-2-7b",
+     "release_date": "2025-01-23",
+     "tool_call": false,
+     "context_window": 4096,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "groq/openai/gpt-oss-120b",
+     "name": "GPT OSS 120B",
+     "release_date": "2025-08-05",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "groq/openai/gpt-oss-20b",
+     "name": "GPT OSS 20B",
+     "release_date": "2025-08-05",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "groq/qwen/qwen3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 131042,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "minimax/MiniMax-M2.7",
+     "name": "MiniMax-M2.7",
+     "release_date": "2026-03-18",
+     "tool_call": true,
+     "context_window": 204800,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "minimax/MiniMax-M2.7-highspeed",
+     "name": "MiniMax-M2.7-highspeed",
+     "release_date": "2026-03-18",
+     "tool_call": true,
+     "context_window": 204800,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "minimax/MiniMax-M3",
+     "name": "MiniMax-M3",
+     "release_date": "2026-06-01",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 512000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "mistral/mistral-embed",
      "name": "Mistral Embed",
      "release_date": "2023-12-11",
@@ -105628,6 +106130,205 @@
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "moonshot/kimi-k2.6",
+     "name": "Kimi K2.6",
+     "release_date": "2026-04-21",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "moonshot/kimi-k2.7-code",
+     "name": "Kimi K2.7 Code",
+     "release_date": "2026-06-12",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "moonshot/kimi-k2.7-code-highspeed",
+     "name": "Kimi K2.7 Code Highspeed",
+     "release_date": "2026-06-12",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "moonshot/kimi-k3",
+     "name": "Kimi K3",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.20-0309-non-reasoning",
+     "name": "Grok 4.20 (Non-Reasoning)",
+     "release_date": "2026-03-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.20-0309-reasoning",
+     "name": "Grok 4.20 (Reasoning)",
+     "release_date": "2026-03-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.3",
+     "name": "Grok 4.3",
+     "release_date": "2026-04-17",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 30000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.5",
+     "name": "Grok 4.5",
+     "release_date": "2026-07-08",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.6",
+     "name": "Grok 4.6",
+     "release_date": "2026-08-12",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-4.7",
+     "name": "Grok 4.7",
+     "release_date": "2026-09-21",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xai/grok-build-0.1",
+     "name": "Grok Build 0.1",
+     "release_date": "2026-04-16",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 256000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xiaomi-mimo/mimo-v2.6-flash",
+     "name": "MiMo-V2.6-Flash",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xiaomi-mimo/mimo-v2.6-pro",
+     "name": "MiMo-V2.6-Pro",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "xiaomi-mimo/mimo-v2.6-pro-ultraspeed",
+     "name": "MiMo-V2.6-Pro-UltraSpeed",
+     "release_date": "2026-09-21",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
      ],
      "status": "active"
     },
@@ -109820,6 +110521,19 @@
      "status": "active"
     },
     {
+     "id": "openai-gpt-61-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "openai-gpt-oss-120b",
      "name": "OpenAI GPT OSS 120B",
      "release_date": "2025-11-06",
@@ -111797,6 +112511,30 @@
      "status": "retired"
     },
     {
+     "id": "inclusionai/ling-3.1-flash",
+     "name": "Ling 3.1 Flash",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "inclusionai/ling-3.1-flash-free",
+     "name": "Ling 3.1 Flash (Free)",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "inference-net/schematron-v2-small",
      "name": "Schematron V2 Small",
      "release_date": "2026-04-16",
@@ -111883,6 +112621,18 @@
       "image"
      ],
      "status": "retired"
+    },
+    {
+     "id": "liquid/d1",
+     "name": "Liquid d1",
+     "release_date": "2026-09-29",
+     "tool_call": false,
+     "context_window": 32000,
+     "max_output_tokens": 0,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "meituan/longcat-2.5-preview",
@@ -113300,6 +114050,34 @@
      "id": "openai/gpt-6-sol-fast",
      "name": "GPT-6 Sol (Fast)",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol",
+     "name": "GPT-6.1 Sol",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "openai/gpt-6.1-sol-fast",
+     "name": "GPT-6.1 Sol (Fast)",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
