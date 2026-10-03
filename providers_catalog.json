@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.10.2",
- "updated_at": "2026-10-02T11:33:47.082Z",
- "generated_at": "2026-10-02T11:33:47.082Z",
- "source": "models.dev@c81646e5df987c22cf1c057f3f72e845d390650d litellm@58763b3021d866ce8429166bb588692986b43d8c overrides@f73c4df638377353c5cfaa2261c6726f4f7c9007",
+ "version": "v2026.10.3",
+ "updated_at": "2026-10-03T10:47:50.237Z",
+ "generated_at": "2026-10-03T10:47:50.237Z",
+ "source": "models.dev@808e15e16abb81be1140cda4f62d78e9ad831522 litellm@0fce5bccbce92a761122b47524a9c9a69b619dfd overrides@fe1de8700d31985110496dae85b742e0442bf640",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-10-02T11:33:47.082Z",
-   "commit": "c81646e5df987c22cf1c057f3f72e845d390650d",
-   "etag": "W/\"8ae0dd218ee9bb564ac5725bd57424f0\"",
-   "sha256": "8ae0dd218ee9bb564ac5725bd57424f0e06b1beeed23030b23951637824da194",
-   "bytes": 5294320
+   "fetched_at": "2026-10-03T10:47:50.237Z",
+   "commit": "808e15e16abb81be1140cda4f62d78e9ad831522",
+   "etag": "W/\"0c8a1d4e6374b5a5765c76da38aa5d32\"",
+   "sha256": "0c8a1d4e6374b5a5765c76da38aa5d32fdbd3200a53ba28ea2b3a82ac490aa7b",
+   "bytes": 5311759
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-10-02T11:33:47.082Z",
-   "commit": "58763b3021d866ce8429166bb588692986b43d8c",
-   "etag": "W/\"f71164982ed7c1113559f91daf4c19db4c24e6a40af4c576184813b203213781\"",
-   "sha256": "d0b0717de0d1f9cade95ee4ef528f9d7004160401e611f485bf21cf48bdd5b59",
-   "bytes": 3027028
+   "fetched_at": "2026-10-03T10:47:50.237Z",
+   "commit": "0fce5bccbce92a761122b47524a9c9a69b619dfd",
+   "etag": "W/\"231e0d8bf74a9a6a61ae87e93b863cd6064540a086242cf22f26cfecc42811a4\"",
+   "sha256": "0378925a4a435f14f91a63d44b0ec816a0e01c4f0b6f4c9178d85890a257eacb",
+   "bytes": 3035672
   },
-  "overrides_commit": "f73c4df638377353c5cfaa2261c6726f4f7c9007",
-  "previous_version": "v2026.10.1"
+  "overrides_commit": "fe1de8700d31985110496dae85b742e0442bf640",
+  "previous_version": "v2026.10.2"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -9740,6 +9740,48 @@
      "status": "active"
     },
     {
+     "id": "in.anthropic.claude-haiku-4-5-20251001-v1:0",
+     "name": "Claude Haiku 4.5 (India)",
+     "release_date": "2025-10-15",
+     "tool_call": true,
+     "context_window": 200000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "in.anthropic.claude-opus-5",
+     "name": "Claude Opus 5 (India)",
+     "release_date": "2026-07-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "in.anthropic.claude-sonnet-5",
+     "name": "Claude Sonnet 5 (India)",
+     "release_date": "2026-06-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "in.openai.gpt-5.6-luna",
      "name": "GPT-5.6 Luna (India)",
      "release_date": "2026-07-09",
@@ -17539,7 +17581,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "c4ai-aya-vision-32b",
@@ -17565,7 +17607,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "command-a-03-2025",
@@ -18124,7 +18166,7 @@
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text",
       "image"
@@ -25354,7 +25396,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired"
+     "status": "active"
     },
     {
      "id": "flexai/gpt-oss-120b",
@@ -25391,7 +25433,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "flexai/Nemotron-3-Super-120B-A12B",
@@ -25416,7 +25458,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "google/deep-research-max-preview-04-2026",
@@ -25728,6 +25770,18 @@
       "image"
      ],
      "status": "retired"
+    },
+    {
+     "id": "greenference/gpt-oss-20b",
+     "name": "GPT OSS 20B (Greenference)",
+     "release_date": "2025-08-05",
+     "tool_call": false,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "groq/openai/gpt-oss-120b",
@@ -27207,6 +27261,18 @@
      "tool_call": false,
      "context_window": 1000000,
      "max_output_tokens": 64000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "tencent/step-5-preview",
+     "name": "Step 5 Preview (Tencent)",
+     "release_date": "2026-09-16",
+     "tool_call": false,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
      "input_modalities": [
       "text"
      ],
@@ -28934,6 +29000,127 @@
       "text",
       "image",
       "video"
+     ],
+     "status": "active"
+    }
+   ]
+  },
+  {
+   "id": "engy",
+   "name": "engy",
+   "company": "engy",
+   "api": "https://api.engy.ai/v1",
+   "protocol": "openai-compatible",
+   "env": [
+    "ENGY_API_KEY"
+   ],
+   "tier": "standard",
+   "auth_methods": [
+    "api_key"
+   ],
+   "aliases": [],
+   "resize_limits": {
+    "long_edge_px": 7680,
+    "max_bytes": 10485760
+   },
+   "models": [
+    {
+     "id": "deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731",
+     "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 327680,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.2",
+     "name": "GLM-5.2",
+     "release_date": "2026-06-13",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 327680,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "glm-5.3-flash",
+     "name": "GLM-5.3-Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "kimi-k3",
+     "name": "Kimi K3",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1113088,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen3.6-35b-a3b",
+     "name": "Qwen3.6 35B-A3B",
+     "release_date": "2026-04-17",
+     "tool_call": true,
+     "context_window": 208192,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen3.8-27b",
+     "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 1001536,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     }
@@ -41292,7 +41479,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -41460,7 +41647,7 @@
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
@@ -42230,8 +42417,8 @@
      "name": "DeepSeek: DeepSeek V3.1 Terminus",
      "release_date": "2025-09-22",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 65536,
+     "context_window": 163840,
+     "max_output_tokens": 147456,
      "input_modalities": [
       "text"
      ],
@@ -42939,7 +43126,7 @@
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -42996,6 +43183,18 @@
       "video"
      ],
      "status": "retired"
+    },
+    {
+     "id": "inclusionai/ling-3.1-flash",
+     "name": "inclusionAI: Ling 3.1 Flash (new)",
+     "release_date": "2026-10-02",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "inclusionai/ring-2.6-1t",
@@ -43811,7 +44010,7 @@
      "release_date": "2025-11-06",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 98304,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
@@ -44126,7 +44325,7 @@
      "release_date": "2026-08-11",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -45216,7 +45415,7 @@
     },
     {
      "id": "poolside/laguna-s-2.1",
-     "name": "Poolside: Laguna S 2.1",
+     "name": "Poolside: Laguna S 2.1 (retires Oct 31)",
      "release_date": "2026-07-21",
      "tool_call": true,
      "context_window": 1048576,
@@ -45240,7 +45439,7 @@
     },
     {
      "id": "poolside/laguna-xs-2.1",
-     "name": "Poolside: Laguna XS 2.1",
+     "name": "Poolside: Laguna XS 2.1 (retires Oct 31)",
      "release_date": "2026-07-02",
      "tool_call": true,
      "context_window": 262144,
@@ -45564,8 +45763,8 @@
      "id": "qwen/qwen3-next-80b-a3b-thinking",
      "name": "Qwen3-Next 80B-A3B (Thinking)",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 235929,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -49062,7 +49261,7 @@
      "name": "Grok 4.7",
      "release_date": "2026-09-21",
      "tool_call": true,
-     "context_window": 500000,
+     "context_window": 524288,
      "max_output_tokens": 500000,
      "input_modalities": [
       "text",
@@ -51382,6 +51581,20 @@
      "status": "active"
     },
     {
+     "id": "aws-bedrock/claude-opus-5-5",
+     "name": "Claude Opus 5.5 (AWS Bedrock)",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "aws-bedrock/claude-sonnet-4-5",
      "name": "Claude Sonnet 4.5 (AWS Bedrock)",
      "release_date": "2025-09-29",
@@ -51438,6 +51651,20 @@
      "status": "active"
     },
     {
+     "id": "aws-bedrock/claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5 (AWS Bedrock)",
+     "release_date": "2026-09-28",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "aws-bedrock/grok-4-3",
      "name": "Grok 4.3 (AWS Bedrock)",
      "release_date": "2026-04-30",
@@ -51460,6 +51687,33 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "aws-bedrock/grok-4-7",
+     "name": "Grok 4.7 (AWS Bedrock)",
+     "release_date": "2026-09-21",
+     "tool_call": true,
+     "context_window": 524288,
+     "max_output_tokens": 524288,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "aws-bedrock/kimi-k3",
+     "name": "Kimi K3 (AWS Bedrock)",
+     "release_date": "2026-07-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
      ],
      "status": "active"
     },
@@ -51610,6 +51864,20 @@
      "status": "active"
     },
     {
+     "id": "azure-anthropic/claude-fable-5-1",
+     "name": "Claude Fable 5.1 (Azure Anthropic)",
+     "release_date": "2026-09-01",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "azure-anthropic/claude-opus-4-6",
      "name": "Claude Opus 4.6 (Azure Anthropic)",
      "release_date": "2026-02-05",
@@ -51666,9 +51934,37 @@
      "status": "active"
     },
     {
+     "id": "azure-anthropic/claude-opus-5-5",
+     "name": "Claude Opus 5.5 (Azure Anthropic)",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
      "id": "azure-anthropic/claude-sonnet-5",
      "name": "Claude Sonnet 5 (Azure Anthropic)",
      "release_date": "2026-06-30",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "azure-anthropic/claude-sonnet-5-5",
+     "name": "Claude Sonnet 5.5 (Azure Anthropic)",
+     "release_date": "2026-09-28",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -52043,6 +52339,20 @@
      "id": "azure/gpt-6-sol",
      "name": "GPT-6 Sol (Azure)",
      "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "azure/gpt-6.1-sol",
+     "name": "GPT-6.1 Sol (Azure)",
+     "release_date": "2026-09-29",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 128000,
@@ -59399,6 +59709,18 @@
      "status": "active"
     },
     {
+     "id": "nvidia/nemotron-3-nano-30b-a3b",
+     "name": "Nemotron 3 Nano 30B A3B",
+     "release_date": "2025-12-15",
+     "tool_call": false,
+     "context_window": 256000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "nvidia/nemotron-3.5-lightning-30b-a3b",
      "name": "Nemotron 3.5 Lightning 30B A3B",
      "release_date": "2026-08-11",
@@ -59853,8 +60175,8 @@
      "name": "GPT-OSS 120B",
      "release_date": "2025-08-05",
      "tool_call": false,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 128000,
+     "max_output_tokens": 32000,
      "input_modalities": [
       "text"
      ],
@@ -59865,8 +60187,8 @@
      "name": "GPT-OSS 20B",
      "release_date": "2025-08-05",
      "tool_call": false,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 128000,
+     "max_output_tokens": 32000,
      "input_modalities": [
       "text"
      ],
@@ -60317,6 +60639,18 @@
      "tool_call": false,
      "context_window": 262144,
      "max_output_tokens": 1010000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-flash",
+     "name": "Qwen3.8 Flash",
+     "release_date": "2026-08-26",
+     "tool_call": true,
+     "context_window": 977000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -67276,7 +67610,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "kwaipilot/kat-coder-air-v2.5",
@@ -83703,6 +84037,18 @@
      "status": "active"
     },
     {
+     "id": "ling-3.1-flash-free",
+     "name": "Ling 3.1 Flash Free",
+     "release_date": "2026-09-29",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "longcat-2.0-free",
      "name": "LongCat-2.0 Free",
      "release_date": "2026-06-30",
@@ -84910,7 +85256,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "~deepseek/deepseek-v4-flash-latest",
@@ -85848,7 +86195,7 @@
      "release_date": "2025-09-22",
      "tool_call": true,
      "context_window": 163840,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 147456,
      "input_modalities": [
       "text"
      ],
@@ -85888,8 +86235,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "deepseek/deepseek-v4-flash-0731",
@@ -86579,7 +86925,7 @@
      "release_date": "2026-08-27",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -86636,6 +86982,18 @@
       "video"
      ],
      "status": "retired"
+    },
+    {
+     "id": "inclusionai/ling-3.1-flash",
+     "name": "Ling 3.1 Flash",
+     "release_date": "2026-10-02",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "inclusionai/ring-2.6-1t",
@@ -87388,7 +87746,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "moonshotai/kimi-k2.5",
@@ -87661,12 +88020,11 @@
      "release_date": "2026-06-04",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 182520,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -87712,12 +88070,11 @@
      "release_date": "2026-08-11",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "nvidia/nemotron-3.5-lightning:free",
@@ -89164,7 +89521,7 @@
      "name": "Qwen3-Next 80B-A3B (Thinking)",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -89296,14 +89653,13 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text",
       "image",
       "video"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "qwen/qwen3.5-397b-a17b",
@@ -89939,14 +90295,13 @@
      "release_date": "2026-07-15",
      "tool_call": true,
      "context_window": 524288,
-     "max_output_tokens": 471859,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
       "audio"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "thinkingmachines/inkling-small",
@@ -90399,12 +90754,11 @@
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943717,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
-     "status": "active",
-     "disputed": true
+     "status": "active"
     },
     {
      "id": "z-ai/glm-5.3-flash",
@@ -97221,7 +97575,7 @@
      "name": "GLM-5.3",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 256000,
+     "context_window": 1000000,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -97233,7 +97587,7 @@
      "name": "GLM-5.3-Flash",
      "release_date": "2026-08-26",
      "tool_call": true,
-     "context_window": 256000,
+     "context_window": 1000000,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -97246,7 +97600,7 @@
      "name": "GLM Flash (latest)",
      "release_date": "2026-08-26",
      "tool_call": true,
-     "context_window": 256000,
+     "context_window": 1000000,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -97259,7 +97613,7 @@
      "name": "GLM (latest)",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 256000,
+     "context_window": 1000000,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -100453,6 +100807,20 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "grok-4.7",
+     "name": "Grok 4.7",
+     "release_date": "2026-09-21",
+     "tool_call": true,
+     "context_window": 500000,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
      ],
      "status": "active"
     },
@@ -105796,6 +106164,18 @@
      "id": "hf:zai-org/GLM-5.2",
      "name": "GLM-5.2",
      "release_date": "2026-06-13",
+     "tool_call": true,
+     "context_window": 524288,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "hf:zai-org/GLM-5.3",
+     "name": "GLM-5.3",
+     "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 524288,
      "max_output_tokens": 65536,
