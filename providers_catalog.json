@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.10.5",
- "updated_at": "2026-10-05T12:59:47.277Z",
- "generated_at": "2026-10-05T12:59:47.277Z",
- "source": "models.dev@055a965ca47f34482031ffc78c71cd067045d43d litellm@02f61c9c420b9aa9de10ff673098ad7132b78f5b overrides@eeb15bf459e8b6d8e3edc2a77fb15452d5808e69",
+ "version": "v2026.10.6",
+ "updated_at": "2026-10-06T12:24:26.802Z",
+ "generated_at": "2026-10-06T12:24:26.802Z",
+ "source": "models.dev@f9858aeaeb68c583c48239f320fff5f890667e61 litellm@18c3118eb63b3c0cbf94183789565c6ef9c53ef1 overrides@d70b62f38c20745f09b447c9a4288ed52b13f4b8",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-10-05T12:59:47.277Z",
-   "commit": "055a965ca47f34482031ffc78c71cd067045d43d",
-   "etag": "W/\"e47bd31afb882a62655a5783b4b37fb4\"",
-   "sha256": "e47bd31afb882a62655a5783b4b37fb47bbd7652ab71b1ab0a85cfecfd33aacd",
-   "bytes": 5316384
+   "fetched_at": "2026-10-06T12:24:26.802Z",
+   "commit": "f9858aeaeb68c583c48239f320fff5f890667e61",
+   "etag": "W/\"111c588259388ca294f5c4a4be4e7a77\"",
+   "sha256": "111c588259388ca294f5c4a4be4e7a772adffbc5e3022336c2a100b0bd1baf25",
+   "bytes": 5314976
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-10-05T12:59:47.277Z",
-   "commit": "02f61c9c420b9aa9de10ff673098ad7132b78f5b",
-   "etag": "W/\"9061d2905665971ae08e5a833f6eecdfcfebed2b3b9ec51a96ddce44c33028b0\"",
-   "sha256": "bfa3ced33aad2389eee48c308655a694c3c30d3f6b460004f5aa2044247e3e56",
-   "bytes": 3041688
+   "fetched_at": "2026-10-06T12:24:26.802Z",
+   "commit": "18c3118eb63b3c0cbf94183789565c6ef9c53ef1",
+   "etag": "W/\"54310666af02867e0707f63772f0d20165810b5cc4d4500ab1b36f485be2189a\"",
+   "sha256": "e64519399eb69ab9b23449d91f7638b6199179249b772dcd1de2da2e21df1b51",
+   "bytes": 3053287
   },
-  "overrides_commit": "eeb15bf459e8b6d8e3edc2a77fb15452d5808e69",
-  "previous_version": "v2026.10.4"
+  "overrides_commit": "d70b62f38c20745f09b447c9a4288ed52b13f4b8",
+  "previous_version": "v2026.10.5"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -6150,6 +6150,19 @@
      "max_output_tokens": 81920,
      "input_modalities": [
       "text"
+     ],
+     "status": "retired"
+    },
+    {
+     "id": "deepseek-v4.1-flash-552b",
+     "name": "DeepSeek V4.1 Flash",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 81920,
+     "input_modalities": [
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -23090,7 +23103,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -23114,7 +23127,7 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 1048576,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
@@ -25814,11 +25827,23 @@
      "status": "retired"
     },
     {
+     "id": "greenference/deepseek-v4.1-flash",
+     "name": "DeepSeek V4.1 Flash (Greenference)",
+     "release_date": "2026-09-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "greenference/gpt-oss-20b",
      "name": "GPT OSS 20B (Greenference)",
      "release_date": "2025-08-05",
      "tool_call": false,
-     "context_window": 32768,
+     "context_window": 131072,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text"
@@ -42557,7 +42582,7 @@
      "release_date": "2026-08-12",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -43528,7 +43553,7 @@
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image",
@@ -45630,7 +45655,7 @@
      "release_date": "2025-07-21",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -45665,8 +45690,8 @@
      "name": "Qwen: Qwen3 30B A3B Instruct 2507",
      "release_date": "2025-07-29",
      "tool_call": true,
-     "context_window": 128000,
-     "max_output_tokens": 32000,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text"
      ],
@@ -45937,7 +45962,7 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text",
       "image",
@@ -45951,7 +45976,7 @@
      "release_date": "2026-02-15",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 81920,
      "input_modalities": [
       "text",
       "image",
@@ -46160,7 +46185,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3.8-flash",
@@ -46469,7 +46494,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "stealth/union-alpha",
@@ -60607,10 +60632,11 @@
      "name": "Qwen3.6 27B",
      "release_date": "2026-04-22",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 256000,
+     "max_output_tokens": 64000,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active"
     },
@@ -71097,9 +71123,35 @@
      "status": "active"
     },
     {
+     "id": "qwen/qwen3.8-27b-antislop",
+     "name": "Qwen 3.8 27B Antislop",
+     "release_date": "2026-10-05",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "qwen/qwen3.8-27b-cybersecurity",
      "name": "Qwen 3.8 27B Cybersecurity",
      "release_date": "2026-09-19",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b-darkidol",
+     "name": "Qwen 3.8 27B DarkIdol",
+     "release_date": "2026-10-05",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 32768,
@@ -71123,9 +71175,61 @@
      "status": "active"
     },
     {
+     "id": "qwen/qwen3.8-27b-fimi",
+     "name": "Qwen 3.8 27B Fimi",
+     "release_date": "2026-10-05",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
      "id": "qwen/qwen3.8-27b-hemmingway",
      "name": "Qwen 3.8 27B Hemingway",
      "release_date": "2026-09-21",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b-kimiko",
+     "name": "Qwen 3.8 27B Kimiko",
+     "release_date": "2026-10-05",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b-kiwen",
+     "name": "Qwen 3.8 27B Kiwen",
+     "release_date": "2026-10-05",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b-novelist",
+     "name": "Qwen 3.8 27B Novelist",
+     "release_date": "2026-10-05",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 32768,
@@ -71171,6 +71275,31 @@
      "input_modalities": [
       "text",
       "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b-swift",
+     "name": "Qwen 3.8 27B Swift",
+     "release_date": "2026-10-05",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "qwen/qwen3.8-27b-synthia",
+     "name": "Qwen 3.8 27B Synthia",
+     "release_date": "2026-10-05",
+     "tool_call": false,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
      ],
      "status": "active"
     },
@@ -71793,7 +71922,7 @@
       "image",
       "pdf"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "Salesforce/Llama-xLAM-2-70b-fc-r",
@@ -85181,6 +85310,20 @@
      "status": "active"
     },
     {
+     "id": "space-bunny",
+     "name": "Space Bunny",
+     "release_date": "2026-09-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 524288,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active"
+    },
+    {
      "id": "space-bunny-free",
      "name": "Space Bunny Free",
      "release_date": "2026-09-23",
@@ -86404,7 +86547,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4.1-flash",
@@ -87321,7 +87465,8 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "meta/muse-spark-1.1",
@@ -89457,7 +89602,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -89493,7 +89639,8 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -89767,7 +89914,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3.5-397b-a17b",
@@ -89781,7 +89929,8 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "active",
+     "disputed": true
     },
     {
      "id": "qwen/qwen3.5-9b",
@@ -89985,7 +90134,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "qwen/qwen3.8-flash",
@@ -90225,7 +90374,7 @@
       "image",
       "video"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "stealth/union-alpha",
@@ -112822,6 +112971,30 @@
      "status": "active"
     },
     {
+     "id": "cohere/embed-v5.0-fast",
+     "name": "Embed 5 Fast",
+     "release_date": "2026-09-30",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 0,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
+     "id": "cohere/embed-v5.0-pro",
+     "name": "Embed 5 Pro",
+     "release_date": "2026-09-30",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 0,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
+    },
+    {
      "id": "cohere/rerank-v3.5",
      "name": "Cohere Rerank 3.5",
      "release_date": "2024-12-02",
@@ -117569,7 +117742,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
@@ -117593,7 +117766,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
@@ -117656,7 +117829,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "ibm-granite/granite-4.2-8b",
@@ -117680,7 +117853,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "meta-llama/Llama-3.1-70B-Instruct",
@@ -117692,7 +117865,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "meta-llama/Llama-3.1-8B-Instruct",
@@ -117852,7 +118025,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
@@ -117864,7 +118037,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
@@ -117889,7 +118062,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "Qwen/Qwen3.6-27B",
@@ -117902,7 +118075,7 @@
       "text",
       "image"
      ],
-     "status": "active"
+     "status": "retired"
     },
     {
      "id": "Qwen/Qwen3.6-35B-A3B",
