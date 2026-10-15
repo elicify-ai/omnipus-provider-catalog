@@ -1,9 +1,9 @@
 {
  "schema_version": "2.0.0",
  "version": "v2026.10.15.1",
- "updated_at": "2026-10-15T06:00:00.000Z",
- "generated_at": "2026-10-15T06:00:00.000Z",
- "source": "models.dev@fd71c96978099f48352a7f9d77f5320c6e5e274b litellm@53cd1d4a98f8c529d12e26b483f0b1bb8ac35c0a overrides@559b37486d5e29226737bc27a53623f61ec0b547",
+ "updated_at": "2026-10-15T17:09:11.674Z",
+ "generated_at": "2026-10-15T17:09:11.674Z",
+ "source": "models.dev@fd71c96978099f48352a7f9d77f5320c6e5e274b litellm@53cd1d4a98f8c529d12e26b483f0b1bb8ac35c0a overrides@2a2a71cdb797c767568f4208fcaad065cd708eab",
  "sources": {
   "models_dev": {
    "name": "models.dev",
@@ -25,7 +25,7 @@
    "sha256": "e81298776d384afec9998741f82d3b6b1de62e1526a16fcf91bd37eb1efde97e",
    "bytes": 2861391
   },
-  "overrides_commit": "559b37486d5e29226737bc27a53623f61ec0b547",
+  "overrides_commit": "2a2a71cdb797c767568f4208fcaad065cd708eab",
   "previous_version": "v2026.10.15"
  },
  "default_resize_limits": {
