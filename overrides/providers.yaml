@@ -183,10 +183,6 @@ providers:
     api: https://ai-gateway.vercel.sh/v1
     protocol: openai-compatible
     aliases: [ai-gateway]
-  v0:
-    reason: "docs https://v0.app/docs/api/model (not fetch-verified; JS-rendered). Base https://api.v0.dev/v1 as documented there."
-    api: https://api.v0.dev/v1
-    protocol: openai-compatible
   aihubmix:
     reason: "Base URL fetch-verified 2026-08-23 on https://aihubmix.com/ (https://aihubmix.com/v1)."
     api: https://aihubmix.com/v1
