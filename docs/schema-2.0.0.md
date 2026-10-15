@@ -64,7 +64,7 @@ The `sources` object records exactly what the run consumed.
 | `name` | string | Display name. | models.dev / overrides |
 | `company` | string | The company behind the provider, used to group providers that belong together. Defaults to `name`. | overrides (default: `name`) |
 | `api` | string | Base URL to send requests to. Empty only when `tier` is `unsupported`. Otherwise an absolute `https` URL with a public host — no credentials, query or fragment, and no private, loopback or link-local IP address. Local-machine providers (`ollama`, `vllm`, `lmstudio`) are the exception and may use `http://localhost…`. | models.dev; overrides for providers models.dev lists without a URL |
-| `protocol` | string | The wire protocol to speak to `api`: `openai-compatible`, `anthropic`, `google`, `ollama`, `cli` or `bedrock`. Empty string only when `tier` is `unsupported`. | models.dev (mapped from its SDK package name) / overrides |
+| `protocol` | string | The wire protocol to speak to `api`: `openai-compatible`, `anthropic`, `google`, `ollama` or `bedrock`. Empty string only when `tier` is `unsupported`. | models.dev (mapped from its SDK package name) / overrides |
 | `protocols` | array of [ProtocolEntry](#protocolentry), *optional* | Every protocol-and-URL pair the provider serves, when it serves more than one (for example an OpenAI-compatible and an Anthropic-compatible endpoint side by side). When present it includes the primary `protocol` with the same `api`; entries are unique. | overrides |
 | `env` | array of string | Environment variable names conventionally used for this provider's key (`["OPENAI_API_KEY"]`). A hint for labels only; may be empty. | models.dev / overrides |
 | `region` | string, *optional* | Region hint such as `us` or `cn`. For a provider with a `regions` picker (currently only `amazon-bedrock`) this is the default region id, e.g. `us-east-1`. | models.dev / overrides |
@@ -75,16 +75,22 @@ The `sources` object records exactly what the run consumed.
 | `auth_methods` | array of string | How you authenticate: any non-empty subset of `api_key`, `sign_in`. Defaults to `["api_key"]`. | overrides (default: `api_key`) |
 | `aliases` | array of string | Extra search strings for a picker (`claude` for `anthropic`). Never used for lookup; may be empty. | overrides |
 | `custom` | boolean, *optional* | Reserved for user-defined provider rows in consuming applications. Never `true` in a published document; the validator rejects it. | — |
-| `cli_kind` | string, *optional* | Present exactly when `protocol` is `cli`: which command-line tool drives the provider, `codex` or `copilot`. | overrides |
-| `token_source` | string, *optional* | Where a signed-in provider's token is read from (for example `codex-auth-json`). | overrides |
+| `cli_kind` | string, *legacy read-only* | Accepted when reading old releases; omitted from every new publication after WU-24 (2026-10-14). | previous releases only |
+| `token_source` | string, *legacy read-only* | The former file-token mechanism marker. Accepted when reading old releases, never published. The HTTP ChatGPT provider remains. | previous releases only |
 | `resize_limits` | [ResizeLimits](#resize-limits) | The largest image this provider accepts; applies to every model of the provider. Falls back to `default_resize_limits` when the provider has no entry. | resize_limits.json |
 | `models` | array of [Model](#model) | The provider's models. Ids are unique within the provider. May be empty for local-machine providers, whose models are discovered live. | merge |
+
+WU-24 excludes the retired `codex-cli` and `github-copilot` provider IDs and
+subprocess (`protocol: cli`) model-provider rows after carry-forward. This is
+an explicit deletion, not an upstream withdrawal. The generic schema still
+reads historical releases containing those rows so they can be used as a
+previous-release input; its legacy vocabulary is not a publication allowance.
 
 ### ProtocolEntry
 
 | Field | Type | Meaning and allowed values | Source |
 |---|---|---|---|
-| `protocol` | string | One of `openai-compatible`, `anthropic`, `google`, `ollama`, `cli`, `bedrock`. | overrides |
+| `protocol` | string | One of `openai-compatible`, `anthropic`, `google`, `ollama`, `bedrock` (`cli` is historical read-only vocabulary). | overrides |
 | `api` | string | The base URL for that protocol. Same URL rules as the provider's `api`. | overrides |
 
 ### ProviderRegion

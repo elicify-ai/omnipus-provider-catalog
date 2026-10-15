@@ -14,6 +14,8 @@ export const SCHEMA_VERSION = "2.0.0" as const;
 /** `vYYYY.M.D[.N]` — the leading `v` is required so versions sort numerically. */
 export const VERSION_RE = /^v\d{4}\.\d{1,2}\.\d{1,2}(\.\d+)?$/;
 
+// Legacy CLI vocabulary is read-only compatibility for previous releases.
+// assemble excludes subprocess rows and their mechanism fields before publishing.
 export const PROTOCOLS = ["openai-compatible", "anthropic", "google", "ollama", "cli", "bedrock"] as const;
 export const TIERS = ["popular", "standard", "unsupported"] as const;
 export const UNSUPPORTED_REASONS = ["cloud-iam", "deployment-url", "withdrawn"] as const;
@@ -77,15 +79,13 @@ export const POPULAR_SET = [
   "ollama",
 ] as const;
 
-/** Providers added from overrides/local-providers.yaml that models.dev does not list. */
+/** Required published local-file providers; WU-24 removed subprocess model providers. */
 export const LOCAL_FILE_PROVIDERS = [
   "ollama",
   "vllm",
   "litellm",
   "lmstudio",
-  "codex-cli",
   "openai-chatgpt",
-  "github-copilot",
   "shengsuanyun",
   "volcengine",
   "avian",

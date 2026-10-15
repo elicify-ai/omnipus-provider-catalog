@@ -23,7 +23,7 @@ accepted fields are defined in `src/overrides.ts`.
 |---|---|
 | Fix or add a provider field — a missing base URL, a second protocol, its tier, how it authenticates, search aliases | `providers.yaml` |
 | Fix a model's limits, input types, tool-calling flag, name or date; settle a dispute; keep a model the registries have retired | `models.yaml` |
-| Add a provider the registries do not list at all, or give an existing one a local/CLI row | `local-providers.yaml` |
+| Add a provider the registries do not list at all, or give an existing one local defaults | `local-providers.yaml` |
 
 ### The `reason` line
 
@@ -40,7 +40,7 @@ providers:
   groq:
     reason: "Base URL from https://console.groq.com/docs/openai, checked 2026-08-23."
     api: https://api.groq.com/openai/v1      # base URL
-    protocol: openai-compatible              # openai-compatible | anthropic | google | ollama | cli
+    protocol: openai-compatible              # openai-compatible | anthropic | google | ollama | bedrock
     protocols:                               # optional extra protocols; must include the primary
       - { protocol: openai-compatible, api: https://api.groq.com/openai/v1 }
     tier: popular                            # popular | standard | unsupported
@@ -52,8 +52,6 @@ providers:
     env: [GROQ_API_KEY]                      # key variable names, hint only
     region: us                               # optional
     plan: coding-plan                        # optional
-    cli_kind: codex                          # codex | copilot (only with protocol: cli)
-    token_source: codex-auth-json            # optional
     regions:                                 # optional; currently only amazon-bedrock
       - { id: us-east-1, group: us }         # group: us | eu | apac | jp | au | "" (no cross-region profile)
       - { id: us-gov-west-1, group: "" }
@@ -94,15 +92,13 @@ required, and the row can carry a model list:
 
 ```yaml
 providers:
-  codex-cli:
-    reason: "Command-line provider; models are the Codex family of the openai row."
-    name: Codex CLI
+  openai-chatgpt:
+    reason: "Retained HTTP subscription route; copies the complete openai model list."
+    name: ChatGPT (subscription)
     api: https://chatgpt.com/backend-api/codex
-    protocol: cli
-    cli_kind: codex
+    protocol: openai-compatible
     auth_methods: [sign_in]
-    models_from: openai                      # copy the models.dev openai row's models …
-    model_ids: ["re:codex"]                  # … keeping only ids that match (exact string, or `re:` regex)
+    models_from: openai                      # copy every model from the models.dev openai row
   avian:
     reason: "Not in models.dev. Base URL from https://avian.io docs, checked 2026-08-23."
     name: Avian
@@ -157,6 +153,12 @@ One ordering detail: carry-forward of retired and withdrawn rows from the
 previous release runs **after** overrides. A model that has vanished upstream
 can therefore only be edited by `models.yaml` through a complete row (all four
 required fields), which creates it fresh; carry-forward then leaves it alone.
+
+WU-24 (founder 2026-10-14) is an explicit deletion exception: the assembler
+excludes `codex-cli`, `github-copilot` and subprocess (`protocol: cli`)
+model-provider rows after carry-forward. It also omits `cli_kind` and
+`token_source` metadata. Old releases remain readable; the HTTP ChatGPT
+provider and its complete model list remain published.
 
 ## What belongs here
 

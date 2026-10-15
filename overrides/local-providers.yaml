@@ -1,6 +1,6 @@
 # Providers that models.dev does not list, plus
-# rows that exist in models.dev but need local/CLI fields set (lmstudio,
-# github-copilot — these MERGE over the registry row; the others are CREATED).
+# rows that exist in models.dev but need local defaults set (lmstudio — these
+# MERGE over the registry row; the others are CREATED).
 # Same shape as registry rows. Every row needs a `reason`. Format: overrides/README.md.
 #
 # Model lists: `models_from: <models.dev id>` copies that provider's models
@@ -43,25 +43,12 @@ providers:
     env: [LMSTUDIO_API_KEY]
     auth_methods: [api_key]
     aliases: [lm-studio]
-  codex-cli:
-    reason: "OpenAI Codex CLI driven as a subprocess (protocol cli, cli_kind codex). The CLI owns transport; `api` is informational — the backend the signed-in CLI itself calls, https://chatgpt.com/backend-api/codex, per the open-source client source https://github.com/openai/codex (codex-rs) — not a public docs page, not fetch-verified. Models: the Codex family copied from the models.dev openai row."
-    name: Codex CLI
-    company: OpenAI
-    api: https://chatgpt.com/backend-api/codex
-    protocol: cli
-    cli_kind: codex
-    env: []
-    auth_methods: [sign_in]
-    aliases: [codex, codexcli]
-    models_from: openai
-    model_ids: ["re:codex"]
   openai-chatgpt:
-    reason: "ChatGPT-subscription route (protocol openai-compatible, token_source codex-auth-json, hosted). Base URL https://chatgpt.com/backend-api/codex is taken from the open-source Codex client, source https://github.com/openai/codex (codex-rs, ChatGPT auth backend) — not a public docs page; not fetch-verified. Models: the models.dev openai row copied 1:1 (no name filter — see the comment below)."
+    reason: "ChatGPT-subscription HTTP route (protocol openai-compatible, hosted); retained by WU-24 (founder 2026-10-14), without the retired file-token source marker. Base URL https://chatgpt.com/backend-api/codex is taken from the open-source Codex client, source https://github.com/openai/codex (codex-rs, ChatGPT auth backend) — not a public docs page; not fetch-verified. Models: the models.dev openai row copied 1:1 (no name filter — see the comment below)."
     name: ChatGPT (subscription)
     company: OpenAI
     api: https://chatgpt.com/backend-api/codex
     protocol: openai-compatible
-    token_source: codex-auth-json
     env: []
     auth_methods: [sign_in]
     aliases: [chatgpt-subscription, codex-auth]
@@ -73,16 +60,6 @@ providers:
     # from a model name; per-account truth belongs to the entitlement check, not a
     # regex. Founder decision 2026-09-27: replicate the models.dev openai row 1:1.
     models_from: openai
-  github-copilot:
-    reason: "Merges over the models.dev row (api https://api.githubcopilot.com, 33 models). Driven through the Copilot CLI: protocol cli, cli_kind copilot, sign_in only."
-    name: GitHub Copilot
-    company: GitHub
-    api: https://api.githubcopilot.com
-    protocol: cli
-    cli_kind: copilot
-    env: [GITHUB_TOKEN]
-    auth_methods: [sign_in]
-    aliases: [copilot]
   shengsuanyun:
     reason: "Base URL https://router.shengsuanyun.com/api/v1 (Omnipus's previous factory default; vendor docs not fetch-verified). Models: dated probe 2026-08-23 GET https://router.shengsuanyun.com/api/v1/models (public, no key) — context_window/max_tokens as returned; modalities not reported by the probe, so text only; tool_call assumed from the model family, not probed."
     name: ShengSuanYun

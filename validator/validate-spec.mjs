@@ -30,10 +30,10 @@ export const POPULAR = ["openai", "anthropic", "google", "openrouter", "deepseek
 export const CLOUD_IAM = ["google-vertex", "google-vertex-anthropic", "watsonx", "sap-ai-core"];
 // azure has a per-deployment URL, so it is unsupported with reason deployment-url.
 export const DEPLOYMENT_URL = ["azure"];
-// The eleven providers that come from overrides/local-providers.yaml and must always be present.
+// The nine published local-file providers; WU-24 removed subprocess model providers.
 export const LOCAL_FILE_PROVIDERS = [
-  "ollama", "vllm", "litellm", "lmstudio", "codex-cli", "openai-chatgpt",
-  "github-copilot", "shengsuanyun", "volcengine", "avian", "mimo",
+  "ollama", "vllm", "litellm", "lmstudio", "openai-chatgpt",
+  "shengsuanyun", "volcengine", "avian", "mimo",
 ];
 // Fields that are never published: locality is derived by the consumer, and
 // subscription_policy was dropped from the shape.

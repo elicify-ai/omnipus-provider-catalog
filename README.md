@@ -147,7 +147,7 @@ comes from, is in [`docs/schema-2.0.0.md`](docs/schema-2.0.0.md). In short:
 |---|---|
 | `id`, `name`, `company` | Stable id, display name, and the company it belongs to (for grouping). |
 | `api` | The base URL you send requests to. |
-| `protocol` | The wire protocol to speak: `openai-compatible`, `anthropic`, `google`, `ollama`, `cli` or `bedrock`. |
+| `protocol` | The wire protocol to speak: `openai-compatible`, `anthropic`, `google`, `ollama` or `bedrock`. |
 | `protocols` | Optional list of every protocol and URL pair the provider serves, when there is more than one. |
 | `env` | The environment variable names the provider's own tooling conventionally uses for its API key — a hint for UI labels, nothing more. |
 | `tier` | `popular`, `standard` or `unsupported`. |
@@ -156,7 +156,7 @@ comes from, is in [`docs/schema-2.0.0.md`](docs/schema-2.0.0.md). In short:
 | `aliases` | Extra search strings (for example `claude` for `anthropic`). |
 | `region`, `plan` | Optional hints such as `cn` or `coding-plan`. `region` is the default region for a provider with a `regions` picker (currently only `amazon-bedrock`). |
 | `regions` | Optional: the regions offered in a region picker, each with its cross-region inference group (`us`, `eu`, `apac`, `jp`, `au` or `""`). Currently only `amazon-bedrock` carries this. |
-| `cli_kind`, `token_source` | Only for providers driven through a command-line tool rather than HTTP. |
+| `cli_kind`, `token_source` | Legacy read-only fields; no longer published after WU-24 (2026-10-14). |
 | `resize_limits` | The largest image the provider accepts: long edge in pixels and size in bytes. |
 | `models` | The provider's models. |
 
