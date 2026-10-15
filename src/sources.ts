@@ -1,7 +1,7 @@
 // Normalisation of the two registries into one intermediate shape. models.dev
 // is the primary source (provider identity, model list, limits, modalities);
 // LiteLLM only supplies numbers/flags to cross-check against it.
-import type { Modality, Protocol } from "./schema.js";
+import type { CostTier, Modality, ModelCost, Protocol } from "./schema.js";
 import { MODALITIES } from "./schema.js";
 
 // ---------- models.dev ----------
@@ -15,6 +15,37 @@ export type ModelsDevModel = {
   modalities?: { input?: string[]; output?: string[] };
   limit?: { context?: number; input?: number; output?: number };
   status?: string;
+  /**
+   * models.dev prices are already USD per 1 million tokens. Audio prices are
+   * read so a fixture can carry them, and then dropped: they are not published.
+   */
+  cost?: {
+    input?: number;
+    output?: number;
+    reasoning?: number;
+    cache_read?: number;
+    cache_write?: number;
+    cache_write_1h?: number;
+    input_audio?: number;
+    output_audio?: number;
+    context_over_200k?: {
+      input?: number;
+      output?: number;
+      reasoning?: number;
+      cache_read?: number;
+      cache_write?: number;
+      cache_write_1h?: number;
+    };
+    tiers?: Array<{
+      input?: number;
+      output?: number;
+      reasoning?: number;
+      cache_read?: number;
+      cache_write?: number;
+      cache_write_1h?: number;
+      tier?: { type?: string; size?: number; boundary?: string };
+    }>;
+  };
 };
 export type ModelsDevProvider = {
   id: string;
@@ -76,6 +107,8 @@ export type NormalisedModel = {
   context_window: number;
   max_output_tokens: number;
   input_modalities: Modality[];
+  /** Absent when models.dev published no usable price. Never a bag of zeros. */
+  cost?: ModelCost;
 };
 export type NormalisedProvider = {
   id: string;
@@ -90,6 +123,117 @@ export type NormalisedProvider = {
 };
 
 export type SkippedModel = { provider: string; model: string; reason: string };
+/** A models.dev cost object we refused to publish. The model itself is still published, without a price. */
+export type CostRejected = { provider: string; model: string; reason: string };
+
+const PRICE_KEYS = ["input", "output", "reasoning", "cache_read", "cache_write", "cache_write_1h"] as const;
+type PriceKey = (typeof PRICE_KEYS)[number];
+
+function finitePrice(v: unknown): number | undefined {
+  return typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : undefined;
+}
+
+/**
+ * Copy the price fields. A present value that is not a finite number >= 0
+ * rejects the whole cost: dropping only that field would make "absent"
+ * (priced at the input rate) out of a value the source did publish.
+ */
+function readPriceFields(
+  raw: Record<string, unknown>,
+  where: string,
+): { prices: Partial<Record<PriceKey, number>>; reason?: string } {
+  const prices: Partial<Record<PriceKey, number>> = {};
+  for (const key of PRICE_KEYS) {
+    if (!Object.prototype.hasOwnProperty.call(raw, key) || raw[key] === undefined) continue;
+    const n = finitePrice(raw[key]);
+    if (n === undefined) {
+      return { prices: {}, reason: `${where}.${key} is not a finite number >= 0; the model is published without a price` };
+    }
+    prices[key] = n;
+  }
+  return { prices };
+}
+
+function pricesToCost(prices: Partial<Record<PriceKey, number>>, where: string): { cost?: ModelCost; reason?: string } {
+  if (prices.input === undefined) return { reason: `${where}.input is missing; the model is published without a price` };
+  if (prices.output === undefined) return { reason: `${where}.output is missing; the model is published without a price` };
+  const cost: ModelCost = { input: prices.input, output: prices.output };
+  for (const key of ["reasoning", "cache_read", "cache_write", "cache_write_1h"] as const) {
+    if (prices[key] !== undefined) cost[key] = prices[key];
+  }
+  return { cost };
+}
+
+/** models.dev `cost` → the published shape. `reason` set means "publish the model with no price". */
+export function readModelCost(raw: unknown): { cost?: ModelCost; reason?: string } {
+  if (raw === undefined || raw === null) return {};
+  if (typeof raw !== "object" || Array.isArray(raw)) {
+    return { reason: "cost is not an object; the model is published without a price" };
+  }
+  const obj = raw as Record<string, unknown>;
+  const base = readPriceFields(obj, "cost");
+  if (base.reason) return { reason: base.reason };
+  const built = pricesToCost(base.prices, "cost");
+  if (built.reason || !built.cost) return { reason: built.reason };
+  const cost = built.cost;
+
+  if (Object.prototype.hasOwnProperty.call(obj, "context_over_200k") && obj.context_over_200k !== undefined) {
+    const legacy = obj.context_over_200k;
+    if (typeof legacy !== "object" || legacy === null || Array.isArray(legacy)) {
+      return { reason: "cost.context_over_200k is not an object; the model is published without a price" };
+    }
+    const parsed = readPriceFields(legacy as Record<string, unknown>, "cost.context_over_200k");
+    if (parsed.reason) return { reason: parsed.reason };
+    const legacyCost = pricesToCost(parsed.prices, "cost.context_over_200k");
+    if (legacyCost.reason || !legacyCost.cost) return { reason: legacyCost.reason };
+    cost.context_over_200k = legacyCost.cost;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(obj, "tiers") && obj.tiers !== undefined) {
+    if (!Array.isArray(obj.tiers)) return { reason: "cost.tiers is not an array; the model is published without a price" };
+    const tiers: CostTier[] = [];
+    for (let i = 0; i < obj.tiers.length; i++) {
+      const tierRaw = obj.tiers[i];
+      const where = `cost.tiers[${i}]`;
+      if (typeof tierRaw !== "object" || tierRaw === null || Array.isArray(tierRaw)) {
+        return { reason: `${where} is not an object; the model is published without a price` };
+      }
+      const t = tierRaw as Record<string, unknown>;
+      const prices = readPriceFields(t, where);
+      if (prices.reason) return { reason: prices.reason };
+      const tierPrices = pricesToCost(prices.prices, where);
+      if (tierPrices.reason || !tierPrices.cost) return { reason: tierPrices.reason };
+      const meta = t.tier;
+      if (typeof meta !== "object" || meta === null || Array.isArray(meta)) {
+        return { reason: `${where}.tier is not an object; the model is published without a price` };
+      }
+      const tierMeta = meta as Record<string, unknown>;
+      if (tierMeta.type !== "context") {
+        return { reason: `${where}.tier.type is not "context"; the model is published without a price` };
+      }
+      if (typeof tierMeta.size !== "number" || !Number.isInteger(tierMeta.size) || tierMeta.size < 0) {
+        return { reason: `${where}.tier.size is not an integer >= 0; the model is published without a price` };
+      }
+      const tier: CostTier = {
+        input: tierPrices.cost.input,
+        output: tierPrices.cost.output,
+        tier: { type: "context", size: tierMeta.size },
+      };
+      for (const key of ["reasoning", "cache_read", "cache_write", "cache_write_1h"] as const) {
+        if (tierPrices.cost[key] !== undefined) tier[key] = tierPrices.cost[key];
+      }
+      if (Object.prototype.hasOwnProperty.call(tierMeta, "boundary") && tierMeta.boundary !== undefined) {
+        if (tierMeta.boundary !== "above" && tierMeta.boundary !== "at_least") {
+          return { reason: `${where}.tier.boundary is not "above" or "at_least"; the model is published without a price` };
+        }
+        tier.tier.boundary = tierMeta.boundary;
+      }
+      tiers.push(tier);
+    }
+    cost.tiers = tiers;
+  }
+  return { cost };
+}
 
 function toModalities(input: string[] | undefined): Modality[] | null {
   if (!input) return null;
@@ -104,9 +248,11 @@ export function normaliseModelsDev(api: ModelsDevApi): {
   providers: NormalisedProvider[];
   skipped: SkippedModel[];
   unknownNpm: string[];
+  cost_rejected: CostRejected[];
 } {
   const providers: NormalisedProvider[] = [];
   const skipped: SkippedModel[] = [];
+  const costRejected: CostRejected[] = [];
   const unknownNpm = new Set<string>();
   for (const pid of Object.keys(api).sort()) {
     const p = api[pid]!;
@@ -140,6 +286,9 @@ export function normaliseModelsDev(api: ModelsDevApi): {
         input_modalities: mods,
       };
       if (m.release_date && /^\d{4}-\d{2}-\d{2}$/.test(m.release_date)) nm.release_date = m.release_date;
+      const read = readModelCost(m.cost);
+      if (read.reason) costRejected.push({ provider: pid, model: mid, reason: read.reason });
+      else if (read.cost) nm.cost = read.cost;
       models.push(nm);
     }
     providers.push({
@@ -153,7 +302,7 @@ export function normaliseModelsDev(api: ModelsDevApi): {
       models,
     });
   }
-  return { providers, skipped, unknownNpm: [...unknownNpm].sort() };
+  return { providers, skipped, unknownNpm: [...unknownNpm].sort(), cost_rejected: costRejected };
 }
 
 // ---------- LiteLLM ----------
@@ -169,6 +318,15 @@ export type LiteLLMEntry = {
   supports_pdf_input?: boolean;
   supports_audio_input?: boolean;
   supported_modalities?: string[];
+  /** USD per token. Standard rates only — batch, flex and priority are different products and are not read. */
+  input_cost_per_token?: number;
+  output_cost_per_token?: number;
+  output_cost_per_reasoning_token?: number;
+  cache_read_input_token_cost?: number;
+  cache_creation_input_token_cost?: number;
+  cache_creation_input_token_cost_above_1hr?: number;
+  input_cost_per_token_batches?: number;
+  output_cost_per_token_batches?: number;
 };
 export type LiteLLMJson = Record<string, LiteLLMEntry>;
 
@@ -180,6 +338,18 @@ export type LiteLLMFacts = {
   tool_call?: boolean;
   /** Per-modality explicit statements; modalities LiteLLM is silent on are absent. */
   modalities?: Partial<Record<Exclude<Modality, "text">, boolean>>;
+  /**
+   * USD per 1 million tokens, converted from LiteLLM's per-token fields.
+   * A key is present only when LiteLLM published that price, including a real 0.
+   */
+  cost?: {
+    input?: number;
+    output?: number;
+    reasoning?: number;
+    cache_read?: number;
+    cache_write?: number;
+    cache_write_1h?: number;
+  };
 };
 
 /**
@@ -227,6 +397,38 @@ export const LITELLM_PROVIDER_MAP: Record<string, string[]> = {
 
 const CHAT_MODES = new Set(["chat", "responses"]);
 
+/**
+ * LiteLLM publishes USD per token. The catalog publishes USD per 1 million
+ * tokens. Round to 6 decimal places: that is the finest models.dev price, and
+ * it removes binary dust such as `1e-7 * 1e6` → `0.0999…` instead of `0.1`.
+ * This is not the 4,096 absolute tolerance; that tolerance is never applied
+ * to dollars.
+ */
+export function perTokenToPerMillion(perToken: number): number {
+  return Math.round(perToken * 1_000_000 * 1e6) / 1e6;
+}
+
+const LITELLM_PRICE_FIELDS = {
+  input: "input_cost_per_token",
+  output: "output_cost_per_token",
+  reasoning: "output_cost_per_reasoning_token",
+  cache_read: "cache_read_input_token_cost",
+  cache_write: "cache_creation_input_token_cost",
+  cache_write_1h: "cache_creation_input_token_cost_above_1hr",
+} as const;
+
+function litellmCost(e: LiteLLMEntry): LiteLLMFacts["cost"] | undefined {
+  const cost: NonNullable<LiteLLMFacts["cost"]> = {};
+  let any = false;
+  for (const [ours, theirs] of Object.entries(LITELLM_PRICE_FIELDS) as [keyof NonNullable<LiteLLMFacts["cost"]>, keyof LiteLLMEntry][]) {
+    const v = e[theirs];
+    if (typeof v !== "number" || !Number.isFinite(v) || v < 0) continue;
+    cost[ours] = perTokenToPerMillion(v);
+    any = true;
+  }
+  return any ? cost : undefined;
+}
+
 /** Index LiteLLM rows by `${litellm_provider}|${bare model id}`. */
 export function indexLiteLLM(json: LiteLLMJson): Map<string, LiteLLMFacts> {
   const index = new Map<string, LiteLLMFacts>();
@@ -250,6 +452,9 @@ export function indexLiteLLM(json: LiteLLMJson): Map<string, LiteLLMFacts> {
     if (typeof e.supports_audio_input === "boolean") mods.audio = e.supports_audio_input;
     if (typeof e.supports_pdf_input === "boolean") mods.pdf = e.supports_pdf_input;
     if (Object.keys(mods).length > 0) facts.modalities = mods;
+
+    const cost = litellmCost(e);
+    if (cost) facts.cost = cost;
 
     const bare = stripProviderPrefix(key, lp);
     for (const k of new Set([`${lp}|${key}`, `${lp}|${bare}`])) {

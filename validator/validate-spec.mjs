@@ -125,6 +125,12 @@ const isPosInt = (v) => Number.isInteger(v) && v > 0;
 const isStr = (v) => typeof v === "string";
 const isNonEmptyStr = (v) => typeof v === "string" && v.length > 0;
 const isObj = (v) => v !== null && typeof v === "object" && !Array.isArray(v);
+const isFiniteNonNeg = (v) => typeof v === "number" && Number.isFinite(v) && v >= 0;
+const COST_PRICE_KEYS = ["input", "output", "reasoning", "cache_read", "cache_write", "cache_write_1h"];
+const COST_OBJECT_KEYS = new Set([...COST_PRICE_KEYS, "tiers", "context_over_200k"]);
+const TIER_OBJECT_KEYS = new Set([...COST_PRICE_KEYS, "tier"]);
+const TIER_META_KEYS = new Set(["type", "size", "boundary"]);
+const TIER_BOUNDARIES = new Set(["above", "at_least"]);
 
 export const CHECKS = [
   { id: "JSON", spec: "document", title: "file is a JSON object" },
@@ -152,11 +158,60 @@ export const CHECKS = [
   { id: "MODEL_SHAPE", spec: "model", title: "model fields typed: ints >= 0, tool_call bool, status enum, release_date YYYY-MM-DD, disputed bool" },
   { id: "MODEL_TEXT", spec: "model", title: "every model's input_modalities includes text" },
   { id: "MODEL_LIMITS", spec: "model", title: "non-retired models have context_window > 0 and max_output_tokens >= 0" },
+  { id: "MODEL_COST", spec: "model", title: "optional cost is USD per million: finite numbers >= 0, tiers keep the source threshold, no unknown fields" },
   { id: "ALIASES", spec: "provider", title: "aliases are strings and never equal any provider id" },
   { id: "POPULAR", spec: "set", title: "tier popular is exactly the twelve pinned ids" },
   { id: "CLOUD_IAM", spec: "set", title: "the cloud-IAM providers are present, unsupported, reason cloud-iam; azure is deployment-url" },
   { id: "LOCAL_FILE_PROVIDERS", spec: "set", title: "the local-file providers are present" },
 ];
+
+function checkPriceBag(add, obj, path, allowedKeys) {
+  if (!isObj(obj)) {
+    add("MODEL_COST", path, "not an object");
+    return;
+  }
+  for (const k of Object.keys(obj)) {
+    if (!allowedKeys.has(k)) add("MODEL_COST", `${path}.${k}`, `unknown field ${JSON.stringify(k)}`);
+  }
+  for (const k of ["input", "output"]) {
+    if (!isFiniteNonNeg(obj[k])) add("MODEL_COST", `${path}.${k}`, `must be a finite number >= 0; got ${JSON.stringify(obj[k])}`);
+  }
+  for (const k of ["reasoning", "cache_read", "cache_write", "cache_write_1h"]) {
+    if (obj[k] !== undefined && !isFiniteNonNeg(obj[k])) add("MODEL_COST", `${path}.${k}`, `must be a finite number >= 0; got ${JSON.stringify(obj[k])}`);
+  }
+}
+
+function checkModelCost(add, cost, path) {
+  checkPriceBag(add, cost, path, COST_OBJECT_KEYS);
+  if (!isObj(cost)) return;
+  if (cost.context_over_200k !== undefined) {
+    checkPriceBag(add, cost.context_over_200k, `${path}.context_over_200k`, new Set(COST_PRICE_KEYS));
+  }
+  if (cost.tiers === undefined) return;
+  if (!Array.isArray(cost.tiers)) {
+    add("MODEL_COST", `${path}.tiers`, "not an array");
+    return;
+  }
+  cost.tiers.forEach((tier, n) => {
+    const tp = `${path}.tiers[${n}]`;
+    checkPriceBag(add, tier, tp, TIER_OBJECT_KEYS);
+    if (!isObj(tier)) return;
+    const meta = tier.tier;
+    const mp = `${tp}.tier`;
+    if (!isObj(meta)) {
+      add("MODEL_COST", mp, "missing or not an object");
+      return;
+    }
+    for (const k of Object.keys(meta)) {
+      if (!TIER_META_KEYS.has(k)) add("MODEL_COST", `${mp}.${k}`, `unknown field ${JSON.stringify(k)}`);
+    }
+    if (meta.type !== "context") add("MODEL_COST", `${mp}.type`, `got ${JSON.stringify(meta.type)}`);
+    if (!isInt(meta.size) || meta.size < 0) add("MODEL_COST", `${mp}.size`, `must be an integer >= 0; got ${JSON.stringify(meta.size)}`);
+    if (meta.boundary !== undefined && !TIER_BOUNDARIES.has(meta.boundary)) {
+      add("MODEL_COST", `${mp}.boundary`, `got ${JSON.stringify(meta.boundary)}`);
+    }
+  });
+}
 
 /**
  * Validate a document. `bytes` is the raw file content (Buffer or string);
@@ -311,6 +366,8 @@ export function validateDocument(bytes) {
           if (!(isInt(m.context_window) && m.context_window > 0)) add("MODEL_LIMITS", `${M}.context_window`, `must be > 0 for status ${JSON.stringify(m.status)}; got ${JSON.stringify(m.context_window)}`);
           if (!(isInt(m.max_output_tokens) && m.max_output_tokens >= 0)) add("MODEL_LIMITS", `${M}.max_output_tokens`, `must be >= 0; got ${JSON.stringify(m.max_output_tokens)}`);
         }
+
+        if (m.cost !== undefined) checkModelCost(add, m.cost, `${M}.cost`);
       });
     });
 

@@ -23,6 +23,14 @@ export const MODEL_STATUSES = ["active", "retired"] as const;
 export const MODALITIES = ["text", "image", "audio", "video", "pdf"] as const;
 
 /**
+ * How a context-tier `size` relates to the higher price band.
+ * Published only when the source states it. models.dev does not.
+ *   - `above`: tokens greater than `size` use this tier (exactly `size` stays lower).
+ *   - `at_least`: tokens greater than or equal to `size` use this tier.
+ */
+export const TIER_BOUNDARIES = ["above", "at_least"] as const;
+
+/**
  * AWS Bedrock cross-Region inference profile geographies, confirmed against
  * AWS's own `CrossRegionInferenceProfileRegion` enum (the `@aws-cdk/aws-bedrock-alpha`
  * module) and the Bedrock user guide's geographic cross-Region inference pages:
@@ -110,6 +118,48 @@ export const ProviderRegion = z
   .strict();
 export type ProviderRegion = z.infer<typeof ProviderRegion>;
 
+/** A non-negative finite USD amount. Zero is a real price; a missing field is not zero. */
+const UsdPerMillion = z.number().finite().nonnegative();
+
+/**
+ * USD per 1 million tokens. `input` and `output` are required whenever a cost
+ * object is published. Cache fields are optional: absent is not 0.
+ */
+export const CostPrices = z
+  .object({
+    input: UsdPerMillion,
+    output: UsdPerMillion,
+    reasoning: UsdPerMillion.optional(),
+    cache_read: UsdPerMillion.optional(),
+    cache_write: UsdPerMillion.optional(),
+    /** 1-hour cache write, same unit. The first publication may omit it. */
+    cache_write_1h: UsdPerMillion.optional(),
+  })
+  .strict();
+export type CostPrices = z.infer<typeof CostPrices>;
+
+export const CostTier = CostPrices.extend({
+  tier: z
+    .object({
+      type: z.literal("context"),
+      /** The source's own threshold. Not rewritten to a single inclusive or exclusive rule. */
+      size: z.number().int().nonnegative(),
+      boundary: z.enum(TIER_BOUNDARIES).optional(),
+    })
+    .strict(),
+}).strict();
+export type CostTier = z.infer<typeof CostTier>;
+
+export const ModelCost = CostPrices.extend({
+  tiers: z.array(CostTier).optional(),
+  /**
+   * Legacy alias copied from the source when it sends one. Canonical `tiers`
+   * win. The alias alone means "over 200,000", not whatever `tier.size` is.
+   */
+  context_over_200k: CostPrices.optional(),
+}).strict();
+export type ModelCost = z.infer<typeof ModelCost>;
+
 export const Model = z
   .object({
     id: z.string().min(1),
@@ -123,6 +173,8 @@ export const Model = z
     disputed: z.boolean().optional(),
     /** Cross-Region inference geographies for which AWS Bedrock publishes a cross-Region inference profile of this base model (see bedrock-region/CONTRACT.md). */
     inference_profiles: z.array(z.enum(CROSS_REGION_GROUPS)).min(1).optional(),
+    /** USD per 1 million tokens. Absent when no source published a price — never filled with zeros. */
+    cost: ModelCost.optional(),
   })
   .strict();
 export type Model = z.infer<typeof Model>;

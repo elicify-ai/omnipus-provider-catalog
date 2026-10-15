@@ -143,6 +143,7 @@ export async function assemble(opts: AssembleOptions): Promise<{ catalog: Catalo
     },
     models_dev_unknown_npm: normalised.unknownNpm,
     models_dev_skipped_models: normalised.skipped,
+    models_dev_cost_rejected: normalised.cost_rejected,
     skipped_no_context_window: merged.report.skipped_no_window,
     disputes: overridden.disputes,
     within_tolerance: merged.report.within_tolerance,

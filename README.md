@@ -173,6 +173,7 @@ comes from, is in [`docs/schema-2.0.0.md`](docs/schema-2.0.0.md). In short:
 | `status` | `active`, or `retired` when the model has disappeared from the upstream sources. |
 | `disputed` | Present and `true` while the sources disagree about this model (see below). |
 | `inference_profiles` | Optional (currently only `amazon-bedrock`): the cross-region groups (`us`, `eu`, `apac`, `jp`, `au`, `global`) for which AWS Bedrock publishes a cross-region inference profile of this model. |
+| `cost` | Optional. Prices in US dollars per 1 million tokens: `input`, `output`, and optionally `reasoning`, `cache_read`, `cache_write`, `cache_write_1h`, `tiers` and a legacy `context_over_200k`. Absent when no source published a price. A `0` is a real price of zero, not a stand-in for "unknown". |
 
 Only text-generating models are included. Image, video and speech generators
 are left out, as is any model for which no source knows the context window.
@@ -186,8 +187,8 @@ contributed.
 
 | Source | Used for | Licence |
 |---|---|---|
-| [models.dev](https://models.dev) (`api.json`) | Primary source: providers, endpoints, protocols, model limits, input types, tool calling, release dates | MIT |
-| [LiteLLM](https://github.com/BerriAI/litellm) (`model_prices_and_context_window.json`) | Cross-check: compared against models.dev to catch disagreements, and used to fill in limits models.dev does not know | MIT |
+| [models.dev](https://models.dev) (`api.json`) | Primary source: providers, endpoints, protocols, model limits, input types, tool calling, release dates, prices | MIT |
+| [LiteLLM](https://github.com/BerriAI/litellm) (`model_prices_and_context_window.json`) | Cross-check: compared against models.dev to catch disagreements, and used to fill in limits and prices models.dev does not know | MIT |
 | [`overrides/`](overrides/README.md) (this repository) | Hand-maintained corrections and additions, each with a stated reason | MIT |
 | [`resize_limits.json`](resize_limits.json) (this repository) | Per-provider image upload limits, which neither registry carries | MIT |
 
@@ -200,7 +201,7 @@ provider, using the table models.dev publishes for it.)
 
 ### When the sources disagree
 
-For each number (context window, maximum output) the two registries are
+For each token count (context window, maximum output) the two registries are
 compared:
 
 - **Small differences** — within 5 % or 4,096 tokens, whichever is larger —
@@ -214,6 +215,14 @@ compared:
   disagreement is a dispute, handled the same way.
 - A value written into `overrides/` settles the dispute for that field on the
   next run.
+
+Prices are US dollars per 1 million tokens. LiteLLM quotes dollars per token,
+so those numbers are multiplied by 1,000,000 before they are compared. The
+4,096-token allowance is not applied to dollars: a difference within 5 % of
+the larger price publishes the lower price, and anything beyond that is a
+dispute under the same rule as above. A missing price is left missing. A
+published `0` is kept. Length-band prices (`tiers`, `context_over_200k`) are
+copied from models.dev as that source wrote them.
 
 Providers and models that vanish from the sources are not silently dropped:
 a vanished model is carried forward as `status: retired`, a vanished provider

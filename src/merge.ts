@@ -1,15 +1,21 @@
 // The merge: models.dev is primary; LiteLLM cross-checks context_window,
-// max_output_tokens, tool_call and input modalities with the disagreement rule
-// below:
-//   - numeric fields within 5 % or 4,096 tokens (whichever is larger) are not
+// max_output_tokens, tool_call, input modalities and prices with the
+// disagreement rule below:
+//   - token counts within 5 % or 4,096 tokens (whichever is larger) are not
 //     disputes: publish the LOWER value, record both;
+//   - prices (USD per 1 million tokens) use 5 % of the larger price ONLY.
+//     The 4,096 absolute tolerance is for token counts and is never applied
+//     to dollars. Within 5 %: publish the lower price. Beyond 5 %: dispute;
 //   - a larger delta, or any boolean/modality difference, is a dispute: publish
 //     the last-known-good value from the previous release (models.dev's when
 //     there is none), mark the model `disputed: true`, record it so the
 //     publish phase can open ONE issue;
-//   - a value models.dev lacks (0 = unknown) that LiteLLM carries is filled
-//     from LiteLLM and recorded as a fill, never as a dispute.
-import type { Catalog, Modality, Model, Provider } from "./schema.js";
+//   - a token count models.dev lacks (0 = unknown) that LiteLLM carries is
+//     filled from LiteLLM and recorded as a fill, never as a dispute;
+//   - a price models.dev lacks (the field is absent — 0 is a real price) that
+//     LiteLLM carries is filled the same way. A model with no price in either
+//     source is published without a cost object.
+import type { Catalog, Modality, Model, ModelCost, Provider } from "./schema.js";
 import { MODALITIES } from "./schema.js";
 import type { LiteLLMFacts, NormalisedModel, NormalisedProvider } from "./sources.js";
 import { lookupLiteLLM } from "./sources.js";
@@ -18,13 +24,17 @@ export const TOLERANCE_ABS = 4096;
 export const TOLERANCE_REL = 0.05;
 
 export type NumericField = "context_window" | "max_output_tokens";
+export type PriceField = "input" | "output" | "reasoning" | "cache_read" | "cache_write" | "cache_write_1h";
+export type CostField = `cost.${PriceField}`;
+
+const PRICE_FIELDS: readonly PriceField[] = ["input", "output", "reasoning", "cache_read", "cache_write", "cache_write_1h"];
 
 export type Comparison =
   | { kind: "agree" }
   | { kind: "within_tolerance"; published: number; models_dev: number; litellm: number }
   | { kind: "dispute"; models_dev: number; litellm: number };
 
-/** The numeric disagreement rule. Both inputs are positive (0 = unknown is handled by the caller). */
+/** Token-count disagreement. Both inputs are positive (0 = unknown is handled by the caller). */
 export function compareNumeric(modelsDev: number, litellm: number): Comparison {
   if (modelsDev === litellm) return { kind: "agree" };
   const delta = Math.abs(modelsDev - litellm);
@@ -35,10 +45,28 @@ export function compareNumeric(modelsDev: number, litellm: number): Comparison {
   return { kind: "dispute", models_dev: modelsDev, litellm };
 }
 
+/**
+ * Price disagreement, USD per 1 million tokens. 5 % of the larger price only.
+ * A gap of a few cents on a $1 price is a dispute; 4,096 is not a dollar tolerance.
+ * Compared in 1e-6 units so a decimal "exactly 5 %" is not tripped by binary
+ * dust. Both inputs are finite and >= 0 (0 is a real price, not "unknown").
+ */
+export function comparePrice(modelsDev: number, litellm: number): Comparison {
+  const a = Math.round(modelsDev * 1e6);
+  const b = Math.round(litellm * 1e6);
+  if (a === b) return { kind: "agree" };
+  const delta = Math.abs(a - b);
+  const tolerance = TOLERANCE_REL * Math.max(a, b);
+  if (delta <= tolerance) {
+    return { kind: "within_tolerance", published: Math.min(modelsDev, litellm), models_dev: modelsDev, litellm };
+  }
+  return { kind: "dispute", models_dev: modelsDev, litellm };
+}
+
 export type DisputeRecord = {
   provider: string;
   model: string;
-  field: NumericField | "tool_call" | `input_modalities.${Exclude<Modality, "text">}`;
+  field: NumericField | CostField | "tool_call" | `input_modalities.${Exclude<Modality, "text">}`;
   models_dev: number | boolean;
   litellm: number | boolean;
   litellm_key: string;
@@ -49,12 +77,12 @@ export type DisputeRecord = {
 export type ToleranceRecord = {
   provider: string;
   model: string;
-  field: NumericField;
+  field: NumericField | CostField;
   models_dev: number;
   litellm: number;
   published: number;
 };
-export type FillRecord = { provider: string; model: string; field: NumericField; litellm: number };
+export type FillRecord = { provider: string; model: string; field: NumericField | CostField; litellm: number };
 /** A model neither registry knows a context window for; it is not published (publication rule: every active model has a real window). */
 export type NoWindowRecord = { provider: string; model: string; litellm_key: string | null };
 
@@ -82,6 +110,88 @@ function sortedModalities(mods: Iterable<Modality>): Modality[] {
   return MODALITIES.filter((m) => set.has(m));
 }
 
+function previousPrice(previous: ModelCost | undefined, field: PriceField): number | undefined {
+  const v = previous?.[field];
+  return typeof v === "number" && Number.isFinite(v) && v >= 0 ? v : undefined;
+}
+
+/**
+ * Cross-check prices. Tiers and `context_over_200k` are copied from models.dev
+ * unchanged: LiteLLM's above-N fields are a different encoding, and rewriting
+ * `tier.size` would flatten every source onto one boundary rule.
+ * A LiteLLM cost with no input or no output cannot fill a missing models.dev
+ * cost (both are required on a published cost object).
+ */
+function mergeCost(
+  providerId: string,
+  md: NormalisedModel,
+  llCost: LiteLLMFacts["cost"] | undefined,
+  litellmKey: string | undefined,
+  previous: ModelCost | undefined,
+): { cost?: ModelCost; disputes: DisputeRecord[]; tolerance: ToleranceRecord[]; fills: FillRecord[] } {
+  const disputes: DisputeRecord[] = [];
+  const tolerance: ToleranceRecord[] = [];
+  const fills: FillRecord[] = [];
+
+  if (!md.cost) {
+    if (llCost?.input === undefined || llCost.output === undefined) return { disputes, tolerance, fills };
+    const cost: ModelCost = { input: llCost.input, output: llCost.output };
+    fills.push(
+      { provider: providerId, model: md.id, field: "cost.input", litellm: llCost.input },
+      { provider: providerId, model: md.id, field: "cost.output", litellm: llCost.output },
+    );
+    for (const field of ["reasoning", "cache_read", "cache_write", "cache_write_1h"] as const) {
+      const v = llCost[field];
+      if (v === undefined) continue;
+      cost[field] = v;
+      fills.push({ provider: providerId, model: md.id, field: `cost.${field}`, litellm: v });
+    }
+    return { cost, disputes, tolerance, fills };
+  }
+
+  const cost = structuredClone(md.cost);
+  if (!llCost) return { cost, disputes, tolerance, fills };
+
+  for (const field of PRICE_FIELDS) {
+    const a = md.cost[field];
+    const b = llCost[field];
+    if (b === undefined) continue;
+    if (a === undefined) {
+      cost[field] = b;
+      fills.push({ provider: providerId, model: md.id, field: `cost.${field}`, litellm: b });
+      continue;
+    }
+    const compared = comparePrice(a, b);
+    if (compared.kind === "agree") continue;
+    if (compared.kind === "within_tolerance") {
+      cost[field] = compared.published;
+      tolerance.push({
+        provider: providerId,
+        model: md.id,
+        field: `cost.${field}`,
+        models_dev: a,
+        litellm: b,
+        published: compared.published,
+      });
+      continue;
+    }
+    const lkg = previousPrice(previous, field);
+    const published = lkg !== undefined ? lkg : a;
+    cost[field] = published;
+    disputes.push({
+      provider: providerId,
+      model: md.id,
+      field: `cost.${field}`,
+      models_dev: a,
+      litellm: b,
+      litellm_key: litellmKey ?? "",
+      published,
+      last_known_good: lkg !== undefined,
+    });
+  }
+  return { cost, disputes, tolerance, fills };
+}
+
 /** Cross-check one models.dev model against LiteLLM's facts. Pure; returns the published model plus records. */
 export function mergeModel(
   providerId: string,
@@ -102,6 +212,11 @@ export function mergeModel(
   const disputes: DisputeRecord[] = [];
   const tolerance: ToleranceRecord[] = [];
   const fills: FillRecord[] = [];
+  const cost = mergeCost(providerId, md, ll?.cost, ll?.key, previous?.cost);
+  if (cost.cost) model.cost = cost.cost;
+  disputes.push(...cost.disputes);
+  tolerance.push(...cost.tolerance);
+  fills.push(...cost.fills);
   if (!ll) return { model, disputes, tolerance, fills };
 
   for (const field of ["context_window", "max_output_tokens"] as const) {

@@ -117,13 +117,43 @@ Used for both `default_resize_limits` and a provider's `resize_limits`.
 | `status` | string | `active`, or `retired` when the model has vanished from the sources and is carried forward from the previous release. | models.dev / job |
 | `disputed` | boolean, *optional* | Present and `true` while the two registries disagree about this model beyond tolerance and the previous release's value is being published. Absent otherwise. | job |
 | `inference_profiles` | array of string, *optional* | Currently only `amazon-bedrock`: the cross-region geographies (`us`, `eu`, `apac`, `jp`, `au`, `global`) for which AWS Bedrock publishes a cross-region inference profile of this base model. models.dev lists each region-prefixed variant (e.g. `eu.anthropic.claude-sonnet-4-6`) as its own model; the assembler folds them into this field on the base model id and drops the prefixed duplicates. | job (folded from models.dev) |
+| `cost` | [ModelCost](#modelcost), *optional* | USD per 1 million tokens. Absent when neither source published a price. Never a stand-in object of zeros. | models.dev, LiteLLM cross-check or fill |
 
 Active models always have `context_window` greater than `0`; a model for which
 no source knows the window is held back until one does.
 
+### ModelCost
+
+USD per 1 million tokens. `input` and `output` are always present inside `cost`.
+Every other price field is optional. A missing field is not `0`. A published `0`
+is a real price of zero and must be kept.
+
+| Field | Type | Meaning | Source |
+|---|---|---|---|
+| `input` | number | Price of uncached input tokens. Finite, ≥ 0. | models.dev, LiteLLM fill or cross-check |
+| `output` | number | Price of output tokens. Finite, ≥ 0. | models.dev, LiteLLM fill or cross-check |
+| `reasoning` | number, *optional* | Price of reasoning tokens, when the source splits it from output. | models.dev, LiteLLM fill or cross-check |
+| `cache_read` | number, *optional* | Price of cache-read tokens. | models.dev, LiteLLM fill or cross-check |
+| `cache_write` | number, *optional* | Price of a cache write (the 5-minute write, where the source distinguishes). | models.dev, LiteLLM fill or cross-check |
+| `cache_write_1h` | number, *optional* | Price of a 1-hour cache write. The first publication may omit it. | LiteLLM fill when models.dev has none (`cache_creation_input_token_cost_above_1hr`, converted) |
+| `tiers` | array of [CostTier](#costtier), *optional* | Higher context-length bands. Copied from models.dev. Not rewritten. | models.dev |
+| `context_over_200k` | object, *optional* | Legacy alias of one higher band: the same price fields, without `tiers`. Canonical `tiers` win over this alias. The alias alone means over 200,000, even when the tier's own `size` is a different number. | models.dev |
+
+Audio prices from models.dev (`input_audio`, `output_audio`) are not published.
+
+### CostTier
+
+A `ModelCost` plus `tier`.
+
+| Field | Type | Meaning | Source |
+|---|---|---|---|
+| `tier.type` | string | Always `context`. | models.dev |
+| `tier.size` | integer | The source's own threshold, in tokens. Kept as the source wrote it (`100000` stays `100000`; `200001` stays `200001`). Not folded into one inclusive or exclusive rule. | models.dev |
+| `tier.boundary` | string, *optional* | `above` — tokens greater than `size` use this tier, so exactly `size` stays on the lower rate. `at_least` — tokens greater than or equal to `size` use this tier. Omitted when the source does not say. models.dev does not say; the number is passed through instead. | source, only when it states one |
+
 ## How disagreements are resolved
 
-For each numeric field the two registries are compared:
+For each token-count field the two registries are compared:
 
 - Difference within 5 % or 4,096 tokens, whichever is larger: the **lower**
   value is published. Not a dispute.
@@ -132,9 +162,25 @@ For each numeric field the two registries are compared:
   none), `disputed` is set to `true`, and a GitHub issue lists the row. A
   release is never blocked.
 - models.dev reports `0` and LiteLLM has a value: LiteLLM's value fills the
-  gap. Not a dispute.
+  gap. Not a dispute. For token counts, `0` means unknown.
 - A value set in `overrides/` wins outright and clears the dispute on that
   field.
+
+Prices are compared separately, in USD per 1 million tokens. LiteLLM's
+per-token prices are multiplied by 1,000,000 first. The 4,096 allowance is
+not applied to dollars.
+
+- Difference within 5 % of the larger price: the **lower** price is published.
+  Not a dispute.
+- A larger difference: the same dispute rule as above. A previous price of `0`
+  is a real last-known-good price, not "unknown".
+- A price field models.dev omits, and LiteLLM has (including a real `0`):
+  LiteLLM fills it. Not a dispute.
+- A price field LiteLLM omits: models.dev's value stands, including a real `0`.
+- Neither source has a price: the model is published with no `cost` object.
+- `tiers` and `context_over_200k` are taken from models.dev only. They are not
+  cross-checked against LiteLLM's above-N fields, and `tier.size` is not
+  rewritten.
 
 ## Minimal example
 
