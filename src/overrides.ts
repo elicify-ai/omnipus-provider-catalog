@@ -10,8 +10,8 @@ import path from "node:path";
 import { parse as parseYaml } from "yaml";
 import { z } from "zod";
 
-import type { Catalog, Model, Protocol, ProviderRegion } from "./schema.js";
-import { AUTH_METHODS, CLI_KINDS, MODALITIES, MODEL_STATUSES, PROTOCOLS, ProtocolEntry, ProviderRegion as ProviderRegionSchema, TIERS, UNSUPPORTED_REASONS } from "./schema.js";
+import type { Catalog, Model, PdfLimits, Protocol, ProviderRegion } from "./schema.js";
+import { AUTH_METHODS, CLI_KINDS, MODALITIES, MODEL_STATUSES, PdfLimits as PdfLimitsSchema, PROTOCOLS, ProtocolEntry, ProviderRegion as ProviderRegionSchema, TIERS, UNSUPPORTED_REASONS } from "./schema.js";
 import type { MergedProvider } from "./merge.js";
 import type { DisputeRecord } from "./merge.js";
 
@@ -35,6 +35,7 @@ export const ProviderOverride = z
     cli_kind: z.enum(CLI_KINDS).optional(),
     token_source: z.string().optional(),
     regions: z.array(ProviderRegionSchema).optional(),
+    pdf_limits: PdfLimitsSchema.optional(),
   })
   .strict();
 export type ProviderOverride = z.infer<typeof ProviderOverride>;
@@ -131,6 +132,7 @@ export type WorkingProvider = MergedProvider & {
   token_source?: string;
   protocols?: { protocol: Protocol; api: string }[];
   regions?: ProviderRegion[];
+  pdf_limits?: PdfLimits;
   /** true when the row was created (not just edited) by overrides/local-providers.yaml */
   from_local_file?: boolean;
 };

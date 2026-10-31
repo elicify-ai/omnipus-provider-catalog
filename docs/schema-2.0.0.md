@@ -77,6 +77,7 @@ The `sources` object records exactly what the run consumed.
 | `custom` | boolean, *optional* | Reserved for user-defined provider rows in consuming applications. Never `true` in a published document; the validator rejects it. | — |
 | `cli_kind` | string, *optional* | Present exactly when `protocol` is `cli`: which command-line tool drives the provider, `codex` or `copilot`. | overrides |
 | `token_source` | string, *optional* | Where a signed-in provider's token is read from (for example `codex-auth-json`). | overrides |
+| `pdf_limits` | [PdfLimits](#pdflimits), *optional* | The provider's documented limits on native PDF input (a PDF sent as a document, not as page images). Absent when none is recorded; a consumer then applies its own size limit. | overrides |
 | `resize_limits` | [ResizeLimits](#resize-limits) | The largest image this provider accepts; applies to every model of the provider. Falls back to `default_resize_limits` when the provider has no entry. | resize_limits.json |
 | `models` | array of [Model](#model) | The provider's models. Ids are unique within the provider. May be empty for local-machine providers, whose models are discovered live. | merge |
 
@@ -93,6 +94,13 @@ The `sources` object records exactly what the run consumed.
 |---|---|---|---|
 | `id` | string | An AWS region id, e.g. `us-east-1`. | overrides |
 | `group` | string | The region's AWS Bedrock cross-region inference geography: `us`, `eu`, `apac`, `jp`, `au`, or `""` when AWS publishes no cross-region inference profile group for that region (on-demand only in that region). | overrides |
+
+### PdfLimits
+
+| Field | Type | Meaning and allowed values | Source |
+|---|---|---|---|
+| `max_document_bytes` | integer | Largest single PDF accepted, in bytes. Positive. | overrides |
+| `max_documents_per_request` | integer | Most PDF documents accepted in one request. Positive. | overrides |
 
 ### Resize limits
 

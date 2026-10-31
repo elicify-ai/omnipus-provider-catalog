@@ -92,6 +92,21 @@ export const ResizeLimits = z
   .strict();
 export type ResizeLimits = z.infer<typeof ResizeLimits>;
 
+/**
+ * A provider's documented limits on native PDF input (documents sent as
+ * files, not as page images). Omitted when the provider documents none or
+ * none is recorded; a consumer then applies its own media size limit.
+ */
+export const PdfLimits = z
+  .object({
+    /** Largest single PDF accepted, in bytes. */
+    max_document_bytes: z.number().int().positive(),
+    /** Most PDF documents accepted in one request. */
+    max_documents_per_request: z.number().int().positive(),
+  })
+  .strict();
+export type PdfLimits = z.infer<typeof PdfLimits>;
+
 export const ProtocolEntry = z
   .object({
     protocol: z.enum(PROTOCOLS),
@@ -148,6 +163,8 @@ export const Provider = z
     token_source: z.string().optional(),
     /** The regions offered in a region picker (currently only amazon-bedrock); `region` above is the default. */
     regions: z.array(ProviderRegion).optional(),
+    /** Documented native-PDF limits (see PdfLimits); absent when none is recorded. */
+    pdf_limits: PdfLimits.optional(),
     resize_limits: ResizeLimits,
     models: z.array(Model),
   })

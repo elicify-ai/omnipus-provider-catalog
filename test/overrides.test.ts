@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { deriveLocality, finalizeProviders, isLocalHost } from "../src/finalize.js";
 import type { DisputeRecord, MergedProvider } from "../src/merge.js";
-import { applyOverrides, type Overrides, type WorkingProvider } from "../src/overrides.js";
+import { applyOverrides, ProviderOverride, type Overrides, type WorkingProvider } from "../src/overrides.js";
 
 const registryProvider = (id: string, api: string, modelIds: string[]): MergedProvider => ({
   id,
@@ -60,6 +60,16 @@ describe("applyOverrides", () => {
         { id: "us-gov-west-1", group: "" },
       ],
     });
+  });
+
+  it("a provider override can set pdf_limits and rejects a non-positive limit", () => {
+    const reg = [registryProvider("amazon-bedrock", "", ["anthropic.claude-x"])];
+    const limits = { max_document_bytes: 4500000, max_documents_per_request: 5 };
+    const { providers } = applyOverrides(reg as WorkingProvider[], { ...none, providers: { "amazon-bedrock": { reason: "Bedrock Converse docs", pdf_limits: limits } } }, [], reg);
+    expect(providers[0]).toMatchObject({ pdf_limits: limits });
+    expect(ProviderOverride.safeParse({ reason: "x", pdf_limits: limits }).success).toBe(true);
+    expect(ProviderOverride.safeParse({ reason: "x", pdf_limits: { max_document_bytes: 0, max_documents_per_request: 5 } }).success).toBe(false);
+    expect(ProviderOverride.safeParse({ reason: "x", pdf_limits: { max_document_bytes: 1, max_documents_per_request: 5, extra: 1 } }).success).toBe(false);
   });
 
   it("refuses an override for a provider that is not in the merged document", () => {
@@ -145,6 +155,15 @@ describe("finalizeProviders", () => {
     const noRegions: WorkingProvider = registryProvider("openai", "https://api.openai.com/v1", ["m"]);
     const { providers: p2 } = finalizeProviders([noRegions], resize);
     expect("regions" in p2[0]!).toBe(false);
+  });
+
+  it("passes the optional pdf_limits field through unchanged and omits it when absent", () => {
+    // AWS Bedrock Converse Message docs: up to five documents, each no more than 4.5 MB.
+    const w: WorkingProvider = { ...registryProvider("amazon-bedrock", "https://bedrock-runtime.us-east-1.amazonaws.com", ["m"]), protocol: "bedrock", pdf_limits: { max_document_bytes: 4500000, max_documents_per_request: 5 } };
+    const { providers } = finalizeProviders([w], resize);
+    expect(providers[0]!.pdf_limits).toEqual({ max_document_bytes: 4500000, max_documents_per_request: 5 });
+    const { providers: p2 } = finalizeProviders([registryProvider("openai", "https://api.openai.com/v1", ["m"])], resize);
+    expect("pdf_limits" in p2[0]!).toBe(false);
   });
 
   it("a row with no protocol, no URL, or a non-https/private URL becomes unsupported / deployment-url unless already unsupported", () => {

@@ -127,6 +127,7 @@ export function finalizeProviders(providers: WorkingProvider[], resize: ResizeFi
       aliases: w.aliases ?? [],
       ...(w.cli_kind ? { cli_kind: w.cli_kind } : {}),
       ...(w.token_source ? { token_source: w.token_source } : {}),
+      ...(w.pdf_limits ? { pdf_limits: { ...w.pdf_limits } } : {}),
       resize_limits: { ...limits },
       models: [...w.models].sort((a, b) => a.id.localeCompare(b.id)),
     };
