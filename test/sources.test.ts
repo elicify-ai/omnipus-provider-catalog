@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { normaliseModelsDev, reasoningOptionsFrom, type ModelsDevApi } from "../src/sources.js";
+import { normaliseModelsDev, reasoningFrom, type ModelsDevApi } from "../src/sources.js";
 
 describe("normaliseModelsDev modality filters", () => {
   const api: ModelsDevApi = {
@@ -29,34 +29,41 @@ describe("normaliseModelsDev modality filters", () => {
   });
 });
 
-describe("reasoningOptionsFrom (models.dev's typed reasoning_options descriptors → named effort levels)", () => {
-  it("maps the effort shape to its values verbatim, keeping models.dev's ascending effort order", () => {
-    expect(reasoningOptionsFrom([{ type: "effort", values: ["none", "low", "medium", "high", "xhigh"] }])).toEqual(["none", "low", "medium", "high", "xhigh"]);
+describe("reasoningFrom (models.dev reasoning flag + typed reasoning_options → {levels, switch})", () => {
+  it("no reasoning flag: no object, whatever the options say", () => {
+    expect(reasoningFrom(undefined, undefined)).toBeUndefined();
+    expect(reasoningFrom(false, [{ type: "effort", values: ["low"] }])).toBeUndefined();
   });
 
-  it("drops the shapes that carry no named levels: a token budget, a bare toggle and an empty list", () => {
-    expect(reasoningOptionsFrom([{ type: "budget_tokens", min: 1024 }])).toBeUndefined();
-    expect(reasoningOptionsFrom([{ type: "budget_tokens", min: 0, max: 63999 }])).toBeUndefined();
-    expect(reasoningOptionsFrom([{ type: "toggle" }])).toBeUndefined();
-    expect(reasoningOptionsFrom([])).toBeUndefined();
-    expect(reasoningOptionsFrom(undefined)).toBeUndefined();
+  it("effort values become levels verbatim, in published order (S-46 row: none, low, high, max)", () => {
+    expect(reasoningFrom(true, [{ type: "effort", values: ["none", "low", "high", "max"] }])).toEqual({ levels: ["none", "low", "high", "max"], switch: false });
   });
 
-  it("picks the effort entry out of a mixed list (toggle + effort)", () => {
-    expect(reasoningOptionsFrom([{ type: "toggle" }, { type: "effort", values: ["low", "medium", "xhigh"] }])).toEqual(["low", "medium", "xhigh"]);
+  it("toggle becomes switch: true; effort plus toggle keeps both", () => {
+    expect(reasoningFrom(true, [{ type: "toggle" }])).toEqual({ levels: [], switch: true });
+    expect(reasoningFrom(true, [{ type: "toggle" }, { type: "effort", values: ["low", "high"] }])).toEqual({ levels: ["low", "high"], switch: true });
   });
 
-  it("drops null and empty-string entries seen live inside values; nothing usable left → absent", () => {
-    expect(reasoningOptionsFrom([{ type: "effort", values: [null, "low", "medium", "high"] }])).toEqual(["low", "medium", "high"]);
-    expect(reasoningOptionsFrom([{ type: "effort", values: [null, ""] }])).toBeUndefined();
+  it("budget_tokens only, or a reasoning flag with no options, is the empty object", () => {
+    expect(reasoningFrom(true, [{ type: "budget_tokens", min: 1024, max: 63999 }])).toEqual({ levels: [], switch: false });
+    expect(reasoningFrom(true, undefined)).toEqual({ levels: [], switch: false });
+    expect(reasoningFrom(true, [])).toEqual({ levels: [], switch: false });
   });
 
-  it("merges multiple effort entries without duplicates, keeping the first occurrence's position", () => {
-    expect(reasoningOptionsFrom([{ type: "effort", values: ["low", "high"] }, { type: "effort", values: ["high", "max"] }])).toEqual(["low", "high", "max"]);
+  it("budget_tokens next to effort or toggle adds nothing", () => {
+    expect(reasoningFrom(true, [{ type: "budget_tokens", min: 1 }, { type: "effort", values: ["low"] }, { type: "toggle" }])).toEqual({ levels: ["low"], switch: true });
+  });
+
+  it("drops 'default', null, empty, over-32-character and repeated names; merges several effort entries in first-seen order", () => {
+    const long = "x".repeat(33);
+    expect(reasoningFrom(true, [{ type: "effort", values: ["default", null, "", long, "low", "high"] }])).toEqual({ levels: ["low", "high"], switch: false });
+    expect(reasoningFrom(true, [{ type: "effort", values: ["x".repeat(32)] }])).toEqual({ levels: ["x".repeat(32)], switch: false });
+    expect(reasoningFrom(true, [{ type: "effort", values: ["low", "high"] }, { type: "effort", values: ["high", "max"] }])).toEqual({ levels: ["low", "high", "max"], switch: false });
+    expect(reasoningFrom(true, [{ type: "effort", values: ["default"] }])).toEqual({ levels: [], switch: false });
   });
 });
 
-describe("normaliseModelsDev reasoning fields", () => {
+describe("normaliseModelsDev reasoning object", () => {
   const chat = { limit: { context: 1000, output: 100 }, modalities: { input: ["text"], output: ["text"] } };
   const api: ModelsDevApi = {
     acme: {
@@ -74,21 +81,14 @@ describe("normaliseModelsDev reasoning fields", () => {
     },
   };
 
-  it("carries reasoning: true plus the flat named levels only when upstream publishes effort values", () => {
+  it("publishes {levels, switch} for reasoning models and nothing for the rest", () => {
     const { providers } = normaliseModelsDev(api);
     const m = new Map(providers[0]!.models.map((x) => [x.id, x]));
-    // effort shape: named levels, ascending, as published
-    expect(m.get("efforts")!.reasoning).toBe(true);
-    expect(m.get("efforts")!.reasoning_options).toEqual(["low", "medium", "high"]);
-    // controlled but unnamed (toggle / budget_tokens): reasoning yes, no invented names
-    expect(m.get("toggle")!.reasoning).toBe(true);
-    expect(m.get("toggle")!.reasoning_options).toBeUndefined();
-    expect(m.get("budget")!.reasoning).toBe(true);
-    expect(m.get("budget")!.reasoning_options).toBeUndefined();
-    // no reasoning support: both fields absent, never false
+    expect(m.get("efforts")!.reasoning).toEqual({ levels: ["low", "medium", "high"], switch: false });
+    expect(m.get("toggle")!.reasoning).toEqual({ levels: [], switch: true });
+    expect(m.get("budget")!.reasoning).toEqual({ levels: [], switch: false });
     expect(m.get("off")!.reasoning).toBeUndefined();
-    expect(m.get("off")!.reasoning_options).toBeUndefined();
     expect(m.get("silent")!.reasoning).toBeUndefined();
-    expect(m.get("silent")!.reasoning_options).toBeUndefined();
+    for (const x of m.values()) expect(x).not.toHaveProperty("reasoning_options");
   });
 });

@@ -2,7 +2,7 @@
 // is the primary source (provider identity, model list, limits, modalities);
 // LiteLLM only supplies numbers/flags to cross-check against it.
 import type { Modality, Protocol } from "./schema.js";
-import { MODALITIES } from "./schema.js";
+import { MODALITIES, REASONING_LEVEL_MAX, type Reasoning } from "./schema.js";
 
 // ---------- models.dev ----------
 
@@ -11,8 +11,8 @@ import { MODALITIES } from "./schema.js";
  * string. Observed shapes: `{"type":"effort","values":[…]}` (named levels),
  * `{"type":"budget_tokens","min"…,"max"…}` (a token range) and `{"type":"toggle"}`
  * (on/off); an entry may also carry only some of these keys. Only the effort
- * shape carries level names Omnipus can send, so reasoningOptionsFrom() re-checks
- * everything at runtime and maps just that shape.
+ * and toggle shapes map to a published control, so reasoningFrom() re-checks
+ * everything at runtime and maps just those two.
  */
 export type ModelsDevReasoningOption = { type?: string; values?: unknown[]; min?: number; max?: number };
 
@@ -90,10 +90,8 @@ export type NormalisedModel = {
   context_window: number;
   max_output_tokens: number;
   input_modalities: Modality[];
-  /** True when the model supports a reasoning/thinking request at all; absent means no or unknown. */
-  reasoning?: boolean;
-  /** Named reasoning-effort levels in ascending order, when the model exposes them (see reasoningOptionsFrom). */
-  reasoning_options?: string[];
+  /** The published reasoning object (see reasoningFrom); absent when the model does not reason. */
+  reasoning?: Reasoning;
 };
 export type NormalisedProvider = {
   id: string;
@@ -119,30 +117,41 @@ function toModalities(input: string[] | undefined): Modality[] | null {
 }
 
 /**
- * models.dev's `reasoning_options` → the named reasoning-effort levels Omnipus's
- * effort control can send, in ascending effort order.
- *
- * Upstream entries are typed descriptors; only `{"type":"effort","values":[…]}`
- * carries level names, so that is the only shape mapped and `values` passes
- * through verbatim — no reordering, no invented names. `budget_tokens` (a token
- * range) and `toggle` (on/off) are deliberately dropped: synthesising level names
- * for them would invent data, and Omnipus cannot send a named level to a model
- * that only takes a budget or a switch. Non-string entries inside `values` (null
- * is live in sarvam/sarvam-30b) are dropped the same way. Returns undefined when
- * nothing usable remains, so the published field stays absent rather than empty.
+ * Level names that are never published: "default" (two models.dev rows) would
+ * read as a level although it means "send nothing", which consumers already
+ * offer on their own (Omnipus: "provider_default").
  */
-export function reasoningOptionsFrom(raw: ModelsDevReasoningOption[] | undefined): string[] | undefined {
-  if (!Array.isArray(raw)) return undefined;
-  const out: string[] = [];
-  for (const entry of raw) {
-    if (!entry || typeof entry !== "object" || entry.type !== "effort") continue;
-    if (!Array.isArray(entry.values)) continue;
+const DROPPED_LEVELS = new Set(["default"]);
+
+/**
+ * models.dev's `reasoning` flag and typed `reasoning_options` → the published
+ * reasoning object (see Reasoning in schema.ts).
+ *
+ * - `reasoning` not true: undefined (the model does not reason, or nobody knows).
+ * - `{"type":"effort","values":[…]}`: its string values become `levels`,
+ *   verbatim and in published order; several effort entries are merged without
+ *   duplicates; empty strings, non-strings, names over 32 characters and
+ *   "default" are dropped.
+ * - `{"type":"toggle"}`: `switch: true`.
+ * - `budget_tokens` carries no level or switch: a budget-only model, or a
+ *   reasoning model with no options at all, gets `{levels: [], switch: false}`.
+ * Nothing is invented: no level is synthesised for a budget or a toggle.
+ */
+export function reasoningFrom(flag: boolean | undefined, raw: ModelsDevReasoningOption[] | undefined): Reasoning | undefined {
+  if (flag !== true) return undefined;
+  const levels: string[] = [];
+  let sw = false;
+  for (const entry of Array.isArray(raw) ? raw : []) {
+    if (!entry || typeof entry !== "object") continue;
+    if (entry.type === "toggle") sw = true;
+    if (entry.type !== "effort" || !Array.isArray(entry.values)) continue;
     for (const v of entry.values) {
-      if (typeof v !== "string" || v.length === 0) continue;
-      if (!out.includes(v)) out.push(v);
+      if (typeof v !== "string" || v.length === 0 || v.length > REASONING_LEVEL_MAX) continue;
+      if (DROPPED_LEVELS.has(v) || levels.includes(v)) continue;
+      levels.push(v);
     }
   }
-  return out.length > 0 ? out : undefined;
+  return { levels, switch: sw };
 }
 
 export function normaliseModelsDev(api: ModelsDevApi): {
@@ -185,9 +194,8 @@ export function normaliseModelsDev(api: ModelsDevApi): {
         input_modalities: mods,
       };
       if (m.release_date && /^\d{4}-\d{2}-\d{2}$/.test(m.release_date)) nm.release_date = m.release_date;
-      if (m.reasoning === true) nm.reasoning = true;
-      const reasoningOptions = reasoningOptionsFrom(m.reasoning_options);
-      if (reasoningOptions) nm.reasoning_options = reasoningOptions;
+      const reasoning = reasoningFrom(m.reasoning, m.reasoning_options);
+      if (reasoning) nm.reasoning = reasoning;
       models.push(nm);
     }
     providers.push({

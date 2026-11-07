@@ -228,31 +228,37 @@ describe("validateCatalog", () => {
     expect(validateCatalog(c)).toEqual([]);
   });
 
-  it("accepts a model's reasoning fields: named effort levels, controlled-but-unnamed, or both absent", () => {
-    const levels = minimalCatalog();
-    (levels.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = true;
-    (levels.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning_options = ["low", "medium", "high"];
-    expect(validateCatalog(levels)).toEqual([]);
-
-    const unnamed = minimalCatalog();
-    (unnamed.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = true;
-    expect(validateCatalog(unnamed)).toEqual([]);
-
-    expect(validateCatalog(minimalCatalog())).toEqual([]); // no reasoning support: both absent
+  it("accepts a model's reasoning object: levels, switch, the empty object, or none", () => {
+    const set = (r: unknown) => {
+      const c = minimalCatalog();
+      (c.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = r;
+      return c;
+    };
+    expect(validateCatalog(set({ levels: ["none", "low", "high", "max"], switch: false }))).toEqual([]);
+    expect(validateCatalog(set({ levels: [], switch: true }))).toEqual([]);
+    expect(validateCatalog(set({ levels: [], switch: false }))).toEqual([]);
+    expect(validateCatalog(set({ levels: ["x".repeat(32)], switch: false }))).toEqual([]);
+    expect(validateCatalog(minimalCatalog())).toEqual([]);
   });
 
-  it("rejects non-boolean reasoning and non-string or empty reasoning_options entries via schema", () => {
-    const bad = minimalCatalog();
-    (bad.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = "yes";
-    expect(messages(bad)[0]).toMatch(/reasoning/);
-
-    const empty = minimalCatalog();
-    (empty.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning_options = ["low", ""];
-    expect(messages(empty)[0]).toMatch(/reasoning_options/);
-
-    const numeric = minimalCatalog();
-    (numeric.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning_options = ["low", 42];
-    expect(messages(numeric)[0]).toMatch(/reasoning_options/);
+  it("rejects every reasoning shape the consumer's parser would reject", () => {
+    const bad = (r: unknown) => {
+      const c = minimalCatalog();
+      (c.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning = r;
+      return messages(c);
+    };
+    expect(bad(true)[0]).toMatch(/reasoning/); // the old boolean shape
+    expect(bad({ levels: ["low"] })[0]).toMatch(/reasoning/); // switch missing
+    expect(bad({ switch: false })[0]).toMatch(/reasoning/); // levels missing
+    expect(bad({ levels: ["low", ""], switch: false })[0]).toMatch(/reasoning/);
+    expect(bad({ levels: ["x".repeat(33)], switch: false })[0]).toMatch(/reasoning/);
+    expect(bad({ levels: ["low", "low"], switch: false })[0]).toMatch(/reasoning/);
+    expect(bad({ levels: ["low", 42], switch: false })[0]).toMatch(/reasoning/);
+    expect(bad({ levels: [], switch: "yes" })[0]).toMatch(/reasoning/);
+    expect(bad({ levels: [], switch: false, budget: 1024 })[0]).toMatch(/reasoning/);
+    const old = minimalCatalog();
+    (old.providers[0]!.models[0] as unknown as Record<string, unknown>).reasoning_options = ["low"];
+    expect(messages(old)[0]).toMatch(/reasoning_options/); // unknown field now
   });
 
   it("rejects unknown fields, unknown enum values and a document over 8 MB", () => {

@@ -110,6 +110,28 @@ export const ProviderRegion = z
   .strict();
 export type ProviderRegion = z.infer<typeof ProviderRegion>;
 
+/** Longest effort level name a consumer accepts (Omnipus: 32 characters). */
+export const REASONING_LEVEL_MAX = 32;
+
+/**
+ * A model's reasoning control, in the shape Omnipus's effort feature parses
+ * (contract CatalogModelReasoning). Presence means "this model reasons".
+ * `levels`: the named effort levels, in ascending effort order exactly as
+ * published, each non-empty, at most 32 characters, listed once; empty when
+ * the vendor publishes no named levels. `switch`: reasoning can be turned on
+ * and off. `{levels: [], switch: false}` means "reasons, but there is no
+ * control a client can send" (a token budget only, or no published control).
+ */
+export const Reasoning = z
+  .object({
+    levels: z
+      .array(z.string().min(1).max(REASONING_LEVEL_MAX))
+      .refine((xs) => new Set(xs).size === xs.length, { message: "reasoning.levels must not list a level twice" }),
+    switch: z.boolean(),
+  })
+  .strict();
+export type Reasoning = z.infer<typeof Reasoning>;
+
 export const Model = z
   .object({
     id: z.string().min(1),
@@ -120,10 +142,8 @@ export const Model = z
     max_output_tokens: z.number().int().nonnegative(),
     input_modalities: z.array(z.enum(MODALITIES)).min(1),
     status: z.enum(MODEL_STATUSES),
-    /** True when the model supports a reasoning/thinking request at all; absent means no or unknown. */
-    reasoning: z.boolean().optional(),
-    /** Named reasoning-effort levels the model accepts (e.g. ["low","medium","high"]), in ascending effort order exactly as models.dev publishes them. Absent when the model exposes no named levels — a token budget or a bare on/off toggle is not a named level. */
-    reasoning_options: z.array(z.string().min(1)).optional(),
+    /** The model's reasoning control (see Reasoning); absent when the model does not reason or nobody knows. */
+    reasoning: Reasoning.optional(),
     disputed: z.boolean().optional(),
     /** Cross-Region inference geographies for which AWS Bedrock publishes a cross-Region inference profile of this base model (see bedrock-region/CONTRACT.md). */
     inference_profiles: z.array(z.enum(CROSS_REGION_GROUPS)).min(1).optional(),
