@@ -108,6 +108,7 @@ Used for both `default_resize_limits` and a provider's `resize_limits`.
 |---|---|---|---|
 | `long_edge_px` | integer | Longest image edge accepted, in pixels. Positive. | resize_limits.json |
 | `max_bytes` | integer | Largest image file accepted, in bytes. Positive. | resize_limits.json |
+| `max_patches` | integer, optional | The most 32x32-pixel patches an image may need, counted as ceil(width/32) * ceil(height/32). Positive. Absent when no patch limit is published (never 0). | resize_limits.json |
 
 ## Model
 

@@ -96,6 +96,12 @@ export const ResizeLimits = z
   .object({
     long_edge_px: z.number().int().positive(),
     max_bytes: z.number().int().positive(),
+    /**
+     * Optional: the most 32x32-pixel patches (ceil(w/32) * ceil(h/32)) an
+     * image may need. Omnipus shrinks images under it (omnipus#1435).
+     * Absent means "no patch limit published", never 0.
+     */
+    max_patches: z.number().int().positive().optional(),
   })
   .strict();
 export type ResizeLimits = z.infer<typeof ResizeLimits>;

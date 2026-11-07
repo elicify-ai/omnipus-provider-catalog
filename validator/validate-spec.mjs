@@ -139,7 +139,7 @@ export const CHECKS = [
   { id: "VERSION", spec: "document", title: "version matches ^v\\d{4}\\.\\d{1,2}\\.\\d{1,2}(\\.\\d+)?$" },
   { id: "UPDATED_AT", spec: "document", title: "updated_at is a non-empty RFC 3339 timestamp" },
   { id: "SOURCE", spec: "document", title: "source is a non-empty string" },
-  { id: "DEFAULT_RESIZE", spec: "document", title: "default_resize_limits has positive long_edge_px and max_bytes" },
+  { id: "DEFAULT_RESIZE", spec: "document", title: "default_resize_limits has positive long_edge_px and max_bytes; max_patches, when present, a positive integer" },
   { id: "PROVIDERS_MIN", spec: "document", title: "providers is an array with >= 1 entry" },
   { id: "PROVIDER_ID", spec: "provider", title: "provider ids are non-empty, unique strings" },
   { id: "PROVIDER_NAME", spec: "provider", title: "provider name is a non-empty string" },
@@ -151,7 +151,7 @@ export const CHECKS = [
   { id: "PROTOCOLS_LIST", spec: "provider", title: "protocols[] entries unique, in enum, and include the primary with the same api" },
   { id: "AUTH_METHODS", spec: "provider", title: "auth_methods non-empty subset of {api_key, sign_in}" },
   { id: "CLI_KIND", spec: "provider", title: "cli_kind in {codex, copilot} iff protocol cli" },
-  { id: "RESIZE_LIMITS", spec: "provider", title: "resize_limits has positive long_edge_px and max_bytes" },
+  { id: "RESIZE_LIMITS", spec: "provider", title: "resize_limits has positive long_edge_px and max_bytes; max_patches, when present, a positive integer" },
   { id: "NO_CUSTOM", spec: "provider", title: "no provider row carries custom: true" },
   { id: "NEVER_PUBLISHED", spec: "provider", title: "locality and subscription_policy are not published" },
   { id: "MODEL_ID", spec: "model", title: "model ids are non-empty strings, unique within the provider" },
@@ -245,6 +245,7 @@ export function validateDocument(bytes) {
     else {
       if (!isPosInt(d.long_edge_px)) add("DEFAULT_RESIZE", "default_resize_limits.long_edge_px", `got ${JSON.stringify(d.long_edge_px)}`);
       if (!isPosInt(d.max_bytes)) add("DEFAULT_RESIZE", "default_resize_limits.max_bytes", `got ${JSON.stringify(d.max_bytes)}`);
+      if (d.max_patches !== undefined && !isPosInt(d.max_patches)) add("DEFAULT_RESIZE", "default_resize_limits.max_patches", `got ${JSON.stringify(d.max_patches)}`);
     }
 
     const providers = Array.isArray(doc.providers) ? doc.providers : null;
@@ -328,6 +329,7 @@ export function validateDocument(bytes) {
       else {
         if (!isPosInt(r.long_edge_px)) add("RESIZE_LIMITS", `${P}.resize_limits.long_edge_px`, `got ${JSON.stringify(r.long_edge_px)}`);
         if (!isPosInt(r.max_bytes)) add("RESIZE_LIMITS", `${P}.resize_limits.max_bytes`, `got ${JSON.stringify(r.max_bytes)}`);
+        if (r.max_patches !== undefined && !isPosInt(r.max_patches)) add("RESIZE_LIMITS", `${P}.resize_limits.max_patches`, `got ${JSON.stringify(r.max_patches)}`);
       }
 
       if (p.custom === true) add("NO_CUSTOM", `${P}.custom`, "custom rows are never in the document");
