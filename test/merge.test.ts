@@ -129,6 +129,21 @@ describe("mergeModel", () => {
     // canonical order is MODALITIES: text, image, audio, video, pdf
     expect(r.model.input_modalities).toEqual(["text", "image", "audio", "pdf"]);
   });
+
+  it("carries the reasoning object into the published model as a copy; LiteLLM is not cross-checked on it", () => {
+    const ll: LiteLLMFacts = { key: "p/m" };
+    const source = { levels: ["low", "high"], switch: true };
+    const r = mergeModel("p", md({ reasoning: source }), ll, undefined);
+    expect(r.model.reasoning).toEqual({ levels: ["low", "high"], switch: true });
+    expect(r.model.reasoning).not.toBe(source);
+    expect(r.model.reasoning!.levels).not.toBe(source.levels);
+    expect(r.disputes).toHaveLength(0);
+  });
+
+  it("the empty object stays the empty object; no reasoning stays absent", () => {
+    expect(mergeModel("p", md({ reasoning: { levels: [], switch: false } }), undefined, undefined).model.reasoning).toEqual({ levels: [], switch: false });
+    expect(mergeModel("p", md(), undefined, undefined).model).not.toHaveProperty("reasoning");
+  });
 });
 
 describe("mergeRegistries with a LiteLLM index", () => {

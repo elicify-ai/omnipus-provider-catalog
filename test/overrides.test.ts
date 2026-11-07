@@ -123,6 +123,20 @@ describe("applyOverrides", () => {
     expect(report.local_rows_created.sort()).toEqual(["avian", "codex-cli", "ollama"]);
     expect(report.local_rows_merged).toEqual(["github-copilot"]);
   });
+
+  it("models_from copies each model's reasoning object (openai-chatgpt inherits openai's), never sharing it", () => {
+    const reg = [registryProvider("openai", "https://api.openai.com/v1", ["gpt-6.1-sol", "gpt-4o"])];
+    reg[0]!.models[0]!.reasoning = { levels: ["low", "medium", "high", "xhigh", "max"], switch: false };
+    const { providers } = applyOverrides(reg as WorkingProvider[], {
+      ...none,
+      local: { "openai-chatgpt": { reason: "r", name: "ChatGPT", api: "https://chatgpt.com/backend-api/codex", protocol: "openai-compatible", env: [], auth_methods: ["sign_in"], models_from: "openai" } },
+    }, [], reg);
+    const copy = providers.find((p) => p.id === "openai-chatgpt")!;
+    expect(copy.models[0]!.reasoning).toEqual({ levels: ["low", "medium", "high", "xhigh", "max"], switch: false });
+    expect(copy.models[0]!.reasoning).not.toBe(reg[0]!.models[0]!.reasoning);
+    expect(copy.models[0]!.reasoning!.levels).not.toBe(reg[0]!.models[0]!.reasoning!.levels);
+    expect(copy.models[1]).not.toHaveProperty("reasoning");
+  });
 });
 
 describe("finalizeProviders", () => {

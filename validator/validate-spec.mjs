@@ -155,7 +155,7 @@ export const CHECKS = [
   { id: "NO_CUSTOM", spec: "provider", title: "no provider row carries custom: true" },
   { id: "NEVER_PUBLISHED", spec: "provider", title: "locality and subscription_policy are not published" },
   { id: "MODEL_ID", spec: "model", title: "model ids are non-empty strings, unique within the provider" },
-  { id: "MODEL_SHAPE", spec: "model", title: "model fields typed: ints >= 0, tool_call bool, status enum, release_date YYYY-MM-DD, disputed bool" },
+  { id: "MODEL_SHAPE", spec: "model", title: "model fields typed: ints >= 0, tool_call bool, status enum, release_date YYYY-MM-DD, disputed bool, reasoning {levels: unique non-empty strings of at most 32 characters, switch: bool}" },
   { id: "MODEL_TEXT", spec: "model", title: "every model's input_modalities includes text" },
   { id: "MODEL_LIMITS", spec: "model", title: "non-retired models have context_window > 0 and max_output_tokens >= 0" },
   { id: "MODEL_COST", spec: "model", title: "optional cost is USD per million: finite numbers >= 0, tiers keep the source threshold, no unknown fields" },
@@ -359,6 +359,12 @@ export function validateDocument(bytes) {
         if (m.release_date !== undefined && (!isStr(m.release_date) || !/^\d{4}-\d{2}-\d{2}$/.test(m.release_date) || Number.isNaN(Date.parse(m.release_date))))
           add("MODEL_SHAPE", `${M}.release_date`, `got ${JSON.stringify(m.release_date)}`);
         if (m.disputed !== undefined && typeof m.disputed !== "boolean") add("MODEL_SHAPE", `${M}.disputed`, `got ${JSON.stringify(m.disputed)}`);
+        if (m.reasoning !== undefined) {
+          const r = m.reasoning;
+          const keysOk = isObj(r) && Object.keys(r).every((k) => k === "levels" || k === "switch");
+          const levelsOk = isObj(r) && Array.isArray(r.levels) && r.levels.every((v) => isNonEmptyStr(v) && v.length <= 32) && new Set(r.levels).size === r.levels.length;
+          if (!keysOk || !levelsOk || typeof r.switch !== "boolean") add("MODEL_SHAPE", `${M}.reasoning`, `got ${JSON.stringify(r)}`);
+        }
 
         if (!Array.isArray(m.input_modalities) || !m.input_modalities.includes("text")) add("MODEL_TEXT", `${M}.input_modalities`, `got ${JSON.stringify(m.input_modalities)}`);
 

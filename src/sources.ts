@@ -2,9 +2,19 @@
 // is the primary source (provider identity, model list, limits, modalities);
 // LiteLLM only supplies numbers/flags to cross-check against it.
 import type { CostTier, Modality, ModelCost, Protocol } from "./schema.js";
-import { MODALITIES } from "./schema.js";
+import { MODALITIES, REASONING_LEVEL_MAX, type Reasoning } from "./schema.js";
 
 // ---------- models.dev ----------
+
+/**
+ * One entry of models.dev's `reasoning_options`: a typed descriptor, not a plain
+ * string. Observed shapes: `{"type":"effort","values":[…]}` (named levels),
+ * `{"type":"budget_tokens","min"…,"max"…}` (a token range) and `{"type":"toggle"}`
+ * (on/off); an entry may also carry only some of these keys. Only the effort
+ * and toggle shapes map to a published control, so reasoningFrom() re-checks
+ * everything at runtime and maps just those two.
+ */
+export type ModelsDevReasoningOption = { type?: string; values?: unknown[]; min?: number; max?: number };
 
 /** The subset of models.dev's api.json shape we read (packages/core/src/schema.ts in sst/models.dev). */
 export type ModelsDevModel = {
@@ -46,6 +56,10 @@ export type ModelsDevModel = {
       tier?: { type?: string; size?: number; boundary?: string };
     }>;
   };
+  /** Whether the model supports a reasoning/thinking request at all. */
+  reasoning?: boolean;
+  /** Typed effort/budget/toggle descriptors — see ModelsDevReasoningOption. */
+  reasoning_options?: ModelsDevReasoningOption[];
 };
 export type ModelsDevProvider = {
   id: string;
@@ -109,6 +123,8 @@ export type NormalisedModel = {
   input_modalities: Modality[];
   /** Absent when models.dev published no usable price. Never a bag of zeros. */
   cost?: ModelCost;
+  /** The published reasoning object (see reasoningFrom); absent when the model does not reason. */
+  reasoning?: Reasoning;
 };
 export type NormalisedProvider = {
   id: string;
@@ -244,6 +260,44 @@ function toModalities(input: string[] | undefined): Modality[] | null {
   return out;
 }
 
+/**
+ * Level names that are never published: "default" (two models.dev rows) would
+ * read as a level although it means "send nothing", which consumers already
+ * offer on their own (Omnipus: "provider_default").
+ */
+const DROPPED_LEVELS = new Set(["default"]);
+
+/**
+ * models.dev's `reasoning` flag and typed `reasoning_options` → the published
+ * reasoning object (see Reasoning in schema.ts).
+ *
+ * - `reasoning` not true: undefined (the model does not reason, or nobody knows).
+ * - `{"type":"effort","values":[…]}`: its string values become `levels`,
+ *   verbatim and in published order; several effort entries are merged without
+ *   duplicates; empty strings, non-strings, names over 32 characters and
+ *   "default" are dropped.
+ * - `{"type":"toggle"}`: `switch: true`.
+ * - `budget_tokens` carries no level or switch: a budget-only model, or a
+ *   reasoning model with no options at all, gets `{levels: [], switch: false}`.
+ * Nothing is invented: no level is synthesised for a budget or a toggle.
+ */
+export function reasoningFrom(flag: boolean | undefined, raw: ModelsDevReasoningOption[] | undefined): Reasoning | undefined {
+  if (flag !== true) return undefined;
+  const levels: string[] = [];
+  let sw = false;
+  for (const entry of Array.isArray(raw) ? raw : []) {
+    if (!entry || typeof entry !== "object") continue;
+    if (entry.type === "toggle") sw = true;
+    if (entry.type !== "effort" || !Array.isArray(entry.values)) continue;
+    for (const v of entry.values) {
+      if (typeof v !== "string" || v.length === 0 || v.length > REASONING_LEVEL_MAX) continue;
+      if (DROPPED_LEVELS.has(v) || levels.includes(v)) continue;
+      levels.push(v);
+    }
+  }
+  return { levels, switch: sw };
+}
+
 export function normaliseModelsDev(api: ModelsDevApi): {
   providers: NormalisedProvider[];
   skipped: SkippedModel[];
@@ -289,6 +343,8 @@ export function normaliseModelsDev(api: ModelsDevApi): {
       const read = readModelCost(m.cost);
       if (read.reason) costRejected.push({ provider: pid, model: mid, reason: read.reason });
       else if (read.cost) nm.cost = read.cost;
+      const reasoning = reasoningFrom(m.reasoning, m.reasoning_options);
+      if (reasoning) nm.reasoning = reasoning;
       models.push(nm);
     }
     providers.push({
