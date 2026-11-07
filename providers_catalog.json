@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.7.1",
- "updated_at": "2026-11-07T09:49:24.397Z",
- "generated_at": "2026-11-07T09:49:24.397Z",
- "source": "models.dev@d43027b93443d35fac53f12906e4d60486f7df7d litellm@dadc6b655b8907df999dca53feed7715c4d077c4 overrides@09fe93749679f2413a8a083446446ec1c0868c6e",
+ "version": "v2026.11.7.2",
+ "updated_at": "2026-11-07T12:04:54.519Z",
+ "generated_at": "2026-11-07T12:04:54.519Z",
+ "source": "models.dev@f6be65983aa0ea5d0b8ab6e19ab78109d41e7547 litellm@dadc6b655b8907df999dca53feed7715c4d077c4 overrides@114a7abca1705c6b2557b70d03856b8ef338d8b0",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-07T09:49:24.397Z",
-   "commit": "d43027b93443d35fac53f12906e4d60486f7df7d",
-   "etag": "W/\"6bc973d82a6f2ccafcd42fd3e33d0b1a\"",
-   "sha256": "6bc973d82a6f2ccafcd42fd3e33d0b1ad1e82bddcc80abac162c691da9c678a9",
-   "bytes": 5966467
+   "fetched_at": "2026-11-07T12:04:54.519Z",
+   "commit": "f6be65983aa0ea5d0b8ab6e19ab78109d41e7547",
+   "etag": "W/\"0dceb275494ac86b8f2ae3fd9b92a8e1\"",
+   "sha256": "0dceb275494ac86b8f2ae3fd9b92a8e11979c37d049ba70dc08d98560c00d7a4",
+   "bytes": 5968162
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-07T09:49:24.397Z",
+   "fetched_at": "2026-11-07T12:04:54.519Z",
    "commit": "dadc6b655b8907df999dca53feed7715c4d077c4",
    "etag": "W/\"2c629e9fde3f9f4c94860e98261b94d197d262f81a7772a21e45c77a81e95f5c\"",
    "sha256": "4b3c50f47fcf25e043a7f5d0efbeefd2a00152166610852b07ae92ab69b77ebc",
    "bytes": 3463683
   },
-  "overrides_commit": "09fe93749679f2413a8a083446446ec1c0868c6e",
-  "previous_version": "v2026.11.7"
+  "overrides_commit": "114a7abca1705c6b2557b70d03856b8ef338d8b0",
+  "previous_version": "v2026.11.7.1"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -108317,6 +108317,22 @@
      }
     },
     {
+     "id": "liquid/lfm-3-1.7b",
+     "name": "LFM3 1.7B",
+     "release_date": "2026-11-07",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     }
+    },
+    {
      "id": "LLM360/K2-Think",
      "name": "K2-Think",
      "release_date": "2025-07-26",
@@ -115952,6 +115968,18 @@
       ],
       "switch": false
      }
+    },
+    {
+     "id": "xtools-at/deepseek-v4-pro-qwen3.5-9b-uncensored-heretic",
+     "name": "DeepSeek V4 Pro Qwen3.5 9B Uncensored Heretic",
+     "release_date": "2026-11-07",
+     "tool_call": false,
+     "context_window": 32768,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active"
     },
     {
      "id": "yi-large",
