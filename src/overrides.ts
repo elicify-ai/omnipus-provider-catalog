@@ -180,7 +180,11 @@ export function applyOverrides(
       if (!src) throw new Error(`local provider ${id}: models_from ${JSON.stringify(models_from)} is not a models.dev provider`);
       models = src.models
         .filter((m) => !model_ids || matchId(m.id, model_ids))
-        .map((m) => ({ ...m, input_modalities: [...m.input_modalities] }));
+        .map((m) => ({
+          ...m,
+          input_modalities: [...m.input_modalities],
+          ...(m.reasoning ? { reasoning: { levels: [...m.reasoning.levels], switch: m.reasoning.switch } } : {}),
+        }));
     }
     for (const m of explicit ?? []) {
       if (models.some((x) => x.id === m.id)) continue;
