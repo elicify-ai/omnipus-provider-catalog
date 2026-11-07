@@ -183,10 +183,10 @@ providers:
     api: https://ai-gateway.vercel.sh/v1
     protocol: openai-compatible
     aliases: [ai-gateway]
-  v0:
-    reason: "docs https://v0.app/docs/api/model (not fetch-verified; JS-rendered). Base https://api.v0.dev/v1 as documented there."
-    api: https://api.v0.dev/v1
-    protocol: openai-compatible
+  # v0: removed 2026-11-07. models.dev dropped the provider (its api.json has
+  # no "v0" key; the daily run fails on it since 2026-10-09), and an override
+  # for a provider that is not in the merged document stops the run. carry.ts
+  # keeps the previous release's v0 row as tier unsupported / withdrawn.
   aihubmix:
     reason: "Base URL fetch-verified 2026-08-23 on https://aihubmix.com/ (https://aihubmix.com/v1)."
     api: https://aihubmix.com/v1
