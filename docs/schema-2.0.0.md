@@ -64,7 +64,7 @@ The `sources` object records exactly what the run consumed.
 | `name` | string | Display name. | models.dev / overrides |
 | `company` | string | The company behind the provider, used to group providers that belong together. Defaults to `name`. | overrides (default: `name`) |
 | `api` | string | Base URL to send requests to. Empty only when `tier` is `unsupported`. Otherwise an absolute `https` URL with a public host — no credentials, query or fragment, and no private, loopback or link-local IP address. Local-machine providers (`ollama`, `vllm`, `lmstudio`) are the exception and may use `http://localhost…`. | models.dev; overrides for providers models.dev lists without a URL |
-| `protocol` | string | The wire protocol to speak to `api`: `openai-compatible`, `anthropic`, `google`, `ollama`, `cli` or `bedrock`. Empty string only when `tier` is `unsupported`. | models.dev (mapped from its SDK package name) / overrides |
+| `protocol` | string | The wire protocol to speak to `api`: `openai-compatible`, `anthropic`, `google`, `ollama` or `bedrock`. Empty string only when `tier` is `unsupported`. | models.dev (mapped from its SDK package name) / overrides |
 | `protocols` | array of [ProtocolEntry](#protocolentry), *optional* | Every protocol-and-URL pair the provider serves, when it serves more than one (for example an OpenAI-compatible and an Anthropic-compatible endpoint side by side). When present it includes the primary `protocol` with the same `api`; entries are unique. | overrides |
 | `env` | array of string | Environment variable names conventionally used for this provider's key (`["OPENAI_API_KEY"]`). A hint for labels only; may be empty. | models.dev / overrides |
 | `region` | string, *optional* | Region hint such as `us` or `cn`. For a provider with a `regions` picker (currently only `amazon-bedrock`) this is the default region id, e.g. `us-east-1`. | models.dev / overrides |
@@ -75,16 +75,22 @@ The `sources` object records exactly what the run consumed.
 | `auth_methods` | array of string | How you authenticate: any non-empty subset of `api_key`, `sign_in`. Defaults to `["api_key"]`. | overrides (default: `api_key`) |
 | `aliases` | array of string | Extra search strings for a picker (`claude` for `anthropic`). Never used for lookup; may be empty. | overrides |
 | `custom` | boolean, *optional* | Reserved for user-defined provider rows in consuming applications. Never `true` in a published document; the validator rejects it. | — |
-| `cli_kind` | string, *optional* | Present exactly when `protocol` is `cli`: which command-line tool drives the provider, `codex` or `copilot`. | overrides |
-| `token_source` | string, *optional* | Where a signed-in provider's token is read from (for example `codex-auth-json`). | overrides |
+| `cli_kind` | string, *legacy read-only* | Accepted when reading old releases; omitted from every new publication after WU-24 (2026-10-14). | previous releases only |
+| `token_source` | string, *legacy read-only* | The former file-token mechanism marker. Accepted when reading old releases, never published. The HTTP ChatGPT provider remains. | previous releases only |
 | `resize_limits` | [ResizeLimits](#resize-limits) | The largest image this provider accepts; applies to every model of the provider. Falls back to `default_resize_limits` when the provider has no entry. | resize_limits.json |
 | `models` | array of [Model](#model) | The provider's models. Ids are unique within the provider. May be empty for local-machine providers, whose models are discovered live. | merge |
+
+WU-24 excludes the retired `codex-cli` and `github-copilot` provider IDs and
+subprocess (`protocol: cli`) model-provider rows after carry-forward. This is
+an explicit deletion, not an upstream withdrawal. The generic schema still
+reads historical releases containing those rows so they can be used as a
+previous-release input; its legacy vocabulary is not a publication allowance.
 
 ### ProtocolEntry
 
 | Field | Type | Meaning and allowed values | Source |
 |---|---|---|---|
-| `protocol` | string | One of `openai-compatible`, `anthropic`, `google`, `ollama`, `cli`, `bedrock`. | overrides |
+| `protocol` | string | One of `openai-compatible`, `anthropic`, `google`, `ollama`, `bedrock` (`cli` is historical read-only vocabulary). | overrides |
 | `api` | string | The base URL for that protocol. Same URL rules as the provider's `api`. | overrides |
 
 ### ProviderRegion
@@ -118,13 +124,43 @@ Used for both `default_resize_limits` and a provider's `resize_limits`.
 | `reasoning` | object, *optional* | The model's reasoning control: `{"levels": [...], "switch": bool}`, both members always present. `levels` are the named effort levels in ascending effort order exactly as models.dev publishes them (each non-empty, at most 32 characters, listed once; `default` is never published); `switch` is `true` when reasoning can be turned on and off. `{"levels": [], "switch": false}` means the model reasons but publishes no control a client can send (a token budget only, or nothing). Absent when the model does not reason, or nobody knows. | models.dev (`reasoning` flag; `reasoning_options` of type `effort` → levels, `toggle` → switch; `budget_tokens` is not published) |
 | `disputed` | boolean, *optional* | Present and `true` while the two registries disagree about this model beyond tolerance and the previous release's value is being published. Absent otherwise. | job |
 | `inference_profiles` | array of string, *optional* | Currently only `amazon-bedrock`: the cross-region geographies (`us`, `eu`, `apac`, `jp`, `au`, `global`) for which AWS Bedrock publishes a cross-region inference profile of this base model. models.dev lists each region-prefixed variant (e.g. `eu.anthropic.claude-sonnet-4-6`) as its own model; the assembler folds them into this field on the base model id and drops the prefixed duplicates. | job (folded from models.dev) |
+| `cost` | [ModelCost](#modelcost), *optional* | USD per 1 million tokens. Absent when neither source published a price. Never a stand-in object of zeros. | models.dev, LiteLLM cross-check or fill |
 
 Active models always have `context_window` greater than `0`; a model for which
 no source knows the window is held back until one does.
 
+### ModelCost
+
+USD per 1 million tokens. `input` and `output` are always present inside `cost`.
+Every other price field is optional. A missing field is not `0`. A published `0`
+is a real price of zero and must be kept.
+
+| Field | Type | Meaning | Source |
+|---|---|---|---|
+| `input` | number | Price of uncached input tokens. Finite, ≥ 0. | models.dev, LiteLLM fill or cross-check |
+| `output` | number | Price of output tokens. Finite, ≥ 0. | models.dev, LiteLLM fill or cross-check |
+| `reasoning` | number, *optional* | Price of reasoning tokens, when the source splits it from output. | models.dev, LiteLLM fill or cross-check |
+| `cache_read` | number, *optional* | Price of cache-read tokens. | models.dev, LiteLLM fill or cross-check |
+| `cache_write` | number, *optional* | Price of a cache write (the 5-minute write, where the source distinguishes). | models.dev, LiteLLM fill or cross-check |
+| `cache_write_1h` | number, *optional* | Price of a 1-hour cache write. The first publication may omit it. | LiteLLM fill when models.dev has none (`cache_creation_input_token_cost_above_1hr`, converted) |
+| `tiers` | array of [CostTier](#costtier), *optional* | Higher context-length bands. Copied from models.dev. Not rewritten. | models.dev |
+| `context_over_200k` | object, *optional* | Legacy alias of one higher band: the same price fields, without `tiers`. Canonical `tiers` win over this alias. The alias alone means over 200,000, even when the tier's own `size` is a different number. | models.dev |
+
+Audio prices from models.dev (`input_audio`, `output_audio`) are not published.
+
+### CostTier
+
+A `ModelCost` plus `tier`.
+
+| Field | Type | Meaning | Source |
+|---|---|---|---|
+| `tier.type` | string | Always `context`. | models.dev |
+| `tier.size` | integer | The source's own threshold, in tokens. Kept as the source wrote it (`100000` stays `100000`; `200001` stays `200001`). Not folded into one inclusive or exclusive rule. | models.dev |
+| `tier.boundary` | string, *optional* | `above` — tokens greater than `size` use this tier, so exactly `size` stays on the lower rate. `at_least` — tokens greater than or equal to `size` use this tier. Omitted when the source does not say. models.dev does not say; the number is passed through instead. | source, only when it states one |
+
 ## How disagreements are resolved
 
-For each numeric field the two registries are compared:
+For each token-count field the two registries are compared:
 
 - Difference within 5 % or 4,096 tokens, whichever is larger: the **lower**
   value is published. Not a dispute.
@@ -133,9 +169,25 @@ For each numeric field the two registries are compared:
   none), `disputed` is set to `true`, and a GitHub issue lists the row. A
   release is never blocked.
 - models.dev reports `0` and LiteLLM has a value: LiteLLM's value fills the
-  gap. Not a dispute.
+  gap. Not a dispute. For token counts, `0` means unknown.
 - A value set in `overrides/` wins outright and clears the dispute on that
   field.
+
+Prices are compared separately, in USD per 1 million tokens. LiteLLM's
+per-token prices are multiplied by 1,000,000 first. The 4,096 allowance is
+not applied to dollars.
+
+- Difference within 5 % of the larger price: the **lower** price is published.
+  Not a dispute.
+- A larger difference: the same dispute rule as above. A previous price of `0`
+  is a real last-known-good price, not "unknown".
+- A price field models.dev omits, and LiteLLM has (including a real `0`):
+  LiteLLM fills it. Not a dispute.
+- A price field LiteLLM omits: models.dev's value stands, including a real `0`.
+- Neither source has a price: the model is published with no `cost` object.
+- `tiers` and `context_over_200k` are taken from models.dev only. They are not
+  cross-checked against LiteLLM's above-N fields, and `tier.size` is not
+  rewritten.
 
 ## Minimal example
 

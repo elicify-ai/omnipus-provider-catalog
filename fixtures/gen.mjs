@@ -112,6 +112,7 @@ export const MUTATIONS = {
   MODEL_SHAPE: (d) => { byID(d, "zai").models[0].status = "deprecated"; return d; },
   MODEL_TEXT: (d) => { byID(d, "zai").models[0].input_modalities = ["image"]; return d; },
   MODEL_LIMITS: (d) => { byID(d, "zai").models[0].context_window = 0; return d; }, // active model, unknown window
+  MODEL_COST: (d) => { byID(d, "zai").models[0].cost = { input: -1, output: 5 }; return d; },
   ALIASES: (d) => { byID(d, "zai").aliases.push("openai"); return d; },
   POPULAR: (d) => { byID(d, "deepseek").tier = "standard"; return d; },
   // amazon-bedrock is no longer in CLOUD_IAM (issue elicify-ai/omnipus#800: it

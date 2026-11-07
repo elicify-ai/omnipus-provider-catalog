@@ -99,7 +99,17 @@ export async function assemble(opts: AssembleOptions): Promise<{ catalog: Catalo
   // local-file provider is never mistaken for one that vanished upstream.
   const overridden = applyOverrides(merged.providers as WorkingProvider[], overrides, merged.report.disputes, merged.providers);
   const carried = carryForward(overridden.providers, previous);
-  const finalised = finalizeProviders(carried.providers, resize);
+  // WU-24 (founder 2026-10-14): subprocess model providers were deleted, not
+  // withdrawn. Apply after carry-forward so an old release cannot revive them.
+  // The schema still reads legacy documents; new publications omit mechanisms
+  // retired with those providers, including the old file-token source.
+  const publishable = carried.providers.filter((p) => p.id !== "codex-cli" && p.id !== "github-copilot" && p.protocol !== "cli");
+  for (const p of publishable) {
+    delete p.cli_kind;
+    delete p.token_source;
+    if (p.protocols) p.protocols = p.protocols.filter((e) => e.protocol !== "cli");
+  }
+  const finalised = finalizeProviders(publishable, resize);
 
   const version = nextVersion(now, previous?.version ?? null);
   const stamp = now.toISOString();
@@ -143,6 +153,7 @@ export async function assemble(opts: AssembleOptions): Promise<{ catalog: Catalo
     },
     models_dev_unknown_npm: normalised.unknownNpm,
     models_dev_skipped_models: normalised.skipped,
+    models_dev_cost_rejected: normalised.cost_rejected,
     skipped_no_context_window: merged.report.skipped_no_window,
     disputes: overridden.disputes,
     within_tolerance: merged.report.within_tolerance,

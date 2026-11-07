@@ -62,7 +62,7 @@ npm run fixtures      # regenerate fixtures/ from fixtures/gen.mjs
   cloud-IAM / local-provider sets. When the schema contract changes, update
   both copies together.
 
-## The 29 checks
+## The 30 checks
 
 **Whole document**
 
@@ -104,6 +104,7 @@ npm run fixtures      # regenerate fixtures/ from fixtures/gen.mjs
 | MODEL_SHAPE | `context_window` and `max_output_tokens` are integers ≥ 0, `tool_call` is a boolean, `status` is `active` or `retired`, `release_date` (if present) is `YYYY-MM-DD`, `disputed` (if present) is a boolean. |
 | MODEL_TEXT | `input_modalities` includes `text`. |
 | MODEL_LIMITS | Every model that is not retired has `context_window` greater than 0. |
+| MODEL_COST | `cost`, when present, is USD per 1 million tokens. `input` and `output` are finite numbers ≥ 0 (0 is allowed). Optional `reasoning`, `cache_read`, `cache_write` and `cache_write_1h` follow the same rule. Optional `tiers[]` each have `tier.type` `context`, an integer `tier.size` ≥ 0, and an optional `tier.boundary` of `above` or `at_least`. Optional `context_over_200k` is the same price object. Any other field is rejected. Absent `cost` is valid. |
 
 **Required sets**
 

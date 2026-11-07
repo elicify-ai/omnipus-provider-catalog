@@ -140,6 +140,9 @@ describe("validateCatalog", () => {
     c2.providers[0]!.tier = "unsupported";
     expect(messages(c2)).toEqual(["providers[0](openai).unsupported_reason: required when tier is unsupported", "providers: popular provider openai is missing", "providers(openai).tier: must be popular"].slice(0, 1).concat(["providers(openai).tier: must be popular"]));
     const c3 = minimalCatalog();
+    // Explicit legacy fixture: WU-24 removed this id from required publications,
+    // but the schema still accepts old documents for carry-forward.
+    c3.providers.push(provider("codex-cli"));
     c3.providers.find((p) => p.id === "codex-cli")!.api = "";
     c3.providers.find((p) => p.id === "codex-cli")!.protocol = "cli";
     c3.providers.find((p) => p.id === "codex-cli")!.cli_kind = "codex";
