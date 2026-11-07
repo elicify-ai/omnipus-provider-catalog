@@ -74,7 +74,7 @@ npm run fixtures      # regenerate fixtures/ from fixtures/gen.mjs
 | VERSION | `version` has the form `vYYYY.M.D` with an optional `.N` counter. |
 | UPDATED_AT | `updated_at` is a non-empty RFC 3339 timestamp. |
 | SOURCE | `source` is a non-empty string. |
-| DEFAULT_RESIZE | `default_resize_limits` has a positive `long_edge_px` and `max_bytes`. |
+| DEFAULT_RESIZE | `default_resize_limits` has a positive `long_edge_px` and `max_bytes`; `max_patches`, when present, is a positive integer. |
 | PROVIDERS_MIN | There is at least one provider. |
 
 **Each provider**
@@ -91,7 +91,7 @@ npm run fixtures      # regenerate fixtures/ from fixtures/gen.mjs
 | PROTOCOLS_LIST | `protocols` entries are unique and valid, and include the primary `protocol` with the same `api`. |
 | AUTH_METHODS | `auth_methods` is a non-empty subset of `api_key`, `sign_in`. |
 | CLI_KIND | `cli_kind` is `codex` or `copilot`, present exactly when `protocol` is `cli`. |
-| RESIZE_LIMITS | `resize_limits` has a positive `long_edge_px` and `max_bytes`. |
+| RESIZE_LIMITS | `resize_limits` has a positive `long_edge_px` and `max_bytes`; `max_patches`, when present, is a positive integer. |
 | NO_CUSTOM | No provider carries `custom: true`. |
 | NEVER_PUBLISHED | `locality` and `subscription_policy` do not appear. |
 | ALIASES | Aliases are strings, and no alias equals any provider id. |

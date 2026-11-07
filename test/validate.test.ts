@@ -261,6 +261,25 @@ describe("validateCatalog", () => {
     expect(messages(old)[0]).toMatch(/reasoning_options/); // unknown field now
   });
 
+  it("accepts an optional positive integer max_patches on the default and on a provider (omnipus#1435)", () => {
+    const c = minimalCatalog();
+    c.default_resize_limits = { ...c.default_resize_limits, max_patches: 30000 };
+    c.providers[0]!.resize_limits = { ...c.providers[0]!.resize_limits, max_patches: 30000 };
+    expect(validateCatalog(c)).toEqual([]);
+    expect(validateCatalog(minimalCatalog())).toEqual([]); // absent stays valid
+  });
+
+  it("rejects a max_patches that is zero, negative, fractional or a string, on the default and on a provider", () => {
+    for (const bad of [0, -1, 1.5, "30000"]) {
+      const d = minimalCatalog() as unknown as { default_resize_limits: Record<string, unknown> };
+      d.default_resize_limits.max_patches = bad;
+      expect(messages(d)[0], `default ${JSON.stringify(bad)}`).toMatch(/^default_resize_limits\.max_patches/);
+      const p = minimalCatalog() as unknown as { providers: Array<{ resize_limits: Record<string, unknown> }> };
+      p.providers[0]!.resize_limits.max_patches = bad;
+      expect(messages(p)[0], `provider ${JSON.stringify(bad)}`).toMatch(/^providers\.0\.resize_limits\.max_patches/);
+    }
+  });
+
   it("rejects unknown fields, unknown enum values and a document over 8 MB", () => {
     const c = minimalCatalog() as unknown as Record<string, unknown>;
     c.extra = 1;

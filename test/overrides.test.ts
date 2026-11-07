@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { deriveLocality, finalizeProviders, isLocalHost } from "../src/finalize.js";
+import { deriveLocality, finalizeProviders, isLocalHost, loadResizeLimits } from "../src/finalize.js";
 import type { DisputeRecord, MergedProvider } from "../src/merge.js";
 import { applyOverrides, type Overrides, type WorkingProvider } from "../src/overrides.js";
 
@@ -136,6 +136,30 @@ describe("applyOverrides", () => {
     expect(copy.models[0]!.reasoning).not.toBe(reg[0]!.models[0]!.reasoning);
     expect(copy.models[0]!.reasoning!.levels).not.toBe(reg[0]!.models[0]!.reasoning!.levels);
     expect(copy.models[1]).not.toHaveProperty("reasoning");
+  });
+});
+
+describe("max_patches in resize limits (omnipus#1435)", () => {
+  it("finalize publishes a provider's own max_patches and the default's for a provider without an entry", () => {
+    const resize = {
+      default: { long_edge_px: 7680, max_bytes: 10485760, max_patches: 30000 },
+      providers: { openai: { long_edge_px: 8000, max_bytes: 20971520 }, "openai-chatgpt": { long_edge_px: 7680, max_bytes: 10485760, max_patches: 30000 } },
+    };
+    const w: WorkingProvider[] = [
+      registryProvider("openai", "https://api.openai.com/v1", ["m"]),
+      registryProvider("openai-chatgpt", "https://chatgpt.com/backend-api/codex", ["m"]),
+      registryProvider("zai", "https://api.z.ai/api/paas/v4", ["m"]),
+    ];
+    const byID = new Map(finalizeProviders(w, resize).providers.map((p) => [p.id, p]));
+    expect(byID.get("openai-chatgpt")!.resize_limits).toEqual({ long_edge_px: 7680, max_bytes: 10485760, max_patches: 30000 });
+    expect(byID.get("zai")!.resize_limits).toEqual({ long_edge_px: 7680, max_bytes: 10485760, max_patches: 30000 });
+    expect(byID.get("openai")!.resize_limits).toEqual({ long_edge_px: 8000, max_bytes: 20971520 });
+  });
+
+  it("the committed resize_limits.json sets 30000 on the default and on openai-chatgpt", async () => {
+    const file = await loadResizeLimits(new URL("../resize_limits.json", import.meta.url).pathname);
+    expect(file.default.max_patches).toBe(30000);
+    expect(file.providers["openai-chatgpt"]).toEqual({ long_edge_px: 7680, max_bytes: 10485760, max_patches: 30000 });
   });
 });
 
