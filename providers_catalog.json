@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.9",
- "updated_at": "2026-11-09T14:42:18.935Z",
- "generated_at": "2026-11-09T14:42:18.935Z",
- "source": "models.dev@bf9cdbbba65f5eebc9c4f158408fb110c7ed1ffa litellm@e58354f0554cb11b0ce2f042ff625957cded398f overrides@de5875e1fe37b33dc5c03b19ca8a64caf882656d",
+ "version": "v2026.11.10",
+ "updated_at": "2026-11-10T14:05:11.588Z",
+ "generated_at": "2026-11-10T14:05:11.588Z",
+ "source": "models.dev@aa94068f21592e612703c9d582e34b78bb1f19a5 litellm@7bcc46246bb977aa206f23860b6aefc0d0101e23 overrides@4805dda9c63971b1fdd77785144257421444fe01",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-09T14:42:18.935Z",
-   "commit": "bf9cdbbba65f5eebc9c4f158408fb110c7ed1ffa",
-   "etag": "W/\"7bc9ef3c6bf5d17030304cc0a3498ca5\"",
-   "sha256": "7bc9ef3c6bf5d17030304cc0a3498ca588c9e64fae0b3c501e76e2611e14199a",
-   "bytes": 5967145
+   "fetched_at": "2026-11-10T14:05:11.588Z",
+   "commit": "aa94068f21592e612703c9d582e34b78bb1f19a5",
+   "etag": "W/\"8edbff850cadfacb066a00dba8291c1e\"",
+   "sha256": "8edbff850cadfacb066a00dba8291c1e72743565687073940f73c51984b93201",
+   "bytes": 5989386
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-09T14:42:18.935Z",
-   "commit": "e58354f0554cb11b0ce2f042ff625957cded398f",
-   "etag": "W/\"5e81a1adc67381b183241caded9f6e9deef337c394fa5560ec0057c5b1105f1e\"",
-   "sha256": "faa400408127c27aa323d29544389f85a06ab77660aa910b6d6e30dc46f33aa2",
-   "bytes": 3474076
+   "fetched_at": "2026-11-10T14:05:11.588Z",
+   "commit": "7bcc46246bb977aa206f23860b6aefc0d0101e23",
+   "etag": "W/\"049fc39dd06f7c1d928497878d33043407c346f7dce0f8a1bf1bfdaccd6dce33\"",
+   "sha256": "540441d54e0f2be5db66ee6b79106e51e6d9d849b744cda4f95cdcd89757e851",
+   "bytes": 3514168
   },
-  "overrides_commit": "de5875e1fe37b33dc5c03b19ca8a64caf882656d",
-  "previous_version": "v2026.11.8"
+  "overrides_commit": "4805dda9c63971b1fdd77785144257421444fe01",
+  "previous_version": "v2026.11.9"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -22037,6 +22037,40 @@
      ]
     },
     {
+     "id": "anthropic.claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     },
+     "inference_profiles": [
+      "us",
+      "global"
+     ]
+    },
+    {
      "id": "anthropic.claude-haiku-4-5-20251001-v1:0",
      "name": "Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -23301,6 +23335,40 @@
       "output": 15,
       "cache_read": 0.3,
       "cache_write": 3.75
+     },
+     "inference_profiles": [
+      "us",
+      "global"
+     ]
+    },
+    {
+     "id": "moonshotai.kimi-k3.1",
+     "name": "Kimi K3.1 Pro Highspeed",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "cache_read": 0.2,
+      "cache_write": 5
      },
      "inference_profiles": [
       "us",
@@ -25124,6 +25192,37 @@
       "cache_read": 0.25,
       "cache_write": 12.5,
       "cache_write_1h": 20
+     }
+    },
+    {
+     "id": "claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10,
+      "cache_write_1h": 16
      }
     },
     {
@@ -27213,6 +27312,35 @@
       "output": 50,
       "cache_read": 0.25,
       "cache_write": 12.5
+     }
+    },
+    {
+     "id": "claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -29654,6 +29782,35 @@
       "output": 50,
       "cache_read": 0.25,
       "cache_write": 12.5
+     }
+    },
+    {
+     "id": "claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -34021,7 +34178,7 @@
      "cost": {
       "input": 1,
       "output": 1,
-      "cache_read": 0.09999999999999998
+      "cache_read": 0.1
      }
     },
     {
@@ -34042,7 +34199,7 @@
      "cost": {
       "input": 0.44,
       "output": 1.32,
-      "cache_read": 0.04399999999999999
+      "cache_read": 0.044
      }
     },
     {
@@ -34064,7 +34221,7 @@
      "cost": {
       "input": 0.12,
       "output": 0.37,
-      "cache_read": 0.011999999999999997
+      "cache_read": 0.012
      }
     },
     {
@@ -34087,7 +34244,7 @@
      "cost": {
       "input": 0.39,
       "output": 1.8,
-      "cache_read": 0.03899999999999999
+      "cache_read": 0.039
      }
     },
     {
@@ -34110,7 +34267,7 @@
      "cost": {
       "input": 1.85,
       "output": 9.5,
-      "cache_read": 0.18499999999999997
+      "cache_read": 0.185
      }
     },
     {
@@ -34148,6 +34305,28 @@
      "status": "retired"
     },
     {
+     "id": "Qwen/Qwen3.5-27B-TEE",
+     "name": "Qwen3.5 27B TEE",
+     "release_date": "2026-02-23",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.2,
+      "output": 1.75,
+      "cache_read": 0.02
+     }
+    },
+    {
      "id": "Qwen/Qwen3.5-397B-A17B-TEE",
      "name": "Qwen3.5 397B A17B TEE",
      "release_date": "2026-02-15",
@@ -34166,7 +34345,7 @@
      "cost": {
       "input": 0.45,
       "output": 3,
-      "cache_read": 0.04499999999999999
+      "cache_read": 0.045
      }
     },
     {
@@ -34188,7 +34367,7 @@
      "cost": {
       "input": 0.25,
       "output": 2,
-      "cache_read": 0.024999999999999994
+      "cache_read": 0.025
      }
     },
     {
@@ -34210,7 +34389,7 @@
      "cost": {
       "input": 0.039,
       "output": 1.25,
-      "cache_read": 0.003899999999999999
+      "cache_read": 0.0039
      }
     },
     {
@@ -34243,7 +34422,7 @@
      "cost": {
       "input": 0.9,
       "output": 2.9,
-      "cache_read": 0.08999999999999998
+      "cache_read": 0.09
      }
     },
     {
@@ -34264,7 +34443,7 @@
      "cost": {
       "input": 1.25,
       "output": 3.95,
-      "cache_read": 0.12499999999999997
+      "cache_read": 0.125
      }
     }
    ]
@@ -44358,6 +44537,35 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "anthropic/claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -45258,6 +45466,34 @@
      }
     },
     {
+     "id": "moonshot/kimi-k3.1-pro",
+     "name": "Kimi K3.1 Pro",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2,
+      "cache_write": 2
+     }
+    },
+    {
      "id": "openai/gpt-4o-mini",
      "name": "GPT-4o mini",
      "release_date": "2024-07-18",
@@ -45802,6 +46038,54 @@
      }
     },
     {
+     "id": "openai/gpt-6.1-terra",
+     "name": "GPT-6.1 Terra",
+     "release_date": "2026-10-26",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1,
+      "output": 5,
+      "cache_read": 0.05,
+      "cache_write": 1.25,
+      "context_over_200k": {
+       "input": 2,
+       "output": 7.5,
+       "cache_read": 0.1,
+       "cache_write": 2.5
+      },
+      "tiers": [
+       {
+        "input": 2,
+        "output": 7.5,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.1,
+        "cache_write": 2.5
+       }
+      ]
+     }
+    },
+    {
      "id": "qwen/qwen3.6-flash",
      "name": "Qwen3.6 Flash",
      "release_date": "2026-04-27",
@@ -46104,6 +46388,32 @@
       "output": 0.64,
       "cache_read": 0.04,
       "cache_write": 0.16
+     }
+    },
+    {
+     "id": "tencent/hy4",
+     "name": "Hy4",
+     "release_date": "2026-11-04",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.96,
+      "output": 2.88,
+      "cache_read": 0.048,
+      "cache_write": 0.96
      }
     },
     {
@@ -53571,9 +53881,9 @@
      }
     },
     {
-     "id": "anthropic/claude-fable-latest",
-     "name": "Claude Fable Latest (Claude Fable 5.1)",
-     "release_date": "2026-09-01",
+     "id": "anthropic/claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 128000,
@@ -53594,10 +53904,40 @@
       "switch": false
      },
      "cost": {
-      "input": 10,
-      "output": 50,
-      "cache_read": 0.25,
-      "cache_write": 12.5
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
+     "id": "anthropic/claude-fable-latest",
+     "name": "Claude Fable Latest (Claude Fable 5.2)",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -54102,7 +54442,8 @@
      "context_window": 1048576,
      "max_output_tokens": 384000,
      "input_modalities": [
-      "text"
+      "text",
+      "image"
      ],
      "status": "active",
      "reasoning": {
@@ -57242,9 +57583,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.15631,
-      "output": 0.390775,
-      "cache_read": 0.04466
+      "input": 0.156702,
+      "output": 0.391755,
+      "cache_read": 0.044772
      }
     },
     {
@@ -57269,9 +57610,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.24563,
-      "output": 1.22815,
-      "cache_read": 0.012282
+      "input": 0.246246,
+      "output": 1.231229,
+      "cache_read": 0.012312
      }
     },
     {
@@ -57294,8 +57635,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2233,
-      "output": 0.78155
+      "input": 0.22386,
+      "output": 0.78351
      }
     },
     {
@@ -57310,8 +57651,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.22815,
-      "output": 1.22815
+      "input": 1.231229,
+      "output": 1.231229
      }
     },
     {
@@ -57326,8 +57667,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.00485,
-      "output": 3.01455
+      "input": 1.007369,
+      "output": 3.022108
      }
     },
     {
@@ -57452,8 +57793,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.33495,
-      "output": 0.4466
+      "input": 0.33579,
+      "output": 0.44772
      }
     },
     {
@@ -57468,8 +57809,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.725725,
-      "output": 0.725725
+      "input": 0.727545,
+      "output": 0.727545
      }
     },
     {
@@ -57492,8 +57833,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.167475,
-      "output": 0.725725
+      "input": 0.167895,
+      "output": 0.727545
      }
     },
     {
@@ -57508,8 +57849,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.167475,
-      "output": 0.8932
+      "input": 0.167895,
+      "output": 0.89544
      }
     },
     {
@@ -58736,7 +59077,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -58789,7 +59130,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -60940,9 +61281,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.4466,
-      "output": 0.8932,
-      "cache_read": 0.08932
+      "input": 0.44772,
+      "output": 0.89544,
+      "cache_read": 0.089544
      }
     },
     {
@@ -60994,9 +61335,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.6699,
-      "output": 2.0097,
-      "cache_read": 0.13398
+      "input": 0.67158,
+      "output": 2.014739,
+      "cache_read": 0.134316
      }
     },
     {
@@ -61036,8 +61377,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.167475,
-      "output": 0.6699
+      "input": 0.167895,
+      "output": 0.67158
      }
     },
     {
@@ -61052,8 +61393,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.00485,
-      "output": 1.00485
+      "input": 1.007369,
+      "output": 1.007369
      }
     },
     {
@@ -61068,8 +61409,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.837375,
-      "output": 2.512125
+      "input": 0.839475,
+      "output": 2.518424
      }
     },
     {
@@ -61966,8 +62307,7 @@
       "context_over_200k": {
        "input": 4,
        "output": 18,
-       "cache_read": 0.4,
-       "cache_write": 0.25
+       "cache_read": 0.4
       },
       "tiers": [
        {
@@ -61977,8 +62317,7 @@
          "type": "context",
          "size": 200000
         },
-        "cache_read": 0.4,
-        "cache_write": 0.25
+        "cache_read": 0.4
        }
       ]
      }
@@ -70303,7 +70642,7 @@
      "name": "Deep Research Max Preview (Apr-21-2026)",
      "release_date": "2026-04-21",
      "tool_call": true,
-     "context_window": 131072,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -70345,7 +70684,7 @@
      "name": "Deep Research Preview (Apr-21-2026)",
      "release_date": "2026-04-21",
      "tool_call": true,
-     "context_window": 131072,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -71315,6 +71654,36 @@
       "output": 50,
       "cache_read": 0.25,
       "cache_write": 12.5
+     }
+    },
+    {
+     "id": "claude-fable-5-2@default",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -72980,6 +73349,36 @@
       "output": 50,
       "cache_read": 0.25,
       "cache_write": 12.5
+     }
+    },
+    {
+     "id": "claude-fable-5-2@default",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -81899,9 +82298,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.799,
+      "input": 0.7995,
       "output": 3.75,
-      "cache_read": 0.2092,
+      "cache_read": 0.156,
       "cache_write": 0
      }
     },
@@ -86867,7 +87266,7 @@
    "models": [
     {
      "id": "~anthropic/claude-fable-latest",
-     "name": "Anthropic: Claude Fable Latest ($$$$)",
+     "name": "Anthropic: Claude Fable Latest",
      "release_date": "2026-06-09",
      "tool_call": true,
      "context_window": 1000000,
@@ -86889,10 +87288,10 @@
       "switch": false
      },
      "cost": {
-      "input": 10,
-      "output": 50,
-      "cache_read": 0.25,
-      "cache_write": 12.5
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -87389,8 +87788,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0335,
-      "output": 0.083,
+      "input": 0.0399,
+      "output": 0.0784,
       "cache_read": 0.03
      }
     },
@@ -87749,6 +88148,36 @@
       "output": 50,
       "cache_read": 0.25,
       "cache_write": 12.5
+     }
+    },
+    {
+     "id": "anthropic/claude-fable-5.2",
+     "name": "Anthropic: Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -89801,8 +90230,8 @@
      "name": "Gemma 4 26B A4B IT",
      "release_date": "2026-04-02",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 235929,
+     "context_window": 256000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -89818,8 +90247,8 @@
      },
      "cost": {
       "input": 0.04,
-      "output": 0.15,
-      "cache_read": 0.01
+      "output": 0.121,
+      "cache_read": 0.02
      }
     },
     {
@@ -90635,8 +91064,8 @@
      "name": "Llama-3.3-70B-Instruct",
      "release_date": "2024-12-06",
      "tool_call": true,
-     "context_window": 131072,
-     "max_output_tokens": 32768,
+     "context_window": 128000,
+     "max_output_tokens": 115200,
      "input_modalities": [
       "text"
      ],
@@ -90659,9 +91088,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.1875,
-      "output": 0.6525,
-      "cache_read": 0.05
+      "input": 0.35,
+      "output": 1,
+      "cache_read": 0.17
      }
     },
     {
@@ -90696,6 +91125,39 @@
      "cost": {
       "input": 0.144,
       "output": 0.144
+     }
+    },
+    {
+     "id": "meta/muse-ember",
+     "name": "Meta: Muse Ember",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004,
+      "cache_write": 0.125
      }
     },
     {
@@ -90991,7 +91453,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -91060,7 +91522,7 @@
      "cost": {
       "input": 0.3,
       "output": 1.2,
-      "cache_read": 0.03
+      "cache_read": 0.06
      }
     },
     {
@@ -91081,9 +91543,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3,
-      "output": 1.2,
-      "cache_read": 0.06
+      "input": 0.21,
+      "output": 0.84,
+      "cache_read": 0.042
      }
     },
     {
@@ -91928,6 +92390,31 @@
       "image"
      ],
      "status": "retired"
+    },
+    {
+     "id": "nex-agi/nex-n2.6",
+     "name": "Nex AGI: Nex-N2.6",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.15,
+      "output": 0.5,
+      "cache_read": 0.03
+     }
     },
     {
      "id": "nousresearch/hermes-3-llama-3.1-405b",
@@ -93715,7 +94202,7 @@
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 117964,
      "input_modalities": [
       "text"
      ],
@@ -94365,7 +94852,7 @@
      "release_date": "2025-04-28",
      "tool_call": true,
      "context_window": 40960,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 36864,
      "input_modalities": [
       "text"
      ],
@@ -94378,8 +94865,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.12,
-      "output": 0.24
+      "input": 0.1,
+      "output": 0.22
      }
     },
     {
@@ -95493,10 +95980,17 @@
       "text"
      ],
      "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
      "cost": {
-      "input": 0.2,
-      "output": 0.6,
-      "cache_read": 0.05
+      "input": 0.1,
+      "output": 0.3,
+      "cache_read": 0.025
      }
     },
     {
@@ -95755,7 +96249,7 @@
       "video",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -96217,6 +96711,33 @@
       "input": 1,
       "output": 4.05,
       "cache_read": 0.17
+     }
+    },
+    {
+     "id": "thinkingmachines/inkling-2-small:free",
+     "name": "Thinking Machines: Inkling 2 Small (free)",
+     "release_date": "2026-11-05",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0
      }
     },
     {
@@ -96697,7 +97218,7 @@
      "cost": {
       "input": 0.435,
       "output": 0.87,
-      "cache_read": 0.004,
+      "cache_read": 0.0036,
       "context_over_200k": {
        "input": 2,
        "output": 6,
@@ -97106,8 +97627,8 @@
      "name": "GLM-5.3-Flash",
      "release_date": "2026-08-26",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "context_window": 1048575,
+     "max_output_tokens": 943717,
      "input_modalities": [
       "text",
       "image",
@@ -98249,6 +98770,36 @@
      }
     },
     {
+     "id": "claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -98793,6 +99344,27 @@
      }
     },
     {
+     "id": "deepseek-v4-flash-0731",
+     "name": "deepseek-v4-flash-0731",
+     "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.44,
+      "output": 1.32,
+      "cache_read": 0.04
+     }
+    },
+    {
      "id": "deepseek-v4-flash-vision-exp",
      "name": "DeepSeek V4 Flash Vision Exp",
      "release_date": "2026-08-21",
@@ -98908,6 +99480,33 @@
       "input": 0.3,
       "output": 1,
       "cache_read": 0.007
+     }
+    },
+    {
+     "id": "deepseek-v4.1-flash-uncensored",
+     "name": "DeepSeek V4.1 Flash 1017 Uncensored (HeimdaLLM)",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.18,
+      "output": 0.65,
+      "cache_read": 0.005
      }
     },
     {
@@ -102453,6 +103052,38 @@
      }
     },
     {
+     "id": "muse-ember-1.0",
+     "name": "Muse Ember 1.0",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 524288,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004
+     }
+    },
+    {
      "id": "muse-glimmer-30b",
      "name": "Muse Glimmer 30B",
      "release_date": "2026-08-10",
@@ -105013,6 +105644,36 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5-2",
+     "name": "Claude Fable 5.2 (Anthropic)",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "anthropic/claude-haiku-4-5",
      "name": "Claude Haiku 4.5 (Anthropic)",
      "release_date": "2025-10-15",
@@ -105508,6 +106169,36 @@
       "output": 50,
       "cache_read": 0.25,
       "cache_write": 12.5
+     }
+    },
+    {
+     "id": "aws-bedrock/claude-fable-5-2",
+     "name": "Claude Fable 5.2 (AWS Bedrock)",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -108217,6 +108908,27 @@
      "status": "retired"
     },
     {
+     "id": "canopywave/deepseek-v4-flash-0731",
+     "name": "deepseek-v4-flash-0731 (CanopyWave)",
+     "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.44,
+      "output": 1.32,
+      "cache_read": 0.04
+     }
+    },
+    {
      "id": "canopywave/deepseek-v4-pro",
      "name": "DeepSeek V4 Pro (CanopyWave)",
      "release_date": "2026-04-24",
@@ -108676,6 +109388,33 @@
      "cost": {
       "input": 0.15,
       "output": 0.55,
+      "cache_read": 0.005
+     }
+    },
+    {
+     "id": "consensusprotocol/deepseek-v4.1-flash-uncensored",
+     "name": "DeepSeek V4.1 Flash 1017 Uncensored (HeimdaLLM) (consensusprotocol)",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.18,
+      "output": 0.65,
       "cache_read": 0.005
      }
     },
@@ -111141,6 +111880,38 @@
       "input": 0.1,
       "output": 0.2,
       "cache_read": 0.002
+     }
+    },
+    {
+     "id": "meta/muse-ember-1.0",
+     "name": "Muse Ember 1.0 (Meta)",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 524288,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004
      }
     },
     {
@@ -114967,6 +115738,37 @@
       "input": 3,
       "output": 15,
       "cache_read": 0.3
+     }
+    },
+    {
+     "id": "runware/kimi-k3.1-pro",
+     "name": "Kimi K3.1 Pro (runware)",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 950000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2
      }
     },
     {
@@ -120530,6 +121332,30 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "anthropic/claude-haiku-4-5-20251001",
      "name": "Claude Haiku 4.5 (20251001)",
      "release_date": "2025-10-15",
@@ -125449,6 +126275,54 @@
     "max_patches": 30000
    },
    "models": [
+    {
+     "id": "muse-ember-1.0",
+     "name": "Muse Ember",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 524288,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004,
+      "context_over_200k": {
+       "input": 0.3,
+       "output": 1.5,
+       "cache_read": 0.012
+      },
+      "tiers": [
+       {
+        "input": 0.3,
+        "output": 1.5,
+        "tier": {
+         "type": "context",
+         "size": 200000
+        },
+        "cache_read": 0.012
+       }
+      ]
+     }
+    },
     {
      "id": "muse-spark-1.1",
      "name": "Muse Spark 1.1",
@@ -130606,7 +131480,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -131023,6 +131897,36 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5.2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 10,
+      "output": 50,
+      "cache_read": 0.25,
+      "cache_write": 12.5
+     }
+    },
+    {
      "id": "anthropic/claude-fable-latest",
      "name": "Claude Fable Latest",
      "release_date": "2026-06-09",
@@ -131068,7 +131972,8 @@
      "cost": {
       "input": 1,
       "output": 5,
-      "cache_read": 0.1
+      "cache_read": 0.1,
+      "cache_write": 1.25
      }
     },
     {
@@ -131091,7 +131996,8 @@
      "cost": {
       "input": 1,
       "output": 5,
-      "cache_read": 0.1
+      "cache_read": 0.1,
+      "cache_write": 1.25
      }
     },
     {
@@ -131264,7 +132170,8 @@
      "cost": {
       "input": 15,
       "output": 75,
-      "cache_read": 1.5
+      "cache_read": 1.5,
+      "cache_write": 18.75
      }
     },
     {
@@ -131287,7 +132194,8 @@
      "cost": {
       "input": 15,
       "output": 75,
-      "cache_read": 1.5
+      "cache_read": 1.5,
+      "cache_write": 18.75
      }
     },
     {
@@ -131310,7 +132218,8 @@
      "cost": {
       "input": 15,
       "output": 75,
-      "cache_read": 1.5
+      "cache_read": 1.5,
+      "cache_write": 18.75
      }
     },
     {
@@ -131333,7 +132242,8 @@
      "cost": {
       "input": 15,
       "output": 75,
-      "cache_read": 1.5
+      "cache_read": 1.5,
+      "cache_write": 18.75
      }
     },
     {
@@ -131356,7 +132266,8 @@
      "cost": {
       "input": 15,
       "output": 75,
-      "cache_read": 1.5
+      "cache_read": 1.5,
+      "cache_write": 18.75
      }
     },
     {
@@ -131385,7 +132296,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131414,7 +132326,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131443,7 +132356,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131472,7 +132386,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131495,7 +132410,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131518,7 +132434,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131541,7 +132458,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131570,7 +132488,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131599,7 +132518,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131628,7 +132548,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131657,7 +132578,8 @@
      "cost": {
       "input": 5,
       "output": 25,
-      "cache_read": 0.5
+      "cache_read": 0.5,
+      "cache_write": 6.25
      }
     },
     {
@@ -131860,7 +132782,8 @@
      "cost": {
       "input": 3,
       "output": 15,
-      "cache_read": 0.3
+      "cache_read": 0.3,
+      "cache_write": 3.75
      }
     },
     {
@@ -131889,7 +132812,8 @@
      "cost": {
       "input": 3,
       "output": 15,
-      "cache_read": 0.3
+      "cache_read": 0.3,
+      "cache_write": 3.75
      }
     },
     {
@@ -131918,7 +132842,8 @@
      "cost": {
       "input": 3,
       "output": 15,
-      "cache_read": 0.3
+      "cache_read": 0.3,
+      "cache_write": 3.75
      }
     },
     {
@@ -131947,7 +132872,8 @@
      "cost": {
       "input": 3,
       "output": 15,
-      "cache_read": 0.3
+      "cache_read": 0.3,
+      "cache_write": 3.75
      }
     },
     {
@@ -132119,7 +133045,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 1,
       "output": 1,
@@ -132424,7 +133350,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 1,
       "output": 5,
@@ -132441,7 +133367,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.5,
       "output": 2.5,
@@ -133695,7 +134621,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -133722,7 +134648,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -134166,7 +135092,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -134187,7 +135113,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.75,
       "output": 3,
@@ -134204,7 +135130,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -136673,9 +137599,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.042,
-      "output": 0.126,
-      "cache_read": 0.021
+      "input": 0.036,
+      "output": 0.108,
+      "cache_read": 0.018
      }
     },
     {
@@ -136809,9 +137735,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.042,
-      "output": 0.126,
-      "cache_read": 0.021
+      "input": 0.036,
+      "output": 0.108,
+      "cache_read": 0.018
      }
     },
     {
@@ -138169,8 +139095,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.1875,
-      "output": 0.6525,
+      "input": 0.15,
+      "output": 0.6,
       "cache_read": 0.05
      }
     },
@@ -139421,9 +140347,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3895,
-      "output": 1.64,
-      "cache_read": 0.0656
+      "input": 0.39,
+      "output": 1.8,
+      "cache_read": 0.039
      }
     },
     {
@@ -139443,9 +140369,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3895,
-      "output": 1.64,
-      "cache_read": 0.0656
+      "input": 0.39,
+      "output": 1.8,
+      "cache_read": 0.039
      }
     },
     {
@@ -139830,6 +140756,31 @@
       "input": 0.075,
       "output": 0.25,
       "cache_read": 0.015
+     }
+    },
+    {
+     "id": "nex-agi/nex-n2.6",
+     "name": "Nex N2.6",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.15,
+      "output": 0.5,
+      "cache_read": 0.03
      }
     },
     {
@@ -141454,7 +142405,7 @@
      },
      "cost": {
       "input": 0.02,
-      "output": 0.1,
+      "output": 0.03,
       "cache_read": 0.018
      }
     },
@@ -142627,8 +143578,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.0875,
-      "output": 0.35,
+      "input": 0.09,
+      "output": 0.55,
       "cache_read": 0.0175
      }
     },
@@ -142644,8 +143595,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.0875,
-      "output": 0.35,
+      "input": 0.09,
+      "output": 0.55,
       "cache_read": 0.0175
      }
     },
@@ -143042,9 +143993,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.25,
-      "output": 2,
-      "cache_read": 0.135
+      "input": 0.2,
+      "output": 1.75,
+      "cache_read": 0.02
      }
     },
     {
@@ -143065,9 +144016,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.25,
-      "output": 2,
-      "cache_read": 0.135
+      "input": 0.2,
+      "output": 1.75,
+      "cache_read": 0.02
      }
     },
     {
@@ -143171,8 +144122,7 @@
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
-      "image",
-      "video"
+      "image"
      ],
      "status": "active",
      "reasoning": {
@@ -143309,7 +144259,8 @@
      "cost": {
       "input": 0.4,
       "output": 2.4,
-      "cache_read": 0.04
+      "cache_read": 0.04,
+      "cache_write": 0.5
      }
     },
     {
@@ -143346,7 +144297,8 @@
      "cost": {
       "input": 0.4,
       "output": 2.4,
-      "cache_read": 0.04
+      "cache_read": 0.04,
+      "cache_write": 0.5
      }
     },
     {
@@ -144129,7 +145081,6 @@
      "input_modalities": [
       "text",
       "image",
-      "video",
       "pdf"
      ],
      "status": "active",
@@ -145484,7 +146435,7 @@
      "name": "Step 5 Preview",
      "release_date": "2026-09-16",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -146009,7 +146960,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.7,
       "output": 0.7,
@@ -146064,7 +147015,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.55,
       "output": 3.5,
@@ -147614,9 +148565,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 2,
-      "cache_read": 0.1
+      "input": 0.55,
+      "output": 2.2,
+      "cache_read": 0.11
      }
     },
     {
@@ -147635,9 +148586,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 2,
-      "cache_read": 0.1
+      "input": 0.55,
+      "output": 2.2,
+      "cache_read": 0.11
      }
     },
     {
@@ -147652,9 +148603,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1,
-      "output": 3,
-      "cache_read": 0.5
+      "input": 0.55,
+      "output": 2.2,
+      "cache_read": 0.11
      }
     },
     {
@@ -147673,9 +148624,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1,
-      "output": 3,
-      "cache_read": 0.5
+      "input": 0.55,
+      "output": 2.2,
+      "cache_read": 0.11
      }
     },
     {
@@ -147697,9 +148648,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 2,
-      "cache_read": 0.1
+      "input": 0.55,
+      "output": 2.2,
+      "cache_read": 0.11
      }
     },
     {
@@ -166402,6 +167353,36 @@
      }
     },
     {
+     "id": "claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "claude-haiku-4-5",
      "name": "Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -167303,9 +168284,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.5,
-      "output": 7.5,
-      "cache_read": 0.15
+      "input": 0.75,
+      "output": 3.75,
+      "cache_read": 0.075
      }
     },
     {
@@ -167332,9 +168313,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.5,
-      "output": 7.5,
-      "cache_read": 0.15
+      "input": 0.75,
+      "output": 3.75,
+      "cache_read": 0.075
      }
     },
     {
@@ -167361,9 +168342,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.5,
-      "output": 7.5,
-      "cache_read": 0.15
+      "input": 0.75,
+      "output": 3.75,
+      "cache_read": 0.075
      }
     },
     {
@@ -169466,6 +170447,56 @@
       "input": 0.68,
       "output": 2.09,
       "cache_read": 0.07
+     }
+    },
+    {
+     "id": "muse-ember-1.0",
+     "name": "Muse Ember 1.0",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 270000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004,
+      "cache_write": 0,
+      "context_over_200k": {
+       "input": 0.3,
+       "output": 1.5,
+       "cache_read": 0.012,
+       "cache_write": 0
+      },
+      "tiers": [
+       {
+        "input": 0.3,
+        "output": 1.5,
+        "tier": {
+         "type": "context",
+         "size": 200000
+        },
+        "cache_read": 0.012,
+        "cache_write": 0
+       }
+      ]
      }
     },
     {
@@ -171598,10 +172629,10 @@
       "switch": false
      },
      "cost": {
-      "input": 10,
-      "output": 50,
-      "cache_read": 0.25,
-      "cache_write": 12.5
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -172216,8 +173247,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0335,
-      "output": 0.083,
+      "input": 0.0399,
+      "output": 0.0784,
       "cache_read": 0.03
      }
     },
@@ -172566,6 +173597,36 @@
       "output": 50,
       "cache_read": 0.25,
       "cache_write": 12.5
+     }
+    },
+    {
+     "id": "anthropic/claude-fable-5.2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
      }
     },
     {
@@ -173751,9 +174812,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.894012,
-      "output": 1.788024,
-      "cache_read": 0.074501
+      "input": 0.95526,
+      "output": 1.91052,
+      "cache_read": 0.079605
      }
     },
     {
@@ -173804,9 +174865,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.051,
-      "output": 0.567,
-      "cache_read": 0.018
+      "input": 0.006,
+      "output": 0.5,
+      "cache_read": 0.005
      }
     },
     {
@@ -174747,7 +175808,7 @@
      "release_date": "2026-04-02",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text",
       "image",
@@ -174759,9 +175820,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.09,
-      "output": 0.3,
-      "cache_read": 0.05
+      "input": 0.08,
+      "output": 0.1,
+      "cache_read": 0.046
      }
     },
     {
@@ -175472,15 +176533,15 @@
      "release_date": "2024-12-06",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 115200,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "cost": {
-      "input": 0.59,
-      "output": 0.79,
-      "cache_read": 0.295
+      "input": 0.71,
+      "output": 0.71,
+      "cache_read": 0.71
      }
     },
     {
@@ -175533,6 +176594,39 @@
      "cost": {
       "input": 0.18,
       "output": 0.18
+     }
+    },
+    {
+     "id": "meta/muse-ember",
+     "name": "Muse Ember",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004,
+      "cache_write": 0.125
      }
     },
     {
@@ -175828,7 +176922,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -175879,7 +176973,7 @@
      "name": "MiniMax-M2.5",
      "release_date": "2026-02-12",
      "tool_call": true,
-     "context_window": 204800,
+     "context_window": 200000,
      "max_output_tokens": 58982,
      "input_modalities": [
       "text"
@@ -175900,7 +176994,7 @@
      "name": "MiniMax-M2.7",
      "release_date": "2026-03-18",
      "tool_call": true,
-     "context_window": 204800,
+     "context_window": 196608,
      "max_output_tokens": 176947,
      "input_modalities": [
       "text"
@@ -176741,6 +177835,31 @@
      "status": "retired"
     },
     {
+     "id": "nex-agi/nex-n2.6",
+     "name": "Nex-N2.6",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.12,
+      "output": 0.4,
+      "cache_read": 0.024
+     }
+    },
+    {
      "id": "nousresearch/hermes-3-llama-3.1-405b",
      "name": "Hermes 3 405B Instruct",
      "release_date": "2024-08-16",
@@ -177032,7 +178151,7 @@
      },
      "cost": {
       "input": 0.15,
-      "output": 0.5,
+      "output": 0.47,
       "cache_read": 0.02
      }
     },
@@ -178857,7 +179976,7 @@
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 117964,
      "input_modalities": [
       "text"
      ],
@@ -178871,9 +179990,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.018,
-      "output": 0.09,
-      "cache_read": 0.009
+      "input": 0.03,
+      "output": 0.13,
+      "cache_read": 0.03
      }
     },
     {
@@ -179511,7 +180630,7 @@
      "release_date": "2025-04-28",
      "tool_call": true,
      "context_window": 40960,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 36864,
      "input_modalities": [
       "text"
      ],
@@ -179521,8 +180640,8 @@
       "switch": true
      },
      "cost": {
-      "input": 0.12,
-      "output": 0.24
+      "input": 0.1,
+      "output": 0.22
      }
     },
     {
@@ -180402,7 +181521,7 @@
      "name": "Qwen3.8 27B",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1024000,
+     "context_window": 1048575,
      "max_output_tokens": 235929,
      "input_modalities": [
       "text",
@@ -180686,6 +181805,10 @@
       "text"
      ],
      "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
      "cost": {
       "input": 0.2,
       "output": 0.6,
@@ -180924,7 +182047,7 @@
       "video",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -181034,7 +182157,7 @@
      "name": "Step 5 Preview",
      "release_date": "2026-09-16",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1000000,
      "max_output_tokens": 64000,
      "input_modalities": [
       "text",
@@ -181315,6 +182438,33 @@
       "input": 1,
       "output": 4.05,
       "cache_read": 0.17
+     }
+    },
+    {
+     "id": "thinkingmachines/inkling-2-small:free",
+     "name": "Inkling 2 Small (free)",
+     "release_date": "2026-11-05",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0
      }
     },
     {
@@ -181866,7 +183016,7 @@
      "name": "MiMo-V2.5-Pro",
      "release_date": "2026-04-22",
      "tool_call": true,
-     "context_window": 1050000,
+     "context_window": 1024000,
      "max_output_tokens": 235929,
      "input_modalities": [
       "text"
@@ -182206,9 +183356,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.006,
+      "input": 0.01,
       "output": 6.8,
-      "cache_read": 0.005
+      "cache_read": 0.009
      }
     },
     {
@@ -182254,7 +183404,7 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943717,
      "input_modalities": [
       "text",
       "image",
@@ -182270,8 +183420,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0335,
-      "output": 0.083,
+      "input": 0.15,
+      "output": 0.5,
       "cache_read": 0.03
      }
     },
@@ -194826,7 +195976,7 @@
      "release_date": "2024-12-06",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 115200,
      "input_modalities": [
       "text"
      ],
@@ -221857,6 +223007,35 @@
      }
     },
     {
+     "id": "claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "claude-haiku-5-5",
      "name": "Claude Haiku 5.5",
      "release_date": "2026-10-07",
@@ -226561,6 +227740,66 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5.2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
+     "id": "anthropic/claude-fable-5.2-fast",
+     "name": "Claude Fable 5.2 (Fast)",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 16,
+      "output": 80,
+      "cache_read": 0.4,
+      "cache_write": 20
+     }
+    },
+    {
      "id": "anthropic/claude-haiku-4.5",
      "name": "Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -228970,6 +230209,36 @@
      "cost": {
       "input": 0.17,
       "output": 0.66
+     }
+    },
+    {
+     "id": "meta/muse-ember",
+     "name": "Muse Ember",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004
      }
     },
     {
@@ -237164,8 +238433,7 @@
       "input": 0.3,
       "output": 1.2,
       "cache_read": 0.006
-     },
-     "disputed": true
+     }
     },
     {
      "id": "google/gemma-4-26B-A4B-it",
