@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.10",
- "updated_at": "2026-11-10T14:05:11.588Z",
- "generated_at": "2026-11-10T14:05:11.588Z",
- "source": "models.dev@aa94068f21592e612703c9d582e34b78bb1f19a5 litellm@7bcc46246bb977aa206f23860b6aefc0d0101e23 overrides@4805dda9c63971b1fdd77785144257421444fe01",
+ "version": "v2026.11.11",
+ "updated_at": "2026-11-11T13:14:26.301Z",
+ "generated_at": "2026-11-11T13:14:26.301Z",
+ "source": "models.dev@73e0b67d6484e870ab330ab3559a1b1bcea74a52 litellm@8b8ec4e3a64facae7af657ab06bc214dd5bf9060 overrides@0950225ceec2adb059f849cb80627d296e6ae89f",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-10T14:05:11.588Z",
-   "commit": "aa94068f21592e612703c9d582e34b78bb1f19a5",
-   "etag": "W/\"8edbff850cadfacb066a00dba8291c1e\"",
-   "sha256": "8edbff850cadfacb066a00dba8291c1e72743565687073940f73c51984b93201",
-   "bytes": 5989386
+   "fetched_at": "2026-11-11T13:14:26.301Z",
+   "commit": "73e0b67d6484e870ab330ab3559a1b1bcea74a52",
+   "etag": "W/\"f55606113b377c543af6c9da092fcd59\"",
+   "sha256": "f55606113b377c543af6c9da092fcd59c73828f9ef7cd0e57d3a48a6ea8c45de",
+   "bytes": 6010533
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-10T14:05:11.588Z",
-   "commit": "7bcc46246bb977aa206f23860b6aefc0d0101e23",
-   "etag": "W/\"049fc39dd06f7c1d928497878d33043407c346f7dce0f8a1bf1bfdaccd6dce33\"",
-   "sha256": "540441d54e0f2be5db66ee6b79106e51e6d9d849b744cda4f95cdcd89757e851",
-   "bytes": 3514168
+   "fetched_at": "2026-11-11T13:14:26.301Z",
+   "commit": "8b8ec4e3a64facae7af657ab06bc214dd5bf9060",
+   "etag": "W/\"57907e9634d54171e94256b13d3af699918cd7310cf8d1d0f45556353f4299fb\"",
+   "sha256": "5406310d43adc271311220ffd93770e71de96119fe54448ce2867d6ca47dc3e6",
+   "bytes": 4009158
   },
-  "overrides_commit": "4805dda9c63971b1fdd77785144257421444fe01",
-  "previous_version": "v2026.11.9"
+  "overrides_commit": "0950225ceec2adb059f849cb80627d296e6ae89f",
+  "previous_version": "v2026.11.10"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -35608,6 +35608,37 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5.2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "anthropic/claude-haiku-4.5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -36391,6 +36422,38 @@
      }
     },
     {
+     "id": "meta/muse-ember-1.0",
+     "name": "Muse Ember",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 524288,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004
+     }
+    },
+    {
      "id": "meta/muse-spark-1.1",
      "name": "Muse Spark 1.1",
      "release_date": "2026-04-08",
@@ -36692,7 +36755,7 @@
      "cost": {
       "input": 0.1,
       "output": 0.4,
-      "cache_read": 0.025
+      "cache_read": 0.03
      }
     },
     {
@@ -57395,6 +57458,37 @@
      }
     },
     {
+     "id": "google/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "reasoning": 20,
+      "cache_read": 0.2,
+      "cache_write": 0.375
+     }
+    },
+    {
      "id": "google/gemini-flash-latest",
      "name": "Gemini Flash Latest (Gemini 3.8 Flash)",
      "release_date": "2026-09-02",
@@ -57583,9 +57677,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.156702,
-      "output": 0.391755,
-      "cache_read": 0.044772
+      "input": 0.156996,
+      "output": 0.39249,
+      "cache_read": 0.044856
      }
     },
     {
@@ -57610,9 +57704,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.246246,
-      "output": 1.231229,
-      "cache_read": 0.012312
+      "input": 0.246708,
+      "output": 1.233541,
+      "cache_read": 0.012335
      }
     },
     {
@@ -57635,8 +57729,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.22386,
-      "output": 0.78351
+      "input": 0.22428,
+      "output": 0.78498
      }
     },
     {
@@ -57651,8 +57745,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.231229,
-      "output": 1.231229
+      "input": 1.233541,
+      "output": 1.233541
      }
     },
     {
@@ -57667,8 +57761,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.007369,
-      "output": 3.022108
+      "input": 1.009261,
+      "output": 3.027782
      }
     },
     {
@@ -57793,8 +57887,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.33579,
-      "output": 0.44772
+      "input": 0.33642,
+      "output": 0.44856
      }
     },
     {
@@ -57809,8 +57903,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.727545,
-      "output": 0.727545
+      "input": 0.72891,
+      "output": 0.72891
      }
     },
     {
@@ -57833,8 +57927,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.167895,
-      "output": 0.727545
+      "input": 0.16821,
+      "output": 0.72891
      }
     },
     {
@@ -57849,8 +57943,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.167895,
-      "output": 0.89544
+      "input": 0.16821,
+      "output": 0.89712
      }
     },
     {
@@ -60825,7 +60919,7 @@
      "cost": {
       "input": 0.15,
       "output": 0.6,
-      "cache_read": 0.015
+      "cache_read": 0.003
      }
     },
     {
@@ -60852,7 +60946,7 @@
      "cost": {
       "input": 0.15,
       "output": 0.6,
-      "cache_read": 0.015
+      "cache_read": 0.003
      }
     },
     {
@@ -61281,9 +61375,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.44772,
-      "output": 0.89544,
-      "cache_read": 0.089544
+      "input": 0.44856,
+      "output": 0.89712,
+      "cache_read": 0.089712
      }
     },
     {
@@ -61335,9 +61429,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.67158,
-      "output": 2.014739,
-      "cache_read": 0.134316
+      "input": 0.67284,
+      "output": 2.018521,
+      "cache_read": 0.134568
      }
     },
     {
@@ -61377,8 +61471,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.167895,
-      "output": 0.67158
+      "input": 0.16821,
+      "output": 0.67284
      }
     },
     {
@@ -61393,8 +61487,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.007369,
-      "output": 1.007369
+      "input": 1.009261,
+      "output": 1.009261
      }
     },
     {
@@ -61409,8 +61503,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.839475,
-      "output": 2.518424
+      "input": 0.84105,
+      "output": 2.523151
      }
     },
     {
@@ -62862,6 +62956,99 @@
      "id": "vertex/gemini-4-argon@us",
      "name": "Gemini 4 Argon (Vertex AI, US)",
      "release_date": "2026-10-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "reasoning": 20,
+      "cache_read": 0.2,
+      "cache_write": 0.375
+     }
+    },
+    {
+     "id": "vertex/gemini-4-carbon",
+     "name": "Gemini 4 Carbon (Vertex AI)",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "reasoning": 20,
+      "cache_read": 0.2,
+      "cache_write": 0.375
+     }
+    },
+    {
+     "id": "vertex/gemini-4-carbon@eu",
+     "name": "Gemini 4 Carbon (Vertex AI, EU)",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "reasoning": 20,
+      "cache_read": 0.2,
+      "cache_write": 0.375
+     }
+    },
+    {
+     "id": "vertex/gemini-4-carbon@us",
+     "name": "Gemini 4 Carbon (Vertex AI, US)",
+     "release_date": "2026-11-10",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -67906,7 +68093,8 @@
       "input": 2.1,
       "output": 6.6,
       "cache_read": 0.39
-     }
+     },
+     "disputed": true
     },
     {
      "id": "accounts/fireworks/routers/glm-flash-latest",
@@ -67932,7 +68120,8 @@
       "input": 0.15,
       "output": 0.5,
       "cache_read": 0.03
-     }
+     },
+     "disputed": true
     },
     {
      "id": "accounts/fireworks/routers/glm-latest",
@@ -67957,7 +68146,8 @@
       "input": 1.4,
       "output": 4.4,
       "cache_read": 0.26
-     }
+     },
+     "disputed": true
     },
     {
      "id": "accounts/fireworks/routers/kimi-fast-latest",
@@ -68131,7 +68321,8 @@
       "input": 0.3,
       "output": 1.2,
       "cache_read": 0.06
-     }
+     },
+     "disputed": true
     },
     {
      "id": "accounts/fireworks/routers/qwen-max-latest",
@@ -71364,6 +71555,37 @@
      "disputed": true
     },
     {
+     "id": "gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "reasoning": 10
+     },
+     "disputed": true
+    },
+    {
      "id": "gemini-embedding-001",
      "name": "Gemini Embedding 001",
      "release_date": "2025-05-20",
@@ -72706,6 +72928,35 @@
      "id": "gemini-4-argon",
      "name": "Gemini 4 Argon",
      "release_date": "2026-10-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1
+     }
+    },
+    {
+     "id": "gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -79495,9 +79746,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 3.2664,
-      "output": 16.332,
-      "cache_read": 0.32664
+      "input": 2.2,
+      "output": 11,
+      "cache_read": 0.22
      }
     },
     {
@@ -82348,7 +82599,7 @@
      "cost": {
       "input": 1.4,
       "output": 4.4,
-      "cache_read": 0.19,
+      "cache_read": 0.26,
       "cache_write": 0
      }
     },
@@ -82399,7 +82650,7 @@
      },
      "cost": {
       "input": 0.175,
-      "output": 0.45,
+      "output": 0.5,
       "cache_read": 0.03,
       "cache_write": 0
      }
@@ -87550,7 +87801,7 @@
      },
      "cost": {
       "input": 0.1824,
-      "output": 9.3388,
+      "output": 11.0055,
       "cache_read": 0.18
      }
     },
@@ -88683,6 +88934,54 @@
      "status": "retired"
     },
     {
+     "id": "baidu/ernie-5.5-flash-preview:free",
+     "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 921600,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0
+     }
+    },
+    {
+     "id": "baidu/ernie-light-dt-1.0-intl",
+     "name": "Baidu: ERNIE-Light-DT-1.0",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.13,
+      "output": 3.94,
+      "cache_read": 0.113
+     }
+    },
+    {
      "id": "bytedance-seed/seed-1.6",
      "name": "ByteDance Seed: Seed 1.6 (retires Nov 11)",
      "release_date": "2025-10-15",
@@ -89165,8 +89464,8 @@
      "name": "DeepSeek V4 Flash",
      "release_date": "2026-04-24",
      "tool_call": true,
-     "context_window": 1048575,
-     "max_output_tokens": 943717,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -89180,9 +89479,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.091,
-      "output": 0.182,
-      "cache_read": 0.0182
+      "input": 0.09,
+      "output": 0.18,
+      "cache_read": 0.018
      }
     },
     {
@@ -90068,6 +90367,37 @@
      }
     },
     {
+     "id": "google/gemini-4-carbon",
+     "name": "Google: Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "reasoning": 10,
+      "cache_read": 0.1,
+      "cache_write": 0.1875
+     }
+    },
+    {
      "id": "google/gemini-nano-banana-2.1",
      "name": "Nano Banana 2.1",
      "release_date": "2026-10-06",
@@ -90246,9 +90576,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.04,
-      "output": 0.121,
-      "cache_read": 0.02
+      "input": 0.011,
+      "output": 0.034,
+      "cache_read": 0.006
      }
     },
     {
@@ -90804,6 +91134,30 @@
      }
     },
     {
+     "id": "kt/midm-k-3.0-pro",
+     "name": "KT: Mi:dm K 3.0 Pro",
+     "release_date": "2026-11-05",
+     "tool_call": false,
+     "context_window": 261795,
+     "max_output_tokens": 235615,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.2,
+      "output": 0.8,
+      "cache_read": 0.04
+     }
+    },
+    {
      "id": "kwaipilot/kat-coder-air-v2.5",
      "name": "Kwaipilot: KAT-Coder-Air V2.5",
      "release_date": "2026-07-10",
@@ -90954,9 +91308,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.4,
-      "output": 0.75,
-      "cache_read": 0.4
+      "input": 0.3,
+      "output": 0.5,
+      "cache_read": 0.3
      }
     },
     {
@@ -91156,8 +91510,7 @@
      "cost": {
       "input": 0.1,
       "output": 0.5,
-      "cache_read": 0.004,
-      "cache_write": 0.125
+      "cache_read": 0.004
      }
     },
     {
@@ -91345,8 +91698,8 @@
      "name": "Muse Spark Open",
      "release_date": "2026-10-15",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "context_window": 1000000,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
@@ -91507,8 +91860,8 @@
      "name": "MiniMax-M2.5",
      "release_date": "2026-02-12",
      "tool_call": true,
-     "context_window": 65536,
-     "max_output_tokens": 58982,
+     "context_window": 200000,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -91520,9 +91873,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3,
-      "output": 1.2,
-      "cache_read": 0.06
+      "input": 0.27,
+      "output": 1.08,
+      "cache_read": 0.027
      }
     },
     {
@@ -92285,6 +92638,30 @@
      "cost": {
       "input": 0.9,
       "output": 1.9
+     }
+    },
+    {
+     "id": "motif-technologies/motif-3",
+     "name": "Motif Technologies: Motif 3",
+     "release_date": "2026-11-02",
+     "tool_call": false,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.3,
+      "output": 1.2,
+      "cache_read": 0.06
      }
     },
     {
@@ -94764,7 +95141,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1,
       "output": 0.2
@@ -96872,9 +97249,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.35,
-      "output": 0.65,
-      "cache_read": 0.35
+      "input": 0.3,
+      "output": 0.5,
+      "cache_read": 0.2
      }
     },
     {
@@ -97261,7 +97638,7 @@
      "cost": {
       "input": 0.1,
       "output": 0.28,
-      "cache_read": 0.05
+      "cache_read": 0.0028
      }
     },
     {
@@ -97541,7 +97918,7 @@
      "name": "GLM-5.1",
      "release_date": "2026-04-07",
      "tool_call": true,
-     "context_window": 202752,
+     "context_window": 202745,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -97627,8 +98004,8 @@
      "name": "GLM-5.3-Flash",
      "release_date": "2026-08-26",
      "tool_call": true,
-     "context_window": 1048575,
-     "max_output_tokens": 943717,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
@@ -99348,20 +99725,28 @@
      "name": "deepseek-v4-flash-0731",
      "release_date": "2026-07-31",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1050000,
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "reasoning": {
-      "levels": [],
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
       "switch": false
      },
      "cost": {
-      "input": 0.44,
-      "output": 1.32,
-      "cache_read": 0.04
+      "input": 0.08,
+      "output": 0.18,
+      "cache_read": 0.016
      }
     },
     {
@@ -99936,6 +100321,35 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "cache_read": 0.2,
+      "cache_write": 0.375
+     }
+    },
+    {
+     "id": "gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "medium",
        "high"
       ],
       "switch": false
@@ -104398,7 +104812,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -104425,7 +104839,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -104452,7 +104866,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -104479,7 +104893,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -104725,6 +105139,35 @@
      "id": "alibaba/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (Alibaba Cloud)",
      "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.2,
+      "output": 0.4,
+      "cache_read": 0.04
+     }
+    },
+    {
+     "id": "alibaba/deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731 (Alibaba Cloud)",
+     "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 393216,
@@ -108271,6 +108714,35 @@
      }
     },
     {
+     "id": "baidu/deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731 (Baidu)",
+     "release_date": "2026-07-31",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.44,
+      "output": 1.32,
+      "cache_read": 0.014
+     }
+    },
+    {
      "id": "baidu/deepseek-v4-pro",
      "name": "DeepSeek V4 Pro (Baidu)",
      "release_date": "2026-04-24",
@@ -108535,7 +109007,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -108550,6 +109022,35 @@
      "id": "bytedance/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (ByteDance)",
      "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.44,
+      "output": 1.32,
+      "cache_read": 0.014
+     }
+    },
+    {
+     "id": "bytedance/deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731 (ByteDance)",
+     "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 393216,
@@ -108614,7 +109115,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -108664,7 +109165,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -108690,7 +109191,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -108717,7 +109218,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -108744,7 +109245,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -108771,7 +109272,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -108919,7 +109420,15 @@
      ],
      "status": "active",
      "reasoning": {
-      "levels": [],
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
       "switch": false
      },
      "cost": {
@@ -109198,6 +109707,35 @@
      "id": "cloudflare/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (Cloudflare)",
      "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.44,
+      "output": 1.32,
+      "cache_read": 0.014
+     }
+    },
+    {
+     "id": "cloudflare/deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731 (Cloudflare)",
+     "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 393216,
@@ -109545,6 +110083,33 @@
      "id": "deepinfra/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (DeepInfra)",
      "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.09,
+      "output": 0.18,
+      "cache_read": 0.018
+     }
+    },
+    {
+     "id": "deepinfra/deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731 (DeepInfra)",
+     "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 393216,
@@ -111078,6 +111643,35 @@
      }
     },
     {
+     "id": "google-ai-studio/gemini-4-carbon",
+     "name": "Gemini 4 Carbon (Google AI Studio)",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "cache_read": 0.2,
+      "cache_write": 0.375
+     }
+    },
+    {
      "id": "google-ai-studio/gemini-pro-latest",
      "name": "Gemini Pro Latest (Google AI Studio)",
      "release_date": "2026-02-27",
@@ -111440,6 +112034,35 @@
      }
     },
     {
+     "id": "google-vertex/gemini-4-carbon",
+     "name": "Gemini 4 Carbon (Google Vertex AI)",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "cache_read": 0.2,
+      "cache_write": 0.375
+     }
+    },
+    {
      "id": "greenference/glm-5.3-flash",
      "name": "GLM-5.3 Flash (greenference)",
      "release_date": "2026-08-26",
@@ -111610,6 +112233,23 @@
       "pdf"
      ],
      "status": "retired"
+    },
+    {
+     "id": "inference.net/deepseek-v4-flash",
+     "name": "DeepSeek V4 Flash (Inference.net)",
+     "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.23,
+      "output": 0.62,
+      "cache_read": 0.0028
+     }
     },
     {
      "id": "inference.net/deepseek-v4.1-flash-1017",
@@ -113070,6 +113710,35 @@
      "id": "novita/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (NovitaAI)",
      "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.14,
+      "output": 0.28,
+      "cache_read": 0.028
+     }
+    },
+    {
+     "id": "novita/deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731 (NovitaAI)",
+     "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1050000,
      "max_output_tokens": 393216,
@@ -116261,6 +116930,35 @@
      "id": "tencent/deepseek-v4-flash",
      "name": "DeepSeek V4 Flash (Tencent Cloud)",
      "release_date": "2026-04-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.15,
+      "output": 0.6,
+      "cache_read": 0.003
+     }
+    },
+    {
+     "id": "tencent/deepseek-v4-flash-0731",
+     "name": "DeepSeek V4 Flash 0731 (Tencent Cloud)",
+     "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 393216,
@@ -122045,7 +122743,7 @@
      "name": "DeepSeek V4 Flash 0731",
      "release_date": "2026-07-31",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1000000,
      "max_output_tokens": 384000,
      "input_modalities": [
       "text"
@@ -122062,9 +122760,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.035,
-      "output": 0.07,
-      "cache_read": 0.007
+      "input": 0.13,
+      "output": 0.26,
+      "cache_read": 0.028
      }
     },
     {
@@ -122702,6 +123400,31 @@
      "id": "google/gemini-4-argon",
      "name": "Gemini 4 Argon",
      "release_date": "2026-10-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1
+     }
+    },
+    {
+     "id": "google/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -131831,8 +132554,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 2.006,
-      "output": 2.992,
+      "input": 2.65,
+      "output": 5.3,
       "cache_read": 1.003
      }
     },
@@ -133024,7 +133747,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -133216,6 +133939,32 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "baidu/ernie-light-dt-1.0-intl",
+     "name": "ERNIE Light DT 1.0 (Intl)",
+     "release_date": "2026-11-11",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.3,
+      "output": 4.5,
+      "cache_read": 0.13
+     }
     },
     {
      "id": "baseten/Kimi-K2-Instruct-FP4",
@@ -134204,8 +134953,8 @@
      },
      "cost": {
       "input": 0.66,
-      "output": 1.98,
-      "cache_read": 0.022
+      "output": 4.0139,
+      "cache_read": 0.105
      }
     },
     {
@@ -134282,7 +135031,7 @@
      "cost": {
       "input": 0.14,
       "output": 0.28,
-      "cache_read": 0.0028
+      "cache_read": 0.028
      }
     },
     {
@@ -134478,7 +135227,7 @@
      "cost": {
       "input": 0.14,
       "output": 0.28,
-      "cache_read": 0.0028
+      "cache_read": 0.028
      }
     },
     {
@@ -134501,9 +135250,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7,
-      "output": 1.4,
-      "cache_read": 0.07
+      "input": 0.86979,
+      "output": 1.77565,
+      "cache_read": 0.08873
      }
     },
     {
@@ -134528,8 +135277,8 @@
      },
      "cost": {
       "input": 0.66,
-      "output": 1.98,
-      "cache_read": 0.022
+      "output": 4.1267,
+      "cache_read": 0.0921
      }
     },
     {
@@ -134554,8 +135303,8 @@
      },
      "cost": {
       "input": 0.66,
-      "output": 1.98,
-      "cache_read": 0.022
+      "output": 4.0139,
+      "cache_read": 0.105
      }
     },
     {
@@ -134578,9 +135327,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7,
-      "output": 1.4,
-      "cache_read": 0.07
+      "input": 0.95124,
+      "output": 1.79607,
+      "cache_read": 0.17925
      }
     },
     {
@@ -134697,12 +135446,12 @@
      "release_date": "2026-10-27",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "none",
@@ -134715,7 +135464,7 @@
      "cost": {
       "input": 0.33,
       "output": 1.32,
-      "cache_read": 0.00825
+      "cache_read": 0.011
      }
     },
     {
@@ -134724,12 +135473,12 @@
      "release_date": "2026-10-27",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "none",
@@ -134742,7 +135491,7 @@
      "cost": {
       "input": 0.33,
       "output": 1.32,
-      "cache_read": 0.00825
+      "cache_read": 0.011
      }
     },
     {
@@ -137491,6 +138240,35 @@
      }
     },
     {
+     "id": "google/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1
+     }
+    },
+    {
      "id": "google/gemini-flash-latest",
      "name": "Gemini Flash Latest",
      "release_date": "2026-08-13",
@@ -137599,9 +138377,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.036,
-      "output": 0.108,
-      "cache_read": 0.018
+      "input": 0.011,
+      "output": 0.034,
+      "cache_read": 0.006
      }
     },
     {
@@ -137735,9 +138513,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.036,
-      "output": 0.108,
-      "cache_read": 0.018
+      "input": 0.011,
+      "output": 0.034,
+      "cache_read": 0.006
      }
     },
     {
@@ -139119,6 +139897,38 @@
      }
     },
     {
+     "id": "meta/muse-ember",
+     "name": "Muse Ember",
+     "release_date": "2026-11-11",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.004
+     }
+    },
+    {
      "id": "meta/muse-glimmer-30b",
      "name": "Muse Glimmer 30B",
      "release_date": "2026-08-10",
@@ -140369,9 +141179,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.39,
-      "output": 1.8,
-      "cache_read": 0.039
+      "input": 0.88,
+      "output": 4.13,
+      "cache_read": 0.231
      }
     },
     {
@@ -142404,9 +143214,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.02,
-      "output": 0.03,
-      "cache_read": 0.018
+      "input": 0.018,
+      "output": 0.09,
+      "cache_read": 0.009
      }
     },
     {
@@ -147220,7 +148030,7 @@
      "name": "Anubis 70B v1.1",
      "release_date": "2024-01-01",
      "tool_call": false,
-     "context_window": 32000,
+     "context_window": 32768,
      "max_output_tokens": 16384,
      "input_modalities": [
       "text"
@@ -147327,7 +148137,7 @@
      "name": "The Drummer Cydonia 24B v4.3",
      "release_date": "2025-12-25",
      "tool_call": false,
-     "context_window": 131072,
+     "context_window": 65536,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text"
@@ -151087,7 +151897,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -159545,6 +160355,36 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5.2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "anthropic/claude-haiku-4.5",
      "name": "Claude Haiku 4.5 (latest)",
      "release_date": "2025-10-15",
@@ -167955,8 +168795,8 @@
     },
     {
      "id": "deepseek-v4.1-flash",
-     "name": "DeepSeek V4.1 Flash",
-     "release_date": "2026-09-10",
+     "name": "DeepSeek V4.1 Flash 1017",
+     "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 384000,
@@ -167982,7 +168822,7 @@
     {
      "id": "deepseek-v4.1-flash-free",
      "name": "DeepSeek V4.1 Flash Free",
-     "release_date": "2026-09-10",
+     "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 200000,
      "max_output_tokens": 32000,
@@ -168351,6 +169191,35 @@
      "id": "gemini-4-argon",
      "name": "Gemini 4 Argon",
      "release_date": "2026-10-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1
+     }
+    },
+    {
+     "id": "gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -171284,8 +172153,8 @@
     },
     {
      "id": "deepseek-v4.1-flash",
-     "name": "DeepSeek V4.1 Flash",
-     "release_date": "2026-09-10",
+     "name": "DeepSeek V4.1 Flash 1017",
+     "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 384000,
@@ -172919,7 +173788,7 @@
      },
      "cost": {
       "input": 0.1824,
-      "output": 9.3388,
+      "output": 11.0055,
       "cache_read": 0.18
      }
     },
@@ -174204,6 +175073,54 @@
      "status": "retired"
     },
     {
+     "id": "baidu/ernie-5.5-flash-preview:free",
+     "name": "ERNIE-5.5-Flash-Preview (free)",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 921600,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0
+     }
+    },
+    {
+     "id": "baidu/ernie-light-dt-1.0-intl",
+     "name": "ERNIE-Light-DT-1.0",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.13,
+      "output": 3.94,
+      "cache_read": 0.113
+     }
+    },
+    {
      "id": "bytedance-seed/seed-1.6",
      "name": "Seed 1.6",
      "release_date": "2025-10-15",
@@ -174708,7 +175625,7 @@
      "release_date": "2026-04-24",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943717,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -174722,9 +175639,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.091,
-      "output": 0.182,
-      "cache_read": 0.0182
+      "input": 0.09,
+      "output": 0.18,
+      "cache_read": 0.018
      }
     },
     {
@@ -174865,9 +175782,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.006,
-      "output": 0.5,
-      "cache_read": 0.005
+      "input": 0.051,
+      "output": 0.567,
+      "cache_read": 0.018
      }
     },
     {
@@ -175648,6 +176565,37 @@
      }
     },
     {
+     "id": "google/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "reasoning": 10,
+      "cache_read": 0.1,
+      "cache_write": 0.1875
+     }
+    },
+    {
      "id": "google/gemini-nano-banana-2.1",
      "name": "Nano Banana 2.1",
      "release_date": "2026-10-06",
@@ -176287,6 +177235,27 @@
      }
     },
     {
+     "id": "kt/midm-k-3.0-pro",
+     "name": "Mi:dm K 3.0 Pro",
+     "release_date": "2026-11-05",
+     "tool_call": false,
+     "context_window": 261795,
+     "max_output_tokens": 235615,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.2,
+      "output": 0.8,
+      "cache_read": 0.04
+     }
+    },
+    {
      "id": "kwaipilot/kat-coder-air-v2.5",
      "name": "KAT-Coder-Air V2.5",
      "release_date": "2026-07-10",
@@ -176437,9 +177406,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.4,
-      "output": 0.75,
-      "cache_read": 0.4
+      "input": 0.3,
+      "output": 0.5,
+      "cache_read": 0.3
      }
     },
     {
@@ -176814,7 +177783,7 @@
      "release_date": "2026-10-15",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
@@ -176974,7 +177943,7 @@
      "release_date": "2026-02-12",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 58982,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -176984,9 +177953,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3,
-      "output": 1.2,
-      "cache_read": 0.06
+      "input": 0.27,
+      "output": 1.08,
+      "cache_read": 0.027
      }
     },
     {
@@ -177731,6 +178700,27 @@
      }
     },
     {
+     "id": "motif-technologies/motif-3",
+     "name": "Motif 3",
+     "release_date": "2026-11-02",
+     "tool_call": false,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.3,
+      "output": 1.2,
+      "cache_read": 0.06
+     }
+    },
+    {
      "id": "nex-agi/nex-n2-mini",
      "name": "Nex-N2-Mini",
      "release_date": "2026-06-24",
@@ -177977,7 +178967,7 @@
      "name": "Nemotron 3 Super 120B A12B",
      "release_date": "2026-03-11",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 262144,
      "max_output_tokens": 16384,
      "input_modalities": [
       "text"
@@ -180524,7 +181514,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1,
       "output": 0.2
@@ -182599,9 +183589,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.35,
-      "output": 0.65,
-      "cache_read": 0.35
+      "input": 0.3,
+      "output": 0.5,
+      "cache_read": 0.2
      }
     },
     {
@@ -183114,7 +184104,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -183331,9 +184321,9 @@
       "switch": true
      },
      "cost": {
-      "input": 1.4,
-      "output": 4.4,
-      "cache_read": 0.26
+      "input": 1.33,
+      "output": 4.18,
+      "cache_read": 0.247
      }
     },
     {
@@ -183356,9 +184346,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.01,
+      "input": 0.007,
       "output": 6.8,
-      "cache_read": 0.009
+      "cache_read": 0.006
      }
     },
     {
@@ -183404,7 +184394,7 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943717,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
@@ -183420,8 +184410,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.15,
-      "output": 0.5,
+      "input": 0.0399,
+      "output": 0.0784,
       "cache_read": 0.03
      }
     },
@@ -195412,6 +196402,33 @@
      }
     },
     {
+     "id": "anthropic/claude-fable-5.2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40
+     }
+    },
+    {
      "id": "anthropic/claude-opus-4.6",
      "name": "Claude Opus 4.6",
      "release_date": "2026-02-05",
@@ -195637,7 +196654,7 @@
      "release_date": "2026-04-24",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943717,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -195954,6 +196971,33 @@
      }
     },
     {
+     "id": "google/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10
+     }
+    },
+    {
      "id": "google/gemma-3-27b-it",
      "name": "Gemma 3 27B",
      "release_date": "2025-03-12",
@@ -195992,7 +197036,7 @@
      "release_date": "2026-10-15",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
@@ -227180,6 +228224,27 @@
      }
     },
     {
+     "id": "alibaba/qwen3.6-35b-a3b",
+     "name": "Qwen 3.6 35B A3B",
+     "release_date": "2026-04-17",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.375,
+      "output": 2.25
+     }
+    },
+    {
      "id": "alibaba/qwen3.6-plus",
      "name": "Qwen 3.6 Plus",
      "release_date": "2026-04-02",
@@ -227413,7 +228478,7 @@
      },
      "cost": {
       "input": 0.06,
-      "output": 2.3,
+      "output": 2.2,
       "cache_read": 0.059
      }
     },
@@ -228354,7 +229419,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -228367,11 +229432,11 @@
        {
         "input": 0.5,
         "output": 4,
+        "cache_read": 0.05,
         "tier": {
          "type": "context",
          "size": 128001
-        },
-        "cache_read": 0.05
+        }
        }
       ]
      }
@@ -228387,7 +229452,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -228405,11 +229470,11 @@
        {
         "input": 0.5,
         "output": 4,
+        "cache_read": 0.05,
         "tier": {
          "type": "context",
          "size": 128001
-        },
-        "cache_read": 0.05
+        }
        }
       ]
      }
@@ -229488,6 +230553,33 @@
      "id": "google/gemini-4-argon",
      "name": "Gemini 4 Argon",
      "release_date": "2026-10-13",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1
+     }
+    },
+    {
+     "id": "google/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
      "tool_call": true,
      "context_window": 1000000,
      "max_output_tokens": 1000000,
