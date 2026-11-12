@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.11",
- "updated_at": "2026-11-11T13:14:26.301Z",
- "generated_at": "2026-11-11T13:14:26.301Z",
- "source": "models.dev@73e0b67d6484e870ab330ab3559a1b1bcea74a52 litellm@8b8ec4e3a64facae7af657ab06bc214dd5bf9060 overrides@0950225ceec2adb059f849cb80627d296e6ae89f",
+ "version": "v2026.11.12",
+ "updated_at": "2026-11-12T14:14:23.400Z",
+ "generated_at": "2026-11-12T14:14:23.400Z",
+ "source": "models.dev@a0401c46c17c24aab38b7ec90a043ab044cc37de litellm@db8ad3b13e7320bf835205cae58be5a58e0ff366 overrides@143f35ee9ca77c7008717166f516f71c564c9680",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-11T13:14:26.301Z",
-   "commit": "73e0b67d6484e870ab330ab3559a1b1bcea74a52",
-   "etag": "W/\"f55606113b377c543af6c9da092fcd59\"",
-   "sha256": "f55606113b377c543af6c9da092fcd59c73828f9ef7cd0e57d3a48a6ea8c45de",
-   "bytes": 6010533
+   "fetched_at": "2026-11-12T14:14:23.400Z",
+   "commit": "a0401c46c17c24aab38b7ec90a043ab044cc37de",
+   "etag": "W/\"fb66e34f3882207a4c7bb9d58f242933\"",
+   "sha256": "fb66e34f3882207a4c7bb9d58f2429334a13d994c55b914718e763c2f62974f7",
+   "bytes": 6009001
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-11T13:14:26.301Z",
-   "commit": "8b8ec4e3a64facae7af657ab06bc214dd5bf9060",
-   "etag": "W/\"57907e9634d54171e94256b13d3af699918cd7310cf8d1d0f45556353f4299fb\"",
-   "sha256": "5406310d43adc271311220ffd93770e71de96119fe54448ce2867d6ca47dc3e6",
-   "bytes": 4009158
+   "fetched_at": "2026-11-12T14:14:23.400Z",
+   "commit": "db8ad3b13e7320bf835205cae58be5a58e0ff366",
+   "etag": "W/\"bb0a9493f5d6f0d271be46f8405ac3b0dc7949b5435d5837ff4aed2c70108571\"",
+   "sha256": "0d46736fa01ea12ccabd887821ef8c11e40afb896261d76d549a422b13a3a7a5",
+   "bytes": 4039379
   },
-  "overrides_commit": "0950225ceec2adb059f849cb80627d296e6ae89f",
-  "previous_version": "v2026.11.10"
+  "overrides_commit": "143f35ee9ca77c7008717166f516f71c564c9680",
+  "previous_version": "v2026.11.11"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -12619,7 +12619,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -36422,6 +36422,35 @@
      }
     },
     {
+     "id": "google/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1
+     }
+    },
+    {
      "id": "meta/muse-ember-1.0",
      "name": "Muse Ember",
      "release_date": "2026-11-09",
@@ -42308,6 +42337,30 @@
      }
     },
     {
+     "id": "gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 2.229,
+      "output": 11.146,
+      "cache_read": 0.111
+     }
+    },
+    {
      "id": "gemma-3-27b-it",
      "name": "Gemma 3 27B IT",
      "release_date": "2025-03-12",
@@ -42436,7 +42489,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -43127,8 +43180,8 @@
      "name": "Kimi K2.7 Code",
      "release_date": "2026-06-12",
      "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 262144,
+     "context_window": 256000,
+     "max_output_tokens": 256000,
      "input_modalities": [
       "text",
       "image",
@@ -43168,6 +43221,28 @@
      "cost": {
       "input": 3,
       "output": 14.999
+     }
+    },
+    {
+     "id": "kimi-k3.1-pro",
+     "name": "Kimi K3.1 Pro",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 500000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 2.042,
+      "output": 10.209,
+      "cache_read": 0.204
      }
     },
     {
@@ -43258,7 +43333,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.651,
       "output": 1.097
@@ -43365,7 +43440,7 @@
      "release_date": "2026-10-19",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 500000,
      "input_modalities": [
       "text",
       "image"
@@ -43382,9 +43457,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.304,
-      "output": 1.219,
-      "cache_read": 0.076
+      "input": 0.153,
+      "output": 0.613,
+      "cache_read": 0.016
      }
     },
     {
@@ -43502,7 +43577,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.613,
       "output": 1.838,
@@ -43579,7 +43654,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.145,
       "output": 0.145,
@@ -45362,6 +45437,35 @@
       "levels": [
        "none",
        "minimal",
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2
+     }
+    },
+    {
+     "id": "gemini/gemini-4-carbon",
+     "name": "Gemini 4 Carbon",
+     "release_date": "2026-11-10",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
        "low",
        "medium",
        "high"
@@ -50890,6 +50994,35 @@
      }
     },
     {
+     "id": "anthropic-claude-fable-5.2",
+     "name": "Anthropic Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.2,
+      "cache_write": 10
+     }
+    },
+    {
      "id": "anthropic-claude-haiku-4.5",
      "name": "Anthropic Claude Haiku 4.5",
      "release_date": "2025-10-15",
@@ -51648,6 +51781,28 @@
       "input": 3,
       "output": 15,
       "cache_read": 0.3
+     }
+    },
+    {
+     "id": "kimi-k3.1-pro",
+     "name": "Kimi K3.1 Pro",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2
      }
     },
     {
@@ -56876,7 +57031,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -57677,9 +57832,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.156996,
-      "output": 0.39249,
-      "cache_read": 0.044856
+      "input": 0.155778,
+      "output": 0.389445,
+      "cache_read": 0.044508
      }
     },
     {
@@ -57704,9 +57859,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.246708,
-      "output": 1.233541,
-      "cache_read": 0.012335
+      "input": 0.244794,
+      "output": 1.22397,
+      "cache_read": 0.01224
      }
     },
     {
@@ -57729,8 +57884,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.22428,
-      "output": 0.78498
+      "input": 0.22254,
+      "output": 0.77889
      }
     },
     {
@@ -57745,8 +57900,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.233541,
-      "output": 1.233541
+      "input": 1.22397,
+      "output": 1.22397
      }
     },
     {
@@ -57761,8 +57916,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.009261,
-      "output": 3.027782
+      "input": 1.00143,
+      "output": 3.004289
      }
     },
     {
@@ -57887,8 +58042,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.33642,
-      "output": 0.44856
+      "input": 0.33381,
+      "output": 0.44508
      }
     },
     {
@@ -57903,8 +58058,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.72891,
-      "output": 0.72891
+      "input": 0.723255,
+      "output": 0.723255
      }
     },
     {
@@ -57927,8 +58082,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.16821,
-      "output": 0.72891
+      "input": 0.166905,
+      "output": 0.723255
      }
     },
     {
@@ -57943,8 +58098,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.16821,
-      "output": 0.89712
+      "input": 0.166905,
+      "output": 0.89016
      }
     },
     {
@@ -61375,9 +61530,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.44856,
-      "output": 0.89712,
-      "cache_read": 0.089712
+      "input": 0.44508,
+      "output": 0.89016,
+      "cache_read": 0.089016
      }
     },
     {
@@ -61429,9 +61584,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.67284,
-      "output": 2.018521,
-      "cache_read": 0.134568
+      "input": 0.66762,
+      "output": 2.00286,
+      "cache_read": 0.133524
      }
     },
     {
@@ -61471,8 +61626,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.16821,
-      "output": 0.67284
+      "input": 0.166905,
+      "output": 0.66762
      }
     },
     {
@@ -61487,8 +61642,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.009261,
-      "output": 1.009261
+      "input": 1.00143,
+      "output": 1.00143
      }
     },
     {
@@ -61503,8 +61658,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.84105,
-      "output": 2.523151
+      "input": 0.834525,
+      "output": 2.503575
      }
     },
     {
@@ -61571,9 +61726,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 1.5,
-      "cache_read": 0.05
+      "input": 0.35,
+      "output": 1.32,
+      "cache_read": 0.03
      }
     },
     {
@@ -62146,6 +62301,31 @@
       "audio"
      ],
      "status": "retired"
+    },
+    {
+     "id": "tsystems/gpt-oss-120b",
+     "name": "GPT OSS 120B (Tsystems)",
+     "release_date": "2025-08-05",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.22254,
+      "output": 0.723255,
+      "cache_read": 0.033381
+     }
     },
     {
      "id": "vertex/gemini-2.5-flash-image",
@@ -65998,6 +66178,29 @@
      }
     },
     {
+     "id": "kimi-k3.1-pro",
+     "name": "Kimi K3.1 Pro",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1113088,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 1.4,
+      "output": 7,
+      "cache_read": 0.14
+     }
+    },
+    {
      "id": "qwen3.6-35b-a3b",
      "name": "Qwen3.6 35B-A3B",
      "release_date": "2026-04-17",
@@ -66026,8 +66229,7 @@
      "context_window": 1001536,
      "max_output_tokens": 65536,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active",
      "reasoning": {
@@ -82551,7 +82753,7 @@
      "cost": {
       "input": 0.7995,
       "output": 3.75,
-      "cache_read": 0.156,
+      "cache_read": 0.19,
       "cache_write": 0
      }
     },
@@ -82624,7 +82826,7 @@
      },
      "cost": {
       "input": 1,
-      "output": 4.9,
+      "output": 4.2,
       "cache_read": 0.14,
       "cache_write": 0
      }
@@ -82650,8 +82852,8 @@
      },
      "cost": {
       "input": 0.175,
-      "output": 0.5,
-      "cache_read": 0.03,
+      "output": 0.47,
+      "cache_read": 0.04,
       "cache_write": 0
      }
     }
@@ -87658,9 +87860,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.006,
-      "output": 0.5,
-      "cache_read": 0.005
+      "input": 0.022,
+      "output": 0.4,
+      "cache_read": 0.004
      }
     },
     {
@@ -88993,7 +89195,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -89018,7 +89220,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -89068,7 +89270,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -89633,7 +89835,7 @@
      "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -90576,9 +90778,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.011,
-      "output": 0.034,
-      "cache_read": 0.006
+      "input": 0.013,
+      "output": 0.04,
+      "cache_read": 0.007
      }
     },
     {
@@ -92603,8 +92805,8 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 10,
+      "input": 0.2375,
+      "output": 8.4085,
       "cache_read": 0.2
      }
     },
@@ -95229,7 +95431,7 @@
      "release_date": "2025-04-28",
      "tool_call": true,
      "context_window": 40960,
-     "max_output_tokens": 36864,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -95242,8 +95444,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.1,
-      "output": 0.22
+      "input": 0.12,
+      "output": 0.24
      }
     },
     {
@@ -95734,7 +95936,7 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 40960,
      "input_modalities": [
       "text",
       "image",
@@ -95749,8 +95951,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.17,
-      "output": 0.25
+      "input": 0.056,
+      "output": 0.083,
+      "cache_read": 0.051
      }
     },
     {
@@ -97101,7 +97304,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -97217,7 +97420,12 @@
       "text",
       "image"
      ],
-     "status": "retired"
+     "status": "active",
+     "cost": {
+      "input": 0.8,
+      "output": 3.2,
+      "cache_read": 0.03
+     }
     },
     {
      "id": "unbiased/pareto-26.9",
@@ -97918,7 +98126,7 @@
      "name": "GLM-5.1",
      "release_date": "2026-04-07",
      "tool_call": true,
-     "context_window": 202745,
+     "context_window": 202752,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -104636,7 +104844,22 @@
       "image",
       "video"
      ],
-     "status": "retired"
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.08,
+      "output": 0.35,
+      "cache_read": 0.05
+     }
     },
     {
      "id": "Qwen3.8-27B",
@@ -104648,7 +104871,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -110036,6 +110259,33 @@
      }
     },
     {
+     "id": "consensusprotocol/qwen3.8-27b",
+     "name": "Qwen3.8 27B (consensusprotocol)",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 262000,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.08,
+      "output": 0.35,
+      "cache_read": 0.05
+     }
+    },
+    {
      "id": "consensusprotocol/Qwen3.8-27B",
      "name": "Qwen3.8 27B (Consensus Protocol)",
      "release_date": "2026-08-14",
@@ -110047,7 +110297,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -111286,6 +111536,62 @@
       "input": 0.05,
       "output": 0.25,
       "cache_read": 0.01
+     }
+    },
+    {
+     "id": "flexai/mimo-v2.6-flash",
+     "name": "MiMo V2.6 Flash (flexai)",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "audio"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.14,
+      "output": 0.28,
+      "cache_read": 0.0028
+     }
+    },
+    {
+     "id": "flexai/minimax-m3.1-flash",
+     "name": "MiniMax M3.1 Flash (flexai)",
+     "release_date": "2026-10-19",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 512000,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.15,
+      "output": 0.6,
+      "cache_read": 0.015
      }
     },
     {
@@ -114738,7 +115044,13 @@
      ],
      "status": "active",
      "reasoning": {
-      "levels": [],
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
       "switch": false
      },
      "cost": {
@@ -132172,7 +132484,7 @@
      "name": "Abliterated Model Large V2",
      "release_date": "2026-08-31",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1000000,
      "max_output_tokens": 999990,
      "input_modalities": [
       "text"
@@ -135370,7 +135682,7 @@
       "text",
       "image"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "none",
@@ -135397,7 +135709,7 @@
       "text",
       "image"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "none",
@@ -135527,12 +135839,12 @@
      "release_date": "2026-10-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "none",
@@ -135554,12 +135866,12 @@
      "release_date": "2026-10-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text",
       "image"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "none",
@@ -138377,9 +138689,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.011,
-      "output": 0.034,
-      "cache_read": 0.006
+      "input": 0.01,
+      "output": 0.031,
+      "cache_read": 0.005
      }
     },
     {
@@ -138513,9 +138825,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.011,
-      "output": 0.034,
-      "cache_read": 0.006
+      "input": 0.01,
+      "output": 0.031,
+      "cache_read": 0.005
      }
     },
     {
@@ -138686,7 +138998,7 @@
      "name": "Gemma 4 31B Split-Untied",
      "release_date": "2026-09-17",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 32768,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text"
@@ -138746,7 +139058,7 @@
      "name": "Qwen 3.8 27B Uncensored Fast by Heabsy",
      "release_date": "2026-10-16",
      "tool_call": true,
-     "context_window": 524288,
+     "context_window": 1048576,
      "max_output_tokens": 235929,
      "input_modalities": [
       "text",
@@ -143191,7 +143503,7 @@
      "cost": {
       "input": 0.03,
       "output": 0.15,
-      "cache_read": 0.03
+      "cache_read": 0.015
      }
     },
     {
@@ -145573,7 +145885,7 @@
      "name": "Qwen 3.8 27B Fable",
      "release_date": "2026-07-29",
      "tool_call": true,
-     "context_window": 524288,
+     "context_window": 1048576,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
@@ -145731,7 +146043,7 @@
      "name": "Qwen 3.8 27B Queen",
      "release_date": "2026-09-09",
      "tool_call": true,
-     "context_window": 524288,
+     "context_window": 1048576,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
@@ -152178,7 +152490,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -152204,7 +152516,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -152214,12 +152526,12 @@
       ],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 1.75,
       "output": 3.5,
       "cache_read": 1.75
-     },
-     "disputed": true
+     }
     },
     {
      "id": "deepseek-ai/DeepSeek-V4-Pro-0813",
@@ -152259,7 +152571,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -152269,12 +152581,12 @@
       ],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 0.3,
       "output": 1.2,
       "cache_read": 0.01
-     },
-     "disputed": true
+     }
     },
     {
      "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -152474,17 +152786,17 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 0.95,
       "output": 4,
       "cache_read": 0.15
-     },
-     "disputed": true
+     }
     },
     {
      "id": "moonshotai/Kimi-K3",
@@ -152859,17 +153171,17 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
      },
+     "disputed": true,
      "cost": {
       "input": 0.6,
       "output": 3.6,
       "cache_read": 0.12
-     },
-     "disputed": true
+     }
     },
     {
      "id": "Qwen/Qwen3.5-397B-A17B-fast",
@@ -173629,9 +173941,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.006,
-      "output": 0.5,
-      "cache_read": 0.005
+      "input": 0.022,
+      "output": 0.4,
+      "cache_read": 0.004
      }
     },
     {
@@ -175132,7 +175444,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -175164,7 +175476,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -175218,7 +175530,7 @@
       "image",
       "video"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -175782,9 +176094,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.051,
-      "output": 0.567,
-      "cache_read": 0.018
+      "input": 0.022,
+      "output": 0.4,
+      "cache_read": 0.004
      }
     },
     {
@@ -175793,7 +176105,7 @@
      "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -175809,9 +176121,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.006,
-      "output": 0.5,
-      "cache_read": 0.005
+      "input": 0.15,
+      "output": 0.6,
+      "cache_read": 0.003
      }
     },
     {
@@ -176717,7 +177029,7 @@
      "status": "active",
      "cost": {
       "input": 0.08,
-      "output": 0.45,
+      "output": 0.35,
       "cache_read": 0.04
      }
     },
@@ -176934,7 +177246,7 @@
      },
      "cost": {
       "input": 0.06,
-      "output": 0.25,
+      "output": 0.15,
       "cache_read": 0.015
      }
     },
@@ -178662,8 +178974,8 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 10,
+      "input": 0.2375,
+      "output": 8.4085,
       "cache_read": 0.2
      }
     },
@@ -181620,7 +181932,7 @@
      "release_date": "2025-04-28",
      "tool_call": true,
      "context_window": 40960,
-     "max_output_tokens": 36864,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
@@ -181630,8 +181942,8 @@
       "switch": true
      },
      "cost": {
-      "input": 0.1,
-      "output": 0.22
+      "input": 0.12,
+      "output": 0.24
      }
     },
     {
@@ -182124,7 +182436,7 @@
      "release_date": "2026-02-23",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 40960,
      "input_modalities": [
       "text",
       "image",
@@ -182136,8 +182448,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.17,
-      "output": 0.25
+      "input": 0.056,
+      "output": 0.083,
+      "cache_read": 0.051
      }
     },
     {
@@ -183557,7 +183870,12 @@
       "text",
       "image"
      ],
-     "status": "retired"
+     "status": "active",
+     "cost": {
+      "input": 0.8,
+      "output": 3.2,
+      "cache_read": 0.03
+     }
     },
     {
      "id": "unbiased/pareto-26.9",
@@ -184321,9 +184639,9 @@
       "switch": true
      },
      "cost": {
-      "input": 1.33,
-      "output": 4.18,
-      "cache_read": 0.247
+      "input": 1.4,
+      "output": 4.4,
+      "cache_read": 0.26
      }
     },
     {
@@ -232991,7 +233309,6 @@
      "status": "active",
      "reasoning": {
       "levels": [
-       "none",
        "low",
        "medium",
        "high"
@@ -233019,10 +233336,10 @@
      "status": "active",
      "reasoning": {
       "levels": [
-       "none",
        "low",
        "medium",
-       "high"
+       "high",
+       "xhigh"
       ],
       "switch": false
      },
@@ -233047,7 +233364,6 @@
      "status": "active",
      "reasoning": {
       "levels": [
-       "none",
        "low",
        "medium",
        "high"
@@ -233076,11 +233392,9 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
-       "high",
-       "xhigh"
+       "high"
       ],
       "switch": false
      },
@@ -233106,11 +233420,9 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
-       "high",
-       "xhigh"
+       "high"
       ],
       "switch": false
      },
@@ -233136,7 +233448,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233165,10 +233476,10 @@
      "status": "active",
      "reasoning": {
       "levels": [
-       "none",
        "low",
        "medium",
-       "high"
+       "high",
+       "xhigh"
       ],
       "switch": false
      },
@@ -233194,7 +233505,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233250,7 +233560,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233280,7 +233589,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233310,7 +233618,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233356,7 +233663,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233386,7 +233692,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233416,7 +233721,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233446,7 +233750,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233475,9 +233778,6 @@
      "status": "active",
      "reasoning": {
       "levels": [
-       "none",
-       "minimal",
-       "low",
        "medium",
        "high",
        "xhigh"
@@ -233519,7 +233819,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233565,7 +233864,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233733,7 +234031,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233783,7 +234080,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233833,7 +234129,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
@@ -233883,7 +234178,6 @@
      "reasoning": {
       "levels": [
        "none",
-       "minimal",
        "low",
        "medium",
        "high",
