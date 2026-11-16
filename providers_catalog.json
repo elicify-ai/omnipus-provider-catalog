@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.15",
- "updated_at": "2026-11-15T13:12:18.714Z",
- "generated_at": "2026-11-15T13:12:18.714Z",
- "source": "models.dev@888c250133b38839c2018d66fe687cb03c03a8f2 litellm@21215cebac633da4b2d4d0d29ef5557a240bf141 overrides@7f42834e85d51fbc28f042fb3804f2ac0e3e1dd0",
+ "version": "v2026.11.16",
+ "updated_at": "2026-11-16T14:16:32.943Z",
+ "generated_at": "2026-11-16T14:16:32.943Z",
+ "source": "models.dev@36a1a63c3ddbc806d8babffb1b95d6fb721e587f litellm@9a1e3bde9453f9b1316790fc51e6c098d9447d7b overrides@a2d7a72f6a7ba5c1a1ce94a0a68b881466b5845a",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-15T13:12:18.714Z",
-   "commit": "888c250133b38839c2018d66fe687cb03c03a8f2",
-   "etag": "W/\"9fabd07856d8107b1a4df7eec63ea4fe\"",
-   "sha256": "9fabd07856d8107b1a4df7eec63ea4feee8ae0eb08703e53f285b8c06ee899bf",
-   "bytes": 6655634
+   "fetched_at": "2026-11-16T14:16:32.943Z",
+   "commit": "36a1a63c3ddbc806d8babffb1b95d6fb721e587f",
+   "etag": "W/\"a5cd1e38815591e227991fc1a637fd78\"",
+   "sha256": "a5cd1e38815591e227991fc1a637fd78e85b3e140376ea1ddd16a65ee979cdf0",
+   "bytes": 6667256
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-15T13:12:18.714Z",
-   "commit": "21215cebac633da4b2d4d0d29ef5557a240bf141",
-   "etag": "W/\"68bc7b721c53085e4e5d0c1cc874824411d8ede3556a998e83d34afbe454a79b\"",
-   "sha256": "3b5829b9df6a8d32f5ad44f8ec09001b0c31ac8553734a160d0fb0ba95573889",
-   "bytes": 4083403
+   "fetched_at": "2026-11-16T14:16:32.943Z",
+   "commit": "9a1e3bde9453f9b1316790fc51e6c098d9447d7b",
+   "etag": "W/\"dab044ec1248bc59ed851c8933dfaa1ef4fe55e87800bf885a3e53bf10b15f71\"",
+   "sha256": "eba502798a3fbe7145c56bfcb20a3c720448dd2ab9373240334aa8dc90195e9b",
+   "bytes": 4103514
   },
-  "overrides_commit": "7f42834e85d51fbc28f042fb3804f2ac0e3e1dd0",
-  "previous_version": "v2026.11.14"
+  "overrides_commit": "a2d7a72f6a7ba5c1a1ce94a0a68b881466b5845a",
+  "previous_version": "v2026.11.15"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -4310,7 +4310,7 @@
      "status": "active",
      "cost": {
       "input": 0.3,
-      "output": 30
+      "output": 2.5
      }
     },
     {
@@ -9951,7 +9951,7 @@
      "status": "active",
      "cost": {
       "input": 0.3,
-      "output": 30,
+      "output": 2.499,
       "cache_read": 0.03
      }
     },
@@ -10076,7 +10076,7 @@
      },
      "cost": {
       "input": 2,
-      "output": 120
+      "output": 12
      }
     },
     {
@@ -50441,7 +50441,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -50470,7 +50470,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -50939,6 +50939,35 @@
       "output": 10,
       "cache_read": 0.1,
       "cache_write": 2
+     }
+    },
+    {
+     "id": "gemini/gemini-4-hydrogen",
+     "name": "Gemini 4 Hydrogen",
+     "release_date": "2026-11-12",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 7.5,
+      "cache_read": 0.075,
+      "cache_write": 1.5
      }
     },
     {
@@ -51994,6 +52023,34 @@
      }
     },
     {
+     "id": "qwen/qwen4-max",
+     "name": "Qwen4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": true
+     },
+     "cost": {
+      "input": 1.6,
+      "output": 4.8,
+      "cache_read": 0.08,
+      "cache_write": 2
+     }
+    },
+    {
      "id": "tencent/hy3",
      "name": "Hy3",
      "release_date": "2026-07-06",
@@ -52046,6 +52103,32 @@
      }
     },
     {
+     "id": "tencent/hy4-flash",
+     "name": "Hy4 flash",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.08,
+      "output": 0.32,
+      "cache_read": 0.0032,
+      "cache_write": 0.08
+     }
+    },
+    {
      "id": "tencent/hy4-preview",
      "name": "Hy4 preview",
      "release_date": "2026-08-28",
@@ -52055,7 +52138,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -55015,7 +55098,8 @@
      },
      "cost": {
       "input": 0.037,
-      "output": 0.17
+      "output": 0.17,
+      "cache_read": 0.0185
      },
      "disputed": true
     },
@@ -62002,7 +62086,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -68114,6 +68198,35 @@
      }
     },
     {
+     "id": "qwen/qwen4-max",
+     "name": "Qwen4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
+     }
+    },
+    {
      "id": "qwen/qwq-plus",
      "name": "QwQ Plus",
      "release_date": "2025-03-05",
@@ -72441,6 +72554,33 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "qwen4-max",
+     "name": "Qwen4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 983616,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": true
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075
+     }
     },
     {
      "id": "seed-2-0-code",
@@ -79848,7 +79988,7 @@
      "status": "active",
      "cost": {
       "input": 0.3,
-      "output": 30,
+      "output": 2.5,
       "cache_read": 0.075
      }
     },
@@ -79971,7 +80111,7 @@
      },
      "cost": {
       "input": 2,
-      "output": 120
+      "output": 12
      }
     },
     {
@@ -80010,7 +80150,7 @@
      },
      "cost": {
       "input": 0.5,
-      "output": 60
+      "output": 3
      }
     },
     {
@@ -80079,7 +80219,7 @@
      },
      "cost": {
       "input": 0.25,
-      "output": 30
+      "output": 1.5
      }
     },
     {
@@ -81357,7 +81497,7 @@
      "status": "active",
      "cost": {
       "input": 0.3,
-      "output": 30
+      "output": 2.5
      }
     },
     {
@@ -81475,7 +81615,7 @@
      },
      "cost": {
       "input": 2,
-      "output": 120,
+      "output": 12,
       "cache_read": 0.2
      }
     },
@@ -81502,7 +81642,7 @@
      },
      "cost": {
       "input": 0.5,
-      "output": 60,
+      "output": 3,
       "cache_read": 0.05
      }
     },
@@ -81559,7 +81699,7 @@
      },
      "cost": {
       "input": 0.25,
-      "output": 30,
+      "output": 1.5,
       "cache_read": 0.025
      }
     },
@@ -81977,7 +82117,7 @@
      },
      "cost": {
       "input": 1.5,
-      "output": 30,
+      "output": 7.5,
       "cache_read": 0.15
      }
     },
@@ -84327,7 +84467,7 @@
      "cost": {
       "input": 0.075,
       "output": 0.3,
-      "cache_read": 0.037
+      "cache_read": 0.0375
      }
     },
     {
@@ -92762,7 +92902,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7985,
+      "input": 0.7995,
       "output": 3.75,
       "cache_read": 0.19,
       "cache_write": 0
@@ -100833,7 +100973,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
@@ -100849,9 +100989,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.02,
-      "output": 0.108,
-      "cache_read": 0.007
+      "input": 0.036,
+      "output": 0.5,
+      "cache_read": 0.01
      }
     },
     {
@@ -102802,7 +102942,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -102945,7 +103085,7 @@
      "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -104058,9 +104198,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.012,
-      "output": 0.037,
-      "cache_read": 0.006
+      "input": 0.04,
+      "output": 0.15,
+      "cache_read": 0.01
      }
     },
     {
@@ -105570,8 +105710,8 @@
      "name": "MiniMax-M2.5",
      "release_date": "2026-02-12",
      "tool_call": true,
-     "context_window": 198000,
-     "max_output_tokens": 32768,
+     "context_window": 196608,
+     "max_output_tokens": 176947,
      "input_modalities": [
       "text"
      ],
@@ -105583,9 +105723,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.27,
-      "output": 0.95,
-      "cache_read": 0.03
+      "input": 0.295,
+      "output": 1.2,
+      "cache_read": 0.06
      }
     },
     {
@@ -109174,7 +109314,7 @@
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -110442,7 +110582,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "high"
@@ -110578,8 +110718,8 @@
      "name": "Qwen3.5 397B-A17B",
      "release_date": "2026-02-15",
      "tool_call": true,
-     "context_window": 256000,
-     "max_output_tokens": 64000,
+     "context_window": 262144,
+     "max_output_tokens": 81920,
      "input_modalities": [
       "text",
       "image",
@@ -110619,9 +110759,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.021,
-      "output": 0.031,
-      "cache_read": 0.019
+      "input": 0.17,
+      "output": 0.25,
+      "cache_read": 0.153
      }
     },
     {
@@ -111168,6 +111308,35 @@
      }
     },
     {
+     "id": "qwen/qwen4-max",
+     "name": "Qwen: Qwen4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
+     }
+    },
+    {
      "id": "reflection/beam-1.0-501b-a23b",
      "name": "Reflection: Beam 1.0 501B A23B",
      "release_date": "2026-10-05",
@@ -111710,7 +111879,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "high"
@@ -111799,7 +111968,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -111994,6 +112163,31 @@
       "input": 0.834,
       "output": 2.501,
       "cache_read": 0.042
+     }
+    },
+    {
+     "id": "tencent/hy4-flash",
+     "name": "Tencent: Tencent Hy4 Flash",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.035,
+      "output": 0.1405,
+      "cache_read": 0.0015
      }
     },
     {
@@ -112913,9 +113107,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2,
-      "output": 1.1,
-      "cache_read": 0.03
+      "input": 0.13,
+      "output": 0.85,
+      "cache_read": 0.025
      }
     },
     {
@@ -116336,6 +116530,31 @@
      }
     },
     {
+     "id": "beam-1.0-501b-a23b",
+     "name": "Beam 1.0 501B A23B",
+     "release_date": "2026-10-05",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.4,
+      "output": 1.2,
+      "cache_read": 0.04
+     }
+    },
+    {
      "id": "claude-fable-5",
      "name": "Claude Fable 5",
      "release_date": "2026-06-09",
@@ -118221,7 +118440,7 @@
      "name": "GLM-5.3 FlashX",
      "release_date": "2026-09-18",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1048576,
      "max_output_tokens": 1000000,
      "input_modalities": [
       "text",
@@ -118230,6 +118449,8 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "low",
+       "high",
        "xhigh",
        "max"
       ],
@@ -119696,7 +119917,7 @@
      "name": "Hy4 preview",
      "release_date": "2026-08-28",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1048576,
      "max_output_tokens": 64000,
      "input_modalities": [
       "text"
@@ -120049,9 +120270,9 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 20,
-      "cache_read": 0.2,
+      "input": 3.8,
+      "output": 19,
+      "cache_read": 0.19,
       "cache_write": 4
      }
     },
@@ -120324,6 +120545,35 @@
       "input": 0.435,
       "output": 0.87,
       "cache_read": 0.0036
+     }
+    },
+    {
+     "id": "mimo-v2.6-pro-ultraspeed",
+     "name": "MiMo V2.6 Pro UltraSpeed",
+     "release_date": "2026-09-21",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4.35,
+      "output": 8.7,
+      "cache_read": 0.036
      }
     },
     {
@@ -120981,6 +121231,37 @@
       "input": 0.1,
       "output": 0.2,
       "cache_read": 0.002
+     }
+    },
+    {
+     "id": "muse-spark-open",
+     "name": "Muse Spark Open",
+     "release_date": "2026-10-15",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.25,
+      "output": 4.25,
+      "cache_read": 0.15
      }
     },
     {
@@ -122111,6 +122392,31 @@
      }
     },
     {
+     "id": "qwen4-max",
+     "name": "Qwen4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 983616,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
+     }
+    },
+    {
      "id": "reka-edge-2603",
      "name": "Reka Edge 2603",
      "release_date": "2026-10-09",
@@ -122125,6 +122431,37 @@
      "cost": {
       "input": 0.1,
       "output": 0.1
+     }
+    },
+    {
+     "id": "sakana-namazu",
+     "name": "Sakana Namazu",
+     "release_date": "2026-08-03",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.95,
+      "output": 4,
+      "cache_read": 0.15
      }
     },
     {
@@ -124304,7 +124641,6 @@
        "low",
        "medium",
        "high",
-       "xhigh",
        "max"
       ],
       "switch": false
@@ -134463,6 +134799,37 @@
       "input": 5,
       "output": 30,
       "cache_read": 0.5
+     }
+    },
+    {
+     "id": "sakana/sakana-namazu",
+     "name": "Sakana Namazu (Sakana AI)",
+     "release_date": "2026-08-03",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.95,
+      "output": 4,
+      "cache_read": 0.15
      }
     },
     {
@@ -155530,9 +155897,7 @@
      "input_modalities": [
       "text",
       "image",
-      "audio",
-      "video",
-      "pdf"
+      "audio"
      ],
      "status": "active",
      "cost": {
@@ -157828,9 +158193,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.013,
-      "output": 0.039,
-      "cache_read": 0.007
+      "input": 0.064,
+      "output": 0.193,
+      "cache_read": 0.032
      }
     },
     {
@@ -158288,6 +158653,23 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "hyperresearch/ousia-1",
+     "name": "Ousia 1",
+     "release_date": "2026-11-15",
+     "tool_call": false,
+     "context_window": 128000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 2
+     }
     },
     {
      "id": "ibm-granite/granite-4.1-8b",
@@ -158966,6 +159348,56 @@
       "image"
      ],
      "status": "retired"
+    },
+    {
+     "id": "lyber/deepseek-v4.1-flash-1017-abliterated",
+     "name": "DeepSeek V4.1 Flash 1017 Abliterated (Lyber)",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 126976,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.29,
+      "output": 0.99,
+      "cache_read": 0.029
+     }
+    },
+    {
+     "id": "lyber/kimi-k3.1-pro-abliterated",
+     "name": "Kimi K3.1 Pro Abliterated (Lyber)",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 15,
+      "cache_read": 0.4
+     }
     },
     {
      "id": "MarinaraSpaghetti/NemoMix-Unleashed-12B",
@@ -165345,6 +165777,63 @@
      }
     },
     {
+     "id": "qwen/qwen4-max",
+     "name": "Qwen 4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
+     }
+    },
+    {
+     "id": "qwen/qwen4-max:thinking",
+     "name": "Qwen 4 Max Thinking",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
+     }
+    },
+    {
      "id": "qwen25-vl-72b-instruct",
      "name": "Qwen25 VL 72b",
      "release_date": "2025-05-10",
@@ -166965,6 +167454,36 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "TEE/inkling-2-small",
+     "name": "Inkling 2 Small TEE",
+     "release_date": "2026-11-05",
+     "tool_call": true,
+     "context_window": 524288,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.3,
+      "output": 1,
+      "cache_read": 0.03
+     }
     },
     {
      "id": "TEE/kimi-k2.6",
@@ -169164,9 +169683,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.189,
-      "output": 0.594,
-      "cache_read": 0.0351
+      "input": 0.42,
+      "output": 1.32,
+      "cache_read": 0.078
      }
     },
     {
@@ -169188,9 +169707,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.189,
-      "output": 0.594,
-      "cache_read": 0.0351
+      "input": 0.42,
+      "output": 1.32,
+      "cache_read": 0.078
      }
     },
     {
@@ -190926,6 +191445,31 @@
      }
     },
     {
+     "id": "hy4-flash-free",
+     "name": "Hy4 flash Free",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0,
+      "cache_read": 0
+     }
+    },
+    {
      "id": "iceman-free",
      "name": "Iceman Free",
      "release_date": "2026-11-06",
@@ -192945,6 +193489,31 @@
      }
     },
     {
+     "id": "hy4-flash-free",
+     "name": "Hy4 flash Free",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0,
+      "cache_read": 0
+     }
+    },
+    {
      "id": "hy4-preview",
      "name": "Hy4 preview",
      "release_date": "2026-08-28",
@@ -193638,6 +194207,34 @@
      }
     },
     {
+     "id": "qwen4-max",
+     "name": "Qwen4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": true
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
+     }
+    },
+    {
      "id": "space-bunny",
      "name": "Space Bunny",
      "release_date": "2026-09-23",
@@ -194020,7 +194617,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.038,
+      "input": 0.036,
       "output": 0.5,
       "cache_read": 0.01
      }
@@ -195857,14 +196454,14 @@
      "release_date": "2025-12-01",
      "tool_call": true,
      "context_window": 163840,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 16000,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "cost": {
-      "input": 0.32,
-      "output": 0.89
+      "input": 0.2574,
+      "output": 1.0287
      }
     },
     {
@@ -196042,7 +196639,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -196057,9 +196654,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0434,
-      "output": 0.3,
-      "cache_read": 0.035
+      "input": 0.06,
+      "output": 0.18,
+      "cache_read": 0.015
      }
     },
     {
@@ -196158,7 +196755,7 @@
      "release_date": "2026-09-10",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -196174,9 +196771,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3,
-      "output": 1.2,
-      "cache_read": 0.006
+      "input": 0.14,
+      "output": 0.42,
+      "cache_read": 0.0042
      }
     },
     {
@@ -196201,7 +196798,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.038,
+      "input": 0.036,
       "output": 0.5,
       "cache_read": 0.01
      }
@@ -197358,7 +197955,7 @@
      },
      "cost": {
       "input": 0.06,
-      "output": 0.25,
+      "output": 0.15,
       "cache_read": 0.015
      }
     },
@@ -197610,6 +198207,27 @@
       "input": 0.045,
       "output": 0.135,
       "cache_read": 0.009
+     }
+    },
+    {
+     "id": "inclusionai/ling-3.2-flash:free",
+     "name": "Ling 3.2 Flash (free)",
+     "release_date": "2026-11-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0,
+      "output": 0
      }
     },
     {
@@ -197910,14 +198528,14 @@
      "release_date": "2024-09-25",
      "tool_call": false,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 72000,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "cost": {
-      "input": 0.05,
-      "output": 0.33
+      "input": 0.0509,
+      "output": 0.335
      }
     },
     {
@@ -198367,7 +198985,7 @@
      "release_date": "2026-02-12",
      "tool_call": true,
      "context_window": 198000,
-     "max_output_tokens": 32768,
+     "max_output_tokens": 176947,
      "input_modalities": [
       "text"
      ],
@@ -198377,9 +198995,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.27,
-      "output": 0.95,
-      "cache_read": 0.03
+      "input": 0.295,
+      "output": 1.2,
+      "cache_read": 0.06
      }
     },
     {
@@ -198476,9 +199094,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.075,
-      "output": 0.3,
-      "cache_read": 0.0075
+      "input": 0.15,
+      "output": 0.6,
+      "cache_read": 0.015
      }
     },
     {
@@ -199086,8 +199704,8 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 10,
+      "input": 0.2403,
+      "output": 8.4023,
       "cache_read": 0.2
      }
     },
@@ -199552,7 +200170,7 @@
      "release_date": "2026-10-15",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 235929,
      "input_modalities": [
       "text",
       "image",
@@ -199565,7 +200183,7 @@
      },
      "cost": {
       "input": 0.15,
-      "output": 0.47,
+      "output": 0.5,
       "cache_read": 0.02
      }
     },
@@ -201390,7 +202008,7 @@
      "release_date": "2025-08-05",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 65536,
      "input_modalities": [
       "text"
      ],
@@ -201404,9 +202022,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.03,
-      "output": 0.13,
-      "cache_read": 0.03
+      "input": 0.075,
+      "output": 0.3,
+      "cache_read": 0.0375
      }
     },
     {
@@ -201663,7 +202281,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.05,
+      "input": 0.06,
       "output": 0.5,
       "cache_read": 0.003
      }
@@ -202427,7 +203045,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -202554,7 +203172,7 @@
      "release_date": "2026-02-15",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 64000,
+     "max_output_tokens": 81920,
      "input_modalities": [
       "text",
       "image",
@@ -202566,9 +203184,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.6,
-      "output": 3.6,
-      "cache_read": 0.12
+      "input": 0.45,
+      "output": 3,
+      "cache_read": 0.22
      }
     },
     {
@@ -202589,9 +203207,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.141,
-      "output": 0.208,
-      "cache_read": 0.127
+      "input": 0.17,
+      "output": 0.25,
+      "cache_read": 0.153
      }
     },
     {
@@ -202965,7 +203583,7 @@
      "name": "Qwen3.8 27B",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1048575,
+     "context_window": 1024000,
      "max_output_tokens": 235929,
      "input_modalities": [
       "text",
@@ -203119,6 +203737,35 @@
       "input": 0.15,
       "output": 0.47,
       "cache_read": 0.016
+     }
+    },
+    {
+     "id": "qwen/qwen4-max",
+     "name": "Qwen4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
      }
     },
     {
@@ -203559,7 +204206,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -203633,7 +204280,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -203711,9 +204358,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0825,
-      "output": 0.33,
-      "cache_read": 0.020625
+      "input": 0.132,
+      "output": 0.528,
+      "cache_read": 0.033
      }
     },
     {
@@ -203787,9 +204434,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7506,
-      "output": 2.2509,
-      "cache_read": 0.0378
+      "input": 0.834,
+      "output": 2.501,
+      "cache_read": 0.042
      }
     },
     {
@@ -204638,9 +205285,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.2,
-      "output": 1.1,
-      "cache_read": 0.03
+      "input": 0.13,
+      "output": 0.85,
+      "cache_read": 0.025
      }
     },
     {
@@ -204725,9 +205372,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.6,
-      "output": 2.2,
-      "cache_read": 0.11
+      "input": 0.4,
+      "output": 1.75,
+      "cache_read": 0.08
      }
     },
     {
@@ -204798,7 +205445,7 @@
      "release_date": "2026-04-07",
      "tool_call": true,
      "context_window": 204800,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 182476,
      "input_modalities": [
       "text"
      ],
@@ -204870,9 +205517,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.084,
-      "output": 3.6,
-      "cache_read": 0.079
+      "input": 0.0699,
+      "output": 1.4,
+      "cache_read": 0.0689
      }
     },
     {
@@ -255396,6 +256043,30 @@
      }
     },
     {
+     "id": "qwen-4-max",
+     "name": "Qwen 4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 1.875,
+      "output": 5.625,
+      "cache_read": 0.09375,
+      "cache_write": 2.34375
+     }
+    },
+    {
      "id": "qwen3-235b-a22b-instruct-2507",
      "name": "Qwen 3 235B A22B Instruct 2507",
      "release_date": "2025-07-21",
@@ -256890,6 +257561,33 @@
       "input": 0.15,
       "output": 0.47,
       "cache_read": 0.016
+     }
+    },
+    {
+     "id": "alibaba/qwen4-max",
+     "name": "Qwen 4 Max",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh"
+      ],
+      "switch": true
+     },
+     "cost": {
+      "input": 1.5,
+      "output": 4.5,
+      "cache_read": 0.075,
+      "cache_write": 1.875
      }
     },
     {
@@ -264206,6 +264904,31 @@
       "input": 0.417,
       "output": 1.2505,
       "cache_read": 0.021
+     }
+    },
+    {
+     "id": "tencent/hy4-flash",
+     "name": "Tencent Hy4 Flash",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1024000,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.035,
+      "output": 0.1405,
+      "cache_read": 0.0015
      }
     },
     {
