@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.18",
- "updated_at": "2026-11-18T14:46:56.418Z",
- "generated_at": "2026-11-18T14:46:56.418Z",
- "source": "models.dev@d893237face842c5a4c918009d50c8e33b7c6523 litellm@c030ffb6b9c7a1b49072dceca1c2224cdfc21bcc overrides@a5f339833cec2cf7daccd263d298f2da9d754bb8",
+ "version": "v2026.11.19",
+ "updated_at": "2026-11-19T14:53:56.666Z",
+ "generated_at": "2026-11-19T14:53:56.666Z",
+ "source": "models.dev@ba846a56a8a2c486b92c82732a849fa474dc885b litellm@2f29a55a5102fbf23e406d313ea4b91a7257e48f overrides@18ebbde35170167ff2244d57ae19ab5e8ef27ce6",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-18T14:46:56.418Z",
-   "commit": "d893237face842c5a4c918009d50c8e33b7c6523",
-   "etag": "W/\"a8f6096b627647d08a40d0e8a50a00c0\"",
-   "sha256": "a8f6096b627647d08a40d0e8a50a00c0238397bed622cc3e70b2ecaba072c6b5",
-   "bytes": 6736604
+   "fetched_at": "2026-11-19T14:53:56.666Z",
+   "commit": "ba846a56a8a2c486b92c82732a849fa474dc885b",
+   "etag": "W/\"eb90d6a80d8314e9be093bd5af9a13fd\"",
+   "sha256": "eb90d6a80d8314e9be093bd5af9a13fd9cb926d959ffa9c9b5ac6963bf80ae74",
+   "bytes": 6769506
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-18T14:46:56.418Z",
-   "commit": "c030ffb6b9c7a1b49072dceca1c2224cdfc21bcc",
-   "etag": "W/\"cb0f108482bb257b575ab6101946c0d20b6fb27a76723d5457abed7e88111c04\"",
-   "sha256": "52822518622432b9304b719698854abe6c7fdf5fdc678301bc5758067237a062",
-   "bytes": 4274448
+   "fetched_at": "2026-11-19T14:53:56.666Z",
+   "commit": "2f29a55a5102fbf23e406d313ea4b91a7257e48f",
+   "etag": "W/\"5a87d1d234346e76b4afc65f431c5d95d66b6c1c9322d9813728434a908fe475\"",
+   "sha256": "35324269521018afbbb23413133d2196b04bdd84a5a6fbf1d1964c8fb42e851d",
+   "bytes": 5016503
   },
-  "overrides_commit": "a5f339833cec2cf7daccd263d298f2da9d754bb8",
-  "previous_version": "v2026.11.17"
+  "overrides_commit": "18ebbde35170167ff2244d57ae19ab5e8ef27ce6",
+  "previous_version": "v2026.11.18"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -25629,6 +25629,108 @@
      ]
     },
     {
+     "id": "openai.gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8.8,
+      "output": 44,
+      "cache_read": 0.44,
+      "cache_write": 11,
+      "context_over_200k": {
+       "input": 17.6,
+       "output": 66,
+       "cache_read": 0.88,
+       "cache_write": 22
+      },
+      "tiers": [
+       {
+        "input": 17.6,
+        "output": 66,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.88,
+        "cache_write": 22
+       }
+      ]
+     },
+     "inference_profiles": [
+      "us",
+      "global"
+     ]
+    },
+    {
+     "id": "openai.gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2.2,
+      "output": 11,
+      "cache_read": 0.11,
+      "cache_write": 2.75,
+      "context_over_200k": {
+       "input": 4.4,
+       "output": 16.5,
+       "cache_read": 0.22,
+       "cache_write": 5.5
+      },
+      "tiers": [
+       {
+        "input": 4.4,
+        "output": 16.5,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.22,
+        "cache_write": 5.5
+       }
+      ]
+     },
+     "inference_profiles": [
+      "us",
+      "global"
+     ]
+    },
+    {
      "id": "openai.gpt-oss-120b",
      "name": "gpt-oss-120b",
      "release_date": "2025-08-05",
@@ -26274,9 +26376,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.098,
-      "output": 0.294,
-      "cache_read": 0.0029,
+      "input": 0.035,
+      "output": 0.15,
+      "cache_read": 0.0015,
       "cache_write": 0
      }
     },
@@ -31215,6 +31317,102 @@
      }
     },
     {
+     "id": "gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "cache_write": 10,
+      "context_over_200k": {
+       "input": 16,
+       "output": 60,
+       "cache_read": 0.8,
+       "cache_write": 20
+      },
+      "tiers": [
+       {
+        "input": 16,
+        "output": 60,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.8,
+        "cache_write": 20
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5,
+      "context_over_200k": {
+       "input": 4,
+       "output": 15,
+       "cache_read": 0.2,
+       "cache_write": 5
+      },
+      "tiers": [
+       {
+        "input": 4,
+        "output": 15,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.2,
+        "cache_write": 5
+       }
+      ]
+     }
+    },
+    {
      "id": "gpt-chat-latest",
      "name": "GPT Chat Latest",
      "release_date": "2026-05-05",
@@ -33680,6 +33878,102 @@
         },
         "cache_read": 0.1,
         "cache_write": 2.5
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "cache_write": 10,
+      "context_over_200k": {
+       "input": 16,
+       "output": 60,
+       "cache_read": 0.8,
+       "cache_write": 20
+      },
+      "tiers": [
+       {
+        "input": 16,
+        "output": 60,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.8,
+        "cache_write": 20
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5,
+      "context_over_200k": {
+       "input": 4,
+       "output": 15,
+       "cache_read": 0.2,
+       "cache_write": 5
+      },
+      "tiers": [
+       {
+        "input": 4,
+        "output": 15,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.2,
+        "cache_write": 5
        }
       ]
      }
@@ -38660,9 +38954,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3,
-      "output": 1.2,
-      "cache_read": 0.03
+      "input": 0.195,
+      "output": 0.78,
+      "cache_read": 0.02
      }
     },
     {
@@ -39035,9 +39329,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.225,
-      "output": 3.85,
-      "cache_read": 0.245
+      "input": 0.8,
+      "output": 2.5,
+      "cache_read": 0.16
      }
     }
    ]
@@ -42533,6 +42827,104 @@
      }
     },
     {
+     "id": "openai/gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "cache_write": 10,
+      "context_over_200k": {
+       "input": 12,
+       "output": 60,
+       "cache_read": 0.6,
+       "cache_write": 15
+      },
+      "tiers": [
+       {
+        "input": 12,
+        "output": 60,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.6,
+        "cache_write": 15
+       }
+      ]
+     }
+    },
+    {
+     "id": "openai/gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5,
+      "context_over_200k": {
+       "input": 3,
+       "output": 15,
+       "cache_read": 0.15,
+       "cache_write": 3.75
+      },
+      "tiers": [
+       {
+        "input": 3,
+        "output": 15,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.15,
+        "cache_write": 3.75
+       }
+      ]
+     }
+    },
+    {
      "id": "openai/o1",
      "name": "o1",
      "release_date": "2024-12-05",
@@ -43236,6 +43628,23 @@
      "cost": {
       "input": 0.351,
       "output": 0.555
+     }
+    },
+    {
+     "id": "@cf/cloudflare/clairic-flash",
+     "name": "Clairic Flash",
+     "release_date": "2026-10-29",
+     "tool_call": false,
+     "context_window": 65536,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.1,
+      "output": 0
      }
     },
     {
@@ -43980,7 +44389,8 @@
      "cost": {
       "input": 2.5,
       "output": 10
-     }
+     },
+     "disputed": true
     },
     {
      "id": "command-a-vision-07-2025",
@@ -43997,7 +44407,8 @@
      "cost": {
       "input": 2.5,
       "output": 10
-     }
+     },
+     "disputed": true
     },
     {
      "id": "command-r-08-2024",
@@ -47135,10 +47546,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.996,
-      "output": 4.982,
-      "cache_read": 0.099,
-      "cache_write": 1.186
+      "input": 1.137,
+      "output": 5.687,
+      "cache_read": 0.114,
+      "cache_write": 1.421
      }
     },
     {
@@ -47163,10 +47574,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.113,
-      "output": 0.563,
+      "input": 0.114,
+      "output": 0.569,
       "cache_read": 0.011,
-      "cache_write": 0.14
+      "cache_write": 0.143
      }
     },
     {
@@ -48077,7 +48488,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 1000000,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -48090,9 +48501,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.9,
-      "output": 3.24,
-      "cache_read": 0.189
+      "input": 1.3,
+      "output": 4.2,
+      "cache_read": 0.25
      }
     },
     {
@@ -48173,9 +48584,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 2.192,
-      "output": 8.769,
-      "cache_read": 0.546
+      "input": 2.275,
+      "output": 9.097,
+      "cache_read": 0.569
      }
     },
     {
@@ -48192,9 +48603,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.434,
-      "output": 1.704,
-      "cache_read": 0.134
+      "input": 0.455,
+      "output": 1.819,
+      "cache_read": 0.114
      }
     },
     {
@@ -48211,9 +48622,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.111,
-      "output": 0.434,
-      "cache_read": 0.056
+      "input": 0.114,
+      "output": 0.455,
+      "cache_read": 0.031
      }
     },
     {
@@ -48230,9 +48641,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 2.659,
-      "output": 10.635,
-      "cache_read": 1.33
+      "input": 2.844,
+      "output": 11.372,
+      "cache_read": 1.421
      }
     },
     {
@@ -48249,9 +48660,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.159,
-      "output": 0.638,
-      "cache_read": 0.081
+      "input": 0.17,
+      "output": 0.683,
+      "cache_read": 0.086
      }
     },
     {
@@ -48275,9 +48686,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.375,
-      "output": 10.96,
-      "cache_read": 0.156
+      "input": 1.427,
+      "output": 11.372,
+      "cache_read": 0.145
      }
     },
     {
@@ -48301,9 +48712,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.279,
-      "output": 2.192,
-      "cache_read": 0.056
+      "input": 0.29,
+      "output": 2.275,
+      "cache_read": 0.031
      }
     },
     {
@@ -48327,9 +48738,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.06,
-      "output": 0.439,
-      "cache_read": 0.019
+      "input": 0.062,
+      "output": 0.455,
+      "cache_read": 0.01
      }
     },
     {
@@ -48354,9 +48765,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.375,
-      "output": 10.96,
-      "cache_read": 0.156
+      "input": 1.427,
+      "output": 11.372,
+      "cache_read": 0.145
      }
     },
     {
@@ -48381,9 +48792,9 @@
       "switch": false
      },
      "cost": {
-      "input": 2.898,
-      "output": 15.453,
-      "cache_read": 0.242
+      "input": 2.844,
+      "output": 17.058,
+      "cache_read": 0.29
      }
     },
     {
@@ -48408,10 +48819,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.219,
-      "output": 1.32,
-      "cache_read": 0.022,
-      "cache_write": 0.275
+      "input": 0.227,
+      "output": 1.364,
+      "cache_read": 0.031,
+      "cache_write": 0.29
      }
     },
     {
@@ -48436,10 +48847,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4.399,
-      "output": 21.998,
-      "cache_read": 0.44,
-      "cache_write": 5.5
+      "input": 4.548,
+      "output": 22.743,
+      "cache_read": 0.455,
+      "cache_write": 5.687
      }
     },
     {
@@ -48464,10 +48875,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2.2,
-      "output": 13.199,
-      "cache_read": 0.219,
-      "cache_write": 2.749
+      "input": 2.275,
+      "output": 13.64,
+      "cache_read": 0.227,
+      "cache_write": 2.844
      }
     },
     {
@@ -48492,10 +48903,10 @@
       "switch": false
      },
      "cost": {
-      "input": 12.272,
-      "output": 61.359,
-      "cache_read": 1.228,
-      "cache_write": 15.34
+      "input": 12.408,
+      "output": 62.041,
+      "cache_read": 1.241,
+      "cache_write": 15.51
      }
     },
     {
@@ -48520,10 +48931,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.12,
-      "output": 0.6,
+      "input": 0.124,
+      "output": 0.62,
       "cache_read": 0.012,
-      "cache_write": 0.15
+      "cache_write": 0.155
      }
     },
     {
@@ -48548,10 +48959,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2.4,
-      "output": 11.999,
-      "cache_read": 0.24,
-      "cache_write": 3
+      "input": 2.482,
+      "output": 12.408,
+      "cache_read": 0.248,
+      "cache_write": 3.102
      }
     },
     {
@@ -48576,10 +48987,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2.4,
-      "output": 11.999,
-      "cache_read": 0.12,
-      "cache_write": 3
+      "input": 2.482,
+      "output": 12.408,
+      "cache_read": 0.124,
+      "cache_write": 3.102
      }
     },
     {
@@ -48604,10 +49015,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.176,
-      "output": 5.882,
-      "cache_read": 0.059,
-      "cache_write": 1.47
+      "input": 1.241,
+      "output": 6.204,
+      "cache_read": 0.062,
+      "cache_write": 1.551
      }
     },
     {
@@ -48802,8 +49213,8 @@
      "name": "Kimi K3",
      "release_date": "2026-07-16",
      "tool_call": true,
-     "context_window": 1048576,
-     "max_output_tokens": 1048576,
+     "context_window": 1024000,
+     "max_output_tokens": 1024000,
      "input_modalities": [
       "text",
       "image"
@@ -51105,6 +51516,35 @@
       "output": 7.5,
       "cache_read": 0.075,
       "cache_write": 1.5
+     }
+    },
+    {
+     "id": "gemini/gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15,
+      "cache_write": 3
      }
     },
     {
@@ -58746,6 +59186,94 @@
      }
     },
     {
+     "id": "openai-gpt-6.2-astra",
+     "name": "OpenAI GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "context_over_200k": {
+       "input": 16,
+       "output": 60,
+       "cache_read": 0.8
+      },
+      "tiers": [
+       {
+        "input": 16,
+        "output": 60,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.8
+       }
+      ]
+     }
+    },
+    {
+     "id": "openai-gpt-6.2-sol",
+     "name": "OpenAI GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "context_over_200k": {
+       "input": 4,
+       "output": 15,
+       "cache_read": 0.2
+      },
+      "tiers": [
+       {
+        "input": 4,
+        "output": 15,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.2
+       }
+      ]
+     }
+    },
+    {
      "id": "openai-gpt-oss-120b",
      "name": "OpenAI GPT-oss-120b",
      "release_date": "2025-08-05",
@@ -60386,7 +60914,7 @@
      "cost": {
       "input": 0.06,
       "output": 0.24,
-      "cache_read": 0.015
+      "cache_read": 0.01625
      }
     },
     {
@@ -60406,7 +60934,7 @@
      "cost": {
       "input": 0.06,
       "output": 0.24,
-      "cache_read": 0.015
+      "cache_read": 0.01625
      }
     },
     {
@@ -60423,7 +60951,7 @@
      "cost": {
       "input": 0.035,
       "output": 0.14,
-      "cache_read": 0.00875
+      "cache_read": 0.011
      }
     },
     {
@@ -60440,7 +60968,7 @@
      "cost": {
       "input": 0.035,
       "output": 0.14,
-      "cache_read": 0.00875
+      "cache_read": 0.011
      }
     },
     {
@@ -60460,7 +60988,7 @@
      "cost": {
       "input": 0.8,
       "output": 3.2,
-      "cache_read": 0.2
+      "cache_read": 0.2175
      }
     },
     {
@@ -60480,7 +61008,7 @@
      "cost": {
       "input": 0.8,
       "output": 3.2,
-      "cache_read": 0.2
+      "cache_read": 0.2175
      }
     },
     {
@@ -61646,6 +62174,25 @@
      }
     },
     {
+     "id": "azure/gpt-4.1-nano@us",
+     "name": "GPT-4.1 nano (Azure, US)",
+     "release_date": "2025-04-14",
+     "tool_call": true,
+     "context_window": 1047576,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.11,
+      "output": 0.44,
+      "cache_read": 0.0275
+     }
+    },
+    {
      "id": "azure/gpt-5.1-codex",
      "name": "GPT-5.1 Codex (Azure)",
      "release_date": "2025-11-13",
@@ -62082,6 +62629,39 @@
      "cost": {
       "input": 2.5,
       "output": 10
+     }
+    },
+    {
+     "id": "cohere/command-a-translate-08-2025",
+     "name": "Command A Translate",
+     "release_date": "2025-08-28",
+     "tool_call": true,
+     "context_window": 8992,
+     "max_output_tokens": 8000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0,
+      "output": 0
+     }
+    },
+    {
+     "id": "cohere/command-a-vision-07-2025",
+     "name": "Command A Vision",
+     "release_date": "2025-07-31",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 8000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0,
+      "output": 0
      }
     },
     {
@@ -64577,6 +65157,38 @@
      }
     },
     {
+     "id": "google/gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "reasoning": 15,
+      "cache_read": 0.15,
+      "cache_write": 0.083333
+     }
+    },
+    {
      "id": "google/gemini-flash-latest",
      "name": "Gemini Flash Latest (Gemini 3.8 Flash)",
      "release_date": "2026-09-02",
@@ -64765,9 +65377,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.153846,
-      "output": 0.384615,
-      "cache_read": 0.043956
+      "input": 0.153552,
+      "output": 0.38388,
+      "cache_read": 0.043872
      }
     },
     {
@@ -64792,9 +65404,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.241758,
-      "output": 1.20879,
-      "cache_read": 0.012088
+      "input": 0.241296,
+      "output": 1.20648,
+      "cache_read": 0.012065
      }
     },
     {
@@ -64817,8 +65429,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.21978,
-      "output": 0.76923
+      "input": 0.21936,
+      "output": 0.76776
      }
     },
     {
@@ -64833,8 +65445,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.20879,
-      "output": 1.20879
+      "input": 1.20648,
+      "output": 1.20648
      }
     },
     {
@@ -64849,8 +65461,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.98901,
-      "output": 2.96703
+      "input": 0.98712,
+      "output": 2.961361
      }
     },
     {
@@ -64975,8 +65587,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.32967,
-      "output": 0.43956
+      "input": 0.32904,
+      "output": 0.43872
      }
     },
     {
@@ -64991,8 +65603,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.714285,
-      "output": 0.714285
+      "input": 0.71292,
+      "output": 0.71292
      }
     },
     {
@@ -65015,8 +65627,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.164835,
-      "output": 0.714285
+      "input": 0.16452,
+      "output": 0.71292
      }
     },
     {
@@ -65031,8 +65643,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.164835,
-      "output": 0.87912
+      "input": 0.16452,
+      "output": 0.87744
      }
     },
     {
@@ -68616,9 +69228,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.43956,
-      "output": 0.87912,
-      "cache_read": 0.087912
+      "input": 0.43872,
+      "output": 0.87744,
+      "cache_read": 0.087744
      }
     },
     {
@@ -68670,9 +69282,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.65934,
-      "output": 1.97802,
-      "cache_read": 0.131868
+      "input": 0.65808,
+      "output": 1.974241,
+      "cache_read": 0.131616
      }
     },
     {
@@ -68712,8 +69324,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.164835,
-      "output": 0.65934
+      "input": 0.16452,
+      "output": 0.65808
      }
     },
     {
@@ -68728,8 +69340,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.98901,
-      "output": 0.98901
+      "input": 0.98712,
+      "output": 0.98712
      }
     },
     {
@@ -68744,8 +69356,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.824175,
-      "output": 2.472525
+      "input": 0.8226,
+      "output": 2.467801
      }
     },
     {
@@ -69436,9 +70048,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.21978,
-      "output": 0.714285,
-      "cache_read": 0.032967
+      "input": 0.21936,
+      "output": 0.71292,
+      "cache_read": 0.032904
      }
     },
     {
@@ -70463,6 +71075,102 @@
       "output": 8.25,
       "reasoning": 8.25,
       "cache_read": 0.0825,
+      "cache_write": 0.091667
+     }
+    },
+    {
+     "id": "vertex/gemini-4-neon",
+     "name": "Gemini 4 Neon (Vertex AI)",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "reasoning": 15,
+      "cache_read": 0.15,
+      "cache_write": 0.083333
+     }
+    },
+    {
+     "id": "vertex/gemini-4-neon@eu",
+     "name": "Gemini 4 Neon (Vertex AI, EU)",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3.3,
+      "output": 16.5,
+      "reasoning": 16.5,
+      "cache_read": 0.165,
+      "cache_write": 0.091667
+     }
+    },
+    {
+     "id": "vertex/gemini-4-neon@us",
+     "name": "Gemini 4 Neon (Vertex AI, US)",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3.3,
+      "output": 16.5,
+      "reasoning": 16.5,
+      "cache_read": 0.165,
       "cache_write": 0.091667
      }
     },
@@ -76655,9 +77363,9 @@
       "switch": true
      },
      "cost": {
-      "input": 3,
-      "output": 15,
-      "cache_read": 0.3
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2
      },
      "disputed": true
     },
@@ -81232,6 +81940,38 @@
      "disputed": true
     },
     {
+     "id": "gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15,
+      "reasoning": 15
+     },
+     "disputed": true
+    },
+    {
      "id": "gemini-embedding-001",
      "name": "Gemini Embedding 001",
      "release_date": "2025-05-20",
@@ -82656,6 +83396,36 @@
       "input": 1.5,
       "output": 7.5,
       "cache_read": 0.075
+     }
+    },
+    {
+     "id": "gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15
      }
     },
     {
@@ -87300,9 +88070,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.6,
-      "output": 1.8,
-      "cache_read": 0.156
+      "input": 0.36,
+      "output": 1.44,
+      "cache_read": 0.007
      }
     },
     {
@@ -88606,6 +89376,22 @@
      }
     },
     {
+     "id": "google/gemma-2-27b-it",
+     "name": "Gemma 2 27B",
+     "release_date": "2024-07-13",
+     "tool_call": false,
+     "context_window": 8192,
+     "max_output_tokens": 2048,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.65,
+      "output": 0.65
+     }
+    },
+    {
      "id": "google/gemma-3-12b-it",
      "name": "Gemma 3 12B IT",
      "release_date": "2025-03-12",
@@ -88699,6 +89485,22 @@
      }
     },
     {
+     "id": "meta-llama/Llama-3.1-70B-Instruct",
+     "name": "Llama-3.1-70B-Instruct",
+     "release_date": "2024-07-23",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 4096,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.72,
+      "output": 0.72
+     }
+    },
+    {
      "id": "meta-llama/Llama-3.1-8B-Instruct",
      "name": "Llama-3.1-8B-Instruct",
      "release_date": "2024-07-23",
@@ -88712,6 +89514,38 @@
      "cost": {
       "input": 0.06,
       "output": 0.06
+     }
+    },
+    {
+     "id": "meta-llama/Llama-3.2-1B-Instruct",
+     "name": "Llama 3.2 1B Instruct",
+     "release_date": "2024-09-25",
+     "tool_call": true,
+     "context_window": 60000,
+     "max_output_tokens": 32000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.027,
+      "output": 0.201
+     }
+    },
+    {
+     "id": "meta-llama/Llama-3.2-3B-Instruct",
+     "name": "Llama 3.2 3B Instruct",
+     "release_date": "2024-09-25",
+     "tool_call": true,
+     "context_window": 80000,
+     "max_output_tokens": 80000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.0509,
+      "output": 0.335
      }
     },
     {
@@ -89208,6 +90042,22 @@
      }
     },
     {
+     "id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+     "name": "Qwen3 30B-A3B Instruct 2507",
+     "release_date": "2025-07-28",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.09,
+      "output": 0.3
+     }
+    },
+    {
      "id": "Qwen/Qwen3-32B",
      "name": "Qwen3 32B",
      "release_date": "2025-04-28",
@@ -89687,6 +90537,30 @@
      "cost": {
       "input": 0.14,
       "output": 0.58
+     }
+    },
+    {
+     "id": "tencent/Hy4-flash",
+     "name": "Hy4 flash",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.035,
+      "output": 0.1405
      }
     },
     {
@@ -93562,6 +94436,34 @@
      }
     },
     {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+     "name": "DeepSeek V4.1 Flash 1017",
+     "release_date": "2026-10-17",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.18,
+      "output": 0.8,
+      "cache_read": 0.006,
+      "cache_write": 0
+     }
+    },
+    {
      "id": "moonshotai/Kimi-K2.6",
      "name": "Kimi K2.6",
      "release_date": "2026-04-20",
@@ -93578,9 +94480,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7898,
-      "output": 3.96,
-      "cache_read": 0.23,
+      "input": 0.585,
+      "output": 2.7,
+      "cache_read": 0.19,
       "cache_write": 0
      }
     },
@@ -93601,9 +94503,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7,
-      "output": 3.75,
-      "cache_read": 0.17,
+      "input": 0.66,
+      "output": 3.5,
+      "cache_read": 0.16,
       "cache_write": 0
      }
     },
@@ -93652,9 +94554,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1,
-      "output": 3.85,
-      "cache_read": 0.1378,
+      "input": 1.05,
+      "output": 3.4,
+      "cache_read": 0.1249,
       "cache_write": 0
      }
     },
@@ -93678,9 +94580,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.175,
-      "output": 0.49,
-      "cache_read": 0.05,
+      "input": 0.15,
+      "output": 0.5,
+      "cache_read": 0.03,
       "cache_write": 0
      }
     }
@@ -100661,7 +101563,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -101013,6 +101915,66 @@
       "output": 5.71,
       "cache_read": 0.0571,
       "cache_write": 1.43
+     }
+    },
+    {
+     "id": "gpt-6-2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 9.14,
+      "output": 45.71,
+      "cache_read": 0.4571,
+      "cache_write": 9.14
+     }
+    },
+    {
+     "id": "gpt-6-2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 920000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2.29,
+      "output": 11.43,
+      "cache_read": 0.2286,
+      "cache_write": 2.86
      }
     },
     {
@@ -101981,7 +102943,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -102439,10 +103401,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 2.5,
-      "cache_read": 0.05,
-      "cache_write": 0.625
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.01,
+      "cache_write": 0.125
      }
     },
     {
@@ -102564,7 +103526,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -102678,7 +103640,7 @@
     },
     {
      "id": "~openai/gpt-astra-latest",
-     "name": "OpenAI: GPT Astra Latest ($$$$)",
+     "name": "OpenAI: GPT Astra Latest",
      "release_date": "2026-09-11",
      "tool_call": true,
      "context_window": 1050000,
@@ -102700,10 +103662,10 @@
       "switch": false
      },
      "cost": {
-      "input": 16,
-      "output": 60,
-      "cache_read": 0.8,
-      "cache_write": 20
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "cache_write": 10
      }
     },
     {
@@ -102745,10 +103707,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2,
-      "output": 0.75,
-      "cache_read": 0.02,
-      "cache_write": 0.25
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.01,
+      "cache_write": 0.125
      }
     },
     {
@@ -102804,10 +103766,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 15,
-      "cache_read": 0.2,
-      "cache_write": 5
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5
      }
     },
     {
@@ -102835,10 +103797,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 7.5,
-      "cache_read": 0.1,
-      "cache_write": 2.5
+      "input": 1,
+      "output": 5,
+      "cache_read": 0.05,
+      "cache_write": 1.25
      }
     },
     {
@@ -102882,9 +103844,9 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 12,
-      "cache_read": 1,
+      "input": 2,
+      "output": 6,
+      "cache_read": 0.5,
       "cache_write": 0
      }
     },
@@ -103409,10 +104371,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 2.5,
-      "cache_read": 0.05,
-      "cache_write": 0.625
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.01,
+      "cache_write": 0.125
      }
     },
     {
@@ -103713,10 +104675,10 @@
       "switch": false
      },
      "cost": {
-      "input": 6,
-      "output": 22.5,
-      "cache_read": 0.6,
-      "cache_write": 7.5
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.3,
+      "cache_write": 3.75
      }
     },
     {
@@ -104034,8 +104996,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 4
+      "input": 0.25,
+      "output": 2
      }
     },
     {
@@ -104062,8 +105024,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2,
-      "output": 0.8
+      "input": 0.1,
+      "output": 0.4
      }
     },
     {
@@ -104484,7 +105446,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -104627,7 +105589,7 @@
      "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -104939,10 +105901,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.25,
-      "output": 7.5,
+      "input": 0.625,
+      "output": 5,
       "reasoning": 5,
-      "cache_read": 0.125,
+      "cache_read": 0.0625,
       "cache_write": 0.1875
      }
     },
@@ -105280,10 +106242,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 18,
+      "input": 2,
+      "output": 12,
       "reasoning": 12,
-      "cache_read": 0.4,
+      "cache_read": 0.2,
       "cache_write": 0.375
      }
     },
@@ -105376,10 +106338,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.75,
-      "output": 3.75,
+      "input": 0.375,
+      "output": 1.875,
       "reasoning": 1.875,
-      "cache_read": 0.075,
+      "cache_read": 0.0375,
       "cache_write": 0.020833
      }
     },
@@ -105540,6 +106502,38 @@
      }
     },
     {
+     "id": "google/gemini-4-neon",
+     "name": "Google: Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "reasoning": 7.5,
+      "cache_read": 0.15,
+      "cache_write": 0.041667
+     }
+    },
+    {
      "id": "google/gemini-nano-banana-2.1",
      "name": "Nano Banana 2.1",
      "release_date": "2026-10-06",
@@ -105686,7 +106680,7 @@
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -106255,7 +107249,7 @@
       "text",
       "image"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "none",
@@ -108095,9 +109089,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7,
-      "output": 3.75,
-      "cache_read": 0.17
+      "input": 0.66,
+      "output": 3.5,
+      "cache_read": 0.16
      }
     },
     {
@@ -108949,9 +109943,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 2,
-      "output": 8,
-      "cache_read": 0.5,
+      "input": 3.5,
+      "output": 14,
+      "cache_read": 0.875,
       "cache_write": 0
      }
     },
@@ -108988,9 +109982,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.4,
-      "output": 1.6,
-      "cache_read": 0.1,
+      "input": 0.7,
+      "output": 2.8,
+      "cache_read": 0.175,
       "cache_write": 0
      }
     },
@@ -109102,9 +110096,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 2.5,
-      "output": 10,
-      "cache_read": 1.25,
+      "input": 4.25,
+      "output": 17,
+      "cache_read": 2.125,
       "cache_write": 0
      }
     },
@@ -109160,9 +110154,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.15,
-      "output": 0.6,
-      "cache_read": 0.075,
+      "input": 0.25,
+      "output": 1,
+      "cache_read": 0.125,
       "cache_write": 0
      }
     },
@@ -109246,10 +110240,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.25,
-      "output": 10,
+      "input": 2.5,
+      "output": 20,
       "reasoning": 0,
-      "cache_read": 0.125,
+      "cache_read": 0.25,
       "cache_write": 0
      }
     },
@@ -109354,10 +110348,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.25,
-      "output": 2,
+      "input": 0.45,
+      "output": 3.6,
       "reasoning": 0,
-      "cache_read": 0.025,
+      "cache_read": 0.045,
       "cache_write": 0
      }
     },
@@ -109575,10 +110569,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.25,
-      "output": 10,
+      "input": 2.5,
+      "output": 20,
       "reasoning": 0,
-      "cache_read": 0.125
+      "cache_read": 0.25
      }
     },
     {
@@ -109676,10 +110670,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.75,
-      "output": 14,
+      "input": 3.5,
+      "output": 28,
       "reasoning": 0,
-      "cache_read": 0.175
+      "cache_read": 0.35
      }
     },
     {
@@ -109761,10 +110755,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.75,
-      "output": 14,
+      "input": 3.5,
+      "output": 28,
       "reasoning": 0,
-      "cache_read": 0.175
+      "cache_read": 0.35
      }
     },
     {
@@ -109791,9 +110785,9 @@
       "switch": false
      },
      "cost": {
-      "input": 5,
-      "output": 22.5,
-      "cache_read": 0.5
+      "input": 2.5,
+      "output": 15,
+      "cache_read": 0.25
      }
     },
     {
@@ -109820,10 +110814,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2.5,
-      "output": 15,
+      "input": 5,
+      "output": 30,
       "reasoning": 0,
-      "cache_read": 0.25
+      "cache_read": 0.5
      }
     },
     {
@@ -109908,10 +110902,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.75,
-      "output": 4.5,
+      "input": 1.5,
+      "output": 9,
       "reasoning": 0,
-      "cache_read": 0.075
+      "cache_read": 0.15
      }
     },
     {
@@ -109965,8 +110959,8 @@
       "switch": false
      },
      "cost": {
-      "input": 60,
-      "output": 270
+      "input": 30,
+      "output": 180
      }
     },
     {
@@ -109993,14 +110987,14 @@
       "switch": false
      },
      "cost": {
-      "input": 10,
-      "output": 45,
-      "cache_read": 1
+      "input": 5,
+      "output": 30,
+      "cache_read": 0.5
      }
     },
     {
      "id": "openai/gpt-5.5-fast",
-     "name": "OpenAI: GPT 5.5 (Fast)",
+     "name": "OpenAI: GPT 5.5 (Fast) ($$$$)",
      "release_date": "2026-04-23",
      "tool_call": true,
      "context_window": 1000000,
@@ -110022,10 +111016,10 @@
       "switch": false
      },
      "cost": {
-      "input": 5,
-      "output": 30,
+      "input": 12.5,
+      "output": 75,
       "reasoning": 0,
-      "cache_read": 0.5
+      "cache_read": 1.25
      }
     },
     {
@@ -110050,8 +111044,8 @@
       "switch": false
      },
      "cost": {
-      "input": 60,
-      "output": 270
+      "input": 30,
+      "output": 180
      }
     },
     {
@@ -110079,10 +111073,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.4,
-      "output": 1.8,
-      "cache_read": 0.04,
-      "cache_write": 0.5
+      "input": 0.2,
+      "output": 1.2,
+      "cache_read": 0.02,
+      "cache_write": 0.25
      }
     },
     {
@@ -110110,11 +111104,11 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2,
-      "output": 1.2,
+      "input": 0.4,
+      "output": 2.4,
       "reasoning": 0,
-      "cache_read": 0.02,
-      "cache_write": 0.25
+      "cache_read": 0.04,
+      "cache_write": 0.5
      }
     },
     {
@@ -110142,10 +111136,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.4,
-      "output": 1.8,
-      "cache_read": 0.04,
-      "cache_write": 0.5
+      "input": 0.2,
+      "output": 1.2,
+      "cache_read": 0.02,
+      "cache_write": 0.25
      }
     },
     {
@@ -110173,10 +111167,10 @@
       "switch": false
      },
      "cost": {
-      "input": 8,
-      "output": 30,
-      "cache_read": 0.8,
-      "cache_write": 10
+      "input": 4,
+      "output": 20,
+      "cache_read": 0.4,
+      "cache_write": 5
      }
     },
     {
@@ -110218,11 +111212,11 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 20,
+      "input": 8,
+      "output": 40,
       "reasoning": 0,
-      "cache_read": 0.4,
-      "cache_write": 5
+      "cache_read": 0.8,
+      "cache_write": 10
      }
     },
     {
@@ -110250,10 +111244,10 @@
       "switch": false
      },
      "cost": {
-      "input": 8,
-      "output": 30,
-      "cache_read": 0.8,
-      "cache_write": 10
+      "input": 4,
+      "output": 20,
+      "cache_read": 0.4,
+      "cache_write": 5
      }
     },
     {
@@ -110281,10 +111275,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 18,
-      "cache_read": 0.4,
-      "cache_write": 5
+      "input": 2,
+      "output": 12,
+      "cache_read": 0.2,
+      "cache_write": 2.5
      }
     },
     {
@@ -110312,11 +111306,11 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 12,
+      "input": 4,
+      "output": 24,
       "reasoning": 0,
-      "cache_read": 0.2,
-      "cache_write": 2.5
+      "cache_read": 0.4,
+      "cache_write": 5
      }
     },
     {
@@ -110344,10 +111338,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 18,
-      "cache_read": 0.4,
-      "cache_write": 5
+      "input": 2,
+      "output": 12,
+      "cache_read": 0.2,
+      "cache_write": 2.5
      }
     },
     {
@@ -110374,10 +111368,10 @@
       "switch": false
      },
      "cost": {
-      "input": 20,
-      "output": 75,
-      "cache_read": 2,
-      "cache_write": 25
+      "input": 10,
+      "output": 50,
+      "cache_read": 1,
+      "cache_write": 12.5
      }
     },
     {
@@ -110404,11 +111398,11 @@
       "switch": false
      },
      "cost": {
-      "input": 10,
-      "output": 50,
+      "input": 20,
+      "output": 100,
       "reasoning": 0,
-      "cache_read": 1,
-      "cache_write": 12.5
+      "cache_read": 2,
+      "cache_write": 25
      }
     },
     {
@@ -110435,10 +111429,10 @@
       "switch": false
      },
      "cost": {
-      "input": 20,
-      "output": 75,
-      "cache_read": 2,
-      "cache_write": 25
+      "input": 10,
+      "output": 50,
+      "cache_read": 1,
+      "cache_write": 12.5
      }
     },
     {
@@ -110466,10 +111460,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2,
-      "output": 0.75,
-      "cache_read": 0.02,
-      "cache_write": 0.25
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.01,
+      "cache_write": 0.125
      }
     },
     {
@@ -110497,11 +111491,11 @@
       "switch": false
      },
      "cost": {
-      "input": 0.1,
-      "output": 0.5,
+      "input": 0.2,
+      "output": 1,
       "reasoning": 0,
-      "cache_read": 0.01,
-      "cache_write": 0.125
+      "cache_read": 0.02,
+      "cache_write": 0.25
      }
     },
     {
@@ -110529,10 +111523,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2,
-      "output": 0.75,
-      "cache_read": 0.02,
-      "cache_write": 0.25
+      "input": 0.1,
+      "output": 0.5,
+      "cache_read": 0.01,
+      "cache_write": 0.125
      }
     },
     {
@@ -110560,10 +111554,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 15,
-      "cache_read": 0.4,
-      "cache_write": 5
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2,
+      "cache_write": 2.5
      }
     },
     {
@@ -110591,11 +111585,11 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 10,
+      "input": 4,
+      "output": 20,
       "reasoning": 0,
-      "cache_read": 0.2,
-      "cache_write": 2.5
+      "cache_read": 0.4,
+      "cache_write": 5
      }
     },
     {
@@ -110623,10 +111617,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 15,
-      "cache_read": 0.4,
-      "cache_write": 5
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2,
+      "cache_write": 2.5
      }
     },
     {
@@ -110653,10 +111647,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 15,
-      "cache_read": 0.2,
-      "cache_write": 5
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5
      }
     },
     {
@@ -110683,11 +111677,11 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 10,
+      "input": 4,
+      "output": 20,
       "reasoning": 0,
-      "cache_read": 0.1,
-      "cache_write": 2.5
+      "cache_read": 0.2,
+      "cache_write": 5
      }
     },
     {
@@ -110714,10 +111708,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 15,
-      "cache_read": 0.2,
-      "cache_write": 5
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5
      }
     },
     {
@@ -110745,10 +111739,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 7.5,
-      "cache_read": 0.1,
-      "cache_write": 2.5
+      "input": 1,
+      "output": 5,
+      "cache_read": 0.05,
+      "cache_write": 1.25
      }
     },
     {
@@ -110776,11 +111770,11 @@
       "switch": false
      },
      "cost": {
-      "input": 1,
-      "output": 5,
+      "input": 2,
+      "output": 10,
       "reasoning": 0,
-      "cache_read": 0.05,
-      "cache_write": 1.25
+      "cache_read": 0.1,
+      "cache_write": 2.5
      }
     },
     {
@@ -110807,45 +111801,15 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 7.5,
-      "cache_read": 0.1,
-      "cache_write": 2.5
+      "input": 1,
+      "output": 5,
+      "cache_read": 0.05,
+      "cache_write": 1.25
      }
     },
     {
      "id": "openai/gpt-6.2-astra",
-     "name": "OpenAI: GPT-6.2 Astra ($$$$)",
-     "release_date": "2026-11-17",
-     "tool_call": true,
-     "context_window": 1050000,
-     "max_output_tokens": 128000,
-     "input_modalities": [
-      "text",
-      "image",
-      "pdf"
-     ],
-     "status": "active",
-     "reasoning": {
-      "levels": [
-       "low",
-       "medium",
-       "high",
-       "xhigh",
-       "max"
-      ],
-      "switch": false
-     },
-     "cost": {
-      "input": 16,
-      "output": 60,
-      "cache_read": 0.8,
-      "cache_write": 20
-     }
-    },
-    {
-     "id": "openai/gpt-6.2-astra-fast",
-     "name": "OpenAI: GPT-6.2 Astra (Fast)",
+     "name": "OpenAI: GPT-6.2 Astra",
      "release_date": "2026-11-17",
      "tool_call": true,
      "context_window": 1050000,
@@ -110869,14 +111833,13 @@
      "cost": {
       "input": 8,
       "output": 40,
-      "reasoning": 0,
       "cache_read": 0.4,
       "cache_write": 10
      }
     },
     {
-     "id": "openai/gpt-6.2-astra-pro",
-     "name": "OpenAI: GPT-6.2 Astra Pro ($$$$)",
+     "id": "openai/gpt-6.2-astra-fast",
+     "name": "OpenAI: GPT-6.2 Astra (Fast) ($$$$)",
      "release_date": "2026-11-17",
      "tool_call": true,
      "context_window": 1050000,
@@ -110899,9 +111862,40 @@
      },
      "cost": {
       "input": 16,
-      "output": 60,
+      "output": 80,
+      "reasoning": 0,
       "cache_read": 0.8,
       "cache_write": 20
+     }
+    },
+    {
+     "id": "openai/gpt-6.2-astra-pro",
+     "name": "OpenAI: GPT-6.2 Astra Pro",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "cache_write": 10
      }
     },
     {
@@ -110928,10 +111922,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 15,
-      "cache_read": 0.2,
-      "cache_write": 5
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5
      }
     },
     {
@@ -110958,11 +111952,11 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 10,
+      "input": 4,
+      "output": 20,
       "reasoning": 0,
-      "cache_read": 0.1,
-      "cache_write": 2.5
+      "cache_read": 0.2,
+      "cache_write": 5
      }
     },
     {
@@ -110989,10 +111983,10 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 15,
-      "cache_read": 0.2,
-      "cache_write": 5
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5
      }
     },
     {
@@ -111238,10 +112232,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 8,
+      "input": 3.5,
+      "output": 14,
       "reasoning": 0,
-      "cache_read": 0.5,
+      "cache_read": 0.875,
       "cache_write": 0
      }
     },
@@ -111944,10 +112938,10 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.78,
-      "output": 2.34,
-      "cache_read": 0.156,
-      "cache_write": 0.975
+      "input": 0.26,
+      "output": 0.78,
+      "cache_read": 0.052,
+      "cache_write": 0.325
      }
     },
     {
@@ -112197,10 +113191,10 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.52,
-      "output": 2.6,
-      "cache_read": 0.104,
-      "cache_write": 0.65
+      "input": 0.195,
+      "output": 0.975,
+      "cache_read": 0.039,
+      "cache_write": 0.24375
      }
     },
     {
@@ -112660,8 +113654,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.325,
-      "output": 1.95
+      "input": 0.26,
+      "output": 1.56
      }
     },
     {
@@ -112685,9 +113679,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.375,
-      "output": 2.25,
-      "cache_write": 0.46875
+      "input": 0.3,
+      "output": 1.8,
+      "cache_write": 0.375
      }
     },
     {
@@ -112762,9 +113756,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.75,
-      "output": 3,
-      "cache_write": 0.9375
+      "input": 0.1875,
+      "output": 1.125,
+      "cache_write": 0.234375
      }
     },
     {
@@ -112800,10 +113794,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.3,
-      "output": 3.9,
+      "input": 0.5,
+      "output": 3,
       "cache_read": 0.05,
-      "cache_write": 1.625
+      "cache_write": 0.625
      }
     },
     {
@@ -112827,10 +113821,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2,
-      "output": 0.8,
-      "cache_read": 0.04,
-      "cache_write": 0.25
+      "input": 0.03,
+      "output": 0.13,
+      "cache_read": 0.006,
+      "cache_write": 0.038
      }
     },
     {
@@ -112878,10 +113872,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.96,
-      "output": 3.84,
-      "cache_read": 0.192,
-      "cache_write": 1.2
+      "input": 0.4,
+      "output": 1.6,
+      "cache_read": 0.08,
+      "cache_write": 0.5
      }
     },
     {
@@ -113151,12 +114145,34 @@
      }
     },
     {
+     "id": "recursive/flint-v1.0:free",
+     "name": "Recursive: Flint (free)",
+     "release_date": "2026-10-21",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 235929,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0
+     }
+    },
+    {
      "id": "reflection/beam-1.0-501b-a23b",
      "name": "Reflection: Beam 1.0 501B A23B",
      "release_date": "2026-10-05",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -113347,9 +114363,9 @@
       "switch": false
      },
      "cost": {
-      "input": 10,
-      "output": 45,
-      "cache_read": 1
+      "input": 5,
+      "output": 30,
+      "cache_read": 0.5
      }
     },
     {
@@ -113374,9 +114390,9 @@
       "switch": false
      },
      "cost": {
-      "input": 10,
-      "output": 45,
-      "cache_read": 1
+      "input": 5,
+      "output": 30,
+      "cache_read": 0.5
      }
     },
     {
@@ -114425,9 +115441,9 @@
       "switch": false
      },
      "cost": {
-      "input": 2.5,
-      "output": 5,
-      "cache_read": 0.4
+      "input": 1.25,
+      "output": 2.5,
+      "cache_read": 0.2
      }
     },
     {
@@ -114453,9 +115469,9 @@
       "switch": false
      },
      "cost": {
-      "input": 2.5,
-      "output": 5,
-      "cache_read": 0.4
+      "input": 1.25,
+      "output": 2.5,
+      "cache_read": 0.2
      }
     },
     {
@@ -114603,9 +115619,9 @@
       "switch": false
      },
      "cost": {
-      "input": 2.5,
-      "output": 5,
-      "cache_read": 0.4
+      "input": 1.25,
+      "output": 2.5,
+      "cache_read": 0.2
      }
     },
     {
@@ -114630,9 +115646,9 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 12,
-      "cache_read": 0.6
+      "input": 2,
+      "output": 6,
+      "cache_read": 0.3
      }
     },
     {
@@ -114658,9 +115674,9 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 12,
-      "cache_read": 1
+      "input": 2,
+      "output": 6,
+      "cache_read": 0.5
      }
     },
     {
@@ -114686,9 +115702,9 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 12,
-      "cache_read": 1,
+      "input": 2,
+      "output": 6,
+      "cache_read": 0.5,
       "cache_write": 0
      }
     },
@@ -114712,9 +115728,9 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 4,
-      "cache_read": 0.4
+      "input": 1,
+      "output": 2,
+      "cache_read": 0.2
      }
     },
     {
@@ -115131,8 +116147,8 @@
      "name": "GLM-5.1",
      "release_date": "2026-04-07",
      "tool_call": true,
-     "context_window": 202752,
-     "max_output_tokens": 182476,
+     "context_window": 204800,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -119723,6 +120739,36 @@
      }
     },
     {
+     "id": "gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15
+     }
+    },
+    {
      "id": "gemini-pro-latest",
      "name": "Gemini Pro Latest",
      "release_date": "2026-02-27",
@@ -121069,7 +122115,7 @@
      },
      "cost": {
       "input": 4,
-      "output": 20,
+      "output": 24,
       "cache_read": 0.4,
       "cache_write": 5
      }
@@ -122169,9 +123215,9 @@
       "switch": false
      },
      "cost": {
-      "input": 3,
-      "output": 15,
-      "cache_read": 0.3
+      "input": 2.7,
+      "output": 13.5,
+      "cache_read": 0.27
      }
     },
     {
@@ -127230,7 +128276,7 @@
      },
      "cost": {
       "input": 4.4,
-      "output": 22,
+      "output": 26.4,
       "cache_read": 0.44,
       "cache_write": 5.5
      }
@@ -128388,7 +129434,7 @@
      },
      "cost": {
       "input": 4,
-      "output": 20,
+      "output": 24,
       "cache_read": 0.4,
       "cache_write": 5
      }
@@ -129774,9 +130820,9 @@
       "switch": false
      },
      "cost": {
-      "input": 3,
-      "output": 15,
-      "cache_read": 0.3
+      "input": 2.7,
+      "output": 13.5,
+      "cache_read": 0.27
      }
     },
     {
@@ -132431,6 +133477,36 @@
      }
     },
     {
+     "id": "google-ai-studio/gemini-4-neon",
+     "name": "Gemini 4 Neon (Google AI Studio)",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15
+     }
+    },
+    {
      "id": "google-ai-studio/gemini-pro-latest",
      "name": "Gemini Pro Latest (Google AI Studio)",
      "release_date": "2026-02-27",
@@ -132701,7 +133777,7 @@
       "input": 0.75,
       "output": 3.75,
       "cache_read": 0.075,
-      "cache_write": 0.08333
+      "cache_write": 0.083335
      }
     },
     {
@@ -132849,6 +133925,36 @@
       "input": 1.5,
       "output": 7.5,
       "cache_read": 0.075
+     }
+    },
+    {
+     "id": "google-vertex/gemini-4-neon",
+     "name": "Gemini 4 Neon (Google Vertex AI)",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15
      }
     },
     {
@@ -136496,7 +137602,7 @@
      },
      "cost": {
       "input": 4,
-      "output": 20,
+      "output": 24,
       "cache_read": 0.4,
       "cache_write": 5
      }
@@ -146624,12 +147730,11 @@
      "id": "moonshot/kimi-k2.5",
      "name": "Kimi K2.5",
      "release_date": "2026-01-27",
-     "tool_call": true,
-     "context_window": 262144,
-     "max_output_tokens": 262144,
+     "tool_call": false,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
-      "text",
-      "image"
+      "text"
      ],
      "status": "active",
      "reasoning": {
@@ -151251,7 +152356,8 @@
       "input": 0.1,
       "output": 0.1,
       "cache_read": 0.01
-     }
+     },
+     "disputed": true
     },
     {
      "id": "ministral-3b-latest",
@@ -151270,7 +152376,8 @@
       "input": 0.1,
       "output": 0.1,
       "cache_read": 0.01
-     }
+     },
+     "disputed": true
     },
     {
      "id": "ministral-8b-2512",
@@ -151418,7 +152525,7 @@
      "name": "Mistral Large (latest)",
      "release_date": "2026-10-06",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 1048576,
      "max_output_tokens": 262144,
      "input_modalities": [
       "text",
@@ -151435,9 +152542,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 1.5,
-      "cache_read": 0.05
+      "input": 0.7,
+      "output": 2.1,
+      "cache_read": 0.07
      },
      "disputed": true
     },
@@ -158875,7 +159982,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.493,
       "output": 0.493,
@@ -158892,7 +159999,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.493,
       "output": 0.493,
@@ -159139,7 +160246,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.493,
       "output": 0.493,
@@ -161628,9 +162735,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.064,
-      "output": 0.191,
-      "cache_read": 0.032
+      "input": 0.07,
+      "output": 0.24,
+      "cache_read": 0.046
      }
     },
     {
@@ -161806,7 +162913,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1,
       "output": 0.3,
@@ -162523,6 +163630,50 @@
      "status": "retired"
     },
     {
+     "id": "jcartu/deepseek-v4.1-flash-1017-abliterated-lossless-csf",
+     "name": "DeepSeek V4.1 Flash 1017 Abliterated CSF (jcartu)",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.315,
+      "output": 1.05,
+      "cache_read": 0.021
+     }
+    },
+    {
+     "id": "jiunsong/supergemma4-26b-uncensored",
+     "name": "SuperGemma4 26B Uncensored",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 256000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.1625,
+      "output": 0.5,
+      "cache_read": 0.1625
+     }
+    },
+    {
      "id": "k2-horizon-7b",
      "name": "K2-Horizon-7B",
      "release_date": "2026-09-09",
@@ -162766,7 +163917,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.17,
       "output": 0.68,
@@ -162834,7 +163985,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "low",
@@ -162855,7 +164006,7 @@
      "release_date": "2026-11-16",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 1048576,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text"
      ],
@@ -163644,7 +164795,7 @@
      "name": "MiniMax M3.1 Flash",
      "release_date": "2026-10-19",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1000000,
      "max_output_tokens": 524288,
      "input_modalities": [
       "text",
@@ -164707,7 +165858,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 1,
       "output": 1.5,
@@ -164921,7 +166072,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.15,
       "output": 0.15,
@@ -165068,7 +166219,7 @@
      "name": "Nvidia Nemotron 3.5 Lightning",
      "release_date": "2026-08-11",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 262144,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text"
@@ -165092,7 +166243,7 @@
      "name": "Nvidia Nemotron 3.5 Lightning Thinking",
      "release_date": "2026-08-11",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 262144,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text"
@@ -166907,6 +168058,31 @@
      }
     },
     {
+     "id": "orca/orcacyber-glm-5.3",
+     "name": "OrcaCyber GLM 5.3",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 999488,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 5,
+      "cache_read": 0.3
+     }
+    },
+    {
      "id": "orca/orcacyber-glm-5.3-flash",
      "name": "OrcaCyber GLM 5.3 Flash",
      "release_date": "2026-11-09",
@@ -166922,6 +168098,32 @@
       "levels": [
        "low",
        "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.8,
+      "output": 1.6,
+      "cache_read": 0.15
+     }
+    },
+    {
+     "id": "orca/orcacyber-hy4",
+     "name": "OrcaCyber Hy4",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048064,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
        "high",
        "max"
       ],
@@ -166955,8 +168157,8 @@
       "switch": false
      },
      "cost": {
-      "input": 4,
-      "output": 20,
+      "input": 2,
+      "output": 5,
       "cache_read": 0.35
      }
     },
@@ -167036,6 +168238,56 @@
       "input": 0.8,
       "output": 1.6,
       "cache_read": 0.15
+     }
+    },
+    {
+     "id": "orca/orcacyber-ultra-1.0",
+     "name": "OrcaCyber Ultra 1.0",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048064,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 5,
+      "output": 10,
+      "cache_read": 0.75
+     }
+    },
+    {
+     "id": "orca/orcacyber-zero-1.0",
+     "name": "OrcaCyber Zero 1.0",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 999488,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 7.5,
+      "cache_read": 0.75
      }
     },
     {
@@ -167192,7 +168444,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -168019,7 +169271,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.15,
       "output": 0.65,
@@ -168068,7 +169320,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -168325,9 +169577,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.05,
+      "input": 0.1,
       "output": 0.15,
-      "cache_read": 0.008
+      "cache_read": 0.05
      }
     },
     {
@@ -168972,7 +170224,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -170162,7 +171414,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 2.5,
       "output": 2.5,
@@ -170179,7 +171431,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.2006,
       "output": 0.2006,
@@ -170196,7 +171448,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.306,
       "output": 0.357,
@@ -170213,7 +171465,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.493,
       "output": 0.493,
@@ -170721,7 +171973,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 1,
       "output": 1,
@@ -170880,7 +172132,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -170904,7 +172156,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -170928,7 +172180,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -170949,7 +172201,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -171087,7 +172339,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.39,
       "output": 1.8,
@@ -171118,7 +172370,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -171285,7 +172537,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -171460,7 +172712,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.31,
       "output": 0.31,
@@ -171477,7 +172729,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.31,
       "output": 0.31,
@@ -171494,7 +172746,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1,
       "output": 0.45,
@@ -171512,7 +172764,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -171533,7 +172785,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1003,
       "output": 0.1207,
@@ -171550,7 +172802,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.2006,
       "output": 0.2414,
@@ -171567,7 +172819,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.3,
       "output": 0.5,
@@ -171584,7 +172836,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.12,
       "output": 0.15,
@@ -171601,7 +172853,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1003,
       "output": 0.1207,
@@ -171618,7 +172870,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.408,
       "output": 0.595,
@@ -171636,7 +172888,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.55,
       "output": 0.8,
@@ -171654,7 +172906,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.493,
       "output": 0.493,
@@ -171878,7 +173130,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.799,
       "output": 1.207,
@@ -172008,7 +173260,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.15,
       "output": 0.6,
@@ -172085,7 +173337,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.493,
       "output": 0.493,
@@ -172337,7 +173589,7 @@
      "name": "MiMo V2.5 Pro",
      "release_date": "2026-04-22",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 262144,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -172351,9 +173603,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.435,
-      "output": 0.87,
-      "cache_read": 0.0036,
+      "input": 0.48,
+      "output": 1.8,
+      "cache_read": 0.096,
       "cache_write": 0
      }
     },
@@ -172386,7 +173638,7 @@
      "name": "MiMo V2.5 Pro Thinking",
      "release_date": "2026-04-22",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 262144,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -172400,9 +173652,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.435,
-      "output": 0.87,
-      "cache_read": 0.0036,
+      "input": 0.48,
+      "output": 1.8,
+      "cache_read": 0.096,
       "cache_write": 0
      }
     },
@@ -172606,7 +173858,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -175403,7 +176655,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -176400,7 +177652,8 @@
       "input": 0.45,
       "output": 3,
       "cache_read": 0.1
-     }
+     },
+     "disputed": true
     },
     {
      "id": "reflection/beam",
@@ -181178,6 +182431,139 @@
      }
     },
     {
+     "id": "openai/gpt-6.1-terra",
+     "name": "GPT-6.1 Terra",
+     "release_date": "2026-10-26",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1,
+      "output": 5,
+      "cache_read": 0.05,
+      "context_over_200k": {
+       "input": 2,
+       "output": 10,
+       "cache_read": 0.1
+      },
+      "tiers": [
+       {
+        "input": 2,
+        "output": 10,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.1
+       }
+      ]
+     }
+    },
+    {
+     "id": "openai/gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "context_over_200k": {
+       "input": 16,
+       "output": 60,
+       "cache_read": 0.8
+      },
+      "tiers": [
+       {
+        "input": 16,
+        "output": 60,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.8
+       }
+      ]
+     }
+    },
+    {
+     "id": "openai/gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "context_over_200k": {
+       "input": 4,
+       "output": 15,
+       "cache_read": 0.2
+      },
+      "tiers": [
+       {
+        "input": 4,
+        "output": 15,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.2
+       }
+      ]
+     }
+    },
+    {
      "id": "openai/gpt-oss-120b",
      "name": "GPT OSS 120B",
      "release_date": "2025-08-05",
@@ -182097,9 +183483,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.07,
-      "output": 0.281,
-      "cache_read": 0.003
+      "input": 0.035,
+      "output": 0.1405,
+      "cache_read": 0.0015
      }
     },
     {
@@ -187663,6 +189049,102 @@
         },
         "cache_read": 0.1,
         "cache_write": 2.5
+       }
+      ]
+     }
+    },
+    {
+     "id": "openai/gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "cache_write": 10,
+      "context_over_200k": {
+       "input": 16,
+       "output": 60,
+       "cache_read": 0.8,
+       "cache_write": 20
+      },
+      "tiers": [
+       {
+        "input": 16,
+        "output": 60,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.8,
+        "cache_write": 20
+       }
+      ]
+     }
+    },
+    {
+     "id": "openai/gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5,
+      "context_over_200k": {
+       "input": 4,
+       "output": 15,
+       "cache_read": 0.2,
+       "cache_write": 5
+      },
+      "tiers": [
+       {
+        "input": 4,
+        "output": 15,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.2,
+        "cache_write": 5
        }
       ]
      }
@@ -194109,6 +195591,36 @@
      }
     },
     {
+     "id": "gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15
+     }
+    },
+    {
      "id": "glm-4.6",
      "name": "GLM-4.6",
      "release_date": "2025-09-30",
@@ -196869,6 +198381,34 @@
      }
     },
     {
+     "id": "tidepool-alpha-free",
+     "name": "Tidepool Alpha Free",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0,
+      "cache_read": 0
+     }
+    },
+    {
      "id": "trinity-large-preview-free",
      "name": "Trinity Large Preview",
      "release_date": "2026-01-27",
@@ -198666,9 +200206,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.036,
-      "output": 0.5,
-      "cache_read": 0.01
+      "input": 0.035,
+      "output": 0.15,
+      "cache_read": 0.0015
      }
     },
     {
@@ -198703,7 +200243,7 @@
      "release_date": "2026-08-01",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 384000,
      "input_modalities": [
       "text"
      ],
@@ -198718,9 +200258,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0434,
-      "output": 0.3,
-      "cache_read": 0.035
+      "input": 0.06,
+      "output": 0.18,
+      "cache_read": 0.015
      }
     },
     {
@@ -199533,7 +201073,8 @@
       "input": 8,
       "output": 40,
       "cache_read": 0.2,
-      "cache_write": 10
+      "cache_write": 10,
+      "cache_write_1h": 16
      }
     },
     {
@@ -200687,7 +202228,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -200702,9 +202243,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.06,
-      "output": 0.18,
-      "cache_read": 0.015
+      "input": 0.062,
+      "output": 0.3,
+      "cache_read": 0.035
      }
     },
     {
@@ -200830,7 +202371,7 @@
      "release_date": "2026-10-17",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -200846,9 +202387,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.036,
-      "output": 0.5,
-      "cache_read": 0.01
+      "input": 0.15,
+      "output": 0.6,
+      "cache_read": 0.003
      }
     },
     {
@@ -201665,6 +203206,38 @@
      }
     },
     {
+     "id": "google/gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "reasoning": 15,
+      "cache_read": 0.15,
+      "cache_write": 0.083333
+     }
+    },
+    {
      "id": "google/gemini-nano-banana-2.1",
      "name": "Nano Banana 2.1",
      "release_date": "2026-10-06",
@@ -201778,7 +203351,7 @@
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -201786,8 +203359,7 @@
      "status": "active",
      "cost": {
       "input": 0.08,
-      "output": 0.45,
-      "cache_read": 0.04
+      "output": 0.16
      }
     },
     {
@@ -203695,9 +205267,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7,
-      "output": 3.75,
-      "cache_read": 0.17
+      "input": 0.66,
+      "output": 3.5,
+      "cache_read": 0.16
      }
     },
     {
@@ -203751,9 +205323,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2403,
-      "output": 8.4023,
-      "cache_read": 0.2
+      "input": 0.253,
+      "output": 8.8,
+      "cache_read": 0.18
      }
     },
     {
@@ -207379,8 +208951,8 @@
       "switch": true
      },
      "cost": {
-      "input": 0.3,
-      "output": 2.4
+      "input": 0.195,
+      "output": 1.56
      }
     },
     {
@@ -207447,9 +209019,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.17,
-      "output": 0.25,
-      "cache_read": 0.153
+      "input": 0.142,
+      "output": 0.208,
+      "cache_read": 0.127
      }
     },
     {
@@ -208034,7 +209606,7 @@
      "release_date": "2026-10-05",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -208050,9 +209622,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.3,
+      "input": 0.25,
       "output": 1,
-      "cache_read": 0.04
+      "cache_read": 0.05
      }
     },
     {
@@ -209707,7 +211279,7 @@
      "release_date": "2026-04-07",
      "tool_call": true,
      "context_window": 204800,
-     "max_output_tokens": 182476,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -209717,9 +211289,9 @@
       "switch": true
      },
      "cost": {
-      "input": 1.4,
-      "output": 4.4,
-      "cache_read": 0.26
+      "input": 1.19,
+      "output": 3.74,
+      "cache_read": 0.6
      }
     },
     {
@@ -209742,9 +211314,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.007,
-      "output": 6.8,
-      "cache_read": 0.006
+      "input": 0.62,
+      "output": 2.42,
+      "cache_read": 0.14
      }
     },
     {
@@ -223943,7 +225515,7 @@
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -232057,6 +233629,198 @@
         },
         "cache_read": 0.12,
         "cache_write": 3
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8,
+      "output": 40,
+      "cache_read": 0.4,
+      "cache_write": 10,
+      "context_over_200k": {
+       "input": 16,
+       "output": 60,
+       "cache_read": 0.8,
+       "cache_write": 20
+      },
+      "tiers": [
+       {
+        "input": 16,
+        "output": 60,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.8,
+        "cache_write": 20
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-astra@eu",
+     "name": "GPT-6.2 Astra (EU)",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 9.6,
+      "output": 48,
+      "cache_read": 0.48,
+      "cache_write": 12,
+      "context_over_200k": {
+       "input": 19.2,
+       "output": 72,
+       "cache_read": 0.96,
+       "cache_write": 24
+      },
+      "tiers": [
+       {
+        "input": 19.2,
+        "output": 72,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.96,
+        "cache_write": 24
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.1,
+      "cache_write": 2.5,
+      "context_over_200k": {
+       "input": 4,
+       "output": 15,
+       "cache_read": 0.2,
+       "cache_write": 5
+      },
+      "tiers": [
+       {
+        "input": 4,
+        "output": 15,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.2,
+        "cache_write": 5
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-sol@eu",
+     "name": "GPT-6.2 Sol (EU)",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1050000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2.4,
+      "output": 12,
+      "cache_read": 0.12,
+      "cache_write": 3,
+      "context_over_200k": {
+       "input": 4.8,
+       "output": 18,
+       "cache_read": 0.24,
+       "cache_write": 6
+      },
+      "tiers": [
+       {
+        "input": 4.8,
+        "output": 18,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.24,
+        "cache_write": 6
        }
       ]
      }
@@ -258460,6 +260224,30 @@
      }
     },
     {
+     "id": "gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "audio",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 3.75,
+      "output": 18.75,
+      "cache_read": 0.1875
+     }
+    },
+    {
      "id": "gemma-4-uncensored",
      "name": "Gemma 4 Uncensored",
      "release_date": "2026-04-13",
@@ -264391,6 +266179,34 @@
      }
     },
     {
+     "id": "google/gemini-4-neon",
+     "name": "Gemini 4 Neon",
+     "release_date": "2026-11-18",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 1000000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 3,
+      "output": 15,
+      "cache_read": 0.15
+     }
+    },
+    {
      "id": "google/gemini-embedding-001",
      "name": "Gemini Embedding 001",
      "release_date": "2025-05-20",
@@ -269189,6 +271005,24 @@
      }
     },
     {
+     "id": "scaledown/extract-1",
+     "name": "Extract-1",
+     "release_date": "2026-10-20",
+     "tool_call": false,
+     "context_window": 1000000,
+     "max_output_tokens": 0,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.05,
+      "output": 0
+     }
+    },
+    {
      "id": "scaledown/scaledown-extract-1",
      "name": "Extract-1",
      "release_date": "2026-10-20",
@@ -271025,6 +272859,36 @@
      }
     },
     {
+     "id": "claude-fable-5-2",
+     "name": "Claude Fable 5.2",
+     "release_date": "2026-11-09",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8.8,
+      "output": 44,
+      "cache_read": 0.22,
+      "cache_write": 11
+     }
+    },
+    {
      "id": "claude-haiku-5-5",
      "name": "Claude Haiku 5.5",
      "release_date": "2026-10-07",
@@ -272104,6 +273968,127 @@
         "cache_write": 2.75
        }
       ]
+     }
+    },
+    {
+     "id": "gpt-6.2-astra",
+     "name": "GPT-6.2 Astra",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 8.8,
+      "output": 44,
+      "cache_read": 0.44,
+      "cache_write": 11,
+      "context_over_200k": {
+       "input": 17.6,
+       "output": 66,
+       "cache_read": 0.88,
+       "cache_write": 22
+      },
+      "tiers": [
+       {
+        "input": 17.6,
+        "output": 66,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.88,
+        "cache_write": 22
+       }
+      ]
+     }
+    },
+    {
+     "id": "gpt-6.2-sol",
+     "name": "GPT-6.2 Sol",
+     "release_date": "2026-11-17",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 128000,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2.2,
+      "output": 11,
+      "cache_read": 0.11,
+      "cache_write": 2.75,
+      "context_over_200k": {
+       "input": 4.4,
+       "output": 16.5,
+       "cache_read": 0.22,
+       "cache_write": 5.5
+      },
+      "tiers": [
+       {
+        "input": 4.4,
+        "output": 16.5,
+        "tier": {
+         "type": "context",
+         "size": 272000
+        },
+        "cache_read": 0.22,
+        "cache_write": 5.5
+       }
+      ]
+     }
+    },
+    {
+     "id": "hy4-flash",
+     "name": "Hy4 flash",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.07,
+      "output": 0.281,
+      "cache_read": 0.01
      }
     },
     {
