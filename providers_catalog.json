@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.23",
- "updated_at": "2026-11-23T16:49:00.905Z",
- "generated_at": "2026-11-23T16:49:00.905Z",
- "source": "models.dev@88e181f9f6dc47e5c7a2a4b1081044c9a2f6d349 litellm@e6573ba350d4893d0578279c0780e0e2ea25f3ed overrides@7a90dfc1d2f71f0cb6791fd91b4bb457c8caf933",
+ "version": "v2026.11.24",
+ "updated_at": "2026-11-24T16:41:36.080Z",
+ "generated_at": "2026-11-24T16:41:36.080Z",
+ "source": "models.dev@e4b5dd537982bdf9f60cd67338211eb62c5a028a litellm@9a384a563a8600b65bda905c25c7c017c63e652a overrides@3caf74d1fe1fa7e952e37d99be77072767f2cc3e",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-23T16:49:00.905Z",
-   "commit": "88e181f9f6dc47e5c7a2a4b1081044c9a2f6d349",
-   "etag": "W/\"f73765dc98f25b528404cd15b9b5d7a1\"",
-   "sha256": "f73765dc98f25b528404cd15b9b5d7a1fe721c1700da8e0d7056f9fa31f63b79",
-   "bytes": 6919014
+   "fetched_at": "2026-11-24T16:41:36.080Z",
+   "commit": "e4b5dd537982bdf9f60cd67338211eb62c5a028a",
+   "etag": "W/\"0a59383445caa920f898a1fd16146a21\"",
+   "sha256": "0a59383445caa920f898a1fd16146a211fa8a771a05f3ffaf75198a1e6b551b1",
+   "bytes": 6907104
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-23T16:49:00.905Z",
-   "commit": "e6573ba350d4893d0578279c0780e0e2ea25f3ed",
-   "etag": "W/\"e480378e9564e6fef0acf70a2c89ac8d1ae80a7e02b51f613fb06d3c0d1a297c\"",
-   "sha256": "6cfdb6a682b13c1d64b7163829160370a74de10536b22378a644c93d599bc0a6",
-   "bytes": 5154972
+   "fetched_at": "2026-11-24T16:41:36.080Z",
+   "commit": "9a384a563a8600b65bda905c25c7c017c63e652a",
+   "etag": "W/\"1970ffd6269ed9c9f20bf5b722409c1d29126ac783be84e41682e76f4e928d7d\"",
+   "sha256": "284fd66d64b029e384a9e0c282003b2dc58b5a53eb0098efb7f1e1c8c9947e6b",
+   "bytes": 5176920
   },
-  "overrides_commit": "7a90dfc1d2f71f0cb6791fd91b4bb457c8caf933",
-  "previous_version": "v2026.11.22"
+  "overrides_commit": "3caf74d1fe1fa7e952e37d99be77072767f2cc3e",
+  "previous_version": "v2026.11.23"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -7990,6 +7990,31 @@
      }
     },
     {
+     "id": "deepseek-ai/deepseek-v4-pro-0813",
+     "name": "DeepSeek V4 Pro 0813",
+     "release_date": "2026-08-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 384000,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 1,
+      "output": 2.5,
+      "cache_read": 0.25
+     }
+    },
+    {
      "id": "deepseek-ai/deepseek-v4.1-flash",
      "name": "DeepSeek V4.1 Flash",
      "release_date": "2026-09-10",
@@ -14239,8 +14264,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.30682,
-      "output": 1.20612,
+      "input": 0.2645,
+      "output": 1.058,
       "cache_read": 0.14812
      }
     },
@@ -14340,9 +14365,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.84092,
-      "output": 3.68184,
-      "cache_read": 0.15341
+      "input": 2.09484,
+      "output": 6.28452,
+      "cache_read": 0.37559
      }
     },
     {
@@ -14883,6 +14908,7 @@
      "input_modalities": [
       "text",
       "image",
+      "audio",
       "video",
       "pdf"
      ],
@@ -15328,7 +15354,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.60306,
       "output": 2.4334
@@ -15360,7 +15386,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -16978,7 +17004,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -26505,9 +26531,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.15,
-      "output": 1,
-      "cache_read": 0.15,
+      "input": 0.1,
+      "output": 0.9,
+      "cache_read": 0.04,
       "cache_write": 0
      }
     },
@@ -27158,7 +27184,7 @@
      "status": "active",
      "reasoning": {
       "levels": [],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 1,
@@ -27183,7 +27209,7 @@
      "status": "active",
      "reasoning": {
       "levels": [],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 1,
@@ -27255,7 +27281,7 @@
        "medium",
        "high"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -27284,7 +27310,7 @@
        "medium",
        "high"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -27314,7 +27340,7 @@
        "high",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -27345,7 +27371,7 @@
        "xhigh",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -27376,7 +27402,7 @@
        "xhigh",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -27407,7 +27433,7 @@
        "xhigh",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -27463,7 +27489,7 @@
      "status": "active",
      "reasoning": {
       "levels": [],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 3,
@@ -27488,7 +27514,7 @@
      "status": "active",
      "reasoning": {
       "levels": [],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 3,
@@ -27518,7 +27544,7 @@
        "high",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 3,
@@ -39052,9 +39078,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.195,
-      "output": 0.78,
-      "cache_read": 0.02
+      "input": 0.3,
+      "output": 1.2,
+      "cache_read": 0.03
      }
     },
     {
@@ -39450,9 +39476,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.8,
-      "output": 2.5,
-      "cache_read": 0.16
+      "input": 1.225,
+      "output": 3.85,
+      "cache_read": 0.245
      }
     }
    ]
@@ -41275,7 +41301,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -41819,6 +41845,7 @@
      "input_modalities": [
       "text",
       "image",
+      "audio",
       "video",
       "pdf"
      ],
@@ -45976,6 +46003,7 @@
      "input_modalities": [
       "text",
       "image",
+      "audio",
       "video",
       "pdf"
      ],
@@ -47547,7 +47575,7 @@
      "status": "active",
      "reasoning": {
       "levels": [],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 1,
@@ -47617,7 +47645,7 @@
        "medium",
        "high"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -47646,7 +47674,7 @@
        "high",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -47676,7 +47704,7 @@
        "xhigh",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -47706,7 +47734,7 @@
        "xhigh",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -47736,7 +47764,7 @@
        "xhigh",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 5,
@@ -47790,7 +47818,7 @@
      "status": "active",
      "reasoning": {
       "levels": [],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 3,
@@ -47819,7 +47847,7 @@
        "high",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 3,
@@ -50669,8 +50697,8 @@
      "name": "Muse Ember",
      "release_date": "2026-11-09",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 131072,
+     "context_window": 1048576,
+     "max_output_tokens": 524288,
      "input_modalities": [
       "text",
       "image",
@@ -61310,6 +61338,31 @@
      }
     },
     {
+     "id": "tencent/Hy4-flash",
+     "name": "Hy4 flash",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.07,
+      "output": 0.281,
+      "cache_read": 0.003
+     }
+    },
+    {
      "id": "tencent/Hy4-preview",
      "name": "Hy4 preview",
      "release_date": "2026-08-28",
@@ -61355,6 +61408,35 @@
       "input": 0.95,
       "output": 4.05,
       "cache_read": 0.16
+     }
+    },
+    {
+     "id": "thinkingmachines/Inkling-2-Mini",
+     "name": "Inkling 2 Mini",
+     "release_date": "2026-11-20",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.075,
+      "output": 0.3,
+      "cache_read": 0.015
      }
     },
     {
@@ -62851,7 +62933,7 @@
      "release_date": "2026-06-13",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text"
      ],
@@ -62876,7 +62958,7 @@
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 128000,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text"
      ],
@@ -62901,7 +62983,7 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text"
      ],
@@ -64422,7 +64504,7 @@
      "release_date": "2026-08-03",
      "tool_call": true,
      "context_window": 1000000,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 1000000,
      "input_modalities": [
       "text",
       "image",
@@ -66569,6 +66651,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high"
@@ -66597,6 +66680,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high"
@@ -66625,6 +66709,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high",
@@ -66654,6 +66739,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high",
@@ -66684,6 +66770,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high",
@@ -66714,6 +66801,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high",
@@ -66804,6 +66892,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high",
@@ -69785,6 +69874,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "minimal",
        "low",
        "medium",
@@ -70367,9 +70457,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.15386,
-      "output": 0.38465,
-      "cache_read": 0.04396
+      "input": 0.153146,
+      "output": 0.382865,
+      "cache_read": 0.043756
      }
     },
     {
@@ -70394,9 +70484,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.24178,
-      "output": 1.2089,
-      "cache_read": 0.012089
+      "input": 0.240658,
+      "output": 1.20329,
+      "cache_read": 0.012033
      }
     },
     {
@@ -70419,8 +70509,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2198,
-      "output": 0.7693
+      "input": 0.21878,
+      "output": 0.76573
      }
     },
     {
@@ -70435,8 +70525,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 1.2089,
-      "output": 1.2089
+      "input": 1.20329,
+      "output": 1.20329
      }
     },
     {
@@ -70451,8 +70541,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.9891,
-      "output": 2.9673
+      "input": 0.98451,
+      "output": 2.953531
      }
     },
     {
@@ -70577,8 +70667,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.3297,
-      "output": 0.4396
+      "input": 0.32817,
+      "output": 0.43756
      }
     },
     {
@@ -70593,8 +70683,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.71435,
-      "output": 0.71435
+      "input": 0.711035,
+      "output": 0.711035
      }
     },
     {
@@ -70617,8 +70707,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.16485,
-      "output": 0.71435
+      "input": 0.164085,
+      "output": 0.711035
      }
     },
     {
@@ -70633,8 +70723,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.16485,
-      "output": 0.8792
+      "input": 0.164085,
+      "output": 0.87512
      }
     },
     {
@@ -74218,9 +74308,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.4396,
-      "output": 0.8792,
-      "cache_read": 0.08792
+      "input": 0.43756,
+      "output": 0.87512,
+      "cache_read": 0.087512
      }
     },
     {
@@ -74272,9 +74362,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.6594,
-      "output": 1.9782,
-      "cache_read": 0.13188
+      "input": 0.65634,
+      "output": 1.969021,
+      "cache_read": 0.131268
      }
     },
     {
@@ -74314,8 +74404,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.16485,
-      "output": 0.6594
+      "input": 0.164085,
+      "output": 0.65634
      }
     },
     {
@@ -74330,8 +74420,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.9891,
-      "output": 0.9891
+      "input": 0.98451,
+      "output": 0.98451
      }
     },
     {
@@ -74346,8 +74436,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.82425,
-      "output": 2.47275
+      "input": 0.820425,
+      "output": 2.461276
      }
     },
     {
@@ -86317,7 +86407,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -86615,7 +86705,7 @@
       "video",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -86628,8 +86718,8 @@
      "cost": {
       "input": 0.25,
       "output": 1.5,
-      "cache_read": 0.025,
-      "reasoning": 1.5
+      "reasoning": 1.5,
+      "cache_read": 0.025
      }
     },
     {
@@ -87068,7 +87158,7 @@
     {
      "id": "gemini-flash-latest",
      "name": "Gemini Flash Latest",
-     "release_date": "2026-08-13",
+     "release_date": "2026-09-02",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -95694,6 +95784,34 @@
      }
     },
     {
+     "id": "thinkingmachines/Inkling-2-Mini",
+     "name": "Inkling 2 Mini",
+     "release_date": "2026-11-20",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.12,
+      "output": 0.5
+     }
+    },
+    {
      "id": "thinkingmachines/Inkling-2-Small",
      "name": "Inkling 2 Small",
      "release_date": "2026-11-05",
@@ -99562,9 +99680,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5648,
-      "output": 2.788,
-      "cache_read": 0.19,
+      "input": 0.5655,
+      "output": 3.06,
+      "cache_read": 0.15,
       "cache_write": 0
      }
     },
@@ -99585,7 +99703,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.61,
+      "input": 0.65,
       "output": 3.55,
       "cache_read": 0.17,
       "cache_write": 0
@@ -99636,9 +99754,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.05,
-      "output": 3.25,
-      "cache_read": 0.1776,
+      "input": 1,
+      "output": 3.5,
+      "cache_read": 0.1295,
       "cache_write": 0
      }
     },
@@ -99662,9 +99780,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.17,
+      "input": 0.185,
       "output": 0.5,
-      "cache_read": 0.04,
+      "cache_read": 0.07,
       "cache_write": 0
      }
     }
@@ -105881,7 +105999,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -105901,7 +106019,7 @@
      "name": "Qwen3.8 27B",
      "release_date": "2026-08-14",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 262144,
      "max_output_tokens": 32768,
      "input_modalities": [
       "text",
@@ -107168,7 +107286,7 @@
        "medium",
        "high"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 0.036,
@@ -107193,7 +107311,7 @@
        "medium",
        "high"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 0.036,
@@ -107557,7 +107675,7 @@
        "high",
        "max"
       ],
-      "switch": false
+      "switch": true
      },
      "cost": {
       "input": 1.09,
@@ -108603,7 +108721,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -108645,9 +108763,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.32,
-      "output": 3.96,
-      "cache_read": 0.044
+      "input": 0.111,
+      "output": 4.44,
+      "cache_read": 0.097
      }
     },
     {
@@ -108671,7 +108789,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0434,
+      "input": 0.047,
       "output": 0.3,
       "cache_read": 0.035
      }
@@ -110590,7 +110708,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0434,
+      "input": 0.047,
       "output": 0.3,
       "cache_read": 0.035
      }
@@ -110654,9 +110772,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.9,
-      "output": 1.5,
-      "cache_read": 0.2
+      "input": 1.28,
+      "output": 2.56,
+      "cache_read": 0.108
      }
     },
     {
@@ -110680,9 +110798,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.32,
-      "output": 3.96,
-      "cache_read": 0.044
+      "input": 0.111,
+      "output": 4.44,
+      "cache_read": 0.097
      }
     },
     {
@@ -110707,9 +110825,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0498,
-      "output": 0.1992,
-      "cache_read": 0.000996
+      "input": 0.14,
+      "output": 0.42,
+      "cache_read": 0.0042
      }
     },
     {
@@ -111872,8 +111990,8 @@
      },
      "cost": {
       "input": 0.05,
-      "output": 0.19,
-      "cache_read": 0.0125
+      "output": 0.18,
+      "cache_read": 0.025
      }
     },
     {
@@ -112323,7 +112441,7 @@
      "name": "inclusionAI: Ling 3.1 Flash",
      "release_date": "2026-09-29",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1048576,
      "max_output_tokens": 262144,
      "input_modalities": [
       "text"
@@ -112847,7 +112965,7 @@
      "release_date": "2024-07-23",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 117964,
      "input_modalities": [
       "text"
      ],
@@ -113534,8 +113652,8 @@
      "name": "MiniMax: MiniMax M3.1 Flash",
      "release_date": "2026-10-19",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 512000,
+     "context_window": 1048576,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image",
@@ -113553,9 +113671,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.135,
-      "output": 0.54,
-      "cache_read": 0.0135
+      "input": 0.1,
+      "output": 0.4,
+      "cache_read": 0.025
      }
     },
     {
@@ -114117,7 +114235,7 @@
      "release_date": "2025-07-11",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 98304,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text"
      ],
@@ -114137,7 +114255,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.6,
       "output": 2.5
@@ -114153,7 +114271,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "high"
@@ -114736,8 +114854,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5,
-      "output": 2.2,
+      "input": 0.25,
+      "output": 2,
       "cache_read": 0.1
      }
     },
@@ -118392,7 +118510,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -120083,7 +120201,7 @@
      "release_date": "2026-07-06",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -120310,7 +120428,7 @@
     {
      "id": "thinkingmachines/inkling-2-mini",
      "name": "Thinking Machines: Inkling 2 Mini",
-     "release_date": "2026-11-21",
+     "release_date": "2026-11-20",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -120359,9 +120477,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.15,
-      "output": 0.5,
-      "cache_read": 0.03
+      "input": 0.075,
+      "output": 0.25,
+      "cache_read": 0.015
      }
     },
     {
@@ -120985,7 +121103,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -120997,22 +121115,22 @@
       "input": 0.48,
       "output": 1.8,
       "cache_read": 0.096,
-      "context_over_200k": {
-       "input": 2,
-       "output": 6,
-       "cache_read": 0.4
-      },
       "tiers": [
        {
         "input": 2,
         "output": 6,
+        "cache_read": 0.4,
         "tier": {
          "type": "context",
          "size": 256000
-        },
-        "cache_read": 0.4
+        }
        }
-      ]
+      ],
+      "context_over_200k": {
+       "input": 2,
+       "output": 6,
+       "cache_read": 0.4
+      }
      }
     },
     {
@@ -121487,7 +121605,7 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image",
@@ -128207,7 +128325,7 @@
      "name": "Hy4 Flash",
      "release_date": "2026-11-16",
      "tool_call": true,
-     "context_window": 1000000,
+     "context_window": 1048576,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -129459,6 +129577,7 @@
      "input_modalities": [
       "text",
       "image",
+      "audio",
       "video",
       "pdf"
      ],
@@ -137169,6 +137288,36 @@
      }
     },
     {
+     "id": "deepinfra/hy4-flash",
+     "name": "Hy4 Flash (DeepInfra)",
+     "release_date": "2026-11-16",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.07,
+      "output": 0.281,
+      "cache_read": 0.003
+     }
+    },
+    {
      "id": "deepinfra/hy4-preview",
      "name": "Hy4 Preview (DeepInfra)",
      "release_date": "2026-08-28",
@@ -137814,6 +137963,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high",
@@ -137842,6 +137992,7 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
        "low",
        "medium",
        "high",
@@ -139980,6 +140131,7 @@
      "input_modalities": [
       "text",
       "image",
+      "audio",
       "video",
       "pdf"
      ],
@@ -146468,6 +146620,62 @@
       "text"
      ],
      "status": "retired"
+    },
+    {
+     "id": "vertex-openai/deepseek-v4.1-flash-1017",
+     "name": "DeepSeek V4.1 Flash 1017 (Vertex AI (OpenAI-compatible))",
+     "release_date": "2026-10-17",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.3,
+      "output": 1.2,
+      "cache_read": 0.006
+     }
+    },
+    {
+     "id": "vertex-openai/deepseek-v4.1-flash-latest",
+     "name": "DeepSeek V4.1 Flash Latest (Vertex AI (OpenAI-compatible))",
+     "release_date": "2026-10-17",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 393216,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.3,
+      "output": 1.2,
+      "cache_read": 0.006
+     }
     },
     {
      "id": "vertex-openai/glm-4.7",
@@ -154589,8 +154797,8 @@
      "name": "GPT-OSS 120B",
      "release_date": "2025-08-05",
      "tool_call": false,
-     "context_window": 128000,
-     "max_output_tokens": 32000,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -154600,8 +154808,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.05,
-      "output": 0.25
+      "input": 0.09,
+      "output": 0.36
      }
     },
     {
@@ -154609,8 +154817,8 @@
      "name": "GPT-OSS 20B",
      "release_date": "2025-08-05",
      "tool_call": false,
-     "context_window": 128000,
-     "max_output_tokens": 32000,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -154621,7 +154829,7 @@
      },
      "cost": {
       "input": 0.04,
-      "output": 0.15,
+      "output": 0.2,
       "cache_read": 0.02
      }
     },
@@ -156286,6 +156494,7 @@
      "input_modalities": [
       "text",
       "image",
+      "audio",
       "video",
       "pdf"
      ],
@@ -157681,7 +157890,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.4,
       "output": 2
@@ -157697,7 +157906,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.4,
       "output": 2,
@@ -157726,7 +157935,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.4,
       "output": 2,
@@ -157793,7 +158002,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0,
       "output": 0
@@ -157810,7 +158019,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -157829,10 +158038,11 @@
      "release_date": "2025-03-17",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
-      "image"
+      "image",
+      "pdf"
      ],
      "status": "active",
      "reasoning": {
@@ -157843,11 +158053,10 @@
       "switch": false
      },
      "cost": {
-      "input": 2,
-      "output": 5,
+      "input": 1.5,
+      "output": 7.5,
       "cache_read": 0.15
-     },
-     "disputed": true
+     }
     },
     {
      "id": "magistral-small",
@@ -157864,6 +158073,25 @@
     {
      "id": "ministral-14b-2512",
      "name": "Ministral 3 14B",
+     "release_date": "2025-12-02",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image",
+      "pdf"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.2,
+      "output": 0.2,
+      "cache_read": 0.02
+     }
+    },
+    {
+     "id": "ministral-14b-latest",
+     "name": "Ministral 3 14B (latest)",
      "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
@@ -157902,11 +158130,11 @@
     },
     {
      "id": "ministral-3b-latest",
-     "name": "Ministral 3B (latest)",
-     "release_date": "2024-10-01",
+     "name": "Ministral 3 3B (latest)",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 128000,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image",
@@ -157941,11 +158169,11 @@
     },
     {
      "id": "ministral-8b-latest",
-     "name": "Ministral 8B (latest)",
-     "release_date": "2024-10-01",
+     "name": "Ministral 3 8B (latest)",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 128000,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
@@ -157956,8 +158184,7 @@
       "input": 0.15,
       "output": 0.15,
       "cache_read": 0.015
-     },
-     "disputed": true
+     }
     },
     {
      "id": "mistral-embed",
@@ -157972,7 +158199,8 @@
      "status": "active",
      "cost": {
       "input": 0.1,
-      "output": 0
+      "output": 0,
+      "cache_read": 0.01
      }
     },
     {
@@ -157990,7 +158218,7 @@
     {
      "id": "mistral-large-2512",
      "name": "Mistral Large 3",
-     "release_date": "2024-11-01",
+     "release_date": "2025-12-02",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 262144,
@@ -158046,7 +158274,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -158100,7 +158328,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.4,
       "output": 2
@@ -158117,7 +158345,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.4,
       "output": 2
@@ -158198,7 +158426,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1,
       "output": 0.3
@@ -158278,13 +158506,13 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 0.15,
       "output": 0.15,
       "cache_read": 0.03
-     },
-     "disputed": true
+     }
     },
     {
      "id": "open-mixtral-8x22b",
@@ -158321,7 +158549,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.15,
       "output": 0.15
@@ -158438,7 +158666,6 @@
      "input_modalities": [
       "text",
       "image",
-      "video",
       "pdf"
      ],
      "status": "active",
@@ -164781,9 +165008,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.044,
-      "output": 0.132,
-      "cache_read": 0.0014
+      "input": 0.05,
+      "output": 0.16,
+      "cache_read": 0.013
      }
     },
     {
@@ -164807,9 +165034,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.044,
-      "output": 0.132,
-      "cache_read": 0.0014
+      "input": 0.05,
+      "output": 0.16,
+      "cache_read": 0.013
      }
     },
     {
@@ -168130,7 +168357,8 @@
      "cost": {
       "input": 3,
       "output": 15,
-      "cache_read": 0.15
+      "cache_read": 0.15,
+      "cache_write": 0
      }
     },
     {
@@ -168379,9 +168607,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.056,
-      "output": 0.192,
-      "cache_read": 0.028
+      "input": 0.07,
+      "output": 0.24,
+      "cache_read": 0.046
      }
     },
     {
@@ -169376,8 +169604,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0,
-      "output": 0
+      "input": 0.75,
+      "output": 1.5,
+      "cache_read": 0.1
      }
     },
     {
@@ -169396,8 +169625,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0,
-      "output": 0
+      "input": 0.75,
+      "output": 1.5,
+      "cache_read": 0.1
      }
     },
     {
@@ -172020,7 +172250,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.1,
       "output": 0.4,
@@ -173780,6 +174010,60 @@
      }
     },
     {
+     "id": "orca/orcacyber-hy4-flash",
+     "name": "OrcaCyber Hy4 Flash",
+     "release_date": "2026-11-23",
+     "tool_call": true,
+     "context_window": 1048064,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.07,
+      "output": 0.281,
+      "cache_read": 0.003
+     }
+    },
+    {
+     "id": "orca/orcacyber-inkling-2-mini",
+     "name": "OrcaCyber Inkling 2 Mini",
+     "release_date": "2026-11-23",
+     "tool_call": true,
+     "context_window": 1048064,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.2,
+      "output": 0.5,
+      "cache_read": 0.05
+     }
+    },
+    {
      "id": "orca/orcacyber-k3.1-pro",
      "name": "OrcaCyber K3.1 Pro Uncensored",
      "release_date": "2026-11-05",
@@ -173804,6 +174088,33 @@
       "input": 2,
       "output": 5,
       "cache_read": 0.35
+     }
+    },
+    {
+     "id": "orca/orcacyber-ling-3.2-flash",
+     "name": "OrcaCyber Ling 3.2 Flash",
+     "release_date": "2026-11-23",
+     "tool_call": true,
+     "context_window": 1048064,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.6,
+      "output": 1.8,
+      "cache_read": 0.12
      }
     },
     {
@@ -173882,6 +174193,32 @@
       "input": 0.8,
       "output": 1.6,
       "cache_read": 0.15
+     }
+    },
+    {
+     "id": "orca/orcacyber-step-5-preview",
+     "name": "OrcaCyber Step 5 Preview",
+     "release_date": "2026-11-23",
+     "tool_call": true,
+     "context_window": 999488,
+     "max_output_tokens": 64000,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 5.4,
+      "cache_read": 0.2
      }
     },
     {
@@ -174918,7 +175255,7 @@
      "cost": {
       "input": 0.09,
       "output": 1.1,
-      "cache_read": 0.045
+      "cache_read": 0.09
      }
     },
     {
@@ -179972,7 +180309,7 @@
      "cost": {
       "input": 0.0605,
       "output": 0.4,
-      "cache_read": 0.03025
+      "cache_read": 0.0605
      }
     },
     {
@@ -180017,7 +180354,7 @@
      "cost": {
       "input": 0.0605,
       "output": 0.4,
-      "cache_read": 0.03025
+      "cache_read": 0.0605
      }
     },
     {
@@ -182849,6 +183186,32 @@
       "input": 0.3,
       "output": 1.2,
       "cache_read": 0.006
+     }
+    },
+    {
+     "id": "deepseek-ai/DeepSeek-V4.1-Flash-1017-fast",
+     "name": "DeepSeek V4.1 Flash 1017 (fast)",
+     "release_date": "2026-10-17",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.6,
+      "output": 2.4
      }
     },
     {
@@ -191535,9 +191898,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.16575,
-      "output": 0.663,
-      "cache_read": 0.016575
+      "input": 0.13,
+      "output": 0.52,
+      "cache_read": 0.0325
      }
     },
     {
@@ -191736,8 +192099,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.05187,
-      "output": 0.10192
+      "input": 0.1105,
+      "output": 0.3315
      }
     }
    ]
@@ -197068,13 +197431,13 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 0.5,
       "output": 1.5,
       "cache_read": 0
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4",
@@ -197086,7 +197449,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 30,
       "output": 60
@@ -197103,12 +197466,12 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 10,
       "output": 30
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4.1",
@@ -197159,13 +197522,13 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 0.1,
       "output": 0.4,
       "cache_read": 0.025
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4o",
@@ -197197,12 +197560,12 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 5,
       "output": 15
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4o-2024-08-06",
@@ -197522,7 +197885,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -198406,7 +198769,7 @@
       "image",
       "audio"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -198435,7 +198798,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -198461,7 +198824,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -198470,11 +198833,11 @@
       ],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 150,
       "output": 600
-     },
-     "disputed": true
+     }
     },
     {
      "id": "o3",
@@ -198513,7 +198876,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -198565,7 +198928,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -198574,12 +198937,12 @@
       ],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 1.1,
       "output": 4.4,
       "cache_read": 0.275
-     },
-     "disputed": true
+     }
     },
     {
      "id": "text-embedding-3-large",
@@ -198662,13 +199025,13 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 0.5,
       "output": 1.5,
       "cache_read": 0
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4",
@@ -198680,7 +199043,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 30,
       "output": 60
@@ -198697,12 +199060,12 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 10,
       "output": 30
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4.1",
@@ -198753,13 +199116,13 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 0.1,
       "output": 0.4,
       "cache_read": 0.025
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4o",
@@ -198791,12 +199154,12 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
+     "disputed": true,
      "cost": {
       "input": 5,
       "output": 15
-     },
-     "disputed": true
+     }
     },
     {
      "id": "gpt-4o-2024-08-06",
@@ -199116,7 +199479,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -200000,7 +200363,7 @@
       "image",
       "audio"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "minimal",
@@ -200029,7 +200392,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -200055,7 +200418,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -200064,11 +200427,11 @@
       ],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 150,
       "output": 600
-     },
-     "disputed": true
+     }
     },
     {
      "id": "o3",
@@ -200107,7 +200470,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -200159,7 +200522,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -200168,12 +200531,12 @@
       ],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 1.1,
       "output": 4.4,
       "cache_read": 0.275
-     },
-     "disputed": true
+     }
     },
     {
      "id": "text-embedding-3-large",
@@ -203170,6 +203533,34 @@
      }
     },
     {
+     "id": "kimi-k3.1-pro",
+     "name": "Kimi K3.1 Pro",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2,
+      "cache_write": 2
+     }
+    },
+    {
      "id": "laguna-s-2.1-free",
      "name": "Laguna S 2.1 Free",
      "release_date": "2026-07-21",
@@ -204950,6 +205341,29 @@
      }
     },
     {
+     "id": "hungerg-free",
+     "name": "HungerG Free",
+     "release_date": "2026-11-24",
+     "tool_call": true,
+     "context_window": 1000000,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 0,
+      "output": 0,
+      "cache_read": 0
+     }
+    },
+    {
      "id": "hy3",
      "name": "Hy3",
      "release_date": "2026-07-06",
@@ -206135,7 +206549,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text",
       "image"
@@ -206151,9 +206565,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.036,
-      "output": 0.5,
-      "cache_read": 0.01
+      "input": 0.03,
+      "output": 0.2,
+      "cache_read": 0.001
      }
     },
     {
@@ -206203,7 +206617,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0434,
+      "input": 0.047,
       "output": 0.3,
       "cache_read": 0.035
      }
@@ -206310,9 +206724,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.1824,
-      "output": 11.0055,
-      "cache_read": 0.18
+      "input": 0.19,
+      "output": 10.6066,
+      "cache_read": 0.19
      }
     },
     {
@@ -206639,8 +207053,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0399,
-      "output": 0.074,
+      "input": 0.0356,
+      "output": 0.0815,
       "cache_read": 0.03
      }
     },
@@ -208187,7 +208601,7 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0434,
+      "input": 0.047,
       "output": 0.3,
       "cache_read": 0.035
      }
@@ -208254,7 +208668,8 @@
       "input": 0.9,
       "output": 1.5,
       "cache_read": 0.2
-     }
+     },
+     "disputed": true
     },
     {
      "id": "deepseek/deepseek-v4-pro-0813",
@@ -208277,9 +208692,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.32,
-      "output": 3.96,
-      "cache_read": 0.044
+      "input": 0.111,
+      "output": 4.44,
+      "cache_read": 0.097
      }
     },
     {
@@ -208304,9 +208719,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0498,
-      "output": 0.1992,
-      "cache_read": 0.000996
+      "input": 0.14,
+      "output": 0.42,
+      "cache_read": 0.0042
      }
     },
     {
@@ -208331,9 +208746,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.15,
-      "output": 0.6,
-      "cache_read": 0.003
+      "input": 0.03,
+      "output": 0.2,
+      "cache_read": 0.001
      }
     },
     {
@@ -209770,9 +210185,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.06,
-      "output": 0.18,
-      "cache_read": 0.012
+      "input": 0.075,
+      "output": 0.225,
+      "cache_read": 0.015
      }
     },
     {
@@ -210062,14 +210477,15 @@
      "release_date": "2024-07-23",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 16384,
+     "max_output_tokens": 117964,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "cost": {
-      "input": 0.02,
-      "output": 0.04
+      "input": 0.05,
+      "output": 0.08,
+      "cache_read": 0.025
      }
     },
     {
@@ -210641,7 +211057,7 @@
      "release_date": "2026-10-19",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 512000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image",
@@ -210659,9 +211075,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.135,
-      "output": 0.54,
-      "cache_read": 0.0135
+      "input": 0.1,
+      "output": 0.4,
+      "cache_read": 0.025
      }
     },
     {
@@ -211125,7 +211541,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.57,
       "output": 2.3
@@ -211141,7 +211557,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.6,
       "output": 2.5
@@ -211157,7 +211573,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -211720,9 +212136,9 @@
       "switch": true
      },
      "cost": {
-      "input": 0.07,
+      "input": 0.05,
       "output": 0.2,
-      "cache_read": 0.04
+      "cache_read": 0.01
      }
     },
     {
@@ -216021,7 +216437,7 @@
      "name": "Step 3.7 Flash",
      "release_date": "2026-05-29",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 256000,
      "max_output_tokens": 230400,
      "input_modalities": [
       "text",
@@ -216144,7 +216560,7 @@
      "release_date": "2026-07-06",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 128000,
      "input_modalities": [
       "text"
      ],
@@ -216158,9 +216574,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.14,
-      "output": 0.58,
-      "cache_read": 0.035
+      "input": 0.132,
+      "output": 0.528,
+      "cache_read": 0.033
      }
     },
     {
@@ -216328,7 +216744,7 @@
      "name": "Inkling",
      "release_date": "2026-07-15",
      "tool_call": true,
-     "context_window": 524288,
+     "context_window": 1048576,
      "max_output_tokens": 471859,
      "input_modalities": [
       "text",
@@ -216356,7 +216772,7 @@
     {
      "id": "thinkingmachines/inkling-2-mini",
      "name": "Inkling 2 Mini",
-     "release_date": "2026-11-21",
+     "release_date": "2026-11-20",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 65536,
@@ -216996,7 +217412,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -217379,7 +217795,7 @@
      "release_date": "2026-08-26",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image",
@@ -217395,9 +217811,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.0399,
-      "output": 0.074,
-      "cache_read": 0.03
+      "input": 0.12,
+      "output": 0.38,
+      "cache_read": 0.02
      }
     },
     {
@@ -217957,7 +218373,12 @@
      ],
      "status": "active",
      "reasoning": {
-      "levels": [],
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high"
+      ],
       "switch": false
      },
      "cost": {
@@ -220890,6 +221311,7 @@
      "input_modalities": [
       "text",
       "image",
+      "audio",
       "video",
       "pdf"
      ],
@@ -231373,7 +231795,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -231388,8 +231810,7 @@
      },
      "cost": {
       "input": 0.44,
-      "output": 1.32,
-      "cache_read": 0.014
+      "output": 1.32
      }
     },
     {
@@ -231466,10 +231887,10 @@
       "switch": false
      },
      "cost": {
-      "input": 0.075,
+      "input": 0.175,
       "output": 0.7,
       "cache_read": 0.007,
-      "cache_write": 0.075
+      "cache_write": 0.175
      }
     },
     {
@@ -232804,6 +233225,36 @@
      }
     },
     {
+     "id": "thinkingmachines/inkling-2-small-fast",
+     "name": "Inkling 2 Small (fast)",
+     "release_date": "2026-11-05",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.3,
+      "output": 1,
+      "cache_read": 0.06,
+      "cache_write": 0.3
+     }
+    },
+    {
      "id": "x-ai/grok-4.6",
      "name": "Grok 4.6",
      "release_date": "2026-08-12",
@@ -232917,7 +233368,7 @@
       "image",
       "video"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [
        "low",
@@ -237332,7 +237783,7 @@
      "release_date": "2026-08-13",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text"
      ],
@@ -237350,8 +237801,7 @@
      "cost": {
       "input": 1.75,
       "output": 3.5,
-      "cache_read": 0.44,
-      "cache_write": 3.5
+      "cache_read": 0.44
      }
     },
     {
@@ -240786,7 +241236,7 @@
      "release_date": "2026-07-16",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 65536,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image",
@@ -241100,7 +241550,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -241128,7 +241578,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -241151,8 +241601,8 @@
      "name": "MiniMax-M3",
      "release_date": "2026-06-01",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 128000,
+     "context_window": 512000,
+     "max_output_tokens": 512000,
      "input_modalities": [
       "text",
       "image",
@@ -241180,8 +241630,8 @@
      "name": "MiniMax-M3.1-Flash",
      "release_date": "2026-10-19",
      "tool_call": true,
-     "context_window": 1000000,
-     "max_output_tokens": 128000,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
      "input_modalities": [
       "text",
       "image",
@@ -241199,9 +241649,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.15,
-      "output": 0.6,
-      "cache_read": 0.015
+      "input": 0.3,
+      "output": 1.2,
+      "cache_read": 0.07
      }
     },
     {
@@ -267318,7 +267768,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -267327,22 +267777,22 @@
       "input": 1,
       "output": 2,
       "cache_read": 0.2,
-      "context_over_200k": {
-       "input": 2,
-       "output": 4,
-       "cache_read": 0.4
-      },
       "tiers": [
        {
         "input": 2,
         "output": 4,
+        "cache_read": 0.4,
         "tier": {
          "type": "context",
          "size": 200000
-        },
-        "cache_read": 0.4
+        }
        }
-      ]
+      ],
+      "context_over_200k": {
+       "input": 2,
+       "output": 4,
+       "cache_read": 0.4
+      }
      }
     },
     {
@@ -269338,10 +269788,10 @@
       "switch": false
      },
      "cost": {
-      "input": 1.5,
-      "output": 4.5,
-      "cache_read": 0.07500000000000001,
-      "cache_write": 1.875
+      "input": 1.875,
+      "output": 5.625,
+      "cache_read": 0.09375,
+      "cache_write": 2.34375
      }
     },
     {
@@ -270218,7 +270668,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -270231,20 +270681,20 @@
        {
         "input": 2.4,
         "output": 12,
+        "cache_read": 0.48,
         "tier": {
          "type": "context",
          "size": 32001
-        },
-        "cache_read": 0.48
+        }
        },
        {
         "input": 3,
         "output": 15,
+        "cache_read": 0.6,
         "tier": {
          "type": "context",
          "size": 128001
-        },
-        "cache_read": 0.6
+        }
        }
       ]
      }
