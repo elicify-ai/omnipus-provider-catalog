@@ -1,32 +1,32 @@
 {
  "schema_version": "2.0.0",
- "version": "v2026.11.26",
- "updated_at": "2026-11-26T15:59:58.366Z",
- "generated_at": "2026-11-26T15:59:58.366Z",
- "source": "models.dev@717250079f97da093437db28a3f324ce6836ca13 litellm@82af66e3403be291b71b8a58fa790f1754443992 overrides@b042c0b1ea974fa0b54df8adb50fa94acedeffeb",
+ "version": "v2026.11.27",
+ "updated_at": "2026-11-27T15:49:02.718Z",
+ "generated_at": "2026-11-27T15:49:02.718Z",
+ "source": "models.dev@1d451ccc62d94439efb59214c576db0b7481d427 litellm@306b73d11341eb6e5b90b5e4d2fd03d0e8bf5775 overrides@d176cd43eaa1e7a5698015e0c9660287e391d7af",
  "sources": {
   "models_dev": {
    "name": "models.dev",
    "url": "https://models.dev/api.json",
    "license": "MIT",
-   "fetched_at": "2026-11-26T15:59:58.366Z",
-   "commit": "717250079f97da093437db28a3f324ce6836ca13",
-   "etag": "W/\"ece2c05f10bfc1fcf8b75508b4ffdc92\"",
-   "sha256": "ece2c05f10bfc1fcf8b75508b4ffdc9268e56747d691dc2bc7f426218067509b",
-   "bytes": 6838649
+   "fetched_at": "2026-11-27T15:49:02.718Z",
+   "commit": "1d451ccc62d94439efb59214c576db0b7481d427",
+   "etag": "W/\"c5781962e59f16937d4ed0cd94f882be\"",
+   "sha256": "c5781962e59f16937d4ed0cd94f882bedebcfdd40ca880edf1f00981eb26cf27",
+   "bytes": 6849067
   },
   "litellm": {
    "name": "litellm",
    "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/model_prices_and_context_window.json",
    "license": "MIT",
-   "fetched_at": "2026-11-26T15:59:58.366Z",
-   "commit": "82af66e3403be291b71b8a58fa790f1754443992",
-   "etag": "W/\"21d4a96f776aa6ef41b8de4542c9cb25ff59ccc7bc659e832b59c8c2c8713e63\"",
-   "sha256": "83d9e0a8887766256ead5a65761cc09974ec21aae87ea2b9ce649bc957b7faac",
-   "bytes": 5215062
+   "fetched_at": "2026-11-27T15:49:02.718Z",
+   "commit": "306b73d11341eb6e5b90b5e4d2fd03d0e8bf5775",
+   "etag": "W/\"ef05e29d66608234eba553235ecd1b0fc471dfd1e1f022caa17d14c28a6a4366\"",
+   "sha256": "22052c01bb7120015b9f53beb4c99fc1352ae9d4938081f7e6ac7873b492aaea",
+   "bytes": 5215478
   },
-  "overrides_commit": "b042c0b1ea974fa0b54df8adb50fa94acedeffeb",
-  "previous_version": "v2026.11.25"
+  "overrides_commit": "d176cd43eaa1e7a5698015e0c9660287e391d7af",
+  "previous_version": "v2026.11.26"
  },
  "default_resize_limits": {
   "long_edge_px": 7680,
@@ -13967,7 +13967,7 @@
      "release_date": "2026-02-17",
      "tool_call": true,
      "context_window": 200000,
-     "max_output_tokens": 128000,
+     "max_output_tokens": 64000,
      "input_modalities": [
       "text",
       "image",
@@ -15340,9 +15340,9 @@
       "switch": false
      },
      "cost": {
-      "input": 3,
+      "input": 0.6,
       "output": 15,
-      "cache_read": 0.3
+      "cache_read": 0.2
      }
     },
     {
@@ -17172,9 +17172,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.4,
-      "output": 4.4,
-      "cache_read": 0.26
+      "input": 0.31,
+      "output": 2.4,
+      "cache_read": 0.075
      }
     },
     {
@@ -27099,9 +27099,9 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.09,
-      "output": 0.3,
-      "cache_read": 0.09,
+      "input": 0.045,
+      "output": 0.62,
+      "cache_read": 0.02,
       "cache_write": 0
      }
     },
@@ -27144,9 +27144,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.1,
-      "output": 0.9,
-      "cache_read": 0.04,
+      "input": 0.05,
+      "output": 0.69,
+      "cache_read": 0.024,
       "cache_write": 0
      }
     },
@@ -48702,7 +48702,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": true
@@ -49241,8 +49241,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.7,
-      "output": 2.5,
+      "input": 0.5,
+      "output": 2.15,
       "cache_read": 0.35
      }
     },
@@ -49891,8 +49891,8 @@
       "switch": true
      },
      "cost": {
-      "input": 0.13,
-      "output": 0.4
+      "input": 0.1,
+      "output": 0.34
      }
     },
     {
@@ -51442,8 +51442,7 @@
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
-      "image",
-      "pdf"
+      "image"
      ],
      "status": "active",
      "reasoning": {
@@ -51637,7 +51636,7 @@
      "release_date": "2025-10-27",
      "tool_call": true,
      "context_window": 204800,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text",
       "pdf"
@@ -51649,9 +51648,7 @@
      },
      "cost": {
       "input": 0.3,
-      "output": 1.2,
-      "cache_read": 0.03,
-      "cache_write": 0.375
+      "output": 1.2
      }
     },
     {
@@ -51659,8 +51656,8 @@
      "name": "MiniMax-M2.1",
      "release_date": "2025-12-23",
      "tool_call": true,
-     "context_window": 204800,
-     "max_output_tokens": 51200,
+     "context_window": 196608,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text",
       "pdf"
@@ -51672,9 +51669,7 @@
      },
      "cost": {
       "input": 0.3,
-      "output": 1.2,
-      "cache_read": 0.03,
-      "cache_write": 0.375
+      "output": 1.2
      }
     },
     {
@@ -51688,7 +51683,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -51711,7 +51706,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -51734,7 +51729,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -51757,7 +51752,7 @@
       "text",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
@@ -51774,7 +51769,7 @@
      "name": "MiniMax-M2.7-highspeed",
      "release_date": "2026-03-18",
      "tool_call": true,
-     "context_window": 204800,
+     "context_window": 196608,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text",
@@ -51786,10 +51781,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.6,
-      "output": 2.4,
-      "cache_read": 0.07,
-      "cache_write": 0.375
+      "input": 0.38,
+      "output": 1.7,
+      "cache_read": 0.07
      }
     },
     {
@@ -51937,7 +51931,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.4,
       "output": 2
@@ -51955,7 +51949,7 @@
       "image",
       "pdf"
      ],
-     "status": "active",
+     "status": "retired",
      "cost": {
       "input": 0.4,
       "output": 2
@@ -52848,8 +52842,8 @@
       "switch": true
      },
      "cost": {
-      "input": 0.6,
-      "output": 3.6,
+      "input": 0.45,
+      "output": 3,
       "cache_read": 0.22
      }
     },
@@ -56187,15 +56181,15 @@
      "name": "Qwen3 235B-A22B Instruct 2507",
      "release_date": "2025-07-21",
      "tool_call": true,
-     "context_window": 262000,
-     "max_output_tokens": 262000,
+     "context_window": 250000,
+     "max_output_tokens": 8192,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "cost": {
-      "input": 0.199,
-      "output": 0.598,
+      "input": 0.836,
+      "output": 2.507,
       "cache_read": 0.018
      }
     },
@@ -62287,7 +62281,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -62297,6 +62291,7 @@
       ],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 0.25,
       "output": 2,
@@ -62305,15 +62300,14 @@
        {
         "input": 0.5,
         "output": 4,
+        "cache_read": 0.1,
         "tier": {
          "type": "context",
          "size": 128000
-        },
-        "cache_read": 0.1
+        }
        }
       ]
-     },
-     "disputed": true
+     }
     },
     {
      "id": "ByteDance/Seed-2.0-code",
@@ -62365,11 +62359,12 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [],
       "switch": false
      },
+     "disputed": true,
      "cost": {
       "input": 0.1,
       "output": 0.4,
@@ -62378,15 +62373,14 @@
        {
         "input": 0.2,
         "output": 0.8,
+        "cache_read": 0.2,
         "tier": {
          "type": "context",
          "size": 128000
-        },
-        "cache_read": 0.2
+        }
        }
       ]
-     },
-     "disputed": true
+     }
     },
     {
      "id": "ByteDance/Seed-2.0-pro",
@@ -62948,6 +62942,29 @@
      }
     },
     {
+     "id": "inclusionAI/LingSante-3.1-air-VL",
+     "name": "LingSante 3.1 Air VL",
+     "release_date": "2026-11-19",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.06,
+      "output": 0.18,
+      "cache_read": 0.012
+     }
+    },
+    {
      "id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
      "name": "Llama 3.3 70B Turbo",
      "release_date": "2024-12-06",
@@ -63440,6 +63457,33 @@
       "cache_read": 0.03
      },
      "disputed": true
+    },
+    {
+     "id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+     "name": "Nemotron 3.5 Super VL 120B A12B",
+     "release_date": "2026-10-15",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.15,
+      "output": 0.5,
+      "cache_read": 0.02
+     }
     },
     {
      "id": "openai/gpt-oss-120b",
@@ -64007,6 +64051,39 @@
       "output": 4.24,
       "cache_read": 0.071
      }
+    },
+    {
+     "id": "Sao10K/L3-8B-Lunaris-v1-Turbo",
+     "name": "Llama 3 8B Lunaris",
+     "release_date": "2024-08-13",
+     "tool_call": false,
+     "context_window": 8192,
+     "max_output_tokens": 7372,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.04,
+      "output": 0.05
+     }
+    },
+    {
+     "id": "Sao10K/L3.1-70B-Euryale-v2.2",
+     "name": "Llama 3.1 Euryale 70B v2.2",
+     "release_date": "2024-08-28",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 16384,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.85,
+      "output": 0.85
+     },
+     "disputed": true
     },
     {
      "id": "stepfun-ai/Step-3.7-Flash",
@@ -78225,8 +78302,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.6561,
-      "output": 3.280499
+      "input": 0.6585,
+      "output": 3.292499
      }
     },
     {
@@ -79052,8 +79129,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.32805,
-      "output": 0.4374
+      "input": 0.32925,
+      "output": 0.439
      }
     },
     {
@@ -83272,8 +83349,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.164025,
-      "output": 0.8748
+      "input": 0.164625,
+      "output": 0.878
      }
     },
     {
@@ -88796,7 +88873,8 @@
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
-      "image"
+      "image",
+      "video"
      ],
      "status": "active",
      "reasoning": {
@@ -91383,6 +91461,36 @@
      }
     },
     {
+     "id": "accounts/fireworks/models/inkling-2-small",
+     "name": "Inkling 2 Small",
+     "release_date": "2026-11-05",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.3,
+      "output": 1,
+      "cache_read": 0.03
+     }
+    },
+    {
      "id": "accounts/fireworks/models/kimi-k2p6",
      "name": "Kimi K2.6",
      "release_date": "2026-04-17",
@@ -91598,17 +91706,21 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
-      "levels": [],
-      "switch": true
+      "levels": [
+       "none",
+       "medium",
+       "high"
+      ],
+      "switch": false
      },
-     "disputed": true,
      "cost": {
       "input": 0.6,
       "output": 2.4,
       "cache_read": 0.12
-     }
+     },
+     "disputed": true
     },
     {
      "id": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
@@ -91620,17 +91732,17 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired",
+     "status": "active",
      "reasoning": {
       "levels": [],
       "switch": true
      },
-     "disputed": true,
      "cost": {
       "input": 0.05,
       "output": 0.2,
       "cache_read": 0.01
-     }
+     },
+     "disputed": true
     },
     {
      "id": "accounts/fireworks/models/qwen3p7-plus",
@@ -104727,6 +104839,27 @@
      }
     },
     {
+     "id": "inclusionAI/LingSante-3.1-air-VL",
+     "name": "LingSante 3.1 Air VL",
+     "release_date": "2026-11-19",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.06,
+      "output": 0.18
+     }
+    },
+    {
      "id": "meta-llama/Llama-3.1-70B-Instruct",
      "name": "Llama-3.1-70B-Instruct",
      "release_date": "2024-07-23",
@@ -104802,8 +104935,8 @@
      ],
      "status": "active",
      "cost": {
-      "input": 0.1,
-      "output": 0.32
+      "input": 0.22,
+      "output": 0.5
      }
     },
     {
@@ -105014,7 +105147,7 @@
      "name": "MiniMax-M3",
      "release_date": "2026-06-01",
      "tool_call": true,
-     "context_window": 524288,
+     "context_window": 1048576,
      "max_output_tokens": 512000,
      "input_modalities": [
       "text",
@@ -105504,6 +105637,23 @@
      }
     },
     {
+     "id": "Qwen/Qwen2.5-VL-72B-Instruct",
+     "name": "Qwen2.5-VL 72B Instruct",
+     "release_date": "2025-01-26",
+     "tool_call": true,
+     "context_window": 128000,
+     "max_output_tokens": 8192,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.8,
+      "output": 1
+     }
+    },
+    {
      "id": "Qwen/Qwen3-235B-A22B",
      "name": "Qwen3 235B-A22B",
      "release_date": "2025-04-28",
@@ -105528,15 +105678,15 @@
      "name": "Qwen3 235B-A22B Instruct 2507",
      "release_date": "2025-07-21",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 131072,
      "max_output_tokens": 16384,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "cost": {
-      "input": 0.09,
-      "output": 0.55
+      "input": 0.14,
+      "output": 0.8
      }
     },
     {
@@ -105912,8 +106062,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.1,
-      "output": 0.15
+      "input": 0.085,
+      "output": 0.125
      }
     },
     {
@@ -106081,6 +106231,39 @@
      "cost": {
       "input": 0.25,
       "output": 1
+     }
+    },
+    {
+     "id": "RekaAI/reka-edge-2603",
+     "name": "Reka Edge",
+     "release_date": "2026-03-11",
+     "tool_call": true,
+     "context_window": 16384,
+     "max_output_tokens": 14745,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.1,
+      "output": 0.1
+     }
+    },
+    {
+     "id": "Sao10K/L3-8B-Lunaris-v1",
+     "name": "Llama 3 8B Lunaris",
+     "release_date": "2024-08-13",
+     "tool_call": false,
+     "context_window": 8192,
+     "max_output_tokens": 7372,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "cost": {
+      "input": 0.04,
+      "output": 0.05
      }
     },
     {
@@ -106273,8 +106456,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.075,
-      "output": 0.3
+      "input": 0.06,
+      "output": 0.24
      }
     },
     {
@@ -106404,6 +106587,84 @@
      "cost": {
       "input": 1,
       "output": 3
+     }
+    },
+    {
+     "id": "XiaomiMiMo/MiMo-V2.6-Flash-MOPD",
+     "name": "MiMo-V2.6-Flash-MOPD",
+     "release_date": "2026-09-27",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.5,
+      "output": 1
+     }
+    },
+    {
+     "id": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+     "name": "MiMo-V2.6-Flash",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.14,
+      "output": 0.28
+     }
+    },
+    {
+     "id": "XiaomiMiMo/MiMo-V2.6-Pro-RL",
+     "name": "MiMo-V2.6-Pro",
+     "release_date": "2026-09-22",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.387,
+      "output": 0.783
      }
     },
     {
@@ -106643,8 +106904,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.643,
-      "output": 1.978
+      "input": 0.5625,
+      "output": 1.8
      }
     },
     {
@@ -107076,7 +107337,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "low",
@@ -110160,8 +110421,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.5655,
-      "output": 3.42,
+      "input": 0.585,
+      "output": 3.384,
       "cache_read": 0.15,
       "cache_write": 0
      }
@@ -110260,9 +110521,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.185,
-      "output": 0.5,
-      "cache_read": 0.07,
+      "input": 0.13,
+      "output": 0.3,
+      "cache_read": 0.03,
       "cache_write": 0
      }
     }
@@ -119229,7 +119490,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -119244,9 +119505,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.111,
-      "output": 4.44,
-      "cache_read": 0.097
+      "input": 0.0999,
+      "output": 5,
+      "cache_read": 0.0999
      }
     },
     {
@@ -120563,6 +120824,9 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
+       "low",
+       "medium",
        "high"
       ],
       "switch": false
@@ -121212,7 +121476,7 @@
      "release_date": "2026-08-21",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image"
@@ -121228,9 +121492,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.44,
-      "output": 1.32,
-      "cache_read": 0.028
+      "input": 0.2156,
+      "output": 0.6468,
+      "cache_read": 0.00686
      }
     },
     {
@@ -121264,7 +121528,7 @@
      "release_date": "2026-08-13",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -121279,9 +121543,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.111,
-      "output": 4.44,
-      "cache_read": 0.097
+      "input": 0.0999,
+      "output": 5,
+      "cache_read": 0.0999
      }
     },
     {
@@ -122438,7 +122702,7 @@
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -122455,7 +122719,7 @@
      "release_date": "2025-03-12",
      "tool_call": false,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -122501,7 +122765,7 @@
      },
      "cost": {
       "input": 0.047,
-      "output": 0.168,
+      "output": 0.169,
       "cache_read": 0.023
      }
     },
@@ -122926,7 +123190,7 @@
     {
      "id": "inclusionai/ling-3.0-tiny",
      "name": "inclusionAI: Ling 3.0 Tiny",
-     "release_date": "2026-08-06",
+     "release_date": "2026-08-07",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 250000,
@@ -123007,7 +123271,7 @@
       "text",
       "image"
      ],
-     "status": "active",
+     "status": "retired",
      "reasoning": {
       "levels": [
        "none",
@@ -123018,6 +123282,31 @@
      "cost": {
       "input": 0,
       "output": 0
+     }
+    },
+    {
+     "id": "inclusionai/lingsante-3.1-air-vl",
+     "name": "inclusionAI: LingSante 3.1 Air VL",
+     "release_date": "2026-11-19",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.06,
+      "output": 0.18,
+      "cache_read": 0.012
      }
     },
     {
@@ -123523,8 +123812,8 @@
      "name": "Llama-3.3-70B-Instruct",
      "release_date": "2024-12-06",
      "tool_call": true,
-     "context_window": 128000,
-     "max_output_tokens": 115200,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -123624,7 +123913,7 @@
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image",
@@ -124746,7 +125035,7 @@
      "release_date": "2025-07-11",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 98304,
      "input_modalities": [
       "text"
      ],
@@ -124758,7 +125047,7 @@
     },
     {
      "id": "moonshotai/kimi-k2-0905",
-     "name": "Kimi K2 Instruct 0905",
+     "name": "MoonshotAI: Kimi K2 0905",
      "release_date": "2025-09-05",
      "tool_call": true,
      "context_window": 262144,
@@ -124766,7 +125055,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired",
+     "status": "active",
      "cost": {
       "input": 0.6,
       "output": 2.5
@@ -124801,7 +125090,7 @@
      "release_date": "2026-01-27",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 235929,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image"
@@ -127863,9 +128152,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.017,
-      "output": 0.085,
-      "cache_read": 0.0085
+      "input": 0.0153,
+      "output": 0.0765,
+      "cache_read": 0.00765
      }
     },
     {
@@ -128231,7 +128520,7 @@
      "release_date": "2026-10-28",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
@@ -128261,7 +128550,7 @@
      "release_date": "2026-10-28",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
@@ -129503,8 +129792,8 @@
      },
      "cost": {
       "input": 0.05,
-      "output": 0.7,
-      "cache_read": 0.025
+      "output": 0.69,
+      "cache_read": 0.024
      }
     },
     {
@@ -131752,8 +132041,8 @@
     },
     {
      "id": "xiaomi/mimo-v2.6-flash-mopd",
-     "name": "Xiaomi: MiMo-V2.6-Flash-MOPD",
-     "release_date": "2026-11-23",
+     "name": "MiMo-V2.6-Flash-MOPD",
+     "release_date": "2026-09-27",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 32768,
@@ -147052,9 +147341,9 @@
       "switch": false
      },
      "cost": {
-      "input": 1.4,
-      "output": 4.4,
-      "cache_read": 0.26
+      "input": 0.84,
+      "output": 2.64,
+      "cache_read": 0.156
      }
     },
     {
@@ -154663,6 +154952,37 @@
       "input": 0.11,
       "output": 0.3,
       "cache_read": 0.02
+     }
+    },
+    {
+     "id": "reka-ai/kimi-k3.1-pro",
+     "name": "Kimi K3.1 Pro (reka-ai)",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 2,
+      "output": 10,
+      "cache_read": 0.2
      }
     },
     {
@@ -175961,8 +176281,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.2156,
-      "output": 0.6468,
+      "input": 0.238238,
+      "output": 0.714714,
       "cache_read": 0.00686
      }
     },
@@ -180089,6 +180409,32 @@
      }
     },
     {
+     "id": "inclusionai/ling-3.0-flash-sante",
+     "name": "Ling-3.0-flash-Sante",
+     "release_date": "2026-09-04",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "none",
+       "low",
+       "medium",
+       "high"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.075,
+      "output": 0.22,
+      "cache_read": 0.015
+     }
+    },
+    {
      "id": "inclusionai/ling-3.0-flash-vl",
      "name": "Ling 3.0 Flash VL",
      "release_date": "2026-09-10",
@@ -180213,6 +180559,28 @@
       "input": 0.075,
       "output": 0.22,
       "cache_read": 0.015
+     }
+    },
+    {
+     "id": "inclusionai/lingsante-3.1-air-vl",
+     "name": "LingSante 3.1 Air VL",
+     "release_date": "2026-11-19",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.06,
+      "output": 0.18,
+      "cache_read": 0.012
      }
     },
     {
@@ -182248,7 +182616,7 @@
      "name": "Kimi K2.5",
      "release_date": "2026-01-27",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 256000,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -182266,7 +182634,7 @@
      "name": "Kimi K2.5 Thinking",
      "release_date": "2026-01-27",
      "tool_call": true,
-     "context_window": 262144,
+     "context_window": 256000,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text",
@@ -186261,9 +186629,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.26,
-      "output": 2.08,
-      "cache_read": 0.13
+      "input": 0.4,
+      "output": 3.2,
+      "cache_read": 0.2
      }
     },
     {
@@ -186282,9 +186650,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.26,
-      "output": 2.08,
-      "cache_read": 0.13
+      "input": 0.4,
+      "output": 3.2,
+      "cache_read": 0.2
      }
     },
     {
@@ -218114,7 +218482,7 @@
      "release_date": "2026-09-14",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 943718,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -218129,9 +218497,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.111,
-      "output": 4.44,
-      "cache_read": 0.097
+      "input": 0.0999,
+      "output": 5,
+      "cache_read": 0.0999
      }
     },
     {
@@ -219561,6 +219929,9 @@
      "status": "active",
      "reasoning": {
       "levels": [
+       "none",
+       "low",
+       "medium",
        "high"
       ],
       "switch": false
@@ -220162,7 +220533,7 @@
      "release_date": "2026-08-21",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 393216,
+     "max_output_tokens": 262144,
      "input_modalities": [
       "text",
       "image"
@@ -220178,9 +220549,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.44,
-      "output": 1.32,
-      "cache_read": 0.028
+      "input": 0.2156,
+      "output": 0.6468,
+      "cache_read": 0.00686
      }
     },
     {
@@ -220214,7 +220585,7 @@
      "release_date": "2026-08-13",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 393216,
      "input_modalities": [
       "text"
      ],
@@ -220229,9 +220600,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.111,
-      "output": 4.44,
-      "cache_read": 0.097
+      "input": 0.0999,
+      "output": 5,
+      "cache_read": 0.0999
      }
     },
     {
@@ -221248,7 +221619,7 @@
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -221256,8 +221627,7 @@
      "status": "active",
      "cost": {
       "input": 0.08,
-      "output": 0.45,
-      "cache_read": 0.04
+      "output": 0.16
      }
     },
     {
@@ -221266,16 +221636,15 @@
      "release_date": "2025-03-12",
      "tool_call": false,
      "context_window": 131072,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
      ],
      "status": "active",
      "cost": {
-      "input": 0.04,
-      "output": 0.05,
-      "cache_read": 0.02
+      "input": 0.05,
+      "output": 0.1
      }
     },
     {
@@ -221690,7 +222059,7 @@
     {
      "id": "inclusionai/ling-3.0-tiny",
      "name": "Ling 3.0 Tiny",
-     "release_date": "2026-08-06",
+     "release_date": "2026-08-07",
      "tool_call": true,
      "context_window": 262144,
      "max_output_tokens": 250000,
@@ -221730,9 +222099,9 @@
      }
     },
     {
-     "id": "inclusionai/ling-3.2-flash:free",
-     "name": "Ling 3.2 Flash (free)",
-     "release_date": "2026-11-13",
+     "id": "inclusionai/ling-3.2-flash",
+     "name": "Ling 3.2 Flash",
+     "release_date": "2026-11-05",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 262144,
@@ -221746,8 +222115,52 @@
       "switch": true
      },
      "cost": {
+      "input": 0.3,
+      "output": 0.9,
+      "cache_read": 0.06
+     }
+    },
+    {
+     "id": "inclusionai/ling-3.2-flash:free",
+     "name": "Ling 3.2 Flash (free)",
+     "release_date": "2026-11-13",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 262144,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "retired",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
       "input": 0,
       "output": 0
+     }
+    },
+    {
+     "id": "inclusionai/lingsante-3.1-air-vl",
+     "name": "LingSante 3.1 Air VL",
+     "release_date": "2026-11-19",
+     "tool_call": true,
+     "context_window": 131072,
+     "max_output_tokens": 32768,
+     "input_modalities": [
+      "text",
+      "image"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.06,
+      "output": 0.18,
+      "cache_read": 0.012
      }
     },
     {
@@ -222065,15 +222478,15 @@
      "release_date": "2024-12-06",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 4096,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
      "status": "active",
      "cost": {
-      "input": 0.71,
-      "output": 0.71,
-      "cache_read": 0.71
+      "input": 0.59,
+      "output": 0.79,
+      "cache_read": 0.295
      }
     },
     {
@@ -222167,7 +222580,7 @@
      "release_date": "2026-08-10",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -222183,8 +222596,8 @@
       "switch": false
      },
      "cost": {
-      "input": 0.35,
-      "output": 1.5,
+      "input": 0.3,
+      "output": 1.2,
       "cache_read": 0.04
      }
     },
@@ -223080,7 +223493,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired",
+     "status": "active",
      "cost": {
       "input": 0.57,
       "output": 2.3
@@ -223096,7 +223509,7 @@
      "input_modalities": [
       "text"
      ],
-     "status": "retired",
+     "status": "active",
      "cost": {
       "input": 0.6,
       "output": 2.5
@@ -223129,7 +223542,7 @@
      "release_date": "2026-01-27",
      "tool_call": true,
      "context_window": 262144,
-     "max_output_tokens": 262144,
+     "max_output_tokens": 131072,
      "input_modalities": [
       "text",
       "image"
@@ -223140,9 +223553,8 @@
       "switch": true
      },
      "cost": {
-      "input": 0.5,
-      "output": 2.5,
-      "cache_read": 0.15
+      "input": 0.6,
+      "output": 3
      }
     },
     {
@@ -225990,7 +226402,7 @@
      "release_date": "2026-10-28",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
@@ -226020,7 +226432,7 @@
      "release_date": "2026-10-28",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 131072,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text",
       "image"
@@ -227286,7 +227698,7 @@
      "name": "Qwen3.8 2.4T A95B",
      "release_date": "2026-08-12",
      "tool_call": true,
-     "context_window": 1048576,
+     "context_window": 1000000,
      "max_output_tokens": 65536,
      "input_modalities": [
       "text"
@@ -228332,9 +228744,9 @@
       "switch": false
      },
      "cost": {
-      "input": 0.075,
-      "output": 0.3,
-      "cache_read": 0.015
+      "input": 0.06,
+      "output": 0.24,
+      "cache_read": 0.012
      }
     },
     {
@@ -229068,7 +229480,7 @@
     {
      "id": "xiaomi/mimo-v2.6-flash-mopd",
      "name": "MiMo-V2.6-Flash-MOPD",
-     "release_date": "2026-11-23",
+     "release_date": "2026-09-27",
      "tool_call": true,
      "context_window": 1048576,
      "max_output_tokens": 32768,
@@ -229226,7 +229638,7 @@
      "name": "GLM-4.6",
      "release_date": "2025-09-30",
      "tool_call": true,
-     "context_window": 204800,
+     "context_window": 202752,
      "max_output_tokens": 131072,
      "input_modalities": [
       "text"
@@ -243618,7 +244030,7 @@
      "release_date": "2026-07-31",
      "tool_call": true,
      "context_window": 1048576,
-     "max_output_tokens": 384000,
+     "max_output_tokens": 943718,
      "input_modalities": [
       "text"
      ],
@@ -243970,7 +244382,7 @@
      "release_date": "2025-03-12",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 117964,
+     "max_output_tokens": 16384,
      "input_modalities": [
       "text",
       "image"
@@ -243987,7 +244399,7 @@
      "release_date": "2024-12-06",
      "tool_call": true,
      "context_window": 131072,
-     "max_output_tokens": 115200,
+     "max_output_tokens": 32768,
      "input_modalities": [
       "text"
      ],
@@ -245020,6 +245432,33 @@
     {
      "id": "qwen/qwen3.8-27b",
      "name": "Qwen3.8 27B",
+     "release_date": "2026-08-14",
+     "tool_call": true,
+     "context_window": 262144,
+     "max_output_tokens": 65536,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "medium",
+       "xhigh"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 0.24,
+      "output": 2.2,
+      "cache_read": 0.05
+     }
+    },
+    {
+     "id": "qwen/qwen3.8-27b-fast",
+     "name": "Qwen3.8 27B (fast)",
      "release_date": "2026-08-14",
      "tool_call": true,
      "context_window": 262144,
@@ -271656,6 +272095,55 @@
       "output": 10,
       "cache_read": 0.2,
       "cache_write": 2
+     }
+    },
+    {
+     "id": "kimi-k3.1-pro-highspeed",
+     "name": "Kimi K3.1 Pro Highspeed",
+     "release_date": "2026-10-23",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 1048576,
+     "input_modalities": [
+      "text",
+      "image",
+      "video"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [
+       "low",
+       "high",
+       "max"
+      ],
+      "switch": false
+     },
+     "cost": {
+      "input": 4,
+      "output": 20,
+      "cache_read": 0.2,
+      "cache_write": 4
+     }
+    },
+    {
+     "id": "mimo-v2.5-pro",
+     "name": "MiMo-V2.5-Pro",
+     "release_date": "2026-04-22",
+     "tool_call": true,
+     "context_window": 1048576,
+     "max_output_tokens": 131072,
+     "input_modalities": [
+      "text"
+     ],
+     "status": "active",
+     "reasoning": {
+      "levels": [],
+      "switch": true
+     },
+     "cost": {
+      "input": 0.435,
+      "output": 0.87,
+      "cache_read": 0.0036
      }
     },
     {
